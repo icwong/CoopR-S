@@ -1,4 +1,20 @@
 <% content_for :mFrame do %>
      <h1>Hello Morld</h1>
-     <%= link_to 'Protected Region', {:controller => :protected, :action => :index} %>
+     <ul>
+        <li>
+            <%= link_to 'Protected Region', {:controller => :protected, :action => :index} %>
+        </li>
+        <li>
+            <a href="/users/sign_up">Register</a>
+        </li>
+        <% if user_signed_in? %>
+            <li>
+                <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+            </li>
+        <% else %>
+            <li>
+                <%= link_to('Login', new_user_session_path)  %>  
+            </li>
+        <% end %>
+     </ul>
 <% end %>
