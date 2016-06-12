@@ -8,7 +8,15 @@
 </head>
 <body>
 
-<%= yield %>
+<div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+</div>
+<hr />
+
+<div>
+    <%= yield :mFrame %>
+</div>
 
 </body>
 </html>
