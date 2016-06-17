@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
     ['mysitename', self.email, 'password', 'coop']
   end
   
+  include ActiveModel::Validations
+  validates_strength_of :password
+  
   validates :email, uniqueness: { case_sensitive: false }, email: true
   #validates :email, confirmation: true
 	#validates :email_confirmation, presence: true
