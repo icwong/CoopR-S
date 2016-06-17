@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :preferences
-  devise_for :users do
+  devise_for :users, :controller => 'users' do
     get "/register" => "users/registrations#new"
   end
   
