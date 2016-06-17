@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :lockable,
-         :recoverable, :rememberable, :trackable, :validatable, :lockable, :timeoutable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
          
          
   devise :zxcvbnable
@@ -10,5 +10,4 @@ class User < ActiveRecord::Base
   def weak_words
     ['mysitename', self.email, 'password', 'coop']
   end
-
 end
