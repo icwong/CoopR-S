@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     if self.admin? 
       1.hour
     else
-      2.hours
+      30.minutes
     end
   end
 end
