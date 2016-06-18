@@ -5,21 +5,20 @@
 //document.getElementById("user_password").onkeyup = updateMeter;
 
 function updateMeter(){
-  //alert("update meter test");
   var score;
-  var element = document.getElementById("user_password");
-  alert(element);
-  score = element.passwordScore();
-  alert(score);
-  document.getElementById("passwordMeter").value = score;
+  var password;
+  password = document.getElementById("user_password").value;
+  //score the password
+  score = passwordScore(password);
   
+  //update meter with score
+  document.getElementById("passwordMeter").value = score;
 }
 
-function passwordScore(){
-  //alert("got here");
-    var strength = this.PasswordStrength();
-    alert(strength.score);
-    return strength.score;
+function passwordScore(password){
+  var result;
+  result = zxcvbn(password);
+  return result.score;
 }
 
 function validatePassword()
