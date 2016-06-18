@@ -14,8 +14,7 @@
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
-    <p>testing this put html meter here!!!</p>
-    <meter value = "password.passwordScore()" min = "0" max = "100" low = "35"></meter>
+    <meter id = "passwordMeter" min = "0" max = "100" low = "35"></meter>
   </div>
 
   <div class="field">
