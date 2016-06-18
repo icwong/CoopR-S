@@ -1,15 +1,24 @@
-var password = document.getElementById('password');
-var meter = document.getElementById('passwordMeter');
+//document.getElementById("user_password").addEventListener("keyup",updateMeter);
 
-password.addEventListener('input', function(){
-  meter.value = password.PasswordStrength();
-  
-  
-});
 
+//document.getElementById("user_password").addEventListener("keyup", updateMeter);
+//document.getElementById("user_password").onkeyup = updateMeter;
+
+function updateMeter(){
+  //alert("update meter test");
+  var score;
+  var element = document.getElementById("user_password");
+  alert(element);
+  score = element.passwordScore();
+  alert(score);
+  document.getElementById("passwordMeter").value = score;
+  
+}
 
 function passwordScore(){
+  //alert("got here");
     var strength = this.PasswordStrength();
+    alert(strength.score);
     return strength.score;
 }
 
