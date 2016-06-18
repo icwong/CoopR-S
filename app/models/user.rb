@@ -14,14 +14,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  #devise :zxcvbnable
+  devise :zxcvbnable
   # Optionally add more weak words to check against:
- # def weak_words
-  #  ['mysitename', self.email, 'password', 'coop']
-  #end
+  def weak_words
+    [self.user_email, 'password', 'coop', self.user_preferences_name]
+  end
   
  # include ActiveModel::Validations
-  validates_strength_of :password, :with => :email, :level => :good
+ # validates_strength_of :password, :with => :email, :level => :good
   
   validates :email, uniqueness: { case_sensitive: false }, email: true
   #validates :email, confirmation: true
