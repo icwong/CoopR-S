@@ -14,7 +14,7 @@
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off", :onkeyup => "updateMeter()"  %>
-    <meter id = "passwordMeter" min = "0" max = "4" low = "3"></meter>
+    <meter id = "passwordMeter" min = "0" max = "4" low = "3" optimum = "4"></meter>
   </div>
 
   <div class="field">

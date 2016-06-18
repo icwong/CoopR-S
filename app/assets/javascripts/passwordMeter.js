@@ -21,10 +21,10 @@ function passwordScore(password){
   return result.score;
 }
 
-function validatePassword()
+function validatePassword(password)
 {
-  var strength = this.PasswordStrength();
-  if(strength.isValid("good"))
+  var result = zxcvbn(password)
+  if(result.score >= 3)
   { 
     return true;
   }else{
