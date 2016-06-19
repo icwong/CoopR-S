@@ -24,17 +24,6 @@ class PreferencesController < ApplicationController
   # POST /preferences
   # POST /preferences.json
   def create
-    @preference = Preference.new(preference_params)
-
-    respond_to do |format|
-      if @preference.save
-        format.html { redirect_to @preference, notice: 'Preference was successfully created.' }
-        format.json { render :show, status: :created, location: @preference }
-      else
-        format.html { render :new }
-        format.json { render json: @preference.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /preferences/1
@@ -42,8 +31,11 @@ class PreferencesController < ApplicationController
   def update
     respond_to do |format|
       if @preference.update(preference_params)
-        format.html { redirect_to @preference, notice: 'Preference was successfully updated.' }
-        format.json { render :show, status: :ok, location: @preference }
+        format.html do
+          redirect_to '/'
+        end
+        format.json { render :edit, status: :ok, location: @student }
+        flash[:notice] = 'Preferences was successfully updated.' 
       else
         format.html { render :edit }
         format.json { render json: @preference.errors, status: :unprocessable_entity }
