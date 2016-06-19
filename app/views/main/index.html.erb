@@ -1,5 +1,9 @@
 <% content_for :mFrame do %>
-     <h1>Hello Morld</h1>
+     <% if user_signed_in? %>
+        <h1>Hello <%= @me.display_name %></h1>
+     <% else %>
+        <h1>Hello Morld</h1>
+     <% end %>
      <ul>
         <li>
             <%= link_to 'Protected Region', {:controller => :protected, :action => :index} %>
@@ -10,6 +14,9 @@
         <% if user_signed_in? %>
             <li>
                 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+            </li>
+            <li>
+                <%= link_to('Edit Preference', edit_preference_path( @me.id ) ) %>        
             </li>
         <% else %>
             <li>

@@ -1,23 +1,36 @@
 class RegistrationsController < Devise::RegistrationsController
-  def new
-    super
-  end
 
+  # POST /resource
   def create
-    @preference = Preference.new( params[:name] )
+    build_resource(sign_up_params)
 
-    respond_to do |format|
-      if @preference.save
-        format.html { redirect_to @preference, notice: 'Preference was successfully created.' }
-        format.json { render :show, status: :created, location: @preference }
+    resource.save
+    yield resource if block_given?
+    if resource.persisted?
+      if resource.active_for_authentication?
+        set_flash_message! :notice, :signed_up
+        sign_up(resource_name, resource)
+        respond_with resource, location: after_sign_up_path_for(resource)
       else
-        format.html { render :new }
-        format.json { render json: @preference.errors, status: :unprocessable_entity }
+        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
+        expire_data_after_sign_in!
+        respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
+
+      @preference = @user.build_preference;
+      @preference.save;
+    else
+      clean_up_passwords resource
+      set_minimum_password_length
+      respond_with resource
     end
   end
 
-  def update
-    super
+  def sign_up_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :type);
   end
-end 
+
+  def account_update_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :type);
+  end
+end

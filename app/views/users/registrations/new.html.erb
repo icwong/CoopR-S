@@ -21,10 +21,19 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <%= f.fields_for :preferences do |pf| %>
+  <div class="field">
+    <%= f.radio_button :type, 'Student', :checked => true %> 
+    <%= label :type_student, 'Student' %>
+    <%= f.radio_button :type, 'Company' %>
+    <%= label :type_company, 'Company' %>
+  </div>
+
+<!--   <div class="field">
+  <%= fields_for :preferences do |pf| %>
       <%= pf.label :name %><br />
       <%= pf.text_field :name, autocomplete: "off" %>
   <% end %>
+  </div> -->
 
   <div class="actions">
     <%= f.submit "Sign up" %>
