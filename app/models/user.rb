@@ -8,17 +8,19 @@ end
 
 class User < ActiveRecord::Base
 	has_one :preference
+  accepts_nested_attributes_for :preference
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :timeoutable,
          :recoverable, :rememberable, :trackable, :validatable
          
   devise :zxcvbnable
   # Optionally add more weak words to check against:
-  def weak_words
-    [self.user_email, 'password', 'coop', self.user_preferences_name]
-  end
+ # def weak_words
+#    [self.email, 'password', 'coop', self.user_preferences_name]
+#  end
+
   
  # include ActiveModel::Validations
  # validates_strength_of :password, :with => :email, :level => :good
@@ -27,4 +29,11 @@ class User < ActiveRecord::Base
   #validates :email, confirmation: true
 	#validates :email_confirmation, presence: true
   
+
+
+  def display_name
+    @pf = Preference.find( self.id );
+    return ( @pf.nil? || @pf.name.blank? ) ? self.email : @pf.name;
+  end
+
 end
