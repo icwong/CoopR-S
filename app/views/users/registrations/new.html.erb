@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= form_for @student, url: {action: "create"} do |f| %>
+<%= form_for @user, url: {action: "create"} do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
@@ -19,6 +19,13 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.radio_button :type, 'Student', :checked => true %> 
+    <%= label :type_student, 'Student' %>
+    <%= f.radio_button :type, 'Company' %>
+    <%= label :type_company, 'Company' %>
   </div>
 
 <!--   <div class="field">
