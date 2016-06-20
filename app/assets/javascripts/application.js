@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require zxcvbn
-//= require_tree .
+
 
 var LAST_LOCATION = "lastUrl";
 var CURR_LOCATION = "currUrl";
