@@ -91,6 +91,8 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     orm_adapter (0.5.0)
+    password_strength (1.1.4)
+      activemodel
     pg (0.18.4)
     pg (0.18.4-x86-mingw32)
     pkg-config (1.1.7)
@@ -176,6 +178,7 @@ DEPENDENCIES
   devise_zxcvbn
   jbuilder (~> 2.0)
   jquery-rails
+  password_strength
   pg (~> 0.15)
   rails (= 4.2.6)
   sass-rails (~> 5.0)

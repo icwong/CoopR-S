@@ -9,7 +9,8 @@
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "off", :onkeyup => "updateMeter()" %>
+    <meter id = "passwordMeter" min = "0" max = "4" low = "2" optimum = "4"></meter>
   </div>
 
   <div class="field">
