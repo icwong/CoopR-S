@@ -4,6 +4,10 @@
 
 
 <% content_for :mFrame do %>
+<script type="text/javascript">
+  updateUrl();
+</script>
+
 	<% if current_user.admin? %>
      <ul>
         <li><%= link_to('Write a post', new_post_path ) %></li>
