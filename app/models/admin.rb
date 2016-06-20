@@ -3,4 +3,7 @@ class Admin < User
     return "Mein Führer";
   end
 	
+  def admin?
+    return true;
+  end
 end
