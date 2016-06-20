@@ -1,3 +1,11 @@
+<% content_for :mHeader do %>
+  <script type="text/javascript" src="http://marak.com/faker.js/js/faker.js"></script>
+  <%= javascript_include_tag 'asswordMeter', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'random', 'data-turbolinks-track' => true %>
+<% end %>
+  
+
+
 <h2>Sign up</h2>
 
 <%= form_for @user, as: :user, url: {action: "create"} do |f| %>
@@ -6,6 +14,7 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
+    <input type="button" onClick="makeEmail('user_email')" value="Give me an email" />
   </div>
 
   <div class="field">
