@@ -15,3 +15,48 @@
 //= require turbolinks
 //= require zxcvbn
 //= require_tree .
+
+var LAST_LOCATION = "lastUrl";
+var CURR_LOCATION = "currUrl";
+
+function updateUrl() {
+    var newUrl = window.location.href;
+	if( document.cookie.indexOf(CURR_LOCATION) >= 0 ) {
+        var oldUrl = getCookie( CURR_LOCATION );
+        
+
+        if(oldUrl != newUrl) {
+            var fIndex = document.cookie.indexOf(LAST_LOCATION);
+            var tIndex = document.cookie.indexOf(";", fIndex + LAST_LOCATION.length + 1); // 1 for "="
+
+            var front = document.cookie.substring(0, fIndex ) + LAST_LOCATION + "="; // compatible with init
+            var tail = "";
+            if(tIndex >= 0) {
+                tail = document.cookie.substring(tIndex)
+            };
+            document.cookie = front + oldUrl + tail;
+        }
+	}
+
+    document.cookie = CURR_LOCATION + "=" + newUrl + ";" + document.cookie;
+};
+
+function lastUrl() {
+    window.location.href = getCookie(LAST_LOCATION);
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+}
+

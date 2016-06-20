@@ -27,11 +27,14 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @me = current_user
     @post.owner = @me.id
-    if @me.type == 'Company'
-      @post.type = 'Promotion'
-    else
-      @post.type = 'Review'
+    if !@me.admin?
+      if @me.type == 'Company'
+        @post.type = 'Promotion'
+      else
+        @post.type = 'Review'
+      end
     end
+    
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
