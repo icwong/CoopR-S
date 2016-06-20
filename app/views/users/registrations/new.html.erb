@@ -1,5 +1,5 @@
 <% content_for :mHeader do %>
-  <script type="text/javascript" src="http://marak.com/faker.js/js/faker.js"></script>
+  <%= javascript_include_tag 'faker', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'asswordMeter', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'random', 'data-turbolinks-track' => true %>
 <% end %>
