@@ -36,4 +36,8 @@ class User < ActiveRecord::Base
     return ( @pf.nil? || @pf.name.blank? ) ? self.email : @pf.name;
   end
 
+  def admin?
+    return false;
+  end
+
 end

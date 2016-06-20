@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_user.admin? %>
 <h1>Listing Posts</h1>
 
 <table>
@@ -19,7 +20,7 @@
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%= post.type %></td>
-        <td><%= post.owner %></td>
+        <td><%= post.owner_name %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,3 +32,4 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+<% end %>
