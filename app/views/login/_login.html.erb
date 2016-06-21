@@ -1,8 +1,9 @@
 
     <% if user_signed_in? %>
-        <h1>Hello <%= current_user.display_name %></h1>
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        
+        <b style="font-size: 16pt;">Hello <span style="color: #b2191b;"><%= current_user.display_name %></span>! </b>
+        <%= link_to '<button class="button" type="button">Sign out</button>'.html_safe, destroy_user_session_path, :method => :delete %>
     <% else %>
-        <h1>Hello Morld</h1>
-        <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>.
+        <b style="font-size: 20pt;">Welcome to CoopR&S! </b>
+        <%= link_to '<button class="button" type="button">Sign up</button>'.html_safe, new_user_registration_path %> or <%= link_to '<button class="button" type="button">Sign in</button>'.html_safe, new_user_session_path %>.
     <% end %>

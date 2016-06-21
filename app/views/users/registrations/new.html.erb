@@ -14,7 +14,7 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
-    <input type="button" onClick="makeEmail('user_email')" value="Give me an email" />
+    <input class= "largebutton" type="button" onClick="makeEmail('user_email')" value="Give me an email" />
   </div>
 
   <div class="field">
@@ -46,7 +46,7 @@
   </div> -->
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", :class => 'button' %>
   </div>
 <% end %>
 

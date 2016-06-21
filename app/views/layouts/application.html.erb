@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>CoopRS</title>
-
+  
   <%= yield :mHeader %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -22,10 +22,10 @@
 </div>
 <hr />
 
-<div>
-  <a href="/">HOME</a>
-  <a href="#" onclick="lastUrl()">BACK</a>
-</div>
+<ul class="hb">
+  <li class="hbl"><a href="/">HOME</a></li>
+  <li class="hbl"><a href="#" onclick="lastUrl()">BACK</a></li>
+</ul>
 
 <div>
     <%= yield :mFrame %>
