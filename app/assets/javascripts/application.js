@@ -42,7 +42,10 @@ function updateUrl() {
 };
 
 function lastUrl() {
-    window.location.href = getCookie(LAST_LOCATION);
+    var newUrl = getCookie(LAST_LOCATION);
+    if(newUrl != windows.location.href) {
+        window.location.href = newUrl;
+    }
 }
 
 function getCookie(cname) {
