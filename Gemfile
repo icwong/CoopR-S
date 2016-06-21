@@ -19,13 +19,16 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 
 gem 'devise', '4.1.1'
-
-#devise addon to test password strength
 gem 'devise_zxcvbn'
-
 gem "password_strength"
 
 gem 'faker'
+
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'refills'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
