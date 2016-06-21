@@ -36,14 +36,16 @@ function updateUrl() {
             };
             document.cookie = front + oldUrl + tail;
         }
-	}
+	} else {
+        document.cookie = LAST_LOCATION + "=" + newUrl + ";" + document.cookie;
+    }
 
     document.cookie = CURR_LOCATION + "=" + newUrl + ";" + document.cookie;
 };
 
 function lastUrl() {
     var newUrl = getCookie(LAST_LOCATION);
-    if(newUrl != windows.location.href) {
+    if(newUrl != window.location.href) {
         window.location.href = newUrl;
     }
 }
