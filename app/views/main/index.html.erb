@@ -1,5 +1,4 @@
-<html>
-    
+
 
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
@@ -11,7 +10,7 @@
 <script type="text/javascript">
   updateUrl();
 </script>
-<body>
+
      <ul>
         <li>
             <%= link_to 'Protected Region', {:controller => :protected, :action => :index} %>
@@ -64,5 +63,4 @@
 
 
 <% end %>
-</body>
-</html>
+
