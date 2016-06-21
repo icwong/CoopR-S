@@ -17,12 +17,8 @@ gem 'coffee-script-source', '~> 1.8.0'
 
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
-
 gem 'devise', '4.1.1'
-
-#devise addon to test password strength
 gem 'devise_zxcvbn'
-
 gem "password_strength"
 
 gem 'faker'
