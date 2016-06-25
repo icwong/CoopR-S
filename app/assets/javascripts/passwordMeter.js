@@ -12,8 +12,17 @@ function updateMeter(){
   score = passwordScore(password);
   
   //update meter with score
-  document.getElementById("passwordMeter").value = score;
+  //document.getElementById("passwordMeter").value = score;
+  
+  //update meter with score and colors
+  document.getElementById("passwordMeter").style.width = score*100/4 + '%';
+  document.getElementById("meterText").innerHTML = score;
+  if(score >= 2)  document.getElementById("passwordMeter").style.background = "#00FF00";
+  else if( score = 1) document.getElementById("passwordMeter").style.background = "yellow";
+
 }
+
+
 
 function passwordScore(password){
   var result;
