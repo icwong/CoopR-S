@@ -15,6 +15,7 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true%>
     <input class= "largebutton" type="button" onClick="makeEmail('user_email')" value="Give me an email" />
+    <img src = "/app/assets/images/ok-24.gif" alt="checkmark" id ="emailCheck">
   </div>
 
   <div class="field">
@@ -22,7 +23,7 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", :onkeyup => "updateMeter()"  %>
+    <%= f.password_field :password, autocomplete: "off", :onkeyup => "validatePassword()"  %>
     
     <div class = "meter" > 
       <div id="passwordMeter" style=" text-align:center; height: 15px;border-radius: 5px;">

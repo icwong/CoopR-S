@@ -1,0 +1,18 @@
+#user_email:invalid  #emailCheck {
+   display: none;
+}
+
+#user_email:valid  #emailCheck {
+    display: inline;
+}
+
+#user_email:invalid  {
+    border-color:  red;
+    border-width: 3px;
+}
+
+input:valid {
+    background-color: yellow;
+}
+
+
