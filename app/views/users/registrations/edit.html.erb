@@ -20,7 +20,12 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off", :onkeyup => "updateMeter()" %>
-    <meter id = "passwordMeter" min = "0" max = "4" low = "2" optimum = "4"></meter>
+    <div class = "meter"> 
+      <div id="passwordMeter" style=" text-align:center; height: 15px;border-radius: 5px;">
+        <span id = "meterText"></span>
+      </div>
+      <span id= "passwordHints">-try multi-word passwords<br>-longer is better<br>-add punctuation and digits</span>
+    </div>
   </div>
 
   <div class="field">
