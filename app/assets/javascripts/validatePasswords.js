@@ -34,10 +34,29 @@ function validatePassword()
   
   updateMeter(score);
   
+  if(password.length >= 6)
+  {
+    if(score < 2){
+     document.getElementById("user_password").valid = false;
+    }else document.getElementById("user_password").valid = true;
+  }else document.getElementById("user_password").valid = false;
   
-  if(score < 2){
-   document.getElementById("user_password").valid = false;
-  // document.getElementById("user_password").style.borderColor = red;
-//alert("password is too weak");
-  }else document.getElementById("user_password").valid = true;
+  //alert(document.getElementById("user_password").valid);
+  
+  if(document.getElementById("user_password").valid == false){
+    document.getElementById("user_password").style.borderColor = red;
+  }else{
+    
+  }
+}
+
+function passwordsMatch() {
+  var password;
+  var passwordConfirmation;
+  password = document.getElementById("user_password").value;
+  passwordConfirmation = document.getElementById("user_password_confirmation").value;
+  
+  if(password == passwordConfirmation){
+    return true;
+  }else return false;
 }
