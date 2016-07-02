@@ -31,6 +31,7 @@ function validatePassword()
   password = document.getElementById("user_password").value;
   //score the password
   score = passwordScore(password);
+  passwordsMatch();
   
   updateMeter(score);
   
@@ -44,9 +45,9 @@ function validatePassword()
   //alert(document.getElementById("user_password").valid);
   
   if(document.getElementById("user_password").valid == false){
-    document.getElementById("user_password").style.borderColor = red;
+    document.getElementById("user_password").style.borderColor = "red";
   }else{
-    
+    document.getElementById("user_password").style.borderColor = "#00FF00";
   }
 }
 
@@ -54,9 +55,18 @@ function passwordsMatch() {
   var password;
   var passwordConfirmation;
   password = document.getElementById("user_password").value;
-  passwordConfirmation = document.getElementById("user_password_confirmation").value;
+  passwordConfirmation = document.getElementById("user_password_confirmation").value
+  
+  
   
   if(password == passwordConfirmation){
-    return true;
-  }else return false;
+    document.getElementById("user_password_confirmation").style.borderColor = "#00FF00";
+    document.getElementById("user_password_confirmation").valid = true;
+  //  return true;
+  }else {
+    document.getElementById("user_password_confirmation").style.borderColor = "red";
+    document.getElementById("user_password_confirmation").valid = false;
+  //  return false;
+  }
+  //alert(document.getElementById("user_password_confirmation").valid);
 }

@@ -36,7 +36,7 @@
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :onkeyup => "validatePassword()" %>
   </div>
 
   <div class="field">

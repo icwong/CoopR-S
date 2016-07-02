@@ -11,13 +11,21 @@
     border-width: 3px;
 }
 
-#user_password:invalid  {
-    border-color:  red;
+#user_email:valid  {
+    border-color:  #00FF00;
     border-width: 3px;
 }
 
+#user_password  {
+    border-width: 3px;
+}
+
+#user_password_confirmation  {
+    border-width: 3px;
+}
+/*
 input:valid {
     background-color: yellow;
 }
-
+*/
 
