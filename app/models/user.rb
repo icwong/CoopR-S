@@ -7,6 +7,7 @@ class EmailValidator < ActiveModel::EachValidator
 end
 
 class User < ActiveRecord::Base
+  
 	has_one :preference
   accepts_nested_attributes_for :preference
 
@@ -29,7 +30,6 @@ class User < ActiveRecord::Base
   #validates :email, confirmation: true
 	#validates :email_confirmation, presence: true
   
-
 
   def display_name
     @pf = Preference.find( self.id );

@@ -1,50 +1,42 @@
-
-
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
 
-
 <% content_for :mFrame do %>
-
-<script type="text/javascript">
-  updateUrl();
-</script>
-
-    <ul>
+    
+    <script type="text/javascript">
+      updateUrl();
+    </script>
         
-        <li>
-            <%= link_to "Protected Region", {:controller => :protected, :action => :index} %>
-            <i class="fa fa-shield fa-2x" aria-hidden="true"></i>
-
-        </li>
+        <!--<div id="left">-->
+        <%= link_to "PROTECTED", {:controller => :protected, :action => :index} %>
+        <!--</div>-->
         
-        <li>
-            <a href="/users/sign_up">
-                <i class="fa fa-user fa-2x" aria-hidden="true"></i>
-            </a>
-        </li>
-        
+        <!--<div id="left">-->
         <% if user_signed_in? %>
+        
             <% if current_user.admin? %>
-            <li>
-                <a href="/admin/">Admin page</a>        
-            </li>
+                <a href="/admin/">Admin page</a>     
             <% else %>
-            <li>
                 <%= link_to('Edit Preference', edit_preference_path( current_user.id ) ) %>        
-            </li>
             <% end %>
-            <li>
-                <%= link_to('Write a post', new_post_path ) %>        
-            </li>
             
-        <% else %>
-            <li>
-                <%= link_to('Login', new_user_session_path)  %>  
-            </li>
-        <% end %>
-    </ul>
+                <%= link_to('Write a post', new_post_path ) %>     
+            <% else %>
+            
+                <%= link_to('LOGIN', new_user_session_path)  %>  
+            <% end %>
+        
+        <a href="/users/sign_up"></a>
+    
+        <!--</div>-->
+    </div>
+<% end %>
+
+
+
+    
+    
 
 <!--Postings-->
 <!--<h1>Listing Posts</h1>-->
@@ -59,16 +51,13 @@
 <!--  </thead>-->
 
 <!--  <tbody>-->
-<!--    <% @posts.each do |post| %>-->
+<!--    % @posts.each do |post| %>-->
 <!--      <tr>-->
-<!--        <td><%= post.title %></td>-->
-<!--        <td><%= post.type %></td>-->
-<!--        <td><%= post.owner_name %></td>-->
+<!--        <td>%= post.title %></td>-->
+<!--        <td>%= post.type %></td>-->
+<!--        <td>%= post.owner_name %></td>-->
 <!--      </tr>-->
-<!--    <% end %>-->
+<!--    % end %>-->
 <!--  </tbody>-->
 <!--</table>-->
-
-
-<% end %>
 

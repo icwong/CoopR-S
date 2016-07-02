@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <!--Responsive website menu button-->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs=example-navbar-collapse-1">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" <a href="/">COOPR&S</i></a></a>
+                </div>
+                
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">ABOUT</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#jobs">JOB</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">CONTACT</a>
+                    </li>
+                    <li class="page-scroll">
+                        <%= yield :mLogin %>
+                    </li>
+                    <li class="txt">
+                        <%= yield :mFrame %><!--Protected Region & Login-->
+                    </li>
+                </ul>
+            </div>
+        </div>
+</nav>

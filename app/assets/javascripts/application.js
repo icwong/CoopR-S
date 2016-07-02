@@ -16,6 +16,10 @@
 //= require zxcvbn
 
 
+
+
+/////////////////////
+
 var LAST_LOCATION = "lastUrl";
 var CURR_LOCATION = "currUrl";
 

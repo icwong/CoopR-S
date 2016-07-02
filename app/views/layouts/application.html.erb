@@ -10,52 +10,45 @@
       <%= favicon_link_tag 'dummy.ico' %>
       <%= csrf_meta_tags %>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      
     </head>
     
     <body>
-        <!--navigation sidebar-->
-        <div id="sidebar">
-            <div>
-                <p class="notice"><%= notice %></p>
-                <p class="alert"><%= alert %></p>
-            </div>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
             
-            <!--Sign In & Sign Out -->
-
-            
-            <ul>
-                <!--<hr />-->
-                <div id="user_nav" >
-                    <%= yield :mLogin %>
-                </div>
-                
-                <ul class="hb">
-                  <li class="hbl"><a href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a></li>
-                  <li class="hbl"><a href="#" onclick="lastUrl()"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a></li>
-                </ul>
-                
-                <div>
-                    <%= yield :mFrame %>
-                    
-                </div>
-                
-                <div>
-                    <%= yield %>
-                </div>
-                
-                <div id="social-media">
-                    <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
-                    <li></a><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></li>
-                </div>
-            </ul>
-        </div>
+        <%= render 'layouts/header' %>
         
-        <div id="main_content">
-            <div id="header">
-                <!--<p>ALL Posts</p>-->
-            </div>
-        </div>
+    
+
+        
+    
+
+        
+
+
+    <%= yield %>
+            <!--Sign In & Sign Out -->
+            <!--<ul>-->
+            <!--    <hr />-->
+                <!--<div id="user_nav" >-->
+                <!--    %= yield :mLogin %-->
+                <!--</div>-->
+                
+        <!--        <ul class="hb">-->
+        <!--          <li class="hbl"><a href="/">Home</i></a></li>-->
+        <!--          <li class="hbl"><a href="#" onclick="lastUrl()">Back</i></a></li>-->
+        <!--        </ul>-->
+                
+        <!--        <div>-->
+        <!--            %= yield :mFrame %>-->
+                    
+        <!--        </div>-->
+                
+                <!--<div>-->
+                <!--%= yield %-->
+                <!--</div>-->
+        <!--    </ul>-->
+        <!--</div>-->
+        
     </body>
 </html>

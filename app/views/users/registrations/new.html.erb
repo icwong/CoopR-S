@@ -4,57 +4,65 @@
   <%= javascript_include_tag 'random', 'data-turbolinks-track' => true %>
 <% end %>
   
+<div class="container">
+  <div class="login-signup">
+      <div class="col-sm-6">
+        <article role="login">
+          <h3 class="text-center">
+            <i class="fa fa-lock"><i>SIGN UP</i></i> <!---FontAwesomeIcon--->
+          </h3>
+          
+          <hr>
+          
+          <%= form_for @user, as: :user, url: {action: "create"} do |f| %>
+          <%= devise_error_messages! %>
+          
+          <div class="field">
+              <%= f.email_field :email, placeholder: "Email", :class => 'form-control form-group' , :autofocus => true %>
+              <!--<input class= "largebutton" type="button" onClick="makeEmail('user_email')" value="Give me an email" />-->
+          </div>
+          
+          <div class="field">
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <%= f.password_field :password, placeholder: "Password" , class: 'form-control' , autocomplete: "off", :onkeyup => "updateMeter()"  %>
+          </div>
+          
+          <div class="field">
+            <%= f.password_field :password_confirmation, placeholder: "Confirm Password" ,  class: 'form-control' , autocomplete: "off" , autofocus: true %>
+          </div>
+          
+          <div class="meter" > 
+            <div id="passwordMeter" style=" text-align:center; height: 15px;border-radius: 5px;">
+              <span id="meterText"></span>
+            </div>
+                <!--<span id= "passwordHints">-try multi-word passwords<br>-longer is better<br>-add punctuation and digits</span>-->
+          </div>
+          
+          <div class="field" style= "text-align: center">
+            <%= f.radio_button :type, 'Student', :checked => true %> Student    
+            <!--%= label :type_student, 'Student' %-->
+            <%= f.radio_button :type, 'Company' %> Company
+            <!--%= label :type_company, 'Company' %-->
+          </div>
+          
+        <!--  <div class="field">-->
+        <!--    %= fields_for :preferences do |pf| %>-->
+        <!--      %= pf.label :name %><br />-->
+        <!--      %= pf.text_field :name, autocomplete: "off", :onkeyup => "updateMeter()" %>-->
+        <!--    % end %>-->
+        <!--</div>-->
+          
+          <div class="actions">
+            <%= f.submit "SUBMIT", :class => 'btn btn-success btn-block form-group' %>
+          </div>
 
-
-<h2>Sign up</h2>
-
-<%= form_for @user, as: :user, url: {action: "create"} do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true%>
-    <input class= "largebutton" type="button" onClick="makeEmail('user_email')" value="Give me an email" />
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", :onkeyup => "updateMeter()"  %>
-    
-    <div class = "meter" > 
-      <div id="passwordMeter" style=" text-align:center; height: 15px;border-radius: 5px;">
-        <span id = "meterText"></span>
-      </div>
-      <span id= "passwordHints">-try multi-word passwords<br>-longer is better<br>-add punctuation and digits</span>
+          <span style="text-align: center">Already A Member? <%= render "users/shared/links" %></span>
+        
+        </article>
     </div>
-    
   </div>
+</div>  
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.radio_button :type, 'Student', :checked => true %> 
-    <%= label :type_student, 'Student' %>
-    <%= f.radio_button :type, 'Company' %>
-    <%= label :type_company, 'Company' %>
-  </div>
-
-<!--   <div class="field">
-  <%= fields_for :preferences do |pf| %>
-      <%= pf.label :name %><br />
-      <%= pf.text_field :name, autocomplete: "off", :onkeyup => "updateMeter()" %>
-  <% end %>
-  </div> -->
-
-  <div class="actions">
-    <%= f.submit "Sign up", :class => 'button' %>
-  </div>
 <% end %>
-
-<%= render "users/shared/links" %>
