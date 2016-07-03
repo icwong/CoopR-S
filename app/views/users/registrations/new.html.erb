@@ -13,8 +13,8 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true%>
-    <input class= "largebutton" type="button" onClick="makeEmail('user_email')" value="Give me an email" />
+    <%= f.email_field :email, autofocus: true, :onkeyup => "validateEmail()" %>
+    <input class= "largebutton" type="button" onClick="makeEmail('user_email'), validateEmail()"  value="Give me an email" />
     <img src = "/ok-24.gif" alt="checkmark" id ="emailCheck">
   </div>
 

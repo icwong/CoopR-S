@@ -1,4 +1,17 @@
-//document.getElementById("user_password").onkeyup = validatePassword();
+function validateEmail() {
+ // alert("here");
+    var email = document.getElementById("user_email").value;
+  
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if( re.test(email) == true){
+      //alert("valid");
+      document.getElementById("user_email").style.borderColor = "#00FF00";
+    }else{
+      //alert("invalid");
+      document.getElementById("user_email").style.borderColor = "red";
+    }
+    //alert(re.test(email));
+}
 
 function updateMeter(score){
   /*
