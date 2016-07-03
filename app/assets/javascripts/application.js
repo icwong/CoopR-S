@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require zxcvbn
-//= require validatePasswords
+//= require validateForms
 
 
 var LAST_LOCATION = "lastUrl";

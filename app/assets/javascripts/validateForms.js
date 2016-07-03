@@ -6,9 +6,11 @@ function validateEmail() {
     if( re.test(email) == true){
       //alert("valid");
       document.getElementById("user_email").style.borderColor = "#00FF00";
+      document.getElementById("emailCheck").style.display = "inline";
     }else{
       //alert("invalid");
       document.getElementById("user_email").style.borderColor = "red";
+       document.getElementById("emailCheck").style.display = "none";
     }
     //alert(re.test(email));
 }
@@ -69,8 +71,6 @@ function passwordsMatch() {
   var passwordConfirmation;
   password = document.getElementById("user_password").value;
   passwordConfirmation = document.getElementById("user_password_confirmation").value
-  
-  
   
   if(password == passwordConfirmation){
     document.getElementById("user_password_confirmation").style.borderColor = "#00FF00";
