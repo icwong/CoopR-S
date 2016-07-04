@@ -9,7 +9,7 @@
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em><br />
     <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off", :onkeyup => "updateMeter()" %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "off", :onkeyup => "validatePassword()" %>
     <div class = "meter"> 
       <div id="passwordMeter" style=" text-align:center; height: 15px; border-radius: 5px;">
         <span id = "meterText"></span>
@@ -20,7 +20,7 @@
 
   <div class="field">
     <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :onkeyup => "validatePassword()"  %>
   </div>
 
   <div class="actions">

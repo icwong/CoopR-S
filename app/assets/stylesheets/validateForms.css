@@ -10,6 +10,12 @@ user_email:invalid + #emailCheck {
 #emailCheck {
     display: none;
 }
+#passwordCheck {
+    display: none;
+}
+#passwordConfirmationCheck {
+    display: none;
+}
 
 #user_email {
     border-width: 3px;
