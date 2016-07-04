@@ -9,12 +9,18 @@ user_email:invalid + #emailCheck {
 */
 #emailCheck {
     display: none;
+    height: 16px;
+    width: 16px;
 }
 #passwordCheck {
     display: none;
+    height: 16px;
+    width: 16px;
 }
 #passwordConfirmationCheck {
     display: none;
+    height: 16px;
+    width: 16px;
 }
 
 #user_email {
