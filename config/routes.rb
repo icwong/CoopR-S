@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  Mercury::Engine.routes
   root 'main#index'
   get 'admin' => 'admin#index'
   resources :posts

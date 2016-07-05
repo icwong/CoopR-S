@@ -18,6 +18,7 @@ gem 'coffee-script-source', '~> 1.8.0'
 # CUSTOMISE GEMS AREA
 # UI
 gem 'font-awesome-sass' #FontAwesome Icons
+gem 'bootstrap-sass', '~> 3.2.0'
 
 # ASSET PIPELINE
 gem 'sprockets-rails', :require => 'sprockets/railtie'
@@ -26,9 +27,12 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'devise', '4.1.1'
 gem 'devise_zxcvbn'
 gem "password_strength"
+gem 'autoprefixer-rails'
 
 # POST
 gem 'faker'
+# HTML editor
+gem 'mercury-rails'
 # END
 
 # Use jquery as the JavaScript library
@@ -47,9 +51,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-gem 'bootstrap-sass', '~> 3.2.0'
-gem 'autoprefixer-rails'
 
 
 group :development, :test do
