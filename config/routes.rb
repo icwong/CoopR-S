@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Mercury::Engine => '/'
   Mercury::Engine.routes
   root 'main#index'
   get 'admin' => 'admin#index'

@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require zxcvbn
 //= require validateForms
+//= require mercury
 
 
 /////////////////////

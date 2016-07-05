@@ -11,7 +11,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-gem 'coffee-script-source', '~> 1.8.0'  
+gem 'coffee-script-source', '~> 1.2.0'  
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -32,7 +32,7 @@ gem 'autoprefixer-rails'
 # POST
 gem 'faker'
 # HTML editor
-gem 'mercury-rails'
+gem 'mercury-rails', :git => 'git://github.com/jejacks0n/mercury.git'
 # END
 
 # Use jquery as the JavaScript library
