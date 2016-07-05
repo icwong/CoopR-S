@@ -18,23 +18,26 @@
           <%= devise_error_messages! %>
           
           <div class="field">
-              <%= f.email_field :email, placeholder: "Email", :class => 'form-control form-group' , :autofocus => true %>
+              <%= f.email_field :email, placeholder: "Email", :class => 'form-control form-group' , :autofocus => true, :onkeyup => "validateEmail()" %>
               <!--<input class= "largebutton" type="button" onClick="makeEmail('user_email')" value="Give me an email" />-->
+              <img src = "/ok-24.gif" alt="checkmark" id ="emailCheck" >
           </div>
           
           <div class="field">
             <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %>
-            <%= f.password_field :password, placeholder: "Password" , class: 'form-control' , autocomplete: "off", :onkeyup => "updateMeter()"  %>
+            <%= f.password_field :password, placeholder: "Password" , class: 'form-control' , autocomplete: "off", :onkeyup => "validatePassword()"  %>
+            <img src = "/ok-24.gif" alt="checkmark" id ="passwordCheck" >
           </div>
           
           <div class="field">
-            <%= f.password_field :password_confirmation, placeholder: "Confirm Password" ,  class: 'form-control' , autocomplete: "off" , autofocus: true %>
+            <%= f.password_field :password_confirmation, placeholder: "Confirm Password" ,  class: 'form-control' , autocomplete: "off" , autofocus: true, :onkeyup => "validatePassword()" %>
+            <img src = "/ok-24.gif" alt="checkmark" id ="passwordConfirmationCheck" >
           </div>
           
           <div class="meter" > 
-            <div id="passwordMeter" style=" text-align:center; height: 15px;border-radius: 5px;">
+            <div id="passwordMeter" style=" text-align:center; height: 20px;border-radius: 5px;">
               <span id="meterText"></span>
             </div>
                 <!--<span id= "passwordHints">-try multi-word passwords<br>-longer is better<br>-add punctuation and digits</span>-->
@@ -58,11 +61,12 @@
             <%= f.submit "SUBMIT", :class => 'btn btn-success btn-block form-group' %>
           </div>
 
+
           <span style="text-align: center">Already A Member? <%= render "users/shared/links" %></span>
         
         </article>
     </div>
-  </div>
+
 </div>  
 
 <% end %>

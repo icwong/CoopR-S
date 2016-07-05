@@ -19,7 +19,8 @@
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", :onkeyup => "updateMeter()" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :onkeyup => "validatePassword()" %>
+    
     <div class = "meter"> 
       <div id="passwordMeter" style=" text-align:center; height: 15px;border-radius: 5px;">
         <span id = "meterText"></span>
@@ -30,7 +31,7 @@
 
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.password_field :current_password, autocomplete: "off", :onkeyup => "validatePassword()"  %>
   </div>
 
   <div class="actions">
