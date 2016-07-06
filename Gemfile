@@ -19,6 +19,9 @@ gem 'coffee-script-source', '~> 1.8.0'
 # UI
 gem 'font-awesome-sass' #FontAwesome Icons
 
+#cloud storage
+gem 'google-api-client'
+
 # ASSET PIPELINE
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
