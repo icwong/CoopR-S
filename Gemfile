@@ -31,8 +31,6 @@ gem 'autoprefixer-rails'
 
 # POST
 gem 'faker'
-# HTML editor
-
 # END
 
 # Use jquery as the JavaScript library
