@@ -12,4 +12,3 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( passwordMeter.js )
 Rails.application.config.assets.precompile += %w( faker.js )
 Rails.application.config.assets.precompile += %w( random.js )
-Rails.application.config.assets.precompile += %w( jquery-1.7.js )

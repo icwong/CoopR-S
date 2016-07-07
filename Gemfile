@@ -32,7 +32,7 @@ gem 'autoprefixer-rails'
 # POST
 gem 'faker'
 # HTML editor
-gem 'mercury-rails', :git => 'git://github.com/jejacks0n/mercury.git'
+
 # END
 
 # Use jquery as the JavaScript library
