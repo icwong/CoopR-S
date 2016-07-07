@@ -3,4 +3,8 @@ class MainController < ApplicationController
   def index
     @posts = Post.all.order(id: :asc)
   end
+
+
+  def dummy
+  end
 end

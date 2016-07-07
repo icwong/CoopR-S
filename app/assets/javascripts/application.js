@@ -17,8 +17,6 @@
 //= require validateForms
 
 
-
-
 /////////////////////
 
 var LAST_LOCATION = "lastUrl";

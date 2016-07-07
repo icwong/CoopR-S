@@ -17,38 +17,15 @@
         <p class="alert"><%= alert %></p>
             
         <%= render 'layouts/header' %>
-        
-    
 
-        
-    
+    <div>
+      <%= yield :mFrame %>
+    </div>
 
-        
+    <div>
+      <%= yield %>
+    </div>
 
 
-    <%= yield %>
-            <!--Sign In & Sign Out -->
-            <!--<ul>-->
-            <!--    <hr />-->
-                <!--<div id="user_nav" >-->
-                <!--    %= yield :mLogin %-->
-                <!--</div>-->
-                
-        <!--        <ul class="hb">-->
-        <!--          <li class="hbl"><a href="/">Home</i></a></li>-->
-        <!--          <li class="hbl"><a href="#" onclick="lastUrl()">Back</i></a></li>-->
-        <!--        </ul>-->
-                
-        <!--        <div>-->
-        <!--            %= yield :mFrame %>-->
-                    
-        <!--        </div>-->
-                
-                <!--<div>-->
-                <!--%= yield %-->
-                <!--</div>-->
-        <!--    </ul>-->
-        <!--</div>-->
-        
     </body>
 </html>

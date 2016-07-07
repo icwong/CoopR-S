@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'main#index'
   get 'admin' => 'admin#index'
+  get 'index' => 'main#index'
+  get 'text' => 'main#dummy'
   resources :posts
   resources :preferences
   resources :protected
