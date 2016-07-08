@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
   get 'index' => 'main#index'
   get 'text' => 'main#dummy'
+  get 'edit' => 'main#editor'
   resources :posts
   resources :preferences
   resources :protected
