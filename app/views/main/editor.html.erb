@@ -1,3 +1,8 @@
+<% content_for :mHeader do %>
+  <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
+<% end %>
+
+
 <% content_for :mFrame do %>
 
     <h1>WYMeditor integration example</h1>
@@ -7,8 +12,7 @@
         <input type="submit" class="wymupdate" />
     </form>
 
-    <script src="vendor/jquery/jquery.js"></script>
-    <script src="../wymeditor/jquery.wymeditor.js"></script>
+    <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
     <script type="text/javascript">
         $(function() {
             $('.wymeditor').wymeditor();
@@ -16,6 +20,3 @@
     </script>
 
 <% end %>
-
-
-<%= link_to "Edit", "/editor" + request.path  %>

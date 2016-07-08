@@ -10,7 +10,7 @@
 
 	<% if current_user.admin? %>
      <ul>
-        <li><%= link_to('Write a post', new_post_path ) %></li>
+        <li><%= link_to('Write a post', new_post_path, 'data-no-turbolink' => true ) %></li>
         <li><%= link_to('Manage posts', posts_path) %></li>
      </ul>
 
