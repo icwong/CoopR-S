@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :authentications
+  resources :histories
+  resources :profiles
+  resources :tags
   root 'main#index'
   get 'admin' => 'admin#index'
   get 'index' => 'main#index'
