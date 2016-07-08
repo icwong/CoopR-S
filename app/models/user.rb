@@ -40,4 +40,8 @@ class User < ActiveRecord::Base
     return false;
   end
 
+  def admin?
+    return false;
+  end
+
 end
