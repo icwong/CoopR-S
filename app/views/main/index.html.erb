@@ -48,10 +48,11 @@
 
   <tbody>
     <% @posts.each do |post| %>
-      <tr>
+      <tr id="PID<%= post.id %>">
         <td><%= post.title %></td>
         <td><%= post.type %></td>
         <td><%= post.owner_name %></td>
+        <td><a href="#" onclick="run( <%= post.id %> )">Add to compare</a></td>
       </tr>
     <% end %>
   </tbody>
