@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
-  enum status: [ :normal, :locked, :blocked, :protected ]
+  enum status: [ :ps_normal, :ps_locked, :ps_blocked, :ps_protected ]
+  enum sortable: [ :school, :company, :date ]
 
   validates :owner, presence: true
 
