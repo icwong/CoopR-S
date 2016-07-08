@@ -22,8 +22,7 @@
             <% else %>
                 <%= link_to('Edit Preference', edit_preference_path( current_user.id ) ) %>        
             <% end %>
-            
-                <%= link_to('Write a post', new_post_path ) %>     
+                <a href="/posts/new" data-turbolinks="false">Write a post</a>  
         <% else %>
                 <a href="/users/sign_up">Register</a>
                 <%= link_to('LOGIN', new_user_session_path)  %> 

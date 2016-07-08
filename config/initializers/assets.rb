@@ -12,4 +12,5 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( passwordMeter.js )
 Rails.application.config.assets.precompile += %w( faker.js )
 Rails.application.config.assets.precompile += %w( random.js )
+Rails.application.config.assets.precompile += %w( wymeditor/jquery.wymeditor.js )
 Rails.application.config.assets.precompile += %w( wymeditor/skins/default/skin.css )

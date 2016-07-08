@@ -7,4 +7,8 @@ class MainController < ApplicationController
 
   def dummy
   end
+
+
+  def editor
+  end
 end

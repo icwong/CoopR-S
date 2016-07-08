@@ -1,5 +1,6 @@
 <% content_for :mHeader do %>
   <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
+  <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
 <% end %>
 
 <%= form_for(@post, as: :post) do |f| %>
@@ -19,7 +20,7 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div class="field" data-turbolinks="false">
     <%= f.label :body %><br>
     <%= f.text_area :body, class: 'wymeditor' %>
   </div>
@@ -32,14 +33,13 @@
     </div>
   <% end %>
 
-  <div class="actions ">
+  <div class="actions" data-turbolinks="false">
     <%= f.submit class: 'wymupdate' %>
   </div>
 <% end %>
 
-<script src="/assets/wymeditor/jquery.wymeditor.js"></script>
 <script type="text/javascript">
-    $(function() {
+    $(document).ready(function() {
         $('.wymeditor').wymeditor();
     });
 </script>
