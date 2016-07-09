@@ -11,14 +11,9 @@
     <script type="text/javascript">
       updateUrl();
     </script>
-    
-    </script>
         
-        <!--<div id="left">-->
         <%= link_to "PROTECTED", {:controller => :protected, :action => :index} %>
-        <!--</div>-->
         
-        <!--<div id="left">-->
         <% if user_signed_in? %>
         
             <% if current_user.admin? %>
@@ -32,9 +27,6 @@
                 <%= link_to('LOGIN', new_user_session_path)  %> 
                 <a href="/text">Lorem</a>
         <% end %>
-        
-        <!--</div>-->
-    </div>
 
 <% end %>
 

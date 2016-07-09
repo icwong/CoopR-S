@@ -6,7 +6,6 @@
 </script>
 
 
-<% if current_user.admin? %>
     <div class="table-title">
         <h3>Listing Posts</h3>
     </div>
@@ -37,7 +36,7 @@
   </tbody>
 </table>
 
-<br>
+<br />
 
 <%= link_to '<button class="button" type="button">New Post</button>'.html_safe, new_post_path %>
 <% end %>
