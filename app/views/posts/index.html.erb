@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<link rel="stylesheet" type="text/css" href="table.css">
+<%= stylesheet_link_tag 'table', 'data-turbolinks-track' => true %>
 <script type="text/javascript">
   updateUrl();
 </script>
@@ -10,7 +10,7 @@
         <h3>Listing Posts</h3>
     </div>
 
-<table class="table-list-posts">
+<table class="table-list-users">
   <thead>
     <tr>
       <th>Title</th>
@@ -25,7 +25,7 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-        <td class="body-width"><%= post.body %></td>
+        <td class="body-width"><%= post.body.split[0..10].join(" ") %>...</td>
         <td><%= post.type %></td>
         <td><%= post.owner_name %></td>
         <td><%= link_to 'Show', post %></td>
@@ -39,4 +39,4 @@
 <br />
 
 <%= link_to '<button class="button" type="button">New Post</button>'.html_safe, new_post_path %>
-<% end %>
+

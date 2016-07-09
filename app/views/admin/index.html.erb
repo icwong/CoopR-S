@@ -1,8 +1,8 @@
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
+    <%= stylesheet_link_tag 'table', 'data-turbolinks-track' => true %>
 <% end %>
 
-<link rel="stylesheet" type="text/css" href="table.css">
 <% content_for :mFrame do %>
 <script type="text/javascript">
   updateUrl();
