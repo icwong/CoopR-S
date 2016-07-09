@@ -1,7 +1,7 @@
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
-
+<link rel="stylesheet" type="text/css" href="table.css">
 <% content_for :mFrame do %>
     
     <script type="text/javascript">
@@ -35,9 +35,11 @@
 <% end %>
 
 
-<h1>Listing Posts</h1>
+<div class="table-title">
+        <h3>Listing Posts</h3>
+</div>
 
-<table>
+<table class="table-list-posts">
   <thead>
     <tr>
       <th>Title</th>
