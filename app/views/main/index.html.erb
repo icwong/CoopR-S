@@ -1,3 +1,7 @@
+<% content_for :mHeader do %>
+    <%= stylesheet_link_tag 'table', 'data-turbolinks-track' => true %>
+<% end %>
+
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
@@ -7,14 +11,9 @@
     <script type="text/javascript">
       updateUrl();
     </script>
-    
-    </script>
         
-        <!--<div id="left">-->
         <%= link_to "PROTECTED", {:controller => :protected, :action => :index} %>
-        <!--</div>-->
         
-        <!--<div id="left">-->
         <% if user_signed_in? %>
         
             <% if current_user.admin? %>
@@ -28,16 +27,15 @@
                 <%= link_to('LOGIN', new_user_session_path)  %> 
                 <a href="/text">Lorem</a>
         <% end %>
-        
-        <!--</div>-->
-    </div>
 
 <% end %>
 
 
-<h1>Listing Posts</h1>
+<div class="table-title">
+        <h3>Listing Posts</h3>
+</div>
 
-<table>
+<table class="table-list-posts">
   <thead>
     <tr>
       <th>Title</th>

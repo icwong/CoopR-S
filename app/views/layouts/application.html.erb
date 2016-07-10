@@ -15,8 +15,11 @@
     <body>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-            
-        <%= render 'layouts/header' %>
+    
+    <div>
+      <a href="/">COOPR&amp;S</a>
+      <%= yield :mLogin %>
+    </div>
 
     <div>
       <%= yield :mFrame %>
