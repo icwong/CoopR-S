@@ -1,5 +1,5 @@
 <% content_for :mHeader do %>
-    <%= stylesheet_link_tag 'table', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', 'data-turbolinks-track' => true %>
 <% end %>
 
 <% content_for :mLogin do %>
@@ -12,25 +12,46 @@
       updateUrl();
     </script>
         
-        <%= link_to "PROTECTED", {:controller => :protected, :action => :index} %>
+       
         
         <% if user_signed_in? %>
         
             <% if current_user.admin? %>
-              <nav></nav>
-                  <a href="/admin/">Admin page</a>  
-                  <a href="/posts/new" data-turbolinks="false">Write a post</a>
-                  <%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete %>
+              
+                <ul>
+                  <li><a href="/"><img class="topnav-icons" src="http://i.imgur.com/RO5VA6h.png" /></a></li>
+                  <li><%= link_to "PROTECTED", {:controller => :protected, :action => :index} %></li>
+                  <li class="dropdown"><a href="/admin/" class="dropbtn">ACTION</a>
+                        <div class="dropdown-content">
+			                      	<a href="/admin/">VIEW ALL POSTS</a>
+			                      	<a href="/posts/new">NEW POSTS</a>
+		                      		<a href="/posts/">MANAGE POSTS</a>
+		                  	</div>
+		              </li>
+                  <li><a href="/posts/new" data-turbolinks="false">WRITE A POST</a></li>
+                  <li style="float:right"><%= link_to destroy_user_session_path, :method => :delete do %><img class="signout-icon" src="http://i.imgur.com/qgNZck9.png"/><span>&nbsp;&nbsp;SIGN OUT</span><% end %> </li> 
+                </ul>
+             
             <% else %>
-                <%= link_to('Edit Preference', edit_preference_path( current_user.id ) ) %> 
-                <%= link_to('My Profile', profiles_path ) %> 
-                <a href="/posts/new" data-turbolinks="false">Write a post</a>
-                <%= link_to "SIGN OUT", destroy_user_session_path, :method => :delete %>
+              
+                <ul>
+                  <li><a href="/"><img class="topnav-icons" src="http://i.imgur.com/RO5VA6h.png"/></a></li>
+                  <li> <%= link_to "PROTECTED", {:controller => :protected, :action => :index} %></li>
+                  <li> <%= link_to('EDIT PREFERENCE', edit_preference_path( current_user.id ) ) %></li>  
+                  <li> <%= link_to('MY PROFILE', profiles_path ) %> </li> 
+                  <li> <a href="/posts/new" data-turbolinks="false">WRITE A POST</a></li> 
+                  <li style="float:right"><%= link_to destroy_user_session_path, :method => :delete do %><img class="signout-icon" src="http://i.imgur.com/qgNZck9.png"/><span>&nbsp;&nbsp;SIGN OUT</span><% end %> </li> 
+                </ul>
+              
             <% end %>
         <% else %>
-                <a href="/users/sign_up">SIGN UP</a>
-                <%= link_to('LOGIN', new_user_session_path)  %> 
-                <a href="/text">Lorem</a>
+                <ul>
+                  <li><a href="/"><img class="topnav-icons" src="http://i.imgur.com/RO5VA6h.png"/></a></li>
+                  <li> <a href="/text">Lorem</a></li> 
+                  <li style="float:right"><%= link_to new_user_session_path do %><img class="signout-icon" src="http://i.imgur.com/qgNZck9.png"/><span>&nbsp;&nbsp;LOG IN</span><% end %> </li> 
+                  <li style="float:right"><a href="/users/sign_up"><img class="signout-icon" src="http://i.imgur.com/qgNZck9.png"/>&nbsp;&nbsp;SIGN UP</a></li> 
+                </ul>
+                
         <% end %>
 
 <% end %>
