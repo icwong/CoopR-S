@@ -21,6 +21,7 @@ gem 'font-awesome-sass' #FontAwesome Icons
 
 #cloud storage
 gem 'google-api-client'
+gem 'google_drive'
 
 # ASSET PIPELINE
 gem 'sprockets-rails', :require => 'sprockets/railtie'
