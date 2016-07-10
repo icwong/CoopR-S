@@ -1,24 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="table-title">
+        <h3>My Post</h3>
+</div>
 
-<p>
-  <strong>Body:</strong>
-  <%=raw @post.body %>
-</p>
+<div class="show-post">
+  <p>
+    <strong>Title:</strong>
+    <%= @post.title %>
+  </p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @post.type %>
-</p>
+  <p>
+    <strong>Body:</strong>
+    <%=raw @post.body %>
+  </p>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @post.owner_name %>
-</p>
+  <p>
+    <strong>Type:</strong>
+    <%= @post.type %>
+  </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  <p>
+    <strong>Owner:</strong>
+    <%= @post.owner_name %>
+  </p>
+</div>
+<%= link_to '<button class="smallbutton" type="button">Edit</button>'.html_safe, edit_post_path(@post) %> 
+<% if current_user.admin? %>
+        <%= link_to '<button class="smallbutton" type="button">Back</button>'.html_safe, posts_path %>
+<% else %>
+        <%= link_to '<button class="smallbutton" type="button">Back</button>'.html_safe, root_path %>
+<% end %> 

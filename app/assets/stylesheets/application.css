@@ -39,8 +39,8 @@
 
 
 .project-header{
-	padding: 0.01em 16px;
-	display: flex;
+  	padding: 0.01em 16px;
+	  display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
     height: 68px;
@@ -48,8 +48,8 @@
     line-height: 50px;
     overflow: hidden;
     font-size: 15px;
+    
 }
-
 
 .project-title {
 	margin-left: 7%;
@@ -136,8 +136,9 @@ a {
   padding-right: 1em;
 }
 .toptext {
-	overflow: hidden;
-	flex: 1 1 1%;
+    position: relative;
+	  overflow: hidden;
+  	flex: 1 1 1%;
     padding-left: 1em;
     text-align: center;
     display: block;
@@ -209,4 +210,12 @@ li.dropdown {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.show-post {
+  margin-left: 10%;
+  width: 60%;
+  font-size: 20px;
+  background: #D5DDE5;
+  border-radius: .3em;
 }
