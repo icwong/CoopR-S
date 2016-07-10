@@ -1,3 +1,23 @@
+var getDoc = document.getElementById('getDoc');
+
+
+//document.getElementById("getDoc").onclick = selectSourceFile;
+
+function selectSourceFile(){
+	alert("here");
+	var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://apis.google.com/js/api.js?onload=onApiLoad"; 
+    document.getElementsByTagName("head")[0].appendChild(script);
+    
+    return false;
+	
+	
+}
+
+
+
+
 function saveTextAsDriveFile()
 {
 	var textToWrite = document.getElementById("inputTextToSave").value;
@@ -43,20 +63,17 @@ function loadDriveFileAsText()
 	};
 	fileReader.readAsText(fileToLoad, "UTF-8");
 }
-
+/*
 function selectSourceFile()
 {
-    var fileToLoad = document.getElementById("fileToUpload").files[0];
-    alert("here");
-    return fileToLoad;
-/*
-	var fileReader = new FileReader();
 	
-	fileReader.onload = function(fileLoadedEvent) 
-	{
-		var textFromFileLoaded = fileLoadedEvent.target.result;
-		document.getElementById("inputTextToSave").value = textFromFileLoaded;
-	};
-	fileReader.readAsText(fileToLoad, "UTF-8");
-    */
+	var imported = document.createElement('script');
+	imported.src = 'https://apis.google.com/js/api.js?onload=onApiLoad';
+	document.head.appendChild(imported);
+
+
+	alert("here");
 }
+
+
+*/
