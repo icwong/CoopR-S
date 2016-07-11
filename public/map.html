@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
    <head>
       <title>Bing Map</title>
@@ -12,27 +12,31 @@
       function GetMap()
       {  
 
-         map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), {credentials: "AkncMOPhJUoGDu9stqfQxrQisQXAmlDYdEMrfVHr5eOwv5-QKONY7tAA1IxJjJGK", center: new Microsoft.Maps.Location(47.5, -122.3), zoom: 9 });
-
-         
-
+         map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), {credentials: "AkncMOPhJUoGDu9stqfQxrQisQXAmlDYdEMrfVHr5eOwv5-QKONY7tAA1IxJjJGK", center: new Microsoft.Maps.Location(49.282964, -123.121861), zoom: 11 });
       }
 
 
       function searchModuleLoaded()
       {
          var searchManager = new Microsoft.Maps.Search.SearchManager(map);
-
-         var geocodeRequest = {where:"1 Microsoft Way, Redmond, WA", count:10, callback:geocodeCallback, errorCallback:errCallback};
+         var address = document.getElementById('query').value;
+         var geocodeRequest = {where: address, count:10, callback:geocodeCallback, errorCallback:errCallback};
          searchManager.geocode(geocodeRequest);
       }
      
       function geocodeCallback(geocodeResult, userData)
       {
-        var result = document.getElementById('result');
+        var result = document.getElementById('result');        
         result.innerHTML = "The first geocode result is " + geocodeResult.results[0].name + ".";
+        
+        if (geocodeResult.results[0] && geocodeResult.results.length > 0)
+            {
+               var location = geocodeResult.results[0].location;
+               map.setView( {center: location, zoom: 12 } );
+               var pushpin = new Microsoft.Maps.Pushpin(location);
+               map.entities.push(pushpin);
+            }
       }
-
 
       function errCallback(geocodeRequest)
       {
@@ -49,6 +53,6 @@
    <body onload="GetMap();">
       <p id='result'></p>
       <div id='mapDiv' style="position:relative; width:600px; height:600px;"></div>
-      <input type="textarea" id="query" /> | <input type="button" value="search" onclick="" />
+      <input type="textarea" id="query" /> | <input type="button" value="search" onclick="search()" />
    </body>
 </html>
