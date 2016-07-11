@@ -13,17 +13,14 @@
       {  
 
          map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), {credentials: "AkncMOPhJUoGDu9stqfQxrQisQXAmlDYdEMrfVHr5eOwv5-QKONY7tAA1IxJjJGK", center: new Microsoft.Maps.Location(47.5, -122.3), zoom: 9 });
-
-         
-
       }
 
 
       function searchModuleLoaded()
       {
          var searchManager = new Microsoft.Maps.Search.SearchManager(map);
-
-         var geocodeRequest = {where:"1 Microsoft Way, Redmond, WA", count:10, callback:geocodeCallback, errorCallback:errCallback};
+         var address = document.getElementById('query').value;
+         var geocodeRequest = {where: address, count:10, callback:geocodeCallback, errorCallback:errCallback};
          searchManager.geocode(geocodeRequest);
       }
      
