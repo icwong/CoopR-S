@@ -51,9 +51,19 @@ function destroyClickedElement2(event)
 	document.body.removeChild(event.target);
 }
 
-function loadDriveFileAsText()
+function loadDriveFileAsText(url)
 {
-	var fileToLoad = document.getElementById("fileToLoad").files[0];
+//	URL url = new URL(document.getElementById("result"));
+//Scanner s = new Scanner(url.openStream());
+
+
+
+
+	
+	//alert(document.getElementById("result"));
+	// var fileToLoad = document.getElementById("result").files[0];
+	// var fileToLoad = document.getElementById("result");
+	var fileToLoad = url;
 
 	var fileReader = new FileReader();
 	fileReader.onload = function(fileLoadedEvent) 
@@ -62,7 +72,10 @@ function loadDriveFileAsText()
 		document.getElementById("inputTextToSave").value = textFromFileLoaded;
 	};
 	fileReader.readAsText(fileToLoad, "UTF-8");
+	
+	
 }
+
 /*
 function selectSourceFile()
 {
