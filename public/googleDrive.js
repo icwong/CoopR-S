@@ -61,14 +61,26 @@ function loadDriveFileAsText(url)
 
 	
 	//alert(document.getElementById("result"));
-	// var fileToLoad = document.getElementById("result").files[0];
-	// var fileToLoad = document.getElementById("result");
-	var fileToLoad = url;
+//	 var fileToLoad = document.getElementById("result").files[0];
+//	 var fileToLoad = document.getElementById("result");
+var xhr = new XMLHttpRequest();
+
+xhr.open('GET', url, true);
+
+xhr.responseType = 'blob';
+//xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+xhr.onload = function(e) {
+  if (this.status == 200) {
+    var myBlob = this.response;
+    // myBlob is now the blob that the object URL pointed to..
+    
+
+	var fileToLoad = myBlob;
 
 	var fileReader = new FileReader();
-
-	fileReader.readAsDataURL(blob);
-	/*
+//	alert(url);
+	
+	
 
 	fileReader.onload = function(fileLoadedEvent) 
 	{
@@ -76,11 +88,18 @@ function loadDriveFileAsText(url)
 		document.getElementById("inputTextToSave").value = textFromFileLoaded;
 	};
 
+fileReader.readAsDataURL(fileToLoad);
+//	fileReader.readAsText(fileToLoad, "UTF-8");
+  }
+};
+xhr.send();
 
-	fileReader.readAsText(fileToLoad, "UTF-8");
-	*/
 
-	
+
+
+
+
+
 }
 
 /*
