@@ -42,6 +42,9 @@ class PostsController < ApplicationController
     end
     if @post.body.blank?
       @post.body = Faker::Lorem.paragraphs
+      @post.body.gsub! '["', '<p>'
+      @post.body.gsub! '", "', '</p><p>'
+      @post.body.gsub! '"]', '</p>'
       @message += " Random text was generated for the post."
     end
 

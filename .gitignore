@@ -12,3 +12,5 @@
 !/log/.keep
 /tmp
 /*.cmd
+Gemfile.lock
+Gemfile.lock

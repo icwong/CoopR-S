@@ -1,3 +1,7 @@
+<% content_for :mHeader do %>
+    <%= stylesheet_link_tag 'table', 'data-turbolinks-track' => true %>
+<% end %>
+
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
@@ -8,11 +12,8 @@
       updateUrl();
     </script>
         
-        <!--<div id="left">-->
         <%= link_to "PROTECTED", {:controller => :protected, :action => :index} %>
-        <!--</div>-->
         
-        <!--<div id="left">-->
         <% if user_signed_in? %>
         
             <% if current_user.admin? %>
@@ -20,44 +21,50 @@
             <% else %>
                 <%= link_to('Edit Preference', edit_preference_path( current_user.id ) ) %>        
             <% end %>
-            
-                <%= link_to('Write a post', new_post_path ) %>     
-            <% else %>
-            
-                <%= link_to('LOGIN', new_user_session_path)  %>  
-            <% end %>
-        
-        <a href="/users/sign_up"></a>
-    
-        <!--</div>-->
-    </div>
+                <a href="/posts/new" data-turbolinks="false">Write a post</a>  
+                <%= link_to 'Test email', { controller: "authentications", action: "mail", :uid => current_user.id } %>
+        <% else %>
+                <a href="/users/sign_up">Register</a>
+                <%= link_to('LOGIN', new_user_session_path)  %> 
+                <a href="/text">Lorem</a>
+        <% end %>
+
 <% end %>
 
 
+<div class="table-title">
+        <h3>Listing Posts</h3>
+</div>
 
-    
-    
+<table class="table-list-posts">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Owner</th>
+      <th></th>
+    </tr>
+  </thead>
 
-<!--Postings-->
-<!--<h1>Listing Posts</h1>-->
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr id="PID<%= post.id %>">
+        <td><%= post.title %></td>
+        <td><%= post.type %></td>
+        <td><%= post.owner_name %></td>
+        <td>
+          <div class="text-button">
+              <a class="text-button" href="#" onclick="addToCompareList( <%= post.id %> ); return false; ">Compare</a>
+              <span><sup>+</sup></span>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<!--<table>-->
-<!--  <thead>-->
-<!--    <tr>-->
-<!--      <th>Title</th>-->
-<!--      <th>Type</th>-->
-<!--      <th>Owner</th>-->
-<!--    </tr>-->
-<!--  </thead>-->
-
-<!--  <tbody>-->
-<!--    % @posts.each do |post| %>-->
-<!--      <tr>-->
-<!--        <td>%= post.title %></td>-->
-<!--        <td>%= post.type %></td>-->
-<!--        <td>%= post.owner_name %></td>-->
-<!--      </tr>-->
-<!--    % end %>-->
-<!--  </tbody>-->
-<!--</table>-->
-
+<div align="right" style="margin-right: 10%">
+  <button class="button" onclick="clearCompareList()">Clear List</button>
+  <button id="btnCompare" class="button" onclick="compare()">Start Compare</button>
+  <script type="text/javascript">isComparable();</script>
+</div>

@@ -66,13 +66,20 @@ function loadDriveFileAsText(url)
 	var fileToLoad = url;
 
 	var fileReader = new FileReader();
+
+	fileReader.readAsDataURL(blob);
+	/*
+
 	fileReader.onload = function(fileLoadedEvent) 
 	{
 		var textFromFileLoaded = fileLoadedEvent.target.result;
 		document.getElementById("inputTextToSave").value = textFromFileLoaded;
 	};
+
+
 	fileReader.readAsText(fileToLoad, "UTF-8");
-	
+	*/
+
 	
 }
 

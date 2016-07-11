@@ -11,13 +11,12 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-gem 'coffee-script-source', '~> 1.8.0'  
+gem 'coffee-script-source', '~> 1.2.0'  
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # CUSTOMISE GEMS AREA
 # UI
-gem 'font-awesome-sass' #FontAwesome Icons
 
 #cloud storage
 gem 'google-api-client'
@@ -30,6 +29,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'devise', '4.1.1'
 gem 'devise_zxcvbn'
 gem "password_strength"
+gem 'autoprefixer-rails'
 
 # POST
 gem 'faker'
@@ -51,9 +51,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-gem 'bootstrap-sass', '~> 3.2.0'
-gem 'autoprefixer-rails'
 
 
 group :development, :test do

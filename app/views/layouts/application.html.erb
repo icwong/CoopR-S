@@ -2,11 +2,11 @@
 <html>
     <head>
       <title>CoopRS</title>
-      
-      <%= yield :mHeader %>
     
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= yield :mHeader %>
+      
       <%= favicon_link_tag 'dummy.ico' %>
       <%= csrf_meta_tags %>
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,40 +15,20 @@
     <body>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-            
-        <%= render 'layouts/header' %>
-        
     
+    <div>
+      <a href="/">COOPR&amp;S</a>
+      <%= yield :mLogin %>
+    </div>
 
-        
-    
+    <div>
+      <%= yield :mFrame %>
+    </div>
 
-        
+    <div>
+      <%= yield %>
+    </div>
 
 
-    <%= yield %>
-            <!--Sign In & Sign Out -->
-            <!--<ul>-->
-            <!--    <hr />-->
-                <!--<div id="user_nav" >-->
-                <!--    %= yield :mLogin %-->
-                <!--</div>-->
-                
-        <!--        <ul class="hb">-->
-        <!--          <li class="hbl"><a href="/">Home</i></a></li>-->
-        <!--          <li class="hbl"><a href="#" onclick="lastUrl()">Back</i></a></li>-->
-        <!--        </ul>-->
-                
-        <!--        <div>-->
-        <!--            %= yield :mFrame %>-->
-                    
-        <!--        </div>-->
-                
-                <!--<div>-->
-                <!--%= yield %-->
-                <!--</div>-->
-        <!--    </ul>-->
-        <!--</div>-->
-        
     </body>
 </html>
