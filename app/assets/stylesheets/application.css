@@ -60,6 +60,12 @@ a.text-button:active{
     color: #000;
 }
 
+.notice{
+    color:red;font-weight: bold;top:0;
+}
+.alert{
+    color:red;font-weight: bold;top:0;
+}
 .button:hover {
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.1s;
