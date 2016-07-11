@@ -41,17 +41,29 @@
       <th>Title</th>
       <th>Type</th>
       <th>Owner</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @posts.each do |post| %>
-      <tr>
+      <tr id="PID<%= post.id %>">
         <td><%= post.title %></td>
         <td><%= post.type %></td>
         <td><%= post.owner_name %></td>
+        <td>
+          <div class="text-button">
+              <a class="text-button" href="#" onclick="addToCompareList( <%= post.id %> ); return false; ">Compare</a>
+              <span><sup>+</sup></span>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<div align="right" style="margin-right: 10%">
+  <button class="button" onclick="clearCompareList()">Clear List</button>
+  <button id="btnCompare" class="button" onclick="compare()">Start Compare</button>
+  <script type="text/javascript">isComparable();</script>
+</div>

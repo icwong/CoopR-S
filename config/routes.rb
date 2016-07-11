@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'index' => 'main#index'
   get 'text' => 'main#dummy'
   get 'edit' => 'main#editor'
+  get 'compare' => 'main#compare'
   resources :posts
   resources :preferences
   resources :protected
