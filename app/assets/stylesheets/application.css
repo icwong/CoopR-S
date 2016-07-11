@@ -36,14 +36,19 @@
 			background-color: #1b1e24;
 			text-shadow: 1px 1px 1px #bcbcbc;
 }
-
+.whole-head{
+    height: 150px;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+}
 
 .project-header{
   	padding: 0.01em 16px;
-	  display: flex;
+	display: block;
     justify-content: space-around;
-    flex-flow: row wrap;
-    height: 68px;
+    height: 78px;
     padding-top: 20px;
     line-height: 50px;
     overflow: hidden;
@@ -51,6 +56,28 @@
     
 }
 
+.top-navbar{
+    top: 120px;
+    display: block;
+    position: absolute;
+    width: 100%;
+}
+.content{
+    padding-top:200px;
+    position: static;
+}
+.project-header .slogan{
+  	
+    font-family: 'Lato', sans-serif; 
+    text-decoration: none;
+    letter-spacing: 1px;
+    color: #555555;
+    display: block;
+    position: absolute;
+    right: 0;
+  	top: 65px;
+  	overflow: hidden;
+}
 .project-title {
 	margin-left: 7%;
 	width: auto;
@@ -69,6 +96,22 @@
     font-weight: bold;
 }
 
+.project-header .toptext {
+    position: absolute;
+	overflow: hidden;
+    padding-left: 1em;
+    text-align: center;
+    display: block;
+    top: 84px;
+    margin-left: 7%;
+    letter-spacing: 4px;
+    font-family: "Segoe UI",Arial,sans-serif;
+	width: auto;
+    text-decoration: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 .R-S{
     display: inline-block;
     font-weight: 900;
@@ -131,21 +174,8 @@ a {
     background-color: transparent;
 }
 
-.left {
-  flex: 1 1 1%;
-  padding-right: 1em;
-}
-.toptext {
-    position: relative;
-	  overflow: hidden;
-  	flex: 1 1 1%;
-    padding-left: 1em;
-    text-align: center;
-    display: block;
-    margin-top: 2px;
-    letter-spacing: 4px;
-    font-family: "Segoe UI",Arial,sans-serif;
-}
+
+
 
 .topnav-icons {
     height: 25px;
