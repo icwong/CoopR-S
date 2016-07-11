@@ -295,3 +295,8 @@ li.dropdown {
   background: #D5DDE5;
   border-radius: .3em;
 }
+
+.text-div{
+    margin-left: 20%;
+    margin-right: 20%;
+}

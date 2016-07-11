@@ -9,7 +9,7 @@
             <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
             <%= form_for(@user, as: :user, url: "/users/sign_in") do |f| %>
             <div class="field">
-              <%= f.email_field :email, placeholder: "Email", :class => 'form-control input-lg', :autofocus => true %>
+              <%= f.email_field :email, placeholder: "Email", :class => 'form-control input-lg', :autofocus => true %></br>
               <%= f.password_field :password, placeholder: "Password", :class => 'form-control input-lg', :autofocus => true, :autocomplete => :off %>
             </div>
             
