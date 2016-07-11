@@ -1,0 +1,77 @@
+.user-profile {
+  margin-left: 10%;
+  width: 40em;
+  font-size: 20px;
+  background: #D5DDE5;
+  border-radius: .3em;
+}
+
+.user-profile .left {
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  width: 40%;
+  font-weight: bold;
+}
+
+.user-profile .right {
+  padding: 0 5px 10px;
+  
+}
+
+.user-profile .username {
+  margin: auto;
+  margin-top: -160px;
+  margin-left: 200px;
+  color: #1b1e24;
+  font-size: 1.73em;
+  font-family: "Coda", sans-serif;
+  font-weight: bold;
+}
+
+.user-profile .school {
+  margin-left: 200px;
+  margin-top: 10px;
+  display: inline-block;
+  color: #e76043;
+  font-size: 20px;
+  font-family: "varela round", sans-serif;
+}
+
+.user-profile > .description {
+  margin-top: 1.35em;
+  margin-left: 200px;
+  width: 14em;
+  color: #000000;
+  font-size: .87em;
+  font-family: "varela round", sans-serif;
+}
+
+.user-profile > img.avatar {
+  padding: .7em;
+  margin-left: .3em;
+  margin-top: .3em;
+  height: 8em;
+  width: 8em;
+  border-radius: 18em;
+}
+
+.user-profile div.details {
+  margin: 2em auto 1em;
+  background: #4E5066;
+  text-align: center;
+  border-radius: 0 0 .3em .3em;
+}
+
+.user-profile .profiletitle {
+  font-family: "varela round", sans-serif;
+  color: #e3eeee;
+  white-space: nowrap;
+  font-size: 1.27em;
+  font-weight: bold;
+}
+
+.user-profile span:hover {
+  color: #daebea;
+}
+

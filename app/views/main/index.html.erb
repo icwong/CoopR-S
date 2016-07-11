@@ -1,5 +1,5 @@
 <% content_for :mHeader do %>
-    <%= stylesheet_link_tag 'table', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 <% end %>
 
 <% content_for :mLogin do %>
@@ -11,22 +11,6 @@
     <script type="text/javascript">
       updateUrl();
     </script>
-        
-        <%= link_to "PROTECTED", {:controller => :protected, :action => :index} %>
-        
-        <% if user_signed_in? %>
-        
-            <% if current_user.admin? %>
-                <a href="/admin/">Admin page</a>     
-            <% else %>
-                <%= link_to('Edit Preference', edit_preference_path( current_user.id ) ) %>        
-            <% end %>
-                <a href="/posts/new" data-turbolinks="false">Write a post</a>  
-        <% else %>
-                <a href="/users/sign_up">Register</a>
-                <%= link_to('LOGIN', new_user_session_path)  %> 
-                <a href="/text">Lorem</a>
-        <% end %>
 
 <% end %>
 
@@ -35,7 +19,7 @@
         <h3>Listing Posts</h3>
 </div>
 
-<table class="table-list-posts">
+<table class="table-list-users">
   <thead>
     <tr>
       <th>Title</th>
