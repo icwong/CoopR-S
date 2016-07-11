@@ -22,6 +22,9 @@
 var LAST_LOCATION = "lastUrl";
 var CURR_LOCATION = "currUrl";
 
+var JOB_ONE = "j1";
+var JOB_TWO = "j2";
+
 function updateUrl() {
     var newUrl = window.location.href;
 	if( document.cookie.indexOf(CURR_LOCATION) >= 0 ) {
@@ -68,3 +71,48 @@ function getCookie(cname) {
     return "";
 }
 
+function clearCompareList() {
+    document.cookie = JOB_ONE + "=" + ";";
+    document.cookie = JOB_TWO + "=" + ";";
+    isComparable();
+}
+
+function addToCompareList( pid ) {
+    var j1 = getCookie( JOB_ONE );
+    if( j1 == "" ) {
+        document.cookie =   JOB_ONE + "=" + pid + ";";
+    } else {
+        var j2 = getCookie( JOB_TWO );
+        if( j2 == "" ) {
+            if ( j1 != j2 ) document.cookie =   JOB_TWO + "=" + pid + ";";
+        } else {
+            window.alert("Comparison list is full; remove items before adding a new one.");
+        }
+        isComparable();
+    }
+}
+
+function isComparable() {
+    var me = document.getElementById('btnCompare');
+    if( null !== me ) {
+        if( getCookie( JOB_TWO ) == "") {
+            me.disabled = true;
+        } else {
+            me.disabled = false;
+        }
+    }
+}
+
+function compare() {
+    window.location.href = "/compare?j1=" + getCookie( JOB_ONE ) + '&j2=' + getCookie( JOB_TWO );
+    // $.ajax({
+    //     type: 'get',
+    //     url:"compare",
+    //     data:'j1=' + getCookie( JOB_ONE ) + '&j2=' + getCookie( JOB_TWO ),
+    //     cache:false,
+    //     success:function (data) {
+    //     },
+    //     error: function (data) {
+    //     }
+    // })
+}

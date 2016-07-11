@@ -14,6 +14,52 @@
  *= require_self
  */
 
+div.text-button {
+	text-align: center;
+	background-color: #DDD;
+	border: 5px solid #DDD;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+div.text-button:link{
+	border: 5px solid #DDD;
+}
+div.text-button:visited{
+	border: 5px solid #DDD;
+    color: #000;
+}
+div.text-button:hover{
+	border: 5px solid #DDD;
+    color: #333;
+}
+div.text-button:active{
+	border: 5px solid #DDD;
+    color: #000;
+}
+
+a.text-button {
+	margin: 0px;
+	border: 0px;
+    font-size: 100%;
+    vertical-align:middle;
+    text-decoration: none;
+}
+
+a.text-button:link{
+    color: #000;
+}
+a.text-button:visited{
+    color: #000;
+}
+a.text-button:hover{
+    color: #333;
+}
+a.text-button:active{
+    color: #000;
+}
+
 .button:hover {
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.1s;
