@@ -25,9 +25,9 @@
     <%= @post.owner_name %>
   </p>
 </div>
-<%= link_to '<button class="smallbutton" type="button">Edit</button>'.html_safe, edit_post_path(@post) %> 
+<%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_post_path(@post) %> 
 <% if current_user.admin? %>
-        <%= link_to '<button class="smallbutton" type="button">Back</button>'.html_safe, posts_path %>
+        <%= link_to '<button class="button" type="button">Back</button>'.html_safe, posts_path %>
 <% else %>
-        <%= link_to '<button class="smallbutton" type="button">Back</button>'.html_safe, root_path %>
+        <%= link_to '<button class="button" type="button">Back</button>'.html_safe, root_path %>
 <% end %> 
