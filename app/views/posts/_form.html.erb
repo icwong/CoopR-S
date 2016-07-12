@@ -2,9 +2,7 @@
   <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
   <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
 <% end %>
-<% content_for :mLogin do %>
-    <%= render :partial => '/login/login' %>
-<% end %>
+
 <%= form_for(@post, as: :post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -19,13 +17,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :title ,"TITLE —" ,class: "input-title" %> 
+    <%= f.text_field :title , class: "form-control form-control-style input-lg" %>
   </div>
+  
+  <br>
+  <br>
+  
   <div class="field" data-turbolinks="false">
-    <%= f.label :body %><br>
-    <%= f.text_area :body, class: 'wymeditor' %>
+    <%= f.text_area :body, class: 'wymeditor', value: 'Hello' %>
   </div>
+  
+  <br>
+  <br>
+  
   <% if current_user.admin? %>
     <div class="field">
       <%= f.radio_button :type, 'Review', :checked => true %> 
@@ -36,7 +41,7 @@
   <% end %>
 
   <div class="actions" data-turbolinks="false">
-    <%= f.submit class: 'submitbutton' %>
+    <%= f.submit class: 'wymupdate btn btn-default'%>
   </div>
 <% end %>
 
