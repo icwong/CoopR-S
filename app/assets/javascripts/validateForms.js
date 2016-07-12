@@ -71,4 +71,3 @@ function passwordsMatch() {
     document.getElementById("user_password_confirmation").valid = false;
   }
 }
- 
