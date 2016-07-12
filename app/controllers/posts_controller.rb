@@ -40,7 +40,14 @@ class PostsController < ApplicationController
       @post.title = Faker::Lorem.sentence
       @message += " Random title was generated for the post."
     end
-
+    if @post.body.blank?
+      @post.body = Faker::Lorem.paragraphs
+      @post.body.gsub! '["', '<p>'
+      @post.body.gsub! '", "', '</p><p>'
+      @post.body.gsub! '"]', '</p>'
+      @message += " Random text was generated for the post."
+    end
+    
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' + @message }
