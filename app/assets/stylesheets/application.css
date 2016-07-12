@@ -357,7 +357,7 @@ li.dropdown {
  /*===============================LOGIN======================================*/
 
 .login-form{
-    position: fixed;
+    position: absolute;
     margin-top: 100px;
     width: 900px;
     margin-left:30%;
