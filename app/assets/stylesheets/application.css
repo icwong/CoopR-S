@@ -88,7 +88,7 @@ a.text-button:active{
 			background-color: #1b1e24;
 			text-shadow: 1px 1px 1px #bcbcbc;
 }
-.submitbutton:hover {
+.submitbutton,.loginbutton:hover {
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.1s;
 	    	background-color: #D5DDE5;
@@ -109,6 +109,20 @@ a.text-button:active{
 			margin-right: 5px;
 			background-color: #1b1e24;
 			text-shadow: 1px 1px 1px #bcbcbc;
+}
+.loginbutton{
+        margin-left: 5px;
+		font-size: 12pt;
+		color: #D5DDE5;
+		border: none;
+		border-radius: 5px;
+		vertical-align: center;
+    	height: 50px;
+		width: 150px;
+		margin-top: 30px;
+		margin-right: 5px;
+		background-color: #1b1e24;
+		text-shadow: 1px 1px 1px #bcbcbc;
 }
 .pro-form{
       margin-left: 10%;
@@ -339,3 +353,15 @@ li.dropdown {
     margin-left: 20%;
     margin-right: 20%;
 }
+
+ /*===============================LOGIN======================================*/
+
+.login-form{
+    position: fixed;
+    margin-top: 100px;
+    width: 900px;
+    margin-left:30%;
+   
+}
+
+

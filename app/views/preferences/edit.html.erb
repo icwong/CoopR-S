@@ -1,6 +1,8 @@
-<h1>Editing Preference</h1>
+<div class="table-title">
+        <h3>Editing Preference</h3>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @preference %> |
-<%= link_to 'Back', preferences_path %>
+<%= link_to '<button class="button" type="button">Show</button>'.html_safe, @preference %> 
+<%= link_to '<button class="button" type="button">Back</button>'.html_safe, preferences_path %>
