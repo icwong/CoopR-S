@@ -2,7 +2,9 @@
   <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
   <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
 <% end %>
-
+<% content_for :mLogin do %>
+    <%= render :partial => '/login/login' %>
+<% end %>
 <%= form_for(@post, as: :post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
