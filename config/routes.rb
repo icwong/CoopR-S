@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   get 'text' => 'main#dummy'
   get 'edit' => 'main#editor'
   get 'compare' => 'main#compare'
+  get 'mail' => 'authentications#mail'
+  get 'verify' => 'authentications#verify'
+  get 'compare' => 'main#compare'
   resources :posts
   resources :preferences
-  resources :protected
   devise_for :users, :controllers => {:registrations => "registrations"}
   
   # The priority is based upon order of creation: first created -> highest priority.
