@@ -37,7 +37,7 @@ function validatePassword()
   passwordsMatch();
   
   updateMeter(score);
-  
+   
   if(password.length >= 6)
   {
     if(score < 2){
