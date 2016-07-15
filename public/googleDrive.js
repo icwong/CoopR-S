@@ -79,7 +79,10 @@ xhr.onload = function(e) {
 	{
 		var textFromFileLoaded = fileLoadedEvent.target.result;
 	//	putText( textFromFileLoaded );
-		 document.getElementById("inputTextToSave").value = textFromFileLoaded;
+		 //document.getElementById("inputTextToSave").value = textFromFileLoaded;
+		
+		 document.getElementById("post_body").innerHTML = textFromFileLoaded;
+		 
 		 //document.getElementById("post_attachment").value = textFromFileLoaded;
 		 //document.cookie = "temp=" + textFromFileLoaded;
 		//document.getElementById("inputTextToSave").text_area = textFromFileLoaded;
