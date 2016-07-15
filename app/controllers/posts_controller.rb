@@ -47,7 +47,7 @@ class PostsController < ApplicationController
       @post.body.gsub! '"]', '</p>'
       @message += " Random text was generated for the post."
     end
-
+    
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' + @message }

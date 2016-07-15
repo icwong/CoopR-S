@@ -7,7 +7,7 @@ user_email:invalid + #emailCheck {
     display: inline;
 }
 */
-/*
+
 #emailCheck {
     display: none;
     height: 16px;
@@ -35,4 +35,4 @@ user_email:invalid + #emailCheck {
 #user_password_confirmation  {
     border-width: 3px;
 }
-*/
+

@@ -1,3 +1,6 @@
+<% content_for :mLogin do %>
+    <%= render :partial => '/login/login' %>
+<% end %>
 <p id="notice"><%= notice %></p>
 
 <div class="table-title">
@@ -15,11 +18,12 @@
     <%=raw @post.body %>
   </p>
 
+ <% if current_user.admin? %>
   <p>
     <strong>Type:</strong>
     <%= @post.type %>
   </p>
-
+  <% end %>
   <p>
     <strong>Owner:</strong>
     <%= @post.owner_name %>

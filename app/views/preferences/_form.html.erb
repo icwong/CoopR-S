@@ -1,3 +1,6 @@
+<% content_for :mLogin do %>
+    <%= render :partial => '/login/login' %>
+<% end %>
 <%= form_for(@preference) do |f| %>
   <% if @preference.errors.any? %>
     <div id="error_explanation">

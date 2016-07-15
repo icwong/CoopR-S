@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :histories
   resources :profiles
   resources :tags
-  root 'main#home'
+  root 'main#index'
   get 'admin' => 'admin#index'
   get 'index' => 'main#index'
   get 'text' => 'main#dummy'
@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   get 'compare' => 'main#compare'
   resources :posts
   resources :preferences
-  resources :protected
   devise_for :users, :controllers => {:registrations => "registrations"}
   
   # The priority is based upon order of creation: first created -> highest priority.
