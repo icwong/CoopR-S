@@ -1,5 +1,11 @@
-<h1>New Post</h1>
+<div class="table-title">
+        <h3>New Post</h3>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', posts_path %>
+<% if current_user.admin? %>
+        <a href="#" onclick="lastUrl(); return false; ">Back</a>
+<% else %>
+        <%= link_to '<button class="button" type="button">Back</button>'.html_safe, root_path %>
+<% end %> 

@@ -1,5 +1,5 @@
 class AuthenticationsController < ApplicationController
-  skip_before_action :authenticate_user!
+    skip_before_action :authenticate_user!
 
 	def mail
 		@uid = params[:uid]

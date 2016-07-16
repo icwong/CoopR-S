@@ -1,18 +1,12 @@
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
+    <%= stylesheet_link_tag 'table', 'data-turbolinks-track' => true %>
 <% end %>
 
-<link rel="stylesheet" type="text/css" href="table.css">
 <% content_for :mFrame do %>
 <script type="text/javascript">
   updateUrl();
 </script>
-
-	<% if current_user.admin? %>
-     <ul>
-        <li><%= link_to('Write a post', new_post_path, 'data-no-turbolink' => true ) %></li>
-        <li><%= link_to('Manage posts', posts_path) %></li>
-     </ul>
 
      <div class="table-title">
         <h3>Listing Users</h3>
@@ -42,7 +36,5 @@
       </tbody>
   </table>
   
-    <% else %>
-     <p>nothing</p>
-    <% end %>
+
 <% end %>

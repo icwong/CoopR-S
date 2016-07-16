@@ -11,23 +11,9 @@
     <script type="text/javascript">
       updateUrl();
     </script>
-        
-        <%= link_to "PROTECTED", {:controller => :protected, :action => :index} %>
-        
-        <% if user_signed_in? %>
-        
-            <% if current_user.admin? %>
-                <a href="/admin/">Admin page</a>     
-            <% else %>
-                <%= link_to('Edit Preference', edit_preference_path( current_user.id ) ) %>        
-            <% end %>
-                <a href="/posts/new" data-turbolinks="false">Write a post</a>  
+
+
                 <%= link_to 'Test email', { controller: "authentications", action: "mail", :uid => current_user.id } %>
-        <% else %>
-                <a href="/users/sign_up">Register</a>
-                <%= link_to('LOGIN', new_user_session_path)  %> 
-                <a href="/text">Lorem</a>
-        <% end %>
 
 <% end %>
 

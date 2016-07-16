@@ -17,13 +17,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :title ,"TITLE" ,class: "input-title" %> 
+    <br>
+    <%= f.text_field :title , class: "form-control form-control-style input-lg" %>
   </div>
+  
+  <br>
+  <br>
+  
   <div class="field" data-turbolinks="false">
-    <%= f.label :body %><br>
     <%= f.text_area :body, class: 'wymeditor' %>
   </div>
+  
+  <br>
+  <br>
+  
   <% if current_user.admin? %>
     <div class="field">
       <%= f.radio_button :type, 'Review', :checked => true %> 
@@ -34,7 +42,7 @@
   <% end %>
 
   <div class="actions" data-turbolinks="false">
-    <%= f.submit class: 'submitbutton' %>
+    <%= f.submit class: 'wymupdate btn btn-default'%>
   </div>
 <% end %>
 

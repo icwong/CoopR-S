@@ -9,9 +9,13 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-Rails.application.config.assets.precompile += %w( passwordMeter.js )
+Rails.application.config.assets.precompile += %w( validateForms.js )
 Rails.application.config.assets.precompile += %w( faker.js )
 Rails.application.config.assets.precompile += %w( random.js )
+Rails.application.config.assets.precompile += %w( zxcvbn.js )
 Rails.application.config.assets.precompile += %w( wymeditor/jquery.wymeditor.js )
 Rails.application.config.assets.precompile += %w( wymeditor/skins/default/skin.css )
 Rails.application.config.assets.precompile += %w( table.css )
+Rails.application.config.assets.precompile += %w( slide.css )
+Rails.application.config.assets.precompile += %w( post_edit.css )
+Rails.application.config.assets.precompile += %w( profilepage.css )

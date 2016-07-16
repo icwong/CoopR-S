@@ -1,35 +1,53 @@
-<div class="container">
-  <div class="row" id="pwd-container">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <section class="login-form">
-        
-        <!--<form method="post" action="#" role="login">-->
-          <div id="loginContainer">
-            <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
-            <%= form_for(@user, as: :user, url: "/users/sign_in") do |f| %>
-            <div class="field">
-              <%= f.email_field :email, placeholder: "Email", :class => 'form-control input-lg', :autofocus => true %>
-              <%= f.password_field :password, placeholder: "Password", :class => 'form-control input-lg', :autofocus => true, :autocomplete => :off %>
+<div id="login-wrap">
+  <div class="container ">
+    <div class="row">
+      <div class="col-md-4"></div>
+        <div class="col-md-5">
+              
+          <div class="login-form">
+              <!--<form method="post" action="#" role="login">-->
+            <div id="login-container">
+              
+              <div class="panel" style: "border: 2px solid #374f6e">
+                
+    			      <div class="panel-body">
+                  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    
+                  <div class="field">
+                    <%= f.label :Email %></br>
+                    <%= f.email_field :email, placeholder: "Email", :class => 'form-control input-lg', :autofocus => true %>
+                    <br>
+                    <%= f.label :Password %></br>
+                    <%= f.password_field :password, placeholder: "Password", :class => 'form-control input-lg', :autofocus => true, :autocomplete => :off %>
+                  </div>
+                    
+                  <br>
+                    
+                  <div class="actions">
+                    <%= f.submit "LOGIN", :class => 'loginbutton ', style: "background-color: #374f6e; color: white; font-weight: bold; border: 2px solid #0EAD69" %>
+                  </div>
+                    
+                  <br>
+                    
+                  <% if devise_mapping.rememberable? %>
+                    <!--<div class="field">-->
+                      <%= f.check_box :remember_me %> Remember Me
+                      <!--%= f.label :remember_me %-->
+                      <!--</div>-->
+                  <% end %>
+                    
+                  </br>
+                  <%= render "users/shared/links" %>
+                </div>
+              </div>
+                  
             </div>
-            
-            <div class="actions">
-              <%= f.submit "LOGIN", :class => 'button btn-success btn-lg btn-primary btn-block' %>
-            </div>
-            
-            <% if devise_mapping.rememberable? %>
-              <!--<div class="field">-->
-                <%= f.check_box :remember_me %> Remember Me
-                <!--%= f.label :remember_me %-->
-              <!--</div>-->
-            <% end %>
-            
-            <br />
-            <%= render "users/shared/links" %>
+            <div class="col-md-3"></div>
+                
           </div>
-        <!--</form>-->
-      </section>
+        </div>
+      </div>
     </div>
-  </div>
+  
+  <% end %>
 </div>
-<% end %>

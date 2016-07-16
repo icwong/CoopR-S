@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :authentications
   resources :histories
   resources :profiles
   resources :tags
@@ -10,10 +11,9 @@ Rails.application.routes.draw do
   get 'compare' => 'main#compare'
   get 'mail' => 'authentications#mail'
   get 'verify' => 'authentications#verify'
-
+  get 'compare' => 'main#compare'
   resources :posts
   resources :preferences
-  resources :protected
   devise_for :users, :controllers => {:registrations => "registrations"}
   
   # The priority is based upon order of creation: first created -> highest priority.
