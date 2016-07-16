@@ -1,5 +1,5 @@
 <% content_for :mHeader do %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'table', 'data-turbolinks-track' => true %>
 <% end %>
 
 <% content_for :mLogin do %>
@@ -11,6 +11,9 @@
     <script type="text/javascript">
       updateUrl();
     </script>
+    <% if user_signed_in? %>
+        <%= link_to 'Test email', { controller: "authentications", action: "mail", :uid => current_user.id } %>
+    <% end %>
 
 <% end %>
 
@@ -19,7 +22,7 @@
         <h3>Listing Posts</h3>
 </div>
 
-<table class="table-list-users">
+<table class="table-list-posts">
   <thead>
     <tr>
       <th>Title</th>
