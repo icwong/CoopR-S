@@ -11,9 +11,9 @@
     <script type="text/javascript">
       updateUrl();
     </script>
-
-
-                <%= link_to 'Test email', { controller: "authentications", action: "mail", :uid => current_user.id } %>
+    <% if user_signed_in? %>
+        <%= link_to 'Test email', { controller: "authentications", action: "mail", :uid => current_user.id } %>
+    <% end %>
 
 <% end %>
 
