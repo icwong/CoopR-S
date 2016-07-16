@@ -78,16 +78,18 @@ function clearCompareList() {
 }
 
 function addToCompareList( pid ) {
-    var j1 = getCookie( JOB_ONE );
-    if( j1 == "" ) {
+    var temp = getCookie( JOB_ONE );
+    if( temp == "" ) {
         document.cookie =   JOB_ONE + "=" + pid + ";";
     } else {
-        var j2 = getCookie( JOB_TWO );
-        if( j2 == "" ) {
-            if ( j1 != j2 ) document.cookie =   JOB_TWO + "=" + pid + ";";
-        } else {
-            window.alert("Comparison list is full; remove items before adding a new one.");
-        }
+        if ( temp != pid ) {
+            temp = getCookie( JOB_TWO );
+            if( temp == "" ) {
+                document.cookie = JOB_TWO + "=" + pid + ";";
+            }   else {
+                window.alert("Comparison list is full; remove items before adding a new one.");
+            }
+        } 
         isComparable();
     }
 }
