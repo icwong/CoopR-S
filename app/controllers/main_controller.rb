@@ -4,10 +4,8 @@ class MainController < ApplicationController
     @posts = Post.all.order(id: :asc)
   end
 
-
   def dummy
   end
-
 
   def editor
   end

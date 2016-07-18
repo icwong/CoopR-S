@@ -5,7 +5,16 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new
+        pdf.text "Hello World"
+        send_data pdf.render, filename: 'comparetable.pdf', type: 'application/pdf'
+      end
+    end
   end
+
 
   # GET /posts/1
   # GET /posts/1.json
