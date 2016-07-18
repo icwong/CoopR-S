@@ -81,8 +81,9 @@ xhr.onload = function(e) {
 	//	putText( textFromFileLoaded );
 		 //document.getElementById("inputTextToSave").value = textFromFileLoaded;
 		
-		 document.getElementById("post_body").innerHTML = textFromFileLoaded;
+		 //document.getElementById("post_body").innerHTML = textFromFileLoaded;
 		 
+		 WYMeditor.INSTANCES[0].html(textFromFileLoaded);
 		 //document.getElementById("post_attachment").value = textFromFileLoaded;
 		 //document.cookie = "temp=" + textFromFileLoaded;
 		//document.getElementById("inputTextToSave").text_area = textFromFileLoaded;

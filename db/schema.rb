@@ -40,12 +40,15 @@ ActiveRecord::Schema.define(version: 20160708071913) do
   add_index "histories", ["user_id"], name: "index_histories_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
+    t.integer  "owner"
+    t.integer  "status"
     t.string   "title"
     t.text     "body"
     t.string   "type"
-    t.integer  "owner"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "created_date"
+    t.date     "last_edit_date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "posts", ["owner"], name: "index_posts_on_owner", using: :btree
@@ -68,6 +71,17 @@ ActiveRecord::Schema.define(version: 20160708071913) do
     t.string   "phone"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "sex"
+    t.float    "weight"
+    t.float    "height"
+    t.string   "color"
+    t.float    "gpa"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|
