@@ -2,6 +2,13 @@ class MainController < ApplicationController
   skip_before_action :authenticate_user!
   def index
     @posts = Post.all.order(id: :asc)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = JobcomparisonPdf.new(@posts)
+        send_data pdf.render, filename: 'Postings.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   def dummy
