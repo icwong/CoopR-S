@@ -22,7 +22,7 @@
         <h3>Listing Posts</h3>
 </div>
 
-<table class="table-list-posts">
+<table class="table-list-users">
   <thead>
     <tr>
       <th>Title</th>
@@ -35,12 +35,9 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr id="PID<%= post.id %>">
-        <td><%= post.title %></td>
+        <td class="noselect" onclick="window.location='/posts/<%= post.id %>'"><%= post.title %></td>
         <td><%= post.type %></td>
-        <td><%= post.owner_name %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="noselect" onclick="alert('UID: <%= post.owner %>');"><%= post.owner_name %></td>
         <td>
           <div class="text-button">
               <a class="text-button" href="#" onclick="addToCompareList( <%= post.id %> ); return false; ">Compare</a>
