@@ -9,8 +9,7 @@ class PostsController < ApplicationController
       format.html
       format.pdf do
         pdf = Prawn::Document.new
-        pdf.text "Hello World"
-        send_data pdf.render, filename: 'comparetable.pdf', type: 'application/pdf'
+        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf'
       end
     end
   end
@@ -66,6 +65,8 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+    
+    
   end
 
   # PATCH/PUT /posts/1
@@ -103,3 +104,5 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :body, :type, :owner)
     end
 end
+
+

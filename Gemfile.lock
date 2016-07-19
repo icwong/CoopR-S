@@ -97,10 +97,13 @@ GEM
     orm_adapter (0.5.0)
     password_strength (1.1.4)
       activemodel
-    pdfkit (0.8.2)
+    pdf-core (0.6.1)
     pg (0.18.4)
     pg (0.18.4-x86-mingw32)
     pkg-config (1.1.7)
+    prawn (2.1.0)
+      pdf-core (~> 0.6.1)
+      ttfunk (~> 1.4.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -153,6 +156,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    ttfunk (1.4.0)
     turbolinks (5.0.0)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
@@ -187,8 +191,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   password_strength
-  pdfkit
   pg (~> 0.15)
+  prawn
   rails (= 4.2.6)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
