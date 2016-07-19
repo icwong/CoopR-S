@@ -135,12 +135,17 @@ a.text-button:active{
 }
 /*===============================MENU======================================*/
 .container {
+    float: right;
     display: block;
     cursor: pointer;
-    margin-top: 35px;
     
 }
-
+#menu-sign-whole{
+    right: 0;
+    top: 45px;
+    position: absolute;
+    
+}
 .bar1, .bar2, .bar3 {
     width: 35px;
     height: 5px;
@@ -180,7 +185,7 @@ a.text-button:active{
 
 /*===============================FIXED_HEAD======================================*/
 .whole-head{
-    border-bottom: 1px black dashed;
+    border-bottom: 3px #333330 solid;
     height: 120px;
     top: 0;
     left: 0;
@@ -210,7 +215,7 @@ a.text-button:active{
     width: 100%;
 }
 .content{
-    padding-top:200px;
+    padding-top:150px;
     position: static;
 }
 
@@ -428,19 +433,11 @@ li.dropdown {
     transition: 0.3s
 }
 
-/* When you mouse over the navigation links, change their color */
+/* mouse over the navigation links, change their color */
 .sidenav a:hover, .offcanvas a:focus{
     color: #f1f1f1;
 }
 
-/* Position and style the close button (top right corner) */
-.closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px !important;
-    margin-left: 50px;
-}
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main1 {
@@ -452,5 +449,4 @@ li.dropdown {
     padding: 20px;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 
