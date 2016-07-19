@@ -38,6 +38,9 @@
         <td><%= post.title %></td>
         <td><%= post.type %></td>
         <td><%= post.owner_name %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td>
           <div class="text-button">
               <a class="text-button" href="#" onclick="addToCompareList( <%= post.id %> ); return false; ">Compare</a>

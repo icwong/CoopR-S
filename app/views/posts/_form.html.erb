@@ -1,6 +1,9 @@
 <% content_for :mHeader do %>
   <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
   <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
+  <script type="text/javascript" src="/saveTextAsFile.js"></script>
+  <script type="text/javascript" src="/googleDrive.js"></script>
+
 <% end %>
 
 <%= form_for(@post, as: :post) do |f| %>
@@ -16,6 +19,13 @@
     </div>
   <% end %>
 
+  <p>upload file to editor:</p>
+   <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+
+<input type="filepicker" data-fp-apikey="ALNjEZIbJTOg3xF1Dh5vnz"
+onchange="loadDriveFileAsText(event.fpfile.url)"> 
+  
+<br><br>
   <div class="field">
     <%= f.label :title ,"TITLE" ,class: "input-title" %> 
     <br>
@@ -26,7 +36,8 @@
   <br>
   
   <div class="field" data-turbolinks="false">
-    <%= f.text_area :body, class: 'wymeditor' %>
+ <%= f.text_area :body, class: 'wymeditor' %>
+    <!--<textarea id ="post_body" class = "wymeditor"></textarea>-->
   </div>
   
   <br>
