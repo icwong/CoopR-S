@@ -13,7 +13,7 @@ function selectSourceFile(){
     return false;
 	
 }
-
+  
 
 
 function saveTextAsDriveFile()
@@ -22,12 +22,31 @@ function saveTextAsDriveFile()
 	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
 	var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
 	
+	var blob = {
+	// text: ,
+  url: 'https://www.filestackapi.com/api/file/AMltoa8ATECOsFTMduLz',
+  filename: 'hello.txt',
+  mimetype: 'text/plain',
+  isWriteable: true,
+  size: 100
+	};
+	
+	filepicker.exportFile(
+  blob,
+  function(Blob){
+    console.log(Blob.url);
+  }
+	);
+	/*
 	filepicker.exportFile(
   textFileAsBlob,
   function(TextFileAsBlob){
     console.log(textFileAsBlob.url);
+    
   }
 );
+
+*/
 	/*
 	
 
