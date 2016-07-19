@@ -13,16 +13,24 @@
     </head>
     
     <body>
-        
+       
     <div class="whole-head">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      <div class="project-header">
+      <div style="float: right" onclick="OpenCloseNav()">
+        <div id="menu-sign" class="container" onclick="myFunction(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <span>MENU</span>
+        </div>
+      </div>
+      <div id="main1" class="project-header">
         <div class="left"><a class="project-title" href="/"><span class="R-S" data-letter="C">C</span>OOP<span class="R-S" data-letter="R">R</span>&amp;<span class="R-S" data-letter="S">S</span></a></div>
-        <div class="toptext">WEBSITE FOR COOP STUDENTS, REVIEWING AND SHARING</div>
+        <div id="toptext" class="toptext">WEBSITE FOR COOP STUDENTS, REVIEWING AND SHARING</div>
         <div><%= yield :mLogin %></div>
       </div>
-      <div class="top-navbar">
+      <div id="mySidenav" class="sidenav">
         <% if user_signed_in? %>
         
             <% if current_user.admin? %>
@@ -63,15 +71,18 @@
                 
           <% end %>
       </div>
-    </div>
-    <div class="content">
-      <%= yield :mFrame %>
-    </div>
-
-    <div>
-      <%= yield %>
+      
     </div>
     
+    <div id="main2">
+      <div class="content">
+        <%= yield :mFrame %>
+      </div>
+
+      <div >
+        <%= yield %>
+      </div>
+    </div>
 
     </body>
 </html>

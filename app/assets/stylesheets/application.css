@@ -13,7 +13,14 @@
  *= require_tree .
  *= require_self
  */
-
+@media (max-width: 924px) {
+        #toptext {display: none;}
+}
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+/*===============================TEXT_BUTTON======================================*/
 div.text-button {
 	text-align: center;
 	background-color: #DDD;
@@ -60,12 +67,14 @@ a.text-button:active{
     color: #000;
 }
 
+/*===============================NOTICE&ALERT MESSAGE======================================*/
 .notice{
     color:red;font-weight: bold;top:0;
 }
 .alert{
     color:red;font-weight: bold;top:0;
 }
+/*===============================BUTTON======================================*/
 .button:hover {
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.1s;
@@ -124,6 +133,40 @@ a.text-button:active{
 		background-color: #1b1e24;
 		text-shadow: 1px 1px 1px #bcbcbc;
 }
+/*===============================MENU======================================*/
+.container {
+    display: block;
+    cursor: pointer;
+    margin-top: 35px;
+    
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+/*===============================PROFILE======================================*/
 .pro-form{
       margin-left: 10%;
       width: 40em;
@@ -134,9 +177,13 @@ a.text-button:active{
 .pro-form .field{
     background: #D5DDE5;
 }
+
+/*===============================FIXED_HEAD======================================*/
 .whole-head{
-    height: 150px;
+    border-bottom: 1px black dashed;
+    height: 120px;
     top: 0;
+    left: 0;
     width: 100%;
     position: fixed;
     background-image: url("http://i.imgur.com/XY70hDK.jpg");
@@ -144,6 +191,7 @@ a.text-button:active{
 }
 
 .project-header{
+
   	padding: 0.01em 16px;
 	display: block;
     justify-content: space-around;
@@ -165,7 +213,8 @@ a.text-button:active{
     padding-top:200px;
     position: static;
 }
-.project-header .slogan{
+
+.slogan{
   	
     font-family: 'Lato', sans-serif; 
     text-decoration: none;
@@ -174,9 +223,11 @@ a.text-button:active{
     display: block;
     position: fixed;
     right: 0;
-  	top: 65px;
+    float: right;
+  	top: 0;
   	overflow: hidden;
 }
+
 .project-title {
 	margin-left: 7%;
 	width: auto;
@@ -193,11 +244,12 @@ a.text-button:active{
     top: 17px;
     padding-left: 1px;
     font-weight: bold;
+    overflow: hidden;
 }
 
 .project-header .toptext {
     position: absolute;
-	overflow: hidden;
+	overflow:hidden;
     padding-left: 1em;
     text-align: center;
     display: block;
@@ -278,24 +330,11 @@ a {
 
 .topnav-icons {
     height: 25px;
+    vertical-align:middle;
 }
 .signout-icon {
     height: 25px;
     vertical-align:middle;
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #1b1e24;
-    font-size: 18px;
-    font-weight: bold;
-    vertical-align:middle;
-}
-
-li {
-    float: left;
 }
 
 li a, .dropbtn {
@@ -364,4 +403,54 @@ li.dropdown {
    
 }
 
+
+/*======== The side navigation menu ===========================*/
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 260px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main1 {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+#main2 {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 

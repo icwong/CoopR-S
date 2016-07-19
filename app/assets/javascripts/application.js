@@ -118,3 +118,38 @@ function compare() {
     //     }
     // })
 }
+
+/*----------SIDEBAR OPEN&CLOSE-------------------*/
+var count = 1;
+
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNav() {
+    count++;
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main1").style.marginLeft = "250px";
+    document.getElementById("main2").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+    count++;
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main1").style.marginLeft = "0";
+    document.getElementById("main2").style.marginLeft = "0";
+    document.body.style.backgroundColor = "white";
+}
+function OpenCloseNav(){
+    if(count%2==1){
+        openNav();
+    }else{
+        closeNav();
+    }
+}
+
+function myFunction(x) {
+    x.classList.toggle("change");
+}
+function closeClick(x){
+    document.getElementById("closebar").style.opacity= "0"
+}

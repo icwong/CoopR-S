@@ -1,8 +1,10 @@
+
 <div id="user_signed_in" class="slogan">
+    
     <% if user_signed_in? %>
-        <b style="font-size: 16pt; top:0;">Hello <span style="color: #b2191b;"><%= current_user.display_name %></span>, welcome back!!</b> 
+        <b style="font-size: 12pt; top:0;">Hello <span style="color: #b2191b;"><%= current_user.display_name %></span>, welcome back!!</b> 
    	<% else %>
-   	     <b style="font-size: 16pt; top:0;">Not registered yet? Join us now!!</b>
+   	     <b style="font-size: 12pt; top:0;">Not registered yet? Join us now!!</b>
     <% end %>
 </div>
 
