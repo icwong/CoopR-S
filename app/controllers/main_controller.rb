@@ -3,6 +3,13 @@ class MainController < ApplicationController
   def index
     @posts = Post.all.order(id: :asc)
     @uid = params[:id]
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = JobcomparisonPdf.new(@posts)
+        send_data pdf.render, filename: 'Postings.pdf', type: 'application/pdf'
+      end
+    end
   end
 
   def filter_by_onwer
