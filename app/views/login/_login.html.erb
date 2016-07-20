@@ -2,8 +2,12 @@
 <div id="user_signed_in" class="slogan">
     
     <% if user_signed_in? %>
+        <%= link_to destroy_user_session_path, :method => :delete do %><span>Sign out &nbsp;&nbsp;</span><% end %>
         <b style="font-size: 12pt; top:0;">Hello <span style="color: #b2191b;"><%= current_user.display_name %></span>, welcome back!!</b> 
    	<% else %>
+   	     
+         <%= link_to new_user_registration_path do %><span>Sign up&nbsp;&nbsp;</span><% end %> 
+   	     <%= link_to new_user_session_path do %><span>Log in&nbsp;&nbsp;</span><% end %> 
    	     <b style="font-size: 12pt; top:0;">Not registered yet? Join us now!!</b>
     <% end %>
 </div>

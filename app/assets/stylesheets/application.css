@@ -20,6 +20,10 @@
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+body{
+    
+    background-repeat: repeat-y;
+}
 /*===============================TEXT_BUTTON======================================*/
 div.text-button {
 	text-align: center;
@@ -134,7 +138,7 @@ a.text-button:active{
 		text-shadow: 1px 1px 1px #bcbcbc;
 }
 /*===============================MENU======================================*/
-.container {
+.menu-container {
     float: right;
     display: block;
     cursor: pointer;
@@ -398,17 +402,68 @@ li.dropdown {
     margin-right: 20%;
 }
 
- /*===============================LOGIN======================================*/
+ /*===============================LOGIN_FORM======================================*/
+.whole-page{
 
+}
+.login-page {
+  width: 720px;
+  padding: 0 0;
+  margin: auto;
+}
 .login-form{
-    position: static;
-    margin-top: 100px;
-    width: 900px;
-    margin-left:30%;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 500px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
    
 }
+.login-form .inputbox{
+  font-family: "Roboto", sans-serif;
+  border: 0;
+  background: #f2f2f2;
+  width: 100%;
+  margin:0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.login-form-button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4E5066;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.login-form-button:hover, .login-form-button:active, .login-form-button:focus {
+  background: #3e4052;
+}
 
-
+.login-form-checkbox{
+    text-align: left;
+}
+.login-form-message {
+  border-bottom: 3px #666B85 dashed ;
+  font-weight: bold;
+  margin-bottom: 10px ;
+  color: #5e92bb;
+  font-size: 14pt;
+  text-decoration: none;
+}
+.login-form-message:hover{
+    color: #3e4052;
+}
 /*======== The side navigation menu ===========================*/
 .sidenav {
     height: 100%; /* 100% Full-height */

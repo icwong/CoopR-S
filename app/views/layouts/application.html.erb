@@ -10,6 +10,9 @@
       <%= favicon_link_tag 'dummy.ico' %>
       <%= csrf_meta_tags %>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script type="text/javascript">
+        updateUrl();
+      </script>
     </head>
     
     <body>
@@ -18,9 +21,9 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <div id="menu-sign-whole" style="float: right" onclick="OpenCloseNav()">
-        <div id="menu-sign" class="container" onclick="myFunction(this)">
+        <div id="menu-sign" class="menu-container" onclick="myFunction(this)">
             <div class="bar1"></div>
-            <div class="bar2"></div>
+            <div class="bar2" id="bar2"></div>
             <div class="bar3"></div>
             <span>MENU</span>
         </div>

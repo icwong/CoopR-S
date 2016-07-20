@@ -4,64 +4,50 @@
   <%= javascript_include_tag 'random', 'data-turbolinks-track' => true %>
  
 <% end %>
-
-<div id="register-wrap">
-    <div class="container">
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3"></div>
-          <div class="col-md-6">
-    			   <div class="login-form">
-    			        <div class="panel" style: "border: 2px solid #374f6e">
+<% content_for :mLogin do %>
+    <%= render :partial => '/login/login' %>
+<% end %>
+<div id="login-page">
               
+      <%= form_for @user, as: :user, :html => { :class => "login-form" }, url: {action: "create"} do |f| %>
+          <%= devise_error_messages! %>
               
-                <%= form_for @user, as: :user, url: {action: "create"} do |f| %>
-                <%= devise_error_messages! %>
-              
-                <div class="field">
-                  <%= f.label :Email %></br>
-                  <%= f.email_field :email, :class => 'form-control input-lg' , :autofocus => true, :onkeyup => "validateEmail()" %>
-                  <!--<input class= "largebutton" type="button" onClick="makeEmail('user_email')" value="Give me an email" />-->
+          <div class="field">
+                <%= f.email_field :email, placeholder:"Email", :class => 'inputbox' , :autofocus => true, :onkeyup => "validateEmail()" %>
                 <img src = "/ok-24.gif" alt="checkmark" id ="emailCheck" >
-                </div>
-              
-                <br>
-              
-                <div class="field">
-                  <%= f.label :Password %></br>
-                  
-                  
-                  <%= f.password_field :password, class: 'form-control input-lg' , autocomplete: "off", :onkeyup => "validatePassword()"  %>
+          </div>
+          </br>
+          <div class="field">
+
+                  <%= f.password_field :password, placeholder:"Password",class: 'inputbox' , autocomplete: "off", :onkeyup => "validatePassword()"  %>
                   <img src = "/ok-24.gif" alt="checkmark" id ="passwordCheck" >
                   <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <em style="float:left">(<%= @minimum_password_length %> characters minimum)</em>
                   <% end %>
-                </div>
-              
-                <br>
+                  
+          </div>
+
+          <div class="field">
+                  
+                  <%= f.password_field :password_confirmation, placeholder:"Confirm Password",class: 'inputbox' , autocomplete: "off" , autofocus: true, :onkeyup => "validatePassword()" %>
+                  <img src = "/ok-24.gif" alt="checkmark" id ="passwordConfirmationCheck"  >
+          </div>
                 
-                <div class="field">
-                  <%= f.label :Password, "Confirm Password" %></br>
-                  <%= f.password_field :password_confirmation, class: 'form-control input-lg' , autocomplete: "off" , autofocus: true, :onkeyup => "validatePassword()" %>
-                  <img src = "/ok-24.gif" alt="checkmark" id ="passwordConfirmationCheck" >
-                </div>
-                
-                <div class="meter" > 
+          <div class="meter" > 
                   <div id="passwordMeter" style=" text-align:center; height: 20px;border-radius: 5px;">
                     <span id="meterText"></span>
                   </div>
                       <!--<span id= "passwordHints">-try multi-word passwords<br>-longer is better<br>-add punctuation and digits</span>-->
-                </div>
+          </div>
 
-                <div class="field" style= "text-align: left">
+          <div class="field" style= "text-align: left">
                   <%= f.radio_button :type, 'Student', :checked => true %> STUDENT 
                   <!--%= label :type_student, 'Student' %-->
                   <%= f.radio_button :type, 'Company' %> COMPANY
                   <!--%= label :type_company, 'Company' %-->
-                </div>
+          </div>
                 
-                <br>
+          <br>
               
             <!--  <div class="field">-->
             <!--    %= fields_for :preferences do |pf| %>-->
@@ -70,19 +56,15 @@
             <!--    % end %>-->
             <!--</div>-->
               
-                <div class="actions">
-                  <%= f.submit "SUBMIT", :class => 'loginbutton btn-block btn-lg', style: "background-color: #374f6e; color: white;  border: 2px solid #FE4A49; font-weight: bold; color: white" %>
-                </div>
-    
-                <br>
-            
-                <span style="text-align: center">Already a member? <%= render "users/shared/links" %></span>
-              </div>
-            </div>
+          <div class="actions">
+                  <%= f.submit "CREATE ACCOUNT", :class => 'login-form-button' %>
           </div>
-        </div>
-    </div>  
-</div>
-
+    
+          </br>
+            
+          <span style="font-size: 16pt;margin-right: 5px;font-weight: bold;color:#333">Already a member?&nbsp;&nbsp; </span>
+          
+          <%= link_to "Log In", new_user_session_path, :class => "login-form-message" %><br />
 
 <% end %>
+</div>
