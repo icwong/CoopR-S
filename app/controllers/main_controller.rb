@@ -13,13 +13,7 @@ class MainController < ApplicationController
       @posts = Post.where("owner = ? AND type = ?", @uid, @type)
     end
     
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = JobcomparisonPdf.new(@posts)
-        send_data pdf.render, filename: 'Postings.pdf', type: 'application/pdf'
-      end
-    end
+
   end
 
   def filter_by_onwer
@@ -39,5 +33,13 @@ class MainController < ApplicationController
   def compare
     @job_one = Post.find(params[:j1])
     @job_two = Post.find(params[:j2])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = PdfController.new(@job_one, @job_two)
+        send_data pdf.render, filename: 'Posts.pdf', type: 'application/pdf'
+      end
+    end
   end
 end

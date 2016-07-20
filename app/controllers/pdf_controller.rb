@@ -1,15 +1,16 @@
-class JobcomparisonPdf < Prawn::Document
+class PdfController < Prawn::Document
     
-    def initialize(posts)
+    def initialize(job_a, job_b)
         super(top_margin: 70)
-        @posts = posts
+        @job_one = job_a
+        @job_two = job_b
         header
         table_content
     end
     
     # TITLE
     def header
-        text "REVIEW - PROMOTION POSTINGS", size: 32, style: :bold, :align => :center
+        text "Job comparison", size: 32, style: :bold, :align => :center
     end
     
     # Table Design
@@ -25,9 +26,10 @@ class JobcomparisonPdf < Prawn::Document
     
     # Table Information
     def product_rows
-        [["OWNER", "TYPE" , "DESCRIPTION"]] +
-        @posts.map do |post|
-            [post.owner_name , post.type, post.body]
-        end
+        [   
+            ["OWNER", @job_one.owner_name, @job_two.owner_name], 
+            ["TYPE" , @job_one.type, @job_two.type], 
+            ["DESCRIPTION", @job_one.body, @job_two.body]
+        ] 
     end
 end
