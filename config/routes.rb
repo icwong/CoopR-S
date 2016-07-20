@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get 'mail' => 'authentications#mail'
   get 'verify' => 'authentications#verify'
   get 'compare' => 'main#compare'
-  get 'setting' => 'setting#display'
   resources :posts
   resources :preferences
   devise_for :users, :controllers => {:registrations => "registrations"}

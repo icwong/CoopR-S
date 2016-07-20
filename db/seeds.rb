@@ -7,13 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.destroy_all;
 root = User.create!(email: 'mma140@sfu.ca', :password => 'cors2016', :password_confirmation => 'cors2016', :type => 'Admin');
-Preference.create!(name: 'Administrator', zip: 'V6R1P6', user_id: root.id);
-Profile.create!(user_id: root.id, first_name: 'Meng', last_name: 'Meng');
+Preference.create!(name: 'Administrator', user_id: root.id);
 comp = User.create!(email: 'company@domain.com', :password => 'cors2016', :password_confirmation => 'cors2016', :type => 'Company');
 Preference.create!(name: 'Mob Company', user_id: comp.id);
-Profile.create!(user_id: comp.id);
 stud = User.create!(email: 'student@domain.com', :password => 'cors2016', :password_confirmation => 'cors2016', :type => 'Student');
 Preference.create!(name: 'Mob Student', user_id: stud.id);
-Profile.create!(user_id: stud.id);
 
 
