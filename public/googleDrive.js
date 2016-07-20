@@ -80,8 +80,14 @@ function destroyClickedElement2(event)
 
 function loadDriveFileAsText(url)
 {
+	url = "https://process.filestackapi.com/ALNjEZIbJTOg3xF1Dh5vnz/output=format:html/" + url;
 var xhr = new XMLHttpRequest();
 xhr.open('GET', url, true);
+
+
+
+//url = url + 'output=format:html';
+//alert(url);
 
 xhr.responseType = 'blob';
 xhr.onload = function(e) {
@@ -91,30 +97,26 @@ xhr.onload = function(e) {
     
 
 	var fileToLoad = myBlob;
+	
+	//filepicker.convert(url, {format: 'html'} );
 
 	var fileReader = new FileReader();
 
 	fileReader.onload = function(fileLoadedEvent) 
 	{
 		var textFromFileLoaded = fileLoadedEvent.target.result;
-	//	putText( textFromFileLoaded );
-		 //document.getElementById("inputTextToSave").value = textFromFileLoaded;
-		
-		 //document.getElementById("post_body").innerHTML = textFromFileLoaded;
-		 
+
 		 WYMeditor.INSTANCES[0].html(textFromFileLoaded);
-		 //document.getElementById("post_attachment").value = textFromFileLoaded;
-		 //document.cookie = "temp=" + textFromFileLoaded;
-		//document.getElementById("inputTextToSave").text_area = textFromFileLoaded;
+
 	};
 
-//fileReader.readAsDataURL(fileToLoad);
-	fileReader.readAsText(fileToLoad, "UTF-8");
+
+//fileReader.readAsText(fileToLoad, "UTF-8");
+	fileReader.readAsText(fileToLoad);
   }
 };
 xhr.send();
 
-	//window.location.reload(false);
 	
 }
 
