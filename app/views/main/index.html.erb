@@ -35,10 +35,9 @@
 
   <tbody>
     <% @posts.each do |post| %>
-      <% if @uid == nil || post.owner.to_s  == @uid %>
       <tr id="PID<%= post.id %>">
         <td class="noselect" onclick="window.location='/posts/<%= post.id %>'"><%= post.title %></td>
-        <td><%= post.type %></td>
+        <td class="noselect" onclick="window.location='/index?type=<%= post.type %>'"><%= post.type %></td>
         <td class="noselect" onclick="window.location='/index?id=<%= post.owner %>'"><%= post.owner_name %></td>
         <td>
           <div class="text-button">
@@ -47,7 +46,6 @@
           </div>
         </td>
       </tr>
-      <% end %>
     <% end %>
   </tbody>
 </table>
