@@ -19,25 +19,45 @@
 
 
 <div class="table-title">
-        <h3>Listing Posts</h3>
+        <button onclick="switchTab()" class="button_selected" id="revCaption" disabled>Reviews</button>
+        <button onclick="switchTab()" class="button_unselected" id="proCaption">Promotions</button>
 </div>
 
-<table class="table-list-posts">
+<div class="padding">
+</div>
+
+<table class="table-list-users" id="revTable">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Type</th>
-      <th>Owner</th>
+      <th class="noselect" onclick="window.location='/index?sort_by=title'">
+        <span>Title</span>
+        <% if @sort_by.include?('title') %> 
+          <span style="float:right;">&#9660;</span>
+        <% end %>
+      </th>
+      <th class="noselect" onclick="window.location='/index?sort_by=owner'">
+        <span>Creator</span>
+        <% if @sort_by.include?('owner') %> 
+          <span style="float:right;">&#9660;</span>
+        <% end %>
+      </th>
+      <th class="noselect" onclick="window.location='/index?sort_by=updated_at'">
+        <span>Last edit</span>
+        <% if @sort_by.include?('updated_at') %> 
+          <span style="float:right;">&#9660;</span>
+        <% end %>
+      </th>
       <th></th>
     </tr>
   </thead>
 
+
   <tbody>
-    <% @posts.each do |post| %>
+    <% @reviews.each do |post| %>
       <tr id="PID<%= post.id %>">
-        <td><%= post.title %></td>
-        <td><%= post.type %></td>
-        <td><%= post.owner_name %></td>
+        <td class="noselect" onclick="window.location='/posts/<%= post.id %>'"><%= post.title %></td>
+        <td class="noselect" onclick="window.location='/index?id=<%= post.owner %>'"><%= post.owner_name %></td>
+        <td class="noselect" onclick="window.location='/index?cdate=<%= post.updated_at.to_s[0..9] %>'"><%= post.updated_at.to_s[0..9] %></td>
         <td>
           <div class="text-button">
               <a class="text-button" href="#" onclick="addToCompareList( <%= post.id %> ); return false; ">Compare</a>
@@ -48,6 +68,51 @@
     <% end %>
   </tbody>
 </table>
+
+<table class="table-list-users hidden" id="proTable">
+  <thead>
+    <tr>
+      <th class="noselect" onclick="window.location='/index?sort_by=title'">
+        <span>Title</span>
+        <% if @sort_by.include?('title') %> 
+          <span style="float:right;">&#9660;</span>
+        <% end %>
+      </th>
+      <th class="noselect" onclick="window.location='/index?sort_by=owner'">
+        <span>Creator</span>
+        <% if @sort_by.include?('owner') %> 
+          <span style="float:right;">&#9660;</span>
+        <% end %>
+      </th>
+      <th class="noselect" onclick="window.location='/index?sort_by=updated_at'">
+        <span>Last edit</span>
+        <% if @sort_by.include?('updated_at') %> 
+          <span style="float:right;">&#9660;</span>
+        <% end %>
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @promotions.each do |post| %>
+      <tr id="PID<%= post.id %>">
+        <td class="noselect" onclick="window.location='/posts/<%= post.id %>'"><%= post.title %></td>
+        <td class="noselect" onclick="window.location='/index?id=<%= post.owner %>'"><%= post.owner_name %></td>
+        <td class="noselect" onclick="window.location='/index?cdate=<%= post.updated_at.to_s[0..9] %>'"><%= post.updated_at.to_s[0..9] %></td>
+        <td>
+          <div class="text-button">
+              <a class="text-button" href="#" onclick="addToCompareList( <%= post.id %> ); return false; ">Compare</a>
+              <span><sup>+</sup></span>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 
 <div align="right" style="margin-right: 10%">
   <button class="button" onclick="clearCompareList()">Clear List</button>
