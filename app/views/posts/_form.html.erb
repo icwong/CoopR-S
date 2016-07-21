@@ -24,6 +24,7 @@
 
 <input type="filepicker" data-fp-apikey="ALNjEZIbJTOg3xF1Dh5vnz" data-fp-extensions=".doc,.docx,.txt,.rtf,.odt" 
 onchange="loadDriveFileAsText(event.fpfile.url)"> 
+  
 <br><br>
   <div class="field">
     <%= f.label :title ,"TITLE" ,class: "input-title" %> 
@@ -35,8 +36,7 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
   <br>
   
   <div class="field" data-turbolinks="false">
- <%= f.text_area :body, class: 'wymeditor' %>
-    <!--<textarea id ="post_body" class = "wymeditor"></textarea>-->
+    <%= f.text_area :body, class: 'wymeditor' %>
   </div>
   
   <br>
@@ -52,7 +52,7 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
   <% end %>
 
   <div class="actions" data-turbolinks="false">
-    <%= f.submit class: 'wymupdate btn btn-default'%>
+    <%= f.submit class: 'wymupdate button_compact'%>
   </div>
 <% end %>
 

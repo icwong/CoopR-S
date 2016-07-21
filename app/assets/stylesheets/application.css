@@ -13,6 +13,62 @@
  *= require_tree .
  *= require_self
  */
+ 
+ 
+
+@media print {
+  body {
+    background-color: #FFF;
+  }
+
+  #container {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  
+  #line_items {
+    page-break-before: always;
+  }
+  
+  #pdf_link {
+    display: none;
+  }
+}
+
+
+ 
+ .hidden {
+    display: none;
+ }
+ 
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+  cursor:pointer;
+}
+
+div.padding {
+    height: 8px;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    margin-left: 10%;
+    margin-right: 10%;
+    max-width: 80%;
+    background-color: #1b1e24;
+    border: 4px solid DDD;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    position:relative;
+    z-index: 4;
+}
 
 div.text-button {
 	text-align: center;
@@ -73,6 +129,70 @@ a.text-button:active{
             color: #1b1e24;
             border: 2px solid black;
 	        box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
+}
+.button_compact:hover {
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.1s;
+            background-color: #D5DDE5;
+            color: #1b1e24;
+            border: 2px solid black;
+            box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
+}
+.button_compact {
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            font-size: 14pt;
+            color: #D5DDE5;
+            border: none;
+            border-radius: 5px;
+            vertical-align: center;
+            height: 50px;
+            width: 150px;
+            background-color: #1b1e24;
+            text-shadow: 1px 1px 1px #bcbcbc;
+}
+.button_unselected:hover {
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.1s;
+            background-color: #D5DDE5;
+            color: #1b1e24;
+            border: 2px solid black;
+            box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
+}
+.button_unselected {
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            font-size: 14pt;
+            color: #2A221A;
+            border: none;
+            border-radius: 5px;
+            vertical-align: center;
+            height: 50px;
+            width: 150px;
+            background-color: #FFF;
+            border: 2px solid #222;
+            text-shadow: 1px 1px 1px #121212;
+}
+.button_selected{
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            font-size: 14pt;
+            color: #D5DDE5;
+            border: none;
+            border-radius: 5px;
+            vertical-align: center;
+            height: 50px;
+            width: 150px;
+            margin-top: 30px;
+            margin-right: 5px;
+            background-color: #1b1e24;
+            text-shadow: 1px 1px 1px #bcbcbc;
 }
 .button{
             margin-left: 10%;
@@ -321,6 +441,7 @@ li.dropdown {
     background-color: #4E5066;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 5;
     
 }
 

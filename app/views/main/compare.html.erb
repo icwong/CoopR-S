@@ -30,4 +30,5 @@
   </tbody>
 </table>
 
+<%= link_to "Download A PDF Copy", compare_path(format: 'pdf', :j1 => @job_one.id, :j2 =>@job_two.id ) %>
 <a href="#" onclick="lastUrl(); return false; ">Back</a>

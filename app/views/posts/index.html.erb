@@ -38,5 +38,6 @@
 
 <br />
 
-<%= link_to '<button class="button" type="button">New Post</button>'.html_safe, new_post_path %>
+<%= link_to '<button class="button" type="button">New Post</button>'.html_safe, new_post_path,'data-no-turbolink' => true %>
+<button class="button" type="button" onclick="lastUrl()">Back</a>
 
