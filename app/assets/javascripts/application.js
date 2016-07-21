@@ -24,6 +24,31 @@ var CURR_LOCATION = "currUrl";
 var JOB_ONE = "j1";
 var JOB_TWO = "j2";
 
+function swapClass(clsA, clsB) {
+    var temp = clsA.className;
+    clsA.className = clsB.className;
+    clsB.className = temp;
+    if(clsA.disabled || clsB.disabled) {
+        if( clsA.disabled ) {
+            clsA.disabled = false;
+            clsB.disabled = true;
+        } else {
+            clsB.disabled = false;
+            clsA.disabled = true;
+        }
+    }
+}
+
+function switchTab() {
+    var clsA = document.getElementById("revCaption");
+    var clsB = document.getElementById("proCaption");
+    swapClass(clsA, clsB);
+
+    clsA = document.getElementById("revTable");
+    clsB = document.getElementById("proTable");
+    swapClass(clsA, clsB);
+}
+
 function updateUrl() {
     var newUrl = window.location.href;
 	if( document.cookie.indexOf(CURR_LOCATION) >= 0 ) {
