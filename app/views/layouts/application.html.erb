@@ -46,8 +46,8 @@
 		                      		<a href="/posts/">MANAGE POSTS</a>
 		                  	</div>
 		              </li>
-                  <li><a href="/posts/new" data-turbolinks="false">WRITE A POST</a></li>
-                  <li style="float:right"><%= link_to destroy_user_session_path, :method => :delete do %><img class="signout-icon" src="http://i.imgur.com/qgNZck9.png"/><span>&nbsp;&nbsp;SIGN OUT</span><% end %> </li> 
+                  <li><a href="/posts/new" data-turbolinks="false">NEW POST</a></li>
+                  <li ><%= link_to destroy_user_session_path, :method => :delete do %><span>SIGN OUT</span><% end %> </li> 
                 </ul>
              
             <% else %>
@@ -58,7 +58,7 @@
                   <li> <%= link_to('EDIT PREFERENCE', edit_preference_path( current_user.id ) ) %></li>  
                   <li> <a href="/posts/new" data-turbolinks="false">WRITE A POST</a></li>
                   <li> <%= link_to('MY PROFILE', profiles_path ) %> </li> 
-                  <li ><%= link_to destroy_user_session_path, :method => :delete do %><img class="signout-icon" src="http://i.imgur.com/qgNZck9.png"/><span>&nbsp;&nbsp;SIGN OUT</span><% end %> </li> 
+                  <li ><%= link_to destroy_user_session_path, :method => :delete do %><span>SIGN OUT</span><% end %> </li> 
                 </ul>
               
             <% end %>
@@ -66,8 +66,8 @@
                 <ul>
                   <li><a href="/"><img class="topnav-icons" src="http://i.imgur.com/RO5VA6h.png"/></a></li>
                   <li> <a href="/text">INTRO</a></li> 
-                  <li ><%= link_to new_user_session_path do %><img class="signout-icon" src="http://i.imgur.com/qgNZck9.png"/><span>&nbsp;&nbsp;LOG IN</span><% end %> </li> 
-                  <li><a href="/users/sign_up"><img class="signout-icon" src="http://i.imgur.com/5VPaM9H.png"/>&nbsp;&nbsp;SIGN UP</a></li> 
+                  <li ><%= link_to new_user_session_path do %><span>LOG IN</span><% end %> </li> 
+                  <li><a href="/users/sign_up">SIGN UP</a></li> 
                 </ul>
                 
           <% end %>

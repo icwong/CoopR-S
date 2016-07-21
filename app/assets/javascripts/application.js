@@ -149,9 +149,9 @@ var count = 0;
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
 function openNav() {
-    document.getElementById("mySidenav").style.width = "200px";
-    document.getElementById("main1").style.marginLeft = "200px";
-    document.getElementById("main2").style.marginLeft = "200px";
+    document.getElementById("mySidenav").style.width = "260px";
+    document.getElementById("main1").style.marginLeft = "260px";
+    document.getElementById("main2").style.marginLeft = "260px";
 
 }
 
