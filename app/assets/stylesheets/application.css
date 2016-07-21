@@ -22,7 +22,7 @@
     .sidenav a {font-size: 18px;}
 }
 body {
-    background-image: url("http://i.imgur.com/VOqwNZi.jpg");
+    
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -405,7 +405,7 @@ a {
     vertical-align:middle;
 }
 
-li a, .dropbtn {
+.sidenav li a, .dropbtn {
     display: inline-block;
     color: #D5DDE5;
     text-align: center;
@@ -414,11 +414,11 @@ li a, .dropbtn {
     text-decoration: none;
 }
 
-li a:hover, .dropdown:hover .dropbtn {
+.sidenav li a:hover, .dropdown:hover .dropbtn {
     background-color: #4E5066;
 }
 
-li.dropdown {
+.sidenav li.dropdown {
     display: inline-block;
 }
 
