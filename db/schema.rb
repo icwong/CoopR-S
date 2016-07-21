@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708071913) do
+ActiveRecord::Schema.define(version: 20160721222249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 20160708071913) do
 
   add_index "authentications", ["applied_date"], name: "index_authentications_on_applied_date", using: :btree
   add_index "authentications", ["approved_date"], name: "index_authentications_on_approved_date", using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "histories", force: :cascade do |t|
     t.integer  "user_id"
@@ -71,6 +75,30 @@ ActiveRecord::Schema.define(version: 20160708071913) do
     t.string   "phone"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string "name"
+    t.text   "summary"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.string "phone"
+    t.string "email"
+    t.string "gitweb"
+    t.string "cmpyname"
+    t.string "cmpywhere"
+    t.string "cmpywhen"
+    t.string "cmpyrole"
+    t.string "cmpyinfo"
+    t.string "projtitle"
+    t.string "projrole"
+    t.string "edudeg"
+    t.string "eduloc"
+    t.string "eduuni"
+    t.string "eduwhen"
+    t.string "gpa"
   end
 
   create_table "tags", force: :cascade do |t|

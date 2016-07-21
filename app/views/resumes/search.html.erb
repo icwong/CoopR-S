@@ -1,0 +1,13 @@
+<% @resumes.each do |resume| %>
+ <%= resume.name %>
+<% end %>
+
+<%  if @resumes.blank? %>
+    <h3> Couldn't find a resume with your search criteria</h3>
+<% else %>
+    <% @resumes.each do |resume| %>
+        <h2>Name <%= link_to resume.name, resume%></h2>
+        <h2>Description <%= resume.description.capitalize %></h2>
+        <h2>Email <%= resume.email %></h2>
+    <% end %>
+<% end %>

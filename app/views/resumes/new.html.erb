@@ -1,0 +1,86 @@
+<%= form_for @resume do |f| %>
+
+    
+    <h2>Basic Info</h2>
+    
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    
+    <%= f.label :summary %>
+    <%= f.text_area :summary %><br>
+    
+    <%= f.label :address %>
+    <%= f.text_field :address %><br>
+    
+    <%= f.label :city %>
+    <%= f.text_field :city %><br>
+    
+    <%= f.label :state %>
+    <%= f.text_field :state %><br>
+    
+    <%= f.label :zipcode %>
+    <%= f.text_field :zipcode %><br>
+    
+    <%= f.label :phone %>
+    <%= f.text_field :phone %><br>
+    
+    <%= f.label :email %>
+    <%= f.text_field :email %><br>
+    
+    <%= f.label :gitweb %>
+    <%= f.text_field :gitweb %><br>
+    
+    <hr>
+    
+    <h2>Experience</h2>
+    
+    <%= f.label :cmpyname %>
+    <%= f.text_field :cmpyname %><br>
+    
+    <%= f.label :cmpywhere %>
+    <%= f.text_field :cmpywhere %><br>
+    
+    <%= f.label :cmpywhen %>
+    <%= f.text_field :cmpywhen %><br>
+    
+    <%= f.label :cmpyrole %>
+    <%= f.text_field :email %><br>
+    
+    <hr>
+    
+    <h2>Project</h2>
+    
+    <%= f.label :projtitle %>
+    <%= f.text_field :projtitle %><br>
+    
+    <%= f.label :projrole %>
+    <%= f.text_field :projrole %><br>
+    
+    <hr>
+    
+    <h2>Experience</h2>
+    
+    <%= f.label :edudeg %>
+    <%= f.text_field :edudeg %><br>
+    
+    <%= f.label :eduloc %>
+    <%= f.text_field :eduloc %><br>
+    
+    <%= f.label :eduuni %>
+    <%= f.text_field :eduuni %><br>
+    
+    <%= f.label :eduwhen %>
+    <%= f.text_field :eduwhen %><br>
+    
+    <%= f.label :gpa %>
+    <%= f.text_field :gpa %><br>
+    
+    <hr>
+    
+
+    <%= f.submit %>
+    
+
+<% end %>
+
+

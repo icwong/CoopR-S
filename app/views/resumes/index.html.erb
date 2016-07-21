@@ -1,0 +1,7 @@
+<%= link_to 'CREATE', new_resume_path %>
+
+<%= form_tag search_resumes_path, method: :get do |f| %>
+    <%= text_field_tag :search, nil, placeholder: "Find your faculty resume examples" %>
+    <%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id] }) %>
+    <%= submit_tag 'Search' %>
+<% end %>
