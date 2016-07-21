@@ -73,17 +73,6 @@ ActiveRecord::Schema.define(version: 20160708071913) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "students", force: :cascade do |t|
-    t.string   "name"
-    t.boolean  "sex"
-    t.float    "weight"
-    t.float    "height"
-    t.string   "color"
-    t.float    "gpa"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tags", force: :cascade do |t|
     t.integer  "post_id"
     t.integer  "user_id"
