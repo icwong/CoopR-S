@@ -2,15 +2,30 @@ class MainController < ApplicationController
   skip_before_action :authenticate_user!
   def index
     @uid = params[:id]
-    @type = params[:type]
-    if @uid == nil && @type == nil
-      @posts = Post.all.order(id: :asc)
-    elsif @uid != nil && @type == nil
-      @posts = Post.where("owner = ?", @uid)
+    @sort_by = 'id asc'
+    if params[:sort_by] != nil
+      @sort_by = params[:sort_by].to_s + ' asc'
+    end
+
+    if params[:cdate] != nil
+      @cdate = DateTime.parse( params[:cdate] )
+    end
+
+    @announcements = Post.where("type = ''").order(@sort_by)
+    if @uid == nil && @cdate == nil
+      @reviews = Post.where("type = 'Review'").order(@sort_by)
+      @promotions = Post.where("type = 'Promotion'").order(@sort_by)
+    elsif @uid != nil && @cdate == nil
+      @reviews = Post.where("type = 'Review' AND owner = ?", @uid).order(id: :asc)
+      @promotions = Post.where("type = 'Rromotion' AND owner = ?", @uid).order(id: :asc)
     elsif @uid == nil
-      @posts = Post.where("type = ?", @type)
+      @reviews = Post.where("type = 'Review' AND updated_at > ? AND updated_at < ?", @cdate, @cdate + 1.days).order(id: :asc)
+      @promotions = Post.where("type = 'Promotion' AND updated_at > ? AND updated_at < ?", @cdate, @cdate + 1.days).order(id: :asc)
     else
-      @posts = Post.where("owner = ? AND type = ?", @uid, @type)
+      @reviews = Post.where("type = 'Review' AND owner = ? AND updated_at > ? AND updated_at < ?",
+                                               @uid, @cdate, @cdate + 1.days).order(id: :asc)
+      @promotions = Post.where("type = 'Promotion' AND owner = ? AND updated_at > ? AND updated_at < ?",
+                                               @uid, @cdate, @cdate + 1.days).order(id: :asc)
     end
     
 
