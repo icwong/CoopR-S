@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -6,7 +7,6 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
-
 
   # GET /posts/1
   # GET /posts/1.json
@@ -58,8 +58,6 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-    
-    
   end
 
   # PATCH/PUT /posts/1
@@ -97,5 +95,3 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :body, :type, :owner)
     end
 end
-
-
