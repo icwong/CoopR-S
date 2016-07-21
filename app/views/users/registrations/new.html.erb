@@ -7,7 +7,7 @@
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
-<div id="login-page">
+<div class="login-page">
               
       <%= form_for @user, as: :user, :html => { :class => "login-form" }, url: {action: "create"} do |f| %>
           <%= devise_error_messages! %>
