@@ -3,7 +3,7 @@ class InitialSchema < ActiveRecord::Migration
     
     create_table :resumes do |t|
       t.string :name
-      t.text   :summary
+      t.text   :d
       t.string :address
       t.string :city
       t.string :state

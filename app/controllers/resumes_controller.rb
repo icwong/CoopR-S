@@ -27,8 +27,11 @@ class ResumesController < ApplicationController
     
     private
         def resume_params
-            params.require(:resume).permit(:name, :description, :address, :city,
-                                           :state, :zipcode, :phone, :email)
+            params.require(:resume).permit(:name, :summary, :address, :city, :gitweb, :state, :zipcode, :phone, :email,
+                                           :cmpyname, :cmpywhere, :cmpywhen, :cmpyrole, :cmpyinfo,
+                                           :projtitle, :projrole,
+                                           :edudeg, :eduloc, :eduuni, :eduwhen, :edugpa)
+                                           
         end
 
 end
