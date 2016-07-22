@@ -18,6 +18,7 @@ gem 'coffee-script-source', '~> 1.2.0'
 # CUSTOMISE GEMS AREA
 # UI
 
+
 # ASSET PIPELINE
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
@@ -50,6 +51,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'prawn'
 gem 'prawn-table'
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

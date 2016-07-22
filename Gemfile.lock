@@ -98,6 +98,7 @@ GEM
     password_strength (1.1.4)
       activemodel
     pdf-core (0.6.1)
+    pdfkit (0.8.2)
     pg (0.18.4)
     pg (0.18.4-x86-mingw32)
     pkg-config (1.1.7)
@@ -175,6 +176,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    wkhtmltopdf-binary (0.12.3)
     zxcvbn-js (4.2.0.1)
       execjs
 
@@ -193,6 +195,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   password_strength
+  pdfkit
   pg (~> 0.15)
   prawn
   prawn-table
@@ -204,6 +207,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  wkhtmltopdf-binary
 
 BUNDLED WITH
    1.12.5
