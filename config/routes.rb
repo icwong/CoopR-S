@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'text' => 'main#dummy'
   get 'edit' => 'main#editor'
   get 'compare' => 'main#compare'
+  get 'home' => 'main#home'
   get 'mail' => 'authentications#mail'
   get 'verify' => 'authentications#verify'
   get 'compare' => 'main#compare'

@@ -142,3 +142,38 @@ function compare() {
     //     }
     // })
 }
+
+/*-----------------------SIDEBAR OPEN&CLOSE-------------------------*/
+var count = 0;
+
+
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "260px";
+    document.getElementById("main1").style.marginLeft = "260px";
+    document.getElementById("main2").style.marginLeft = "260px";
+
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main1").style.marginLeft = "0";
+    document.getElementById("main2").style.marginLeft = "0";
+
+}
+function OpenCloseNav(){
+    
+    if(count%2==0){
+        openNav();
+    }else{
+        closeNav();
+    }
+    count++;
+}
+
+function myFunction(x) {
+    x.classList.toggle("change");
+}
+
+/*=======================slide================*/
