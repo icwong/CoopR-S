@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="/saveTextAsFile.js"></script>
-  <script type="text/javascript" src="/googleDrive.js"></script>
+<!--<script type="text/javascript" src="/saveTextAsFile.js"></script>-->
+  <!--<script type="text/javascript" src="/googleDrive.js"></script>-->
 </head>
 
 
@@ -13,7 +13,7 @@
 onchange="loadDriveFileAsText(event.fpfile.url)"> 
     
     
-    <button onclick="saveTextAsDriveFile()">save to drive</button>
+    <!--<button onclick="saveTextAsDriveFile(url)">save to drive</button>-->
     
     
     
@@ -44,5 +44,9 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
     </table>
     </div>
     
+    
+    
+    <!--<button data-fp-apikey= "ALNjEZIbJTOg3xF1Dh5vnz" data-fp-extension=".pdf" data-fp-url="http://cooprs.herokuapp.com/compare.pdf?j1=9&j2=16" data-fp-suggestedFilename= "comparePosts">Save PDF to cloud</button>-->
+    <!--<a href="#" data-fp-apikey= "ALNjEZIbJTOg3xF1Dh5vnz" data-fp-extension=".pdf" data-fp-url=<%= compare_path(format: 'pdf', :j1 => @job_one.id, :j2 =>@job_two.id )%> data-fp-suggestedFilename= "comparePosts.pdf">Save PDF to cloud</a>-->
 </body>
 </html>
