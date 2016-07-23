@@ -2,8 +2,9 @@ class RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+  
     build_resource(sign_up_params)
-
+    
     resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -32,8 +33,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def account_update_params
     params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :type, :first_name, :middle_name, :last_name, :zip, :province, :city, :street, :number, :phone);
-    
   end
-  
 
 end
