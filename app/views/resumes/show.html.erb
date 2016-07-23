@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resume Builder </title>
+
+<meta name="viewport" content="width=device-width"/>
+<meta charset="UTF-8"> 
+
+<link type="text/css" rel="stylesheet" href="../assets/resume.css">
+<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body id="top">
+<div id="cv" class="instaFade">
+	<div class="mainDetails">
+		<div id="name">
+			<h1 class="quickFade delayTwo"><%= @resume.name %></h1>
+		</div>
+		
+		<div id="contactDetails" class="quickFade delayFour" >
+			<ul style="background-color: #ededed">
+				<li>m: <%= @resume.phone %></li><br>
+				<li>e: <%= @resume.email %></li><br>
+				<li>g: <%= @resume.gitweb %></li><br>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div id="mainArea" class="quickFade delayFive">
+		<section>
+			<article>
+				<div class="sectionTitle">
+					<h1>Objective</h1>
+				</div>
+				
+				<div class="sectionContent">
+					<p><%= @resume.summary %></p>
+				</div>
+			</article>
+			<div class="clear"></div>
+		</section>
+		
+		<section>
+			<article>
+				<div class="sectionTitle">
+					<h1>Projects</h1>
+				</div>
+				
+				<div class="sectionContent" style="background-color: #f3f3f3">
+				<article>
+					<h3><%= @resume.projtitle %></h3> 
+					<p class="subDetails"><%= @resume.projwhen %></p>
+					<h3><%= @resume.projrole %> </h3>
+				</article>
+			</div>
+			</article>
+			<div class="clear"></div>
+		</section>
+		
+		<br>
+		
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>Work Experience</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<h3><%= @resume.workrole %> at <%= @resume.workname %> | <%= @resume.workloc %></h3
+					<p class="subDetails"><%= @resume.workwhen %></p>
+					<p><%= @resume.workinfo %></p>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>Key Skills</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<ul class="keySkills" style="background-color: #f3f3f3">
+					<li><%= @resume.skill %></li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+		
+		<section>
+			<div class="sectionTitle">
+				<h1>Education</h1>
+			</div>
+			
+			<div class="sectionContent">
+				<article>
+					<h3><%= @resume.eduuni %> | <%= @resume.eduloc %> | <%= @resume.eduwhen %></h3>
+					<p class="subDetails"><%= @resume.edudeg %></p>
+					<h4>GPA : <%= @resume.gpa %></h4>
+				</article>
+				
+			</div>
+			<div class="clear"></div>
+		</section>
+		
+	</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3753241-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+
+<%= link_to 'Download Resume', show_resume_path(format: 'pdf') %>
+
+</html>
+

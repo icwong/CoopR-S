@@ -51,6 +51,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'prawn'
 gem 'prawn-table'
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

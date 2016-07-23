@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708071913) do
+ActiveRecord::Schema.define(version: 20160723000607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 20160708071913) do
 
   add_index "authentications", ["applied_date"], name: "index_authentications_on_applied_date", using: :btree
   add_index "authentications", ["approved_date"], name: "index_authentications_on_approved_date", using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "histories", force: :cascade do |t|
     t.integer  "user_id"
@@ -73,15 +77,26 @@ ActiveRecord::Schema.define(version: 20160708071913) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "students", force: :cascade do |t|
-    t.string   "name"
-    t.boolean  "sex"
-    t.float    "weight"
-    t.float    "height"
-    t.string   "color"
-    t.float    "gpa"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "resumes", force: :cascade do |t|
+    t.string "name"
+    t.text   "summary"
+    t.string "phone"
+    t.string "email"
+    t.string "gitweb"
+    t.string "workname"
+    t.string "workrole"
+    t.string "workwhen"
+    t.string "workloc"
+    t.string "workinfo"
+    t.string "projtitle"
+    t.string "projrole"
+    t.string "projwhen"
+    t.string "edudeg"
+    t.string "eduloc"
+    t.string "eduuni"
+    t.string "eduwhen"
+    t.string "gpa"
+    t.string "skill"
   end
 
   create_table "tags", force: :cascade do |t|
