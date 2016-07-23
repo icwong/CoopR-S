@@ -1,0 +1,33 @@
+<%= form_for @profile do |f| %>
+
+<%= f.label :first_name, "First Name: " %>
+<%= f.text_field :first_name %><br>
+
+<%= f.label :middle_name, "Middle Name: " %>
+<%= f.text_field :middle_name %><br>
+
+<%= f.label :last_name, "Last Name: " %>
+<%= f.text_field :last_name %><br>
+
+<%= f.label :zip, "Zip Code: " %>
+<%= f.number_field :zip %><br>
+
+<%= f.label :province, "Province: " %>
+<%= f.text_field :province %><br>
+
+<%= f.label :city, "City: " %>
+<%= f.text_field :city %><br>
+
+<%= f.label :number, "Address Number: " %>
+<%= f.number_field :number %><br>
+
+<%= f.label :street, "Street: " %>
+<%= f.text_field :street %><br>
+
+<%= f.label :phone, "Phone Number: " %>
+<%= f.telephone_field :phone %><br>
+
+<%= f.submit %>
+
+
+<% end %>

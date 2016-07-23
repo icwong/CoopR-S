@@ -18,6 +18,8 @@
               
                 <%= form_for @user, as: :user, url: {action: "create"} do |f| %>
                 <%= devise_error_messages! %>
+                
+    
               
                 <div class="field">
                   <%= f.label :Email %></br>
@@ -30,8 +32,6 @@
               
                 <div class="field">
                   <%= f.label :Password %></br>
-                  
-                  
                   <%= f.password_field :password, class: 'form-control input-lg' , autocomplete: "off", :onkeyup => "validatePassword()"  %>
                   <img src = "/ok-24.gif" alt="checkmark" id ="passwordCheck" >
                   <% if @minimum_password_length %>
