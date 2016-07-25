@@ -18,17 +18,16 @@ class ResumesController < ApplicationController
     
     def show
         @resume = Resume.find(params[:id])
+        respond_to do |format|
+            format.html
+            format.pdf do
+                render  :pdf => "resume.pdf",  :template => 'resumes/show.html.erb'   # Excluding ".pdf" extension.
+            end
+        end
     end
     
     def search
         @resumes = Resume.search(params)
-        
-        respond_to do |format|
-            format.pdf do
-                render  :pdf => "resume.pdf",  :template => 'resumes/show.html.erb'   # Excluding ".pdf" extension.
-            end
-            format.html
-        end
     end
     
     private
