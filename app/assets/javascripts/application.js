@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require zxcvbn
 //= require validateForms
-//= require cloudstorage
 
 
 /////////////////////

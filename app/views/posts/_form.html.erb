@@ -1,8 +1,7 @@
 <% content_for :mHeader do %>
   <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'cloudstorage' %>
   <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
-  <!--<script type="text/javascript" src="/vendor/assets/javascripts/saveTextAsFile.js"></script>-->
-  <!--<script type="text/javascript" src="/app/assets/javascripts/cloudstorage.js"></script>-->
 
 <% end %>
 
@@ -22,7 +21,7 @@
   <p>upload file to editor:</p>
    <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
 
-<input type="filepicker" data-fp-apikey="ALNjEZIbJTOg3xF1Dh5vnz" data-fp-extensions=".doc,.docx,.txt,.rtf,.odt" 
+<input type="filepicker" class="button_compact" data-fp-apikey="ALNjEZIbJTOg3xF1Dh5vnz" data-fp-extensions=".doc,.docx,.txt,.rtf,.odt" 
 onchange="loadDriveFileAsText(event.fpfile.url)"> 
   
 <br><br>
