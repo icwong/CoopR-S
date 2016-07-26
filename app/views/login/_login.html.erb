@@ -1,6 +1,6 @@
 <div id="user_signed_in" class="slogan">
     <% if user_signed_in? %>
-        <b style="font-size: 16pt; top:0;">Hello <span style="color: #b2191b;"><%= current_user.display_name %></span>, welcome back!!</b> 
+        <b style="font-size: 16pt; top:0;">Hello <%= link_to(current_user.display_name, setting_path, :class => "display_name" ) %>, welcome back!!</b> 
    	<% else %>
    	     <b style="font-size: 16pt; top:0;">Not registered yet? Join us now!!</b>
     <% end %>
