@@ -1,0 +1,41 @@
+<% content_for :mLogin do %>
+    <%= render :partial => '/login/login' %>
+<% end %>
+
+
+<% content_for :mFrame do %>
+<script type="text/javascript">
+  updateUrl();
+</script>
+
+<div class="table-title">
+        <h3>My Profile</h3>
+</div>
+<div class="user-profile">
+    <img  class="avatar" src="http://i.imgur.com/y7GX8r8.png" alt="Avatar" />
+    
+     
+    <div class="username"> <%= @user.first_name %> <%= @user.middle_name %> <%= @user.last_name %></div>
+    <div class="school">SFU</div>
+    <div class="description"><%= @user.type %></div>
+    <div class="details"><span class="profiletitle">Details</span></div>
+    <div class="left">Email</div>
+    <div class="right"><%= @user.email %></div>
+    <div class="left">Phone</div>
+    <div class="right"><%= @user.phone %></div>
+    <div class="left">Address Number</div>
+    <div class="right"><%= @user.number %></div>
+    <div class="left">Street</div>
+    <div class="right"><%= @user.street %></div>
+    <div class="left">Zip</div>
+    <div class="right"><%= @user.zip %></div>
+    <div class="left">Province</div>
+    <div class="right"><%= @user.province %></div>
+    <div class="left">City</div>
+    <div class="right"><%= @user.city %></div>
+      
+</div>
+
+<% end %>
+
+<button class="button" type="button" onclick="lastUrl()">Back</a>
