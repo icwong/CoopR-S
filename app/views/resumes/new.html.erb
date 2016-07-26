@@ -1,0 +1,77 @@
+<%= form_for @resume do |f| %>
+
+    <h2>Basic Info</h2>
+    
+    <%= f.label :name  %>
+    <%= f.text_field :name %><br>
+    
+    <%= f.label :phone %>
+    <%= f.text_field :phone %><br>
+    
+    <%= f.label :summary, "Objective:" %>
+    <%= f.text_area :summary %><br>
+    
+    <%= f.label :email %>
+    <%= f.text_field :email %><br>
+    
+    <%= f.label :gitweb, "Git Link: " %>
+    <%= f.text_field :gitweb %><br>
+    
+    <h2>Education</h2>
+    
+    <%= f.label :edudeg, "Degree "  %>
+    <%= f.text_field :edudeg %><br>
+    
+    <%= f.label :eduuni, "University Name: "  %>
+    <%= f.text_field :eduuni %><br>
+    
+    <%= f.label :eduloc, "University Location: " %>
+    <%= f.text_field :eduloc %><br>
+    
+    <%= f.label :eduwhen, "Unversity Date: " %>
+    <%= f.text_field :eduwhen %><br>
+    
+    <%= f.label :gpa, "GPA: " %>
+    <%= f.text_field :gpa %><br>
+    
+    <h2>Skills</h2>
+    
+    <%= f.label :skill, "Skill: " %>
+    <%= f.text_field :skill %><br>
+    
+    <h2>Projects</h2>
+    
+    <%= f.label :projtitle, "Project Title: "  %>
+    <%= f.text_field :projtitle %><br>
+    
+    <%= f.label :projrole, "Project Role: " %>
+    <%= f.text_field :projrole %><br>
+    
+    <%= f.label :projwhen, "Prkect Date: " %>
+    <%= f.text_field :projwhen %><br>
+    
+    <h2>Work Experience</h2>
+    
+    <%= f.label :workname, "Company Name: "  %>
+    <%= f.text_field :workname %><br>
+    
+    <%= f.label :workrole, "Company Role: "  %>
+    <%= f.text_field :workrole %><br>
+    
+    <%= f.label :workwhen, "Company Date: " %>
+    <%= f.text_field :workwhen %><br>
+    
+    <%= f.label :workloc, "Company Location: " %>
+    <%= f.text_field :workloc %><br>
+    
+    <%= f.label :workinfo, "Company Info " %>
+    <%= f.text_field :workinfo %><br>
+    
+    
+    <%= f.submit %>
+
+
+<% end %>
+
+
+

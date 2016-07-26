@@ -16,8 +16,15 @@ Rails.application.routes.draw do
   get 'mail' => 'authentications#mail'
   get 'verify' => 'authentications#verify'
   get 'compare' => 'main#compare'
+  get 'resume' => 'resumes#index'
+  get 'resume/:id/show' => 'resumes#show', :as => 'show_resume'
   resources :posts
   resources :preferences
+  resources :resumes do
+    collection do
+      get 'search'
+    end
+  end
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :users
   

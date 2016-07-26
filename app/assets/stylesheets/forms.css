@@ -1,15 +1,9 @@
-form {
-  margin-left:10%;
-  margin-right:30%;
-  padding: 20px;
-  border: 1px solid #f2f2f2; 
-  background-color: #EBEBEB; 
-}
+
 label {
   font-weight:bold;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: -10px;
 }
+
 input {
   padding: 4px 5px;
   border:1px solid #eee;
