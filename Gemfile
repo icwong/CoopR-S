@@ -17,6 +17,8 @@ gem 'coffee-script-source', '~> 1.2.0'
 
 # CUSTOMISE GEMS AREA
 # UI
+#social media share button
+gem 'shareable'
 
 # ASSET PIPELINE
 gem 'sprockets-rails', :require => 'sprockets/railtie'
