@@ -1,117 +1,96 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Resume Builder </title>
+<p id="pdf_link"><%= link_to 'Download Resume', show_resume_path(format: 'pdf') %></p>
 
-<meta name="viewport" content="width=device-width"/>
-<meta charset="UTF-8"> 
-
-<link type="text/css" rel="stylesheet" href="../assets/resume.css">
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
-
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-</head>
-<body id="top">
-<div id="cv" class="instaFade">
-	<div class="mainDetails">
-		<div id="name">
-			<h1 class="quickFade delayTwo"><%= @resume.name %></h1>
-		</div>
-		
-		<div id="contactDetails" class="quickFade delayFour" >
-			<ul style="background-color: #ededed">
-				<li>m: <%= @resume.phone %></li><br>
-				<li>e: <%= @resume.email %></li><br>
-				<li>g: <%= @resume.gitweb %></li><br>
-			</ul>
-		</div>
-		<div class="clear"></div>
-	</div>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../assets/resume.css">
+        <script type="text/javascript" src="//use.typekit.net/lyj3wzr.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        
+        <%= wicked_pdf_stylesheet_link_tag "resume.css" -%>
+		<%= wicked_pdf_stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+		<%= wicked_pdf_javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= wicked_pdf_stylesheet_link_tag "print" -%>
+	</head>
 	
-	<div id="mainArea" class="quickFade delayFive">
-		<section>
-			<article>
-				<div class="sectionTitle">
-					<h1>Objective</h1>
-				</div>
-				
-				<div class="sectionContent">
-					<p><%= @resume.summary %></p>
-				</div>
-			</article>
-			<div class="clear"></div>
-		</section>
-		
-		<section>
-			<article>
-				<div class="sectionTitle">
-					<h1>Projects</h1>
-				</div>
-				
-				<div class="sectionContent" style="background-color: #f3f3f3">
-				<article>
-					<h3><%= @resume.projtitle %></h3> 
-					<p class="subDetails"><%= @resume.projwhen %></p>
-					<h3><%= @resume.projrole %> </h3>
-				</article>
-			</div>
-			</article>
-			<div class="clear"></div>
-		</section>
-		
-		<br>
-		
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Work Experience</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<article>
-					<h3><%= @resume.workrole %> at <%= @resume.workname %> | <%= @resume.workloc %></h3
-					<p class="subDetails"><%= @resume.workwhen %></p>
-					<p><%= @resume.workinfo %></p>
-				</article>
-			</div>
-			<div class="clear"></div>
-		</section>
-		
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Key Skills</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<ul class="keySkills" style="background-color: #f3f3f3">
-					<li><%= @resume.skill %></li>
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</section>
-		
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Education</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<article>
-					<h3><%= @resume.eduuni %> | <%= @resume.eduloc %> | <%= @resume.eduwhen %></h3>
-					<p class="subDetails"><%= @resume.edudeg %></p>
-					<h4>GPA : <%= @resume.gpa %></h4>
-				</article>
-				
-			</div>
-			<div class="clear"></div>
-		</section>
-		
-	</div>
-</div>
+    <body>
+        <div class="page">
+            <div class="section row">
+                <h1 class="col"><span style="font-weight:700"><%= @resume.name %></span></h1>
+                <div class="contact-info col-right">
+                    <div><%= @resume.phone %></div>
+                    <div><%= @resume.gitweb %></a></div>
+                    <div><%= @resume.email %></a></div>
+                </div>
+            </div>
+            <div class="section row">
+                <h2 class="col">Objective</h2>
+                <div class="section-text col-right"><span class="key"><%= @resume.summary %></span></div>
+            </div>
+            <div class="section row">
+                <h2 class="col">Skill</h2>
+                <div class="section-text col-right row">
+                    <ul class="skills" style="background-color: white">
+                        <li><%= @resume.skill %></li>
+                        <!--<li>Javascript</li>-->
+                        <!--<li>Python, PHP</li>-->
+                        <!--<li>HTML5, CSS3, SVG</li>-->
+                    </ul>
+                    <!--<ul class="skills" style="width:35%">-->
+                    <!--    <li>Qt, OpenGL/SDL, V8</li>-->
+                    <!--    <li>jQuery, backbone, node</li>-->
+                    <!--    <li>Django, App engine</li>-->
+                    <!--    <li>LESS, Bootstrap, d3.js</li>-->
+                        
+                    <!--</ul>-->
+                    <!--<ul class="skills">-->
+                    <!--    <li>MySQL, MongoDB</li>-->
+                    <!--    <li>grunt, jasmine</li>-->
+                    <!--    <li>Flash, Actionscript 3</li>-->
+                    <!--    <li>Git, Photoshop, Illustrator</li>-->
+                    <!--</ul>-->
+                </div>
+            </div>
+            <div class="section row">
+                <h2 class="col">Education</h2>
+                <div class="section-text col-right">
+                    <h3><span class="emph"><%= @resume.edudeg %></span> | GPA:  <%= @resume.gpa %></h3>
+                    <div><%= @resume.eduuni %> - <%= @resume.eduloc %></div>
+                    <div class="row">
+                        <div><%= @resume.eduwhen %></div>
+                    </div>
+                </div>
+            </div>
+
+
+           
+            <div class="section row">
+                <h2 class="col">Work Experience</h2>
+                    <div class="section-text col-right">
+                    <h3><span class="emph"><%= @resume.workname %></span> | <%= @resume.workrole %></h3>
+                    <div><%= @resume.workloc %> </div>
+                    <div class="row">
+                    	<div><%= @resume.workwhen %></div>
+                        <div><%= @resume.workinfo %></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section row">
+                <h2 class="col">Projects</h2>
+                    <div class="section-text col-right">
+                    <h3><span class="emph"><%= @resume.projtitle %></span> | <%= @resume.projrole %></h3>
+                    <div class="row">
+                    	<div style="font-size: 12px"><%= @resume.projwhen %></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </body>
+</html>
+
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -123,7 +102,6 @@ pageTracker._trackPageview();
 </script>
 </body>
 
-<%= link_to 'Download Resume', show_resume_path(format: 'pdf') %>
 
 </html>
 
