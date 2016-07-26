@@ -15,9 +15,10 @@
 
 
 <div>
-    <div id='mapDiv' style="float: right; position: relative; width:600px; height:600px;"></div>
-
-    <div><%= @location.data.to_yaml %></div>
+    <% if @location != nil %>
+    <div id='mapDiv' style="float: right; position: relative; width:600px; height:600px; z-index: -2"></div>
+      <div><%= @location["address_components"].first.inspect %></div>
+    <% end %>
 </div>
 
 <div class="user-profile">
@@ -29,6 +30,7 @@
      
 </div>
 
+  <% if @preference != nil %>
 <div class="user-profile">
     <h1>Preference</h1>
      <div class="left">Nickname</div>
@@ -45,11 +47,13 @@
      <div class="left">Zip</div>
         <div class="right"><%= @preference.zip %></div>
 </div>
+  <% end %>
 
 <% end %>
 
 <button class="button" type="button" onclick="lastUrl()">Back</a>
 
+<% if @location != nil %>
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
 <script type="text/javascript">
       var map = null;
@@ -57,11 +61,16 @@
       function GetMap()
       {  
 
-         map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), {credentials: "AkncMOPhJUoGDu9stqfQxrQisQXAmlDYdEMrfVHr5eOwv5-QKONY7tAA1IxJjJGK", center: new Microsoft.Maps.Location(49.282964, -123.121861), zoom: 14 });
+         map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), {credentials: "AkncMOPhJUoGDu9stqfQxrQisQXAmlDYdEMrfVHr5eOwv5-QKONY7tAA1IxJjJGK", center: new Microsoft.Maps.Location(
+                                                            <%= @location["geometry"]["location"]["lat"].to_f %>
+                                                          , <%= @location["geometry"]["location"]["lng"].to_f %>
+                                                          ), zoom: 15 });
          map.entities.clear(); 
-        var infoboxOptions = {title:'Infobox Title', description: "<%= @location.inspect %>"}; 
+        var infoboxOptions = {title: "<%= @preference.zip %>", 
+                          description: "<%= @preference.house_number %> <%= @preference.street %>, <%= @preference.city %>, <%= @preference.province %>"}; 
         var defaultInfobox = new Microsoft.Maps.Infobox(map.getCenter(), infoboxOptions );    
         map.entities.push(defaultInfobox);
       }
       GetMap();
 </script>
+<% end %>
