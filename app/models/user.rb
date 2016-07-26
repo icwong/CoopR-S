@@ -30,6 +30,14 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: { case_sensitive: false }, email: true
   #validates :email, confirmation: true
 	#validates :email_confirmation, presence: true
+	
+	geocoded_by :full_address
+	after_validation :geocode
+	
+	
+	def full_address
+	  [number,street,city,province,zip].join(',')
+	end
   
 
   def display_name
