@@ -1,0 +1,107 @@
+<p id="pdf_link"><%= link_to 'Download Resume', show_resume_path(format: 'pdf') %></p>
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../assets/resume.css">
+        <script type="text/javascript" src="//use.typekit.net/lyj3wzr.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        
+        <%= wicked_pdf_stylesheet_link_tag "resume.css" -%>
+		<%= wicked_pdf_stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+		<%= wicked_pdf_javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= wicked_pdf_stylesheet_link_tag "print" -%>
+	</head>
+	
+    <body>
+        <div class="page">
+            <div class="section row">
+                <h1 class="col"><span style="font-weight:700"><%= @resume.name %></span></h1>
+                <div class="contact-info col-right">
+                    <div><%= @resume.phone %></div>
+                    <div><%= @resume.gitweb %></a></div>
+                    <div><%= @resume.email %></a></div>
+                </div>
+            </div>
+            <div class="section row">
+                <h2 class="col">Objective</h2>
+                <div class="section-text col-right"><span class="key"><%= @resume.summary %></span></div>
+            </div>
+            <div class="section row">
+                <h2 class="col">Skill</h2>
+                <div class="section-text col-right row">
+                    <ul class="skills" style="background-color: white">
+                        <li><%= @resume.skill %></li>
+                        <!--<li>Javascript</li>-->
+                        <!--<li>Python, PHP</li>-->
+                        <!--<li>HTML5, CSS3, SVG</li>-->
+                    </ul>
+                    <!--<ul class="skills" style="width:35%">-->
+                    <!--    <li>Qt, OpenGL/SDL, V8</li>-->
+                    <!--    <li>jQuery, backbone, node</li>-->
+                    <!--    <li>Django, App engine</li>-->
+                    <!--    <li>LESS, Bootstrap, d3.js</li>-->
+                        
+                    <!--</ul>-->
+                    <!--<ul class="skills">-->
+                    <!--    <li>MySQL, MongoDB</li>-->
+                    <!--    <li>grunt, jasmine</li>-->
+                    <!--    <li>Flash, Actionscript 3</li>-->
+                    <!--    <li>Git, Photoshop, Illustrator</li>-->
+                    <!--</ul>-->
+                </div>
+            </div>
+            <div class="section row">
+                <h2 class="col">Education</h2>
+                <div class="section-text col-right">
+                    <h3><span class="emph"><%= @resume.edudeg %></span> | GPA:  <%= @resume.gpa %></h3>
+                    <div><%= @resume.eduuni %> - <%= @resume.eduloc %></div>
+                    <div class="row">
+                        <div><%= @resume.eduwhen %></div>
+                    </div>
+                </div>
+            </div>
+
+
+           
+            <div class="section row">
+                <h2 class="col">Work Experience</h2>
+                    <div class="section-text col-right">
+                    <h3><span class="emph"><%= @resume.workname %></span> | <%= @resume.workrole %></h3>
+                    <div><%= @resume.workloc %> </div>
+                    <div class="row">
+                    	<div><%= @resume.workwhen %></div>
+                        <div><%= @resume.workinfo %></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section row">
+                <h2 class="col">Projects</h2>
+                    <div class="section-text col-right">
+                    <h3><span class="emph"><%= @resume.projtitle %></span> | <%= @resume.projrole %></h3>
+                    <div class="row">
+                    	<div style="font-size: 12px"><%= @resume.projwhen %></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </body>
+</html>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3753241-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+
+
+</html>
+
