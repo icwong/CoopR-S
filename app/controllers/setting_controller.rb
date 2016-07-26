@@ -3,12 +3,12 @@ class SettingController < ApplicationController
 
   def display
     @profile = Profile.find_by user_id: current_user.id
-    if @profile == nil
-    	@profile = Profile.new( { "user_id" => current_user.id } )
-    	@profile.save()
-    end
     @preference = Preference.find_by user_id: current_user.id
-    if @preference != nil
+    
+    if @preference == nil
+    	@preference = Preference.new( { "user_id" => current_user.id } )
+    	@preference.save()
+    else
     	@result = Geocoder.search( @preference.zip )
     	if @result != nil && @result.first != nil
     		@location = @result.first.data
