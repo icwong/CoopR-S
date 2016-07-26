@@ -16,9 +16,6 @@ class RegistrationsController < Devise::RegistrationsController
         expire_data_after_sign_in!
         respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
-
-      @preference = @user.build_preference;
-      @preference.save;
     else
       clean_up_passwords resource
       set_minimum_password_length

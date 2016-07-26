@@ -21,6 +21,7 @@
     <% end %>
 </div>
 
+  <% if @profile != nil %>
 <div class="user-profile">
     <h1>Profile</h1>
     <img  class="avatar" src="http://i.imgur.com/y7GX8r8.png" alt="Avatar" />
@@ -29,8 +30,8 @@
      <div class="description">New to Co-op</div>
      
 </div>
+  <% end %>
 
-  <% if @preference != nil %>
 <div class="user-profile">
     <h1>Preference</h1>
      <div class="left">Nickname</div>
@@ -47,7 +48,6 @@
      <div class="left">Zip</div>
         <div class="right"><%= @preference.zip %></div>
 </div>
-  <% end %>
 
 <% end %>
 
