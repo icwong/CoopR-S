@@ -7,21 +7,28 @@
 <% end %>
 
 <% content_for :mFrame do %>
-    
     <script type="text/javascript">
       updateUrl();
     </script>
     <% if user_signed_in? %>
         <%= link_to 'Test email', { controller: "authentications", action: "mail", :uid => current_user.id } %>
     <% end %>
-
 <% end %>
 
-
-<div class="table-title">
-        <button onclick="switchTab()" class="button_selected" id="revCaption" disabled>Reviews</button>
-        <button onclick="switchTab()" class="button_unselected" id="proCaption">Promotions</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="table-title centered">
+    <button onclick="switchTab()" class="button_selected rev-promo-button " id="revCaption" disabled>Reviews</button>
+    <button onclick="switchTab()" class="button_unselected rev-promo-button" id="proCaption">Promotions</button>
 </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+
+<br>
 
 <div class="padding">
 </div>

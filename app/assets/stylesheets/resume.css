@@ -39,13 +39,7 @@ h3 { font-size: 18px;
      font-family: 'merriweather', sans-serif;
 }
 h2, h3 { margin-top: 5px }
-a { color: #ba0018;
-    display: inline-block;
-    text-decoration: none;
-    padding:2px 4px;
-    border-radius:2px;
-    margin-right:-2px;
-}
+
 a:hover {
   background-color:#ba0018;
   color:#fff;

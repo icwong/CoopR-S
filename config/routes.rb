@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'compare' => 'main#compare'
   get 'resume' => 'resumes#index'
   get 'resume/:id/show' => 'resumes#show', :as => 'show_resume'
+  get 'coverletter' => 'coverletters#index'
+  get 'coverletter/:id/show' => 'coverletters#show', :as => 'show_coverletter'
   resources :posts
   resources :preferences
   resources :resumes do
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
   end
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :users
+  resources :coverletters
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

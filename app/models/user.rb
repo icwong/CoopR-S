@@ -18,6 +18,18 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   devise :zxcvbnable
+  
+  def full_address_changed?
+    attrs = %w(number street city province zip)
+    attrs.any?{|a| send "#{a}_changed?"}
+  end
+  
+  geocoded_by :full_address
+	after_validation :geocode,
+	:if => lambda{|obj| obj.full_address_changed?}
+	
+	
+
   # Optionally add more weak words to check against:
  # def weak_words
 #    [self.email, 'password', 'coop', self.user_preferences_name]
@@ -31,8 +43,6 @@ class User < ActiveRecord::Base
   #validates :email, confirmation: true
 	#validates :email_confirmation, presence: true
 	
-	geocoded_by :full_address
-	after_validation :geocode
 	
 	
 	def full_address

@@ -1,53 +1,36 @@
-<div id="login-wrap">
-  <div class="container ">
-    <div class="row">
-      <div class="col-md-4"></div>
-        <div class="col-md-5">
-              
-          <div class="login-form">
-              <!--<form method="post" action="#" role="login">-->
-            <div id="login-container">
-              
-              <div class="panel" style: "border: 2px solid #374f6e">
-                
-    			      <div class="panel-body">
-                  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                    
-                  <div class="field">
-                    <%= f.label :Email %></br>
-                    <%= f.email_field :email, placeholder: "Email", :class => 'form-control input-lg', :autofocus => true %>
-                    <br>
-                    <%= f.label :Password %></br>
-                    <%= f.password_field :password, placeholder: "Password", :class => 'form-control input-lg', :autofocus => true, :autocomplete => :off %>
-                  </div>
-                    
-                  <br>
-                    
-                  <div class="actions">
-                    <%= f.submit "LOGIN", :class => 'loginbutton ', style: "background-color: #374f6e; color: white; font-weight: bold; border: 2px solid #0EAD69" %>
-                  </div>
-                    
-                  <br>
-                    
-                  <% if devise_mapping.rememberable? %>
-                    <!--<div class="field">-->
-                      <%= f.check_box :remember_me %> Remember Me
-                      <!--%= f.label :remember_me %-->
-                      <!--</div>-->
-                  <% end %>
-                    
-                  </br>
-                  <%= render "users/shared/links" %>
-                </div>
-              </div>
-                  
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+      <div class="col-md-6">
+          <div class="panel">
+            <div class="panel-heading">
+              <h3 class="centered">LOGIN MY ACCOUNT</h3>
+              <h4 class="centered"> —————— </h4>
+              <br>
             </div>
-            <div class="col-md-3"></div>
-                
-          </div>
+            
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+          <%= f.label :Email, "EMAIL"%></br>
+          <%= f.email_field :email,  :class => 'form-control input-lg', :autofocus => true %>
+
+          <%= f.label :Password , "PASSWORD"%></br>
+          <%= f.password_field :password, :class => 'form-control input-lg', :autofocus => true, :autocomplete => :off %>
+          
+          <% if devise_mapping.rememberable? %>
+            <!--<div class="field">-->
+          <%= f.check_box :remember_me %> <span style="font-size: 12px; font-weight: bold"> REMEMBER ME</span>
+            <!--%= f.label :remember_me %-->
+            <!--</div>-->
+          <% end %>
+          
+          <%= f.submit "LOGIN", :class => 'btn-block btn-lg', style: "background-color: #FE4A49; border: 2px solid #FE4A49; font-weight: bold; color: white" %>
+          <%= render "users/shared/links" %>
+          
+        
+          <% end %>
         </div>
       </div>
     </div>
-  
-  <% end %>
+  </div>
 </div>

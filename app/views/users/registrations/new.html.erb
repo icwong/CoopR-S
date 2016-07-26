@@ -8,33 +8,33 @@
   <div class="row">
     <div class="col-md-3"></div>
       <div class="col-md-6">
-        
-        <div class="signup-login">
           <div class="panel">
             <div class="panel-heading">
               <h3 class="centered">REGISTER NEW ACCOUNT</h3>
               <h4 class="centered"> —————— </h4>
+              <br>
             </div>
             
             <%= form_for @user, as: :user, url: {action: "create"} do |f| %>
             <%= devise_error_messages! %>
             
-            
-            <%= f.label :Email, "Email *" %>
+            <%= f.label :Email, "EMAIL *" %>
             <%= f.email_field :email, :class => 'form-control input-lg' , :autofocus => true, :onkeyup => "validateEmail" %>
             <img src = "/ok-24.gif" alt="checkmark" id ="emailCheck" >
             
-            <%= f.label :Password %>
-            <%= f.password_field :password, class: 'form-control input-lg' , autocomplete: "off", :onkeyup => "validatePassword()"  %>
-            <img src = "/ok-24.gif" alt="checkmark" id ="passwordCheck">
-            
             <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <%= f.label :Password, "PASSWORD *" %> <span style="font-size:12px">(<%= @minimum_password_length %> characters minimum)</em></span>
+            <%= f.password_field :password,class: 'form-control input-lg' , autocomplete: "off", :onkeyup => "validatePassword()"  %>
+            <img src = "/ok-24.gif" alt="checkmark" id ="passwordCheck">
             <% end %>
             
-            <%= f.label :Password, "Confirm Password" %><
+            <!--% if @minimum_password_length %>-->
+            <!--  <em>(%= @minimum_password_length %> characters minimum)</em>-->
+            <!--% end %>-->
+            
+            <%= f.label :Password, "CONFIRM PASSWORD" %>
             <%= f.password_field :password_confirmation, class: 'form-control input-lg' , autocomplete: "off" , autofocus: true, :onkeyup => "validatePassword()" %>
-            <img src = "/ok-24.gif" alt="checkmark" id ="passwordConfirmationCheck" >
+            <img src = "/ok-24.gif" alt="checkmark" id ="passwordConfirmationCheck">
             
             <div class="meter" > 
               <div id="passwordMeter" style=" text-align:center; height: 20px;border-radius: 5px;">
@@ -42,7 +42,7 @@
               </div>
             </div>
             
-            <div class="field" style= "text-align: left">
+            <div class="centered" style="font-size: 12px">
               <%= f.radio_button :type, 'Student', :checked => true %> STUDENT 
               <!--%= label :type_student, 'Student' %-->
               <%= f.radio_button :type, 'Company' %> COMPANY
@@ -50,16 +50,15 @@
             </div>
             
             <div class="actions">
-              <%= f.submit "SUBMIT"%>
+              <%= f.submit "SUBMIT", :class => 'btn-block btn-lg', style: "background-color: #FE4A49; border: 2px solid #FE4A49; font-weight: bold; color: white" %>
             </div>
             
-            <span style="text-align: center">Already a member? <%= render "users/shared/links" %></span>
+            <span style="text-align: center"><%= render "users/shared/links" %></span>
             
-            <button class="button" type="button" onclick="lastUrl()">Back</a>
+            <button class="btn-block btn-lg" , style="background-color: #02c39a; border: 2px solid #02c39a; font-weight: bold; font-size: 20px; color: white", type="button" onclick="lastUrl()">LOGIN</a>
             
             <% end %>
-          
-          </div>
+        
         </div>
       </div>
     </div>
