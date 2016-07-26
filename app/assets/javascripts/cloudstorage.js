@@ -14,13 +14,65 @@ function selectSourceFile(){
 	
 }
   
+function getComparePDFurl(){
+	 var url = "/compare.pdf?j1=" + getCookie( JOB_ONE ) + '&j2=' + getCookie( JOB_TWO );
+	 return url;
+}
 
+function saveFileToDrive(url){
+	filepicker.exportFile(
+  url,
+  {
+    mimetype:'document/pdf',
+    suggestedFilename: 'newFile'
+  },
+  function(Blob){
+    console.log(Blob.url);
+  }
+);
+	/*
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', url, true);
 
-function saveTextAsDriveFile()
+xhr.responseType = 'blob';
+xhr.onload = function(e) {
+  if (this.status == 200) {
+    var myBlob = this.response;
+    // myBlob is now the blob that the object URL pointed to..
+
+	var fileToLoad = myBlob;
+	
+	filepicker.exportFile(
+  myBlob,
+  function(myBlob){
+    console.log(myBlob.url);
+  }
+	);
+*/
+	//var fileReader = new FileReader();
+/*
+	fileReader.onload = function(fileLoadedEvent) 
+	{
+		var textFromFileLoaded = fileLoadedEvent.target.result;
+
+		 WYMeditor.INSTANCES[0].html(textFromFileLoaded);
+
+	};
+*/
+/*
+//fileReader.readAsText(fileToLoad, "UTF-8");
+	//fileReader.readAsText(fileToLoad);
+	  }
+	};
+	xhr.send();
+*/	
+}
+
+function saveTextAsDriveFile(url)
 {
 	var textToWrite = document.getElementById("inputTextToSave").value;
-	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
-	var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain', url : "url"});
+	//var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
 	
 	var blob = {
 	// text: ,
@@ -30,14 +82,14 @@ function saveTextAsDriveFile()
   isWriteable: true,
   size: 100
 	};
-	
+	/*
 	filepicker.exportFile(
   blob,
   function(Blob){
     console.log(Blob.url);
   }
 	);
-	/*
+	*/
 	filepicker.exportFile(
   textFileAsBlob,
   function(TextFileAsBlob){
@@ -46,7 +98,7 @@ function saveTextAsDriveFile()
   }
 );
 
-*/
+
 	/*
 	
 
