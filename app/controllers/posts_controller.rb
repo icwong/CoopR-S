@@ -16,6 +16,8 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @job = Job.new
+    @post.job_id = @job.id
   end
 
   # GET /posts/1/edit
