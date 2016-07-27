@@ -8,7 +8,7 @@ class SettingController < ApplicationController
     if @preference == nil
     	@preference = Preference.new( { "user_id" => current_user.id } )
     	@preference.save()
-      format.js {render inline: "location.reload();" }
+      format.html { redirect_to "setting", notice: 'Preference created.' }
     else
     	@result = Geocoder.search( @preference.zip )
     	if @result != nil && @result.first != nil
