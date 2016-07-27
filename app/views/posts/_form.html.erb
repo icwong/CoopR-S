@@ -35,6 +35,8 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
   <br>
   
   <div class="field" data-turbolinks="false">
+    <%= f.label :body ,"Content" ,class: "input-title" %> 
+    <br>
     <%= f.text_area :body, class: 'wymeditor' %>
   </div>
   
@@ -47,6 +49,46 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
       <%= label :type_review, 'Review' %>
       <%= f.radio_button :type, 'Promotion' %>
       <%= label :type_promotion, 'Promotion' %>
+    </div>
+  <% end %>
+  
+  <br>
+  <br>
+  
+  
+  <%= f.fields_for @job do |ff| %>
+    <div class="field" data-turbolinks="false">
+      <%= ff.label :job_title ,"Job Title" ,class: "input-title" %> 
+      <br>
+      <%= ff.text_field :job_title, class: "form-control" %>
+    </div>
+
+    <% if current_user.type != 'Company' %>
+    <div class="field" data-turbolinks="false">
+      <%= ff.label :offered_by ,"Company ID" ,class: "input-title" %> (if input is not #, search user table with company type find the ID of given name; if not exist, create a new company record)
+      <br>
+      <%= ff.text_field :offered_by, class: "form-control" %>
+    </div>
+    <% end %>
+
+    <div class="field" data-turbolinks="false">
+      <%= ff.label :working_hours ,"Hours per Week" ,class: "input-title" %> 
+      <br>
+      <%= ff.text_field :working_hours, class: "form-control" %>
+    </div>
+
+    <div class="field" data-turbolinks="false">
+      <%= ff.label :work_day ,"Days per Week" ,class: "input-title" %> 
+      <br>
+      <span>0</span><%= ff.range_field :work_day, in: 0..7, step: 1,class: "form-control" %><span>7</span>
+      <br>
+      <p>0 means not restricted</p>
+    </div>
+
+    <div class="field" data-turbolinks="false">
+      <%= ff.label :salary ,"Salary" ,class: "input-title" %> 
+      <br>
+      $<%= ff.text_field :salary, class: "form-control" %>
     </div>
   <% end %>
 

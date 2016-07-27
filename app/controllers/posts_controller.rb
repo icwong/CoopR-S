@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, :except => [:edit, :create, :new]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @job = Job.new
   end
 
   # GET /posts/1/edit
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+
     @me = current_user
     @post.owner = @me.id
     if !@me.admin?
@@ -51,6 +53,12 @@ class PostsController < ApplicationController
     
     respond_to do |format|
       if @post.save
+        @jparams = job_params
+        @jparams[:id] = @post.id
+        @job = Job.new(@jparams)
+        if @post.type = 'Promotion'
+          @job.update( {:offered_by => @post.owner } )
+        end
         format.html { redirect_to @post, notice: 'Post was successfully created.' + @message }
         format.json { render :show, status: :created, location: @post }
       else
@@ -93,5 +101,9 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :body, :type, :owner)
+    end
+
+    def job_params
+      params.require(:post).require(:job).permit(:job_title, :offered_by, :working_hours, :work_day, :salary)
     end
 end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  offered_by: 1
+  working_hours: 1
+  work_day: 1
+  salary: 1
+  title: MyString
+
+two:
+  offered_by: 1
+  working_hours: 1
+  work_day: 1
+  salary: 1
+  title: MyString
