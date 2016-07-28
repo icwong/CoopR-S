@@ -57,32 +57,43 @@ ActiveRecord::Schema.define(version: 20160727080711) do
     t.string   "title"
     t.text     "body"
     t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.date     "created_date"
+    t.date     "last_edit_date"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "posts", ["owner"], name: "index_posts_on_owner", using: :btree
 
   create_table "preferences", primary_key: "user_id", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
     t.string   "zip"
     t.string   "province"
     t.string   "city"
     t.string   "street"
-    t.string   "house_number"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "profiles", primary_key: "user_id", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "middle_name"
-    t.string   "last_name"
+    t.string   "number"
     t.string   "phone"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "sex"
+    t.float    "weight"
+    t.float    "height"
+    t.string   "color"
+    t.float    "gpa"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|
