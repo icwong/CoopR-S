@@ -1,27 +1,54 @@
+require 'digest'
+
 class AuthenticationsController < ApplicationController
-    skip_before_action :authenticate_user!
+
+  def help
+  end
+
+  def success
+  end
+
+  def fail
+  end
 
 	def mail
-		@uid = params[:uid]
-		@sid = hash( @uid )
-		@user = User.find( @uid )
-  		VerifyMailer.send_mail( @user, @sid ).deliver
-  		redirect_to '/'
-        flash[:notice] = 'Email has been sent.' 
-  	end
+		@me = current_user
+		@sid = hash( @me.id )
+    @auth = Authentication.find_by user_id: current_user.id
+    if @auth.nil?
+      @auth = Authentication.new( {:user_id => @me.id, :serial => @sid} )
+      @auth.save
+    else
+      @auth.update( {:serial => @sid} )
+    end
+
+  	VerifyMailer.send_mail( @me, @sid ).deliver
+  	redirect_to auth_path
+    flash[:notice] = 'Email has been sent.' 
+  end
 
   	def verify
-  		@sid = params[:sid]
-  		#@auth = Authentication.find( getUID( @sid ) )
-  		#@auth.status = :pass
+      @auth = Authentication.find_by user_id: current_user.id
+      if @auth.nil?
+        redirect_to root_path
+        flash[:notice] = 'You did not apply anything'
+      else
+        @sid = params[:sid]
+        if @sid == @auth.serial
+          @auth.update( {:pass => true, :serial => nil} )
+          redirect_to success_path
+        else
+          redirect_to fail_path
+        end
+      end
   	end
 
 	private
   	def hash( rawID )
-  		return rawID.to_i + 100
+  		return Digest::SHA256.hexdigest (rawID.to_s + Time.now.to_i.to_s ) 
   	end
 
-  	def getUID( hashCode )
-  		return hashCode.to_i - 100
-  	end
+    def clean_up
+      Authentication.delete_all
+    end
 end
