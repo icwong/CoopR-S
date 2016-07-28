@@ -15,6 +15,11 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+
+    if !current_user.editor?
+      # puts "\n\n  mm!  \n"
+      redirect_to auth_path
+    end
     @post = Post.new
     @job = Job.new
   end
@@ -26,9 +31,13 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    @me = current_user
+    if !@me.editor?
+      redirect_to 'auth'
+    end
+
     @post = Post.new(post_params)
 
-    @me = current_user
     @post.owner = @me.id
     if !@me.admin?
       if @me.type == 'Company'
