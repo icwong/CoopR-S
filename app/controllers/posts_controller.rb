@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   skip_before_action :authenticate_user!, :except => [:edit, :create, :new]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :check_status, only: [:edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -11,6 +12,16 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @can_edit = false
+    if user_signed_in?
+      if current_user.admin?
+        @can_edit = true
+      else
+        if current_user.editor? && @post.owner == current_user.id
+          @can_edit = true
+        end
+      end
+    end
   end
 
   # GET /posts/new
@@ -24,6 +35,18 @@ class PostsController < ApplicationController
     @job = Job.new
   end
 
+  def check_status
+
+    if !current_user.admin?
+      if !current_user.editor?
+        redirect_to auth_path
+      else
+        redirect_to warning_path
+        flash[:notice] = 'edit other user\'s post' 
+      end
+    end
+  end
+
   # GET /posts/1/edit
   def edit
   end
@@ -33,7 +56,7 @@ class PostsController < ApplicationController
   def create
     @me = current_user
     if !@me.editor?
-      redirect_to 'auth'
+      redirect_to auth_path
     end
 
     @post = Post.new(post_params)
@@ -105,6 +128,7 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+      @job = Job.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

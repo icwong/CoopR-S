@@ -29,10 +29,8 @@
   </p>
 </div>
 
-<% if signed_in? %>
-  <% if current_user.admin? %>
+<% if @can_edit %>
     <%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_post_path(@post), 'data-no-turbolink' => true %> 
-  <% end %> 
 <% end %>
 
 <button class="button" type="button" onclick="lastUrl()">Back</a>

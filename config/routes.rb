@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'index' => 'main#index'
   get 'text' => 'main#dummy'
   get 'edit' => 'main#editor'
+  get 'warning' => 'main#warning'
   get 'compare' => 'main#compare'
   get 'mail' => 'authentications#mail'
   get 'auth' => 'authentications#help'
