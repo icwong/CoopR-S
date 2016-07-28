@@ -16,10 +16,8 @@ class PostsController < ApplicationController
     if user_signed_in?
       if current_user.admin?
         @can_edit = true
-      else
-        if current_user.editor? && @post.owner == current_user.id
-          @can_edit = true
-        end
+      elsif current_user.editor? && @post.owner == current_user.id
+        @can_edit = true
       end
     end
   end
@@ -40,7 +38,7 @@ class PostsController < ApplicationController
     if !current_user.admin?
       if !current_user.editor?
         redirect_to auth_path
-      else
+      elsif @post.owner != current_user.id
         redirect_to warning_path
         flash[:notice] = 'edit other user\'s post' 
       end
