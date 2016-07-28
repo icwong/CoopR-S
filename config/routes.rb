@@ -1,19 +1,22 @@
 Rails.application.routes.draw do
   resources :authentications
   resources :histories
-  resources :profiles
   resources :tags
   root 'main#index'
   get 'admin' => 'admin#index'
   get 'index' => 'main#index'
   get 'text' => 'main#dummy'
   get 'edit' => 'main#editor'
+  get 'warning' => 'main#warning'
   get 'compare' => 'main#compare'
   get 'mail' => 'authentications#mail'
+  get 'auth' => 'authentications#help'
+  get 'success' => 'authentications#success'
+  get 'fail' => 'authentications#fail'
   get 'verify' => 'authentications#verify'
   get 'compare' => 'main#compare'
+  get 'setting' => 'setting#display'
   resources :posts
-  resources :preferences
   devise_for :users, :controllers => {:registrations => "registrations"}
   
   # The priority is based upon order of creation: first created -> highest priority.

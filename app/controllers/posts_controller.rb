@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, :except => [:edit, :create, :new]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :check_status, only: [:edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -11,11 +12,39 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @can_edit = false
+    if user_signed_in?
+      if current_user.admin?
+        @can_edit = true
+      else
+        if current_user.editor? && @post.owner == current_user.id
+          @can_edit = true
+        end
+      end
+    end
   end
 
   # GET /posts/new
   def new
+
+    if !current_user.editor?
+      # puts "\n\n  mm!  \n"
+      redirect_to auth_path
+    end
     @post = Post.new
+    @job = Job.new
+  end
+
+  def check_status
+
+    if !current_user.admin?
+      if !current_user.editor?
+        redirect_to auth_path
+      else
+        redirect_to warning_path
+        flash[:notice] = 'edit other user\'s post' 
+      end
+    end
   end
 
   # GET /posts/1/edit
@@ -25,8 +54,13 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
     @me = current_user
+    if !@me.editor?
+      redirect_to auth_path
+    end
+
+    @post = Post.new(post_params)
+
     @post.owner = @me.id
     if !@me.admin?
       if @me.type == 'Company'
@@ -51,6 +85,12 @@ class PostsController < ApplicationController
     
     respond_to do |format|
       if @post.save
+        @jparams = job_params
+        @jparams[:id] = @post.id
+        @job = Job.new(@jparams)
+        if @post.type = 'Promotion'
+          @job.update( {:offered_by => @post.owner } )
+        end
         format.html { redirect_to @post, notice: 'Post was successfully created.' + @message }
         format.json { render :show, status: :created, location: @post }
       else
@@ -88,10 +128,15 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+      @job = Job.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :body, :type, :owner)
+    end
+
+    def job_params
+      params.require(:post).require(:job).permit(:job_title, :offered_by, :working_hours, :work_day, :salary)
     end
 end

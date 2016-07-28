@@ -1,3 +1,0 @@
-class ProtectedController < ApplicationController
-
-end

@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   
 
   def display_name
-    @pf = Preference.find( self.id );
+    @pf = Preference.find_by user_id: self.id;
     return ( @pf.nil? || @pf.name.blank? ) ? self.email : @pf.name;
   end
 
@@ -41,8 +41,8 @@ class User < ActiveRecord::Base
     return false;
   end
 
-  def admin?
-    return false;
+  def editor?
+    return true;
   end
 
 end
