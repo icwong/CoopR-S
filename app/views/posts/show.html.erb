@@ -1,3 +1,8 @@
+<% content_for :mHeader do %>
+  <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'cloudstorage' %>
+  <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
+<% end %>
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
@@ -36,4 +41,4 @@
   <% end %> 
 <% end %>
 
-<button class="button" type="button" onclick="lastUrl()">Back</a>
+<button class="button" type="button" onclick="lastUrl()">Back</button>
