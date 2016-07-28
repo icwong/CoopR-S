@@ -13,5 +13,4 @@
 /tmp
 /*.cmd
 Gemfile.lock
-Gemfile.lock
 db/schema.rb
