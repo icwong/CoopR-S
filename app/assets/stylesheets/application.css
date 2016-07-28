@@ -70,6 +70,23 @@ body {
   cursor:pointer;
 }
 
+a.display_name:link{
+    color: #b2191b;
+    text-decoration: none;
+}
+a.display_name:visited{
+    color: #b2191b;
+    text-decoration: none;
+}
+a.display_name:hover{
+    color: blueviolet;
+    text-decoration: underline;
+}
+a.display_name:active{
+    color: #b2191b;
+    text-decoration: underline;
+}
+
 div.padding {
     height: 8px;
     margin-top: -4px;

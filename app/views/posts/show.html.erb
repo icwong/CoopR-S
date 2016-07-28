@@ -8,7 +8,7 @@
 </div>
 
 <div class="show-post">
-  <%= render_shareable %>
+  
   <p>
     <strong>Title:</strong>
     <%= @post.title %>
@@ -27,6 +27,7 @@
     <strong>Owner:</strong>
     <%= @post.owner_name %>
   </p>
+  <%= render_shareable %>
 </div>
 
 <% if signed_in? %>

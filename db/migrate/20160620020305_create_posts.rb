@@ -6,8 +6,6 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.string :type
-      t.date :created_date
-      t.date :last_edit_date
 
       t.timestamps null: false
     end

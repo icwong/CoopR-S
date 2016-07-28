@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :authentications
   resources :histories
-  resources :profiles
   resources :tags
   root 'main#index'
   get 'admin' => 'admin#index'
@@ -13,8 +12,8 @@ Rails.application.routes.draw do
   get 'mail' => 'authentications#mail'
   get 'verify' => 'authentications#verify'
   get 'compare' => 'main#compare'
+  get 'setting' => 'setting#display'
   resources :posts
-  resources :preferences
   devise_for :users, :controllers => {:registrations => "registrations"}
   
   # The priority is based upon order of creation: first created -> highest priority.
