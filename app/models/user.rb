@@ -41,8 +41,8 @@ class User < ActiveRecord::Base
     return false;
   end
 
-  def admin?
-    return false;
+  def editor?
+    return true;
   end
 
 end
