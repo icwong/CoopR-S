@@ -22,6 +22,7 @@ gem 'shareable'
 
 # ASSET PIPELINE
 gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'sprockets', '3.6.3'
 
 # USER GROUP
 gem 'devise', '4.1.1'

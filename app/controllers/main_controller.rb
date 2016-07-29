@@ -41,6 +41,9 @@ class MainController < ApplicationController
   def dummy
   end
 
+  def warning
+  end
+
 
   def editor
   end
