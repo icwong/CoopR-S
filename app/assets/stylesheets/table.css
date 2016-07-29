@@ -27,6 +27,7 @@ div.table-title {
 .table-list-users{
     
   background: white;
+  border-top: none;
   border-radius:3px;
   border-collapse: collapse;
   height: 100px;
