@@ -1,9 +1,7 @@
 class SettingController < ApplicationController
-  before_action :set_profile, only: [:show]
+  before_action :set_config, only: [:display, :update]
 
   def display
-    @profile = Profile.find_by user_id: current_user.id
-    @preference = Preference.find_by user_id: current_user.id
     
     if @preference == nil
     	@preference = Preference.new( { "user_id" => current_user.id } )
@@ -17,4 +15,15 @@ class SettingController < ApplicationController
     end
   end
 
+  def update
+
+
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_post
+      @profile = Profile.find_by user_id: current_user.id
+      @preference = Preference.find_by user_id: current_user.id
+    end
 end
