@@ -15,9 +15,8 @@
 
 
 <div>
-    <% if @location != nil %>
+    <% if !@lat.nil? %>
     <div id='mapDiv' style="float: right; position: relative; width:600px; height:600px; z-index: -2"></div>
-      <div><%= @location["address_components"].first.inspect %></div>
     <% end %>
 </div>
 
@@ -53,7 +52,7 @@
 
 <button class="button" type="button" onclick="lastUrl()">Back</a>
 
-<% if @location != nil %>
+<% if !@lat.nil? %>
 <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
 <script type="text/javascript">
       var map = null;
@@ -62,12 +61,12 @@
       {  
 
          map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), {credentials: "AkncMOPhJUoGDu9stqfQxrQisQXAmlDYdEMrfVHr5eOwv5-QKONY7tAA1IxJjJGK", center: new Microsoft.Maps.Location(
-                                                            <%= @location["geometry"]["location"]["lat"].to_f %>
-                                                          , <%= @location["geometry"]["location"]["lng"].to_f %>
+                                                            <%= @lat %>
+                                                          , <%= @lng %>
                                                           ), zoom: 15 });
          map.entities.clear(); 
         var infoboxOptions = {title: "<%= @preference.zip %>", 
-                          description: "<%= @preference.house_number %> <%= @preference.street %>, <%= @preference.city %>, <%= @preference.province %>"}; 
+                          description: "<%= @preference.full_address %>\n [ <%= @lat %>, <%= @lng %>]"}; 
         var defaultInfobox = new Microsoft.Maps.Infobox(map.getCenter(), infoboxOptions );    
         map.entities.push(defaultInfobox);
       }
