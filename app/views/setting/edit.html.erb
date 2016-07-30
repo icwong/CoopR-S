@@ -1,6 +1,5 @@
 <% content_for :mHeader do %>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <%= javascript_include_tag 'setting' %>
 <% end %>
 
 
@@ -21,8 +20,10 @@
   </div>
 
 
+  <% form_tag save_setting_path, :method => :put, :class => ‘settings’ do %>
+    <input accept="image/png,image/gif,image/jpeg" id="user_pic" name="user_pic" type="file" />
     <% if @profile != nil %>
-      <div>
+      <div class="user-profile">
           <h1>Profile</h1>
           <img  class="avatar" src="http://i.imgur.com/y7GX8r8.png" alt="Avatar" />
            <div class="username"><%= @profile.first_name %> <%= @profile.middle_name %> <%= @profile.last_name %></div>
@@ -32,10 +33,10 @@
       </div>
     <% end %>
 
-      <div>
+      <div class="user-profile">
           <h1>Preference</h1>
            <div class="left">Nickname</div>
-              <div class="right"><%= text_field_tag 'display_name', @preference.name %></div>
+              <div class="right"><%= text_area_tag 'display_name', @preference.name %></div>
            <div class="details"><span class="profiletitle">Details</span></div>
            <div class="left">Province</div>
               <div class="right"><%= @preference.province %></div>
@@ -46,15 +47,13 @@
            <div class="left">Number</div>
               <div class="right"><%= @preference.house_number %></div>
            <div class="left">Zip</div>
-              <div class="right"><%= text_field_tag 'zip_code', @preference.zip %></div>
-            <div>
-              <span>Lat:</span><span id="lat"><%= @preference.latitude %></span>
-              <span> | Lng:</span><span id="lng"><%= @preference.longitude %></span>
-            </div>
-            <button class="button" type="button" onclick="updateLocation()">Search Address</a>
+              <div class="right"><%= @preference.zip %></div>
       </div>
 
-      <button class="button" type="button" onclick="lastUrl()">Update</a>
+      <div>
+        <%= submit_tag 'update' %>
+      </div>
+  <% end %>
 
 <% end %>
 

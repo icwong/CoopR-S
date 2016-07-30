@@ -12,23 +12,27 @@ class Preference < ActiveRecord::Base
 	end
 
 	def has_full_address
-		return !self.provience.nil? || !self.city.nil? || !self.street.nil? || !self.house_number.nil?
+		return !self.province.nil? || !self.city.nil? || !self.street.nil? || !self.house_number.nil?
 	end
 
 	def full_address
-		return [ self.house_number, self.street, self.city, self.provience ].join(" ")
+		return [ self.house_number, self.street, self.city, self.province ].join(" ")
 	end
 
 	def update_geocode
     	if self.latitude.nil? || self.longitude.nil?
       		if self.has_address
         		if !self.zip.nil?
-        			@result = Geocoder.search( self.zip )
+        			@zip_code = self.zip
+        			@result = Geocoder.search( @zip_code )
+        			puts "\n\n\n\n"
+        			puts @result.inspect
        		 	else 
         			@result = Geocoder.search( self.full_address )
         		end
 
         		if @result != nil && @result.first != nil
+      puts "\n\ncheck geo5"
     				@location = @result.first.data
     				self.latitude  = @location["geometry"]["location"]["lat"].to_f
     				self.longitude = @location["geometry"]["location"]["lng"].to_f
