@@ -8,10 +8,7 @@ class SettingController < ApplicationController
     	@preference.save()
       format.html { redirect_to "setting", notice: 'Preference created.' }
     else
-    	@result = Geocoder.search( @preference.zip )
-    	if @result != nil && @result.first != nil
-    		@location = @result.first.data
-    	end
+    	@preference.update_geocode
     end
   end
 
