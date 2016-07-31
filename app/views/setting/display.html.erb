@@ -12,7 +12,7 @@
   </script>
 
   <div>
-    <div id='mapDiv' style="float: right; position: relative; width:600px; height:600px; z-index: -2"></div>
+    <div id='mapDiv' style="float: right; position: relative; width:700px; height:630px; z-index: -2; right: 150px; top: 200px"></div>
   </div>
 
   <%= form_for(@me, as: :user, :url => setting_path, :html => { :method => :put } ) do |f| %>
@@ -90,6 +90,7 @@
           </div>
         </div>
         <%= f.submit 'UPDATE',class: 'button_compact btn-lg btn-default'%>
+        <button class="backButton" type="button " onclick="lastUrl()">BACK</button>  
       </div>
     </div>
 
@@ -98,12 +99,6 @@
     
     
     <% end %>
-
-<button class="button" type="button" onclick="lastUrl()">Back</button>  
-        </div>
-      </div>
-    </div>
-    
 
     <script>
       var map;
