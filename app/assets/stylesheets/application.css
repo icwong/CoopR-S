@@ -60,7 +60,6 @@ a.display_name:link{
 }
 a.display_name:visited{
     color: #b2191b;
-    text-decoration: none;
 }
 a.display_name:hover{
     color: blueviolet;

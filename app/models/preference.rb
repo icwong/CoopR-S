@@ -16,29 +16,34 @@ class Preference < ActiveRecord::Base
 	end
 
 	def full_address
-		return [ self.house_number, self.street, self.city, self.province ].join(" ")
+        @there = self.house_number
+
+        if !self.street.nil?
+            @there = @there + " " + self.street
+        end
+
+        puts "\n\n\n" + @there
+        if !self.city.nil?
+            if @there.blank?
+                @there = self.city
+            else
+                @there = @there + ", " + self.city
+            end
+        end
+
+        if !self.province.nil?
+            if @there.blank?
+                @there = self.province
+            else
+                @there = @there + ", " + self.province
+            end
+        end
+
+		return @there
 	end
 
-	def update_geocode
-    	if self.latitude.nil? || self.longitude.nil?
-      		if self.has_address
-        		if !self.zip.nil?
-        			@zip_code = self.zip
-        			@result = Geocoder.search( @zip_code )
-        			puts "\n\n\n\n"
-        			puts @result.inspect
-       		 	else 
-        			@result = Geocoder.search( self.full_address )
-        		end
+    def info
+        return [ self.zip, self.full_address ].join("\n")
+    end
 
-        		if @result != nil && @result.first != nil
-      puts "\n\ncheck geo5"
-    				@location = @result.first.data
-    				self.latitude  = @location["geometry"]["location"]["lat"].to_f
-    				self.longitude = @location["geometry"]["location"]["lng"].to_f
-    				self.save
-    			end
-    		end
-    	end
-	end
 end

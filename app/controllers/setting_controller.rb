@@ -14,10 +14,10 @@ class SettingController < ApplicationController
 
   def update
     @result = ""
-    if !@profile.nil? &&  @profile.update(pro_params)
+    if !@profile.nil? && @profile.update(pro_params)
       @result = "Profile updated \t"
     end
-    if !@preference.nil?
+    if !@preference.nil? && @preference.update(pre_params)
       @result = @result + "Preference updated \t"
     end
 
@@ -38,12 +38,10 @@ class SettingController < ApplicationController
     end
 
     def pro_params
-      @temp = params.require(:post).require(:profile)
-      puts @temp
-      return @temp
+      params.require(:user).require(:profile).permit(:phone)
     end
 
     def pre_params
-      params.require(:post).require(:preference)
+      params.require(:user).require(:preference).permit( :name, :zip, :street, :city, :province, :house_number, :latitude, :longitude )
     end
 end

@@ -1,5 +1,6 @@
 <% content_for :mHeader do %>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <%= javascript_include_tag 'setting' %>
 <% end %>
 
@@ -15,9 +16,7 @@
   </script>
 
   <div>
-    <% if !@lat.nil? %>
     <div id='mapDiv' style="float: right; position: relative; width:600px; height:600px; z-index: -2"></div>
-    <% end %>
   </div>
 
   <%= form_for(@me, as: :user, :url => setting_path, :html => { :method => :put } ) do |f| %>
@@ -28,7 +27,8 @@
            <div class="username"><%= @profile.first_name %> <%= @profile.middle_name %> <%= @profile.last_name %></div>
            <div class="school">SFU</div>
            <div class="description">New to Co-op</div>
-           <div><%= ff.number_field 'Phone', :value => @profile.phone %></div>
+           <div class="left">Phone number</div>
+           <div><%= ff.number_field 'phone', :value => @profile.phone %></div>
            
       </div>
     <% end %>
@@ -37,7 +37,7 @@
       <div>
           <h1>Preference</h1>
            <div class="left">Nickname</div>
-              <div class="right"><%= ff.text_field 'display_name', :value => @preference.name %></div>
+              <div class="right"><%= ff.text_field 'name', :value => @preference.name %></div>
            <div class="details"><span class="profiletitle">Details</span></div>
            <div class="left">Province</div>
               <div class="right"><%= ff.text_field 'province', :value => @preference.province %></div>
@@ -48,12 +48,12 @@
            <div class="left">Number</div>
               <div class="right"><%= ff.text_field 'house_number', :value => @preference.house_number %></div>
            <div class="left">Zip</div>
-              <div class="right"><%= ff.text_field 'zip_code', :value => @preference.zip %></div>
+              <div class="right"><%= ff.text_field 'zip', :value => @preference.zip %></div>
             <div>
-              <span>Lat:</span><%= ff.text_field 'lat', :value => @preference.latitude %>
-              <span> | Lng:</span><%= ff.text_field 'lng', :value => @preference.longitude %>
+              <span>Lat:</span><%= ff.text_field 'latitude', :value => @preference.latitude, disabled: true %>
+              <span> | Lng:</span><%= ff.text_field 'longitude', :value => @preference.longitude, disabled: true %>
             </div>
-            <button class="button" type="button" onclick="updateLocation()">Search Address</a>
+            <button class="button" type="button" onclick="updateLocation()">Search Address</button>
       </div>
     <% end %>
     <%= f.submit 'Update',class: 'wymupdate button_compact'%>
@@ -61,26 +61,28 @@
 
 <% end %>
 
-<button class="button" type="button" onclick="lastUrl()">Back</a>
+<button class="button" type="button" onclick="lastUrl()">Back</button>
 
-<% if !@lat.nil? %>
-<script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
-<script type="text/javascript">
-      var map = null;
+    <script>
+      var map;
 
-      function GetMap()
-      {  
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var there = new google.maps.LatLng( document.getElementById("user_preference_latitude").value, 
+                                            document.getElementById("user_preference_longitude").value );
+        map = new google.maps.Map(document.getElementById('mapDiv'), {
+          center: there,
+          disableDefaultUI: true,
+          zoom: 15
+        });
 
-         map = new Microsoft.Maps.Map(document.getElementById("mapDiv"), {credentials: "AkncMOPhJUoGDu9stqfQxrQisQXAmlDYdEMrfVHr5eOwv5-QKONY7tAA1IxJjJGK", center: new Microsoft.Maps.Location(
-                                                            <%= @lat %>
-                                                          , <%= @lng %>
-                                                          ), zoom: 15 });
-         map.entities.clear(); 
-        var infoboxOptions = {title: "<%= @preference.zip %>", 
-                          description: "<%= @preference.full_address %>\n [ <%= @lat %>, <%= @lng %>]"}; 
-        var defaultInfobox = new Microsoft.Maps.Infobox(map.getCenter(), infoboxOptions );    
-        map.entities.push(defaultInfobox);
+        var urHere = new google.maps.InfoWindow();
+        var title = "<b><%= @preference.zip %></b><br>";
+        var info = "<%= @preference.full_address %>".trim()
+        urHere.setContent( title + "<p>" + info + "</p>" );
+        urHere.setPosition( there );
+        urHere.open(map);
       }
-      GetMap();
-</script>
-<% end %>
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwlEaJqSfz_u9jvEdoStjKgNRJiebe0D4&language=en&callback=initMap" async defer></script>

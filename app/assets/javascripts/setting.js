@@ -6,14 +6,18 @@ var txtProvince;
 var txtLat;
 var txtLng;
 
-function updateLocation() {
-    txtZip = document.getElementById("user_preference_zip_code");
+window.onload = function( that ) {
+    txtZip = document.getElementById("user_preference_zip");
     txtNumber = document.getElementById("user_preference_house_number");
     txtStreet = document.getElementById("user_preference_street");
     txtCity = document.getElementById("user_preference_city");
     txtProvince = document.getElementById("user_preference_province");
-    txtLat = document.getElementById("user_preference_lat");
-    txtLng = document.getElementById("user_preference_lng");
+    txtLat = document.getElementById("user_preference_latitude");
+    txtLng = document.getElementById("user_preference_longitude");
+}
+
+
+function autoLocation() {
     var lat = txtLat.value;
     var lng = txtLng.value;
 
@@ -32,6 +36,25 @@ function updateLocation() {
             decode( address );
         }
     }
+}
+
+function updateLocation() {
+    var lat = txtLat.value;
+    var lng = txtLng.value;
+
+        if(txtZip.value != "" || 
+                txtNumber.value != "" || 
+                    txtStreet.value != "" || 
+                        txtCity.value != "" || 
+                            txtProvince.value != "") {
+            var address;
+            if(txtZip.value != "") {
+                address = txtZip.value
+            } else {
+                address = txtNumber.value + "+" + txtStreet.value + "+" + txtCity.value + "+" + txtProvince.value + "&components=country:CA"; 
+            }
+            decode( address );
+        }
 }
 
 function parse( that, index, those) {
@@ -58,6 +81,7 @@ function decode( address ) {
             result.address_components.forEach( parse );
             txtLat.value = result.geometry.location.lat;
             txtLng.value = result.geometry.location.lng;
+            getMap();
         }
     });
 }
