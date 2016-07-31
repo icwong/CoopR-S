@@ -20,8 +20,9 @@
     <% end %>
   </div>
 
-
+  <%= form_for @me do |f| %>
     <% if @profile != nil %>
+      <%  %>
       <div>
           <h1>Profile</h1>
           <img  class="avatar" src="http://i.imgur.com/y7GX8r8.png" alt="Avatar" />
@@ -30,6 +31,7 @@
            <div class="description">New to Co-op</div>
            
       </div>
+      <% end %>
     <% end %>
 
       <div>
@@ -38,13 +40,13 @@
               <div class="right"><%= text_field_tag 'display_name', @preference.name %></div>
            <div class="details"><span class="profiletitle">Details</span></div>
            <div class="left">Province</div>
-              <div class="right"><%= @preference.province %></div>
+              <div class="right"><%= text_field_tag 'province', @preference.province %></div>
            <div class="left">City</div>
-              <div class="right"><%= @preference.city %></div>
+              <div class="right"><%= text_field_tag 'city', @preference.city %></div>
            <div class="left">Street</div>
-              <div class="right"><%= @preference.street %></div>
+              <div class="right"><%= text_field_tag 'street', @preference.street %></div>
            <div class="left">Number</div>
-              <div class="right"><%= @preference.house_number %></div>
+              <div class="right"><%= text_field_tag 'house_number', @preference.house_number %></div>
            <div class="left">Zip</div>
               <div class="right"><%= text_field_tag 'zip_code', @preference.zip %></div>
             <div>
@@ -53,9 +55,9 @@
             </div>
             <button class="button" type="button" onclick="updateLocation()">Search Address</a>
       </div>
-
+      <link_to "Add as friend", user_friend_path(current_user, @friend), :method=> :put>
       <button class="button" type="button" onclick="lastUrl()">Update</a>
-
+  <% end %>
 <% end %>
 
 <button class="button" type="button" onclick="lastUrl()">Back</a>

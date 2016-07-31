@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'verify' => 'authentications#verify'
   get 'compare' => 'main#compare'
   get 'setting' => 'setting#display'
+  put 'setting' => 'setting#update'
   resources :posts
   devise_for :users, :controllers => {:registrations => "registrations"}
   
