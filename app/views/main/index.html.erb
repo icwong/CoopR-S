@@ -1,5 +1,5 @@
 <% content_for :mHeader do %>
-    <%= stylesheet_link_tag 'table', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'table' %>
 <% end %>
 
 <% content_for :mLogin do %>
@@ -51,8 +51,9 @@
       </th>
       <% end %>
 
-
-      <th></th>
+      <% if has_address %> 
+        <th>Distance</th>
+      <% end %> 
     </tr>
   </thead>
 
@@ -69,6 +70,10 @@
               <span><sup>+</sup></span>
           </div>
         </td>
+
+        <% if has_address %> 
+          <td><%= get_distance( post.owner ) %></td>
+        <% end %> 
       </tr>
     <% end %>
   </tbody>
@@ -95,7 +100,8 @@
           <span style="float:right;">&#9660;</span>
         <% end %>
       </th>
-      <th></th>
+      <th>
+      </th>
     </tr>
   </thead>
 

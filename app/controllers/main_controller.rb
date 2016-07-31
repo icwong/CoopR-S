@@ -60,4 +60,32 @@ class MainController < ApplicationController
       end
     end
   end
+
+  def has_preference
+
+  end
+
+  def has_address
+    if user_signed_in?
+      @preference = Preference.find_by user_id: current_user.id
+      if !@preference.nil? && !@preference.latitude.nil?
+        return true
+      end
+    end
+    return false
+  end
+
+  def get_distance( user_id )
+    @him = Preference.find_by user_id: user_id
+    if !@him.nil? && !@him.latitude.nil?
+      @lat_a = @preference.latitude.to_f
+      @lng_a = @preference.latitude.to_f
+      @lat_b = @him.latitude.to_f
+      @lng_b = @him.longitude.to_f
+      return Math.sqrt( ( @lat_b - @lat_a)**2 + ( @lng_b - @lng_a)**2 ).round(0)
+    end
+    return "N/A"
+  end
+
+  helper_method :has_address, :get_distance
 end
