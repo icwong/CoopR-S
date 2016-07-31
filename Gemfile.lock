@@ -39,9 +39,13 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.3.7)
       execjs
+    bcrypt (3.1.11)
     bcrypt (3.1.11-x86-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.5)
     coffee-rails (4.1.1)
@@ -87,6 +91,9 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
     nokogiri (1.6.8-x86-mingw32)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -94,6 +101,7 @@ GEM
     password_strength (1.1.4)
       activemodel
     pdf-core (0.6.1)
+    pg (0.18.4)
     pg (0.18.4-x86-mingw32)
     pkg-config (1.1.7)
     prawn (2.1.0)
@@ -177,10 +185,12 @@ GEM
       execjs
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
   autoprefixer-rails
+  bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
   coffee-script-source (~> 1.2.0)
@@ -194,6 +204,7 @@ DEPENDENCIES
   prawn
   prawn-table
   rails (= 4.2.6)
+  sass
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   shareable
@@ -205,4 +216,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.12.4
+   1.12.5

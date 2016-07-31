@@ -14,7 +14,24 @@
  *= require_self
  */
  
- 
+ /*---------------------------------GENERAL------------------------------------*/
+  * {
+  border-radius: 0 !important;
+ }
+
+.centered{
+    text-align: center;
+}
+
+.redirect_link{
+    color: red;
+    font-weight: bold;
+}
+
+body div, body p body li{
+    font-family: 'Droid Serif';
+}
+/*------------------------------------PDF------------------------------------------*/
 
 @media print {
   body {
@@ -37,8 +54,8 @@
   }
 }
 
+/*---------------------------------------------------------------*/
 
- 
  .hidden {
     display: none;
  }
@@ -141,33 +158,33 @@ a.text-button:active{
 .button:hover {
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.1s;
-	    	background-color: #D5DDE5;
-            color: #1b1e24;
-            border: 2px solid black;
-	        box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
+            background-color: #ED6A5A;
+            color: white;
+            border: 2px solid #ED6A5A;
 }
 .button_compact:hover {
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.1s;
-            background-color: #D5DDE5;
-            color: #1b1e24;
-            border: 2px solid black;
-            box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
+            background-color: #ED6A5A;
+            color: white;
+            border: 2px solid #ED6A5A;
+            
 }
 .button_compact {
             margin-top: 0px;
             margin-left: 0px;
             margin-right: 0px;
             margin-bottom: 0px;
-            font-size: 14pt;
-            color: #D5DDE5;
-            border: none;
+            font-size: 16px;
+            color: #ED6A5A;
+            border: 2px solid #ED6A5A;
             border-radius: 5px;
             vertical-align: center;
             height: 50px;
             width: 150px;
-            background-color: #1b1e24;
-            text-shadow: 1px 1px 1px #bcbcbc;
+            background-color: white;
+            font-weight: bold;
+
 }
 .button_unselected:hover {
             -webkit-transition-duration: 0.4s; /* Safari */
@@ -211,19 +228,14 @@ a.text-button:active{
             text-shadow: 1px 1px 1px #bcbcbc;
 }
 .button{
-            margin-left: 10%;
-			font-size: 14pt;
-			color: #D5DDE5;
-			border: none;
-			border-radius: 5px;
+			font-size: 14px;
+			font-weight: bold;
+			border: 2px solid #ED6A5A;
 			vertical-align: center;
-			height: 50px;
-			width: 150px;
-			margin-top: 30px;
-			margin-right: 5px;
-			background-color: #1b1e24;
-			text-shadow: 1px 1px 1px #bcbcbc;
+			color: #ED6A5A;
+			background-color: white;
 }
+
 .submitbutton,.loginbutton:hover {
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.1s;
@@ -232,34 +244,34 @@ a.text-button:active{
             border: 2px solid black;
 	        box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
 }
-.submitbutton{
-            margin-left: 5px;
-			font-size: 12pt;
-			color: #D5DDE5;
-			border: none;
-			border-radius: 5px;
-			vertical-align: center;
-			height: 30px;
-			width: 150px;
-			margin-top: 30px;
-			margin-right: 5px;
-			background-color: #1b1e24;
-			text-shadow: 1px 1px 1px #bcbcbc;
-}
-.loginbutton{
-        margin-left: 5px;
-		font-size: 12pt;
-		color: #D5DDE5;
-		border: none;
-		border-radius: 5px;
-		vertical-align: center;
-    	height: 50px;
-		width: 150px;
-		margin-top: 30px;
-		margin-right: 5px;
-		background-color: #1b1e24;
-		text-shadow: 1px 1px 1px #bcbcbc;
-}
+/*.submitbutton{*/
+/*            margin-left: 5px;*/
+/*			font-size: 12pt;*/
+/*			color: #D5DDE5;*/
+/*			border: none;*/
+/*			border-radius: 5px;*/
+/*			vertical-align: center;*/
+/*			height: 30px;*/
+/*			width: 150px;*/
+/*			margin-top: 30px;*/
+/*			margin-right: 5px;*/
+/*			background-color: #1b1e24;*/
+/*			text-shadow: 1px 1px 1px #bcbcbc;*/
+/*}*/
+/*.loginbutton{*/
+/*        margin-left: 5px;*/
+/*		font-size: 12pt;*/
+/*		color: #D5DDE5;*/
+/*		border: none;*/
+/*		border-radius: 5px;*/
+/*		vertical-align: center;*/
+/*    	height: 50px;*/
+/*		width: 150px;*/
+/*		margin-top: 30px;*/
+/*		margin-right: 5px;*/
+/*		background-color: #1b1e24;*/
+/*		text-shadow: 1px 1px 1px #bcbcbc;*/
+/*}*/
 .pro-form{
       margin-left: 10%;
       width: 40em;

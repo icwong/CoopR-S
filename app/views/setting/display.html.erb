@@ -2,11 +2,9 @@
   <%= javascript_include_tag 'setting' %>
 <% end %>
 
-
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
-
 
 <% content_for :mFrame do %>
   <script type="text/javascript">
@@ -32,36 +30,80 @@
       </div>
     <% end %>
     <% end %>
+    
+    <div class="container">
+      <div class="row">
+        <h4 class="centered" style="position: relative; right: 150px"><b> —————— </b></h4>
+        <h1 class="centered" style="position: relative; right: 150px"><b>PREFERENCE</b></h1>
+          <h4 class="centered" style="position: relative; right: 150px"><b> —————— </b></h4>
+          <br>
+     
+      
+      <% if !@preference.nil? %>
+      <%= f.fields_for @preference do |ff| %>
+      
+      <div class="container">
+        <div class="row">
+          <h3><b>PERSONAL INFO</b></h3>
+          <br>
+          <div class="col-md-3">
+            <div class="left"><b>NICKNAME .:</b></div>
+            <div class="right"><%= ff.text_field 'name', :value => @preference.name %></div>
+           <!--<div class="details"><span class="profiletitle">Details</span></div>-->
+            <div class="left"><b>PROVINCE .:</b></div>
+            <div class="right"><%= ff.text_field 'province', :value => @preference.province %></div>
+            
+            <div class="left"><b>CITY .:</b></div>
+            <div class="right"><%= ff.text_field 'city', :value => @preference.city %></div>
+            <button class="button btn-lg" type="button" onclick="updateLocation()">FIND ADDRESS</button>
+          </div>
+          
 
-    <% if !@preference.nil? %>
-    <%= f.fields_for @preference do |ff| %>
-      <div>
-          <h1>Preference</h1>
-           <div class="left">Nickname</div>
-              <div class="right"><%= ff.text_field 'name', :value => @preference.name %></div>
-           <div class="details"><span class="profiletitle">Details</span></div>
-           <div class="left">Province</div>
-              <div class="right"><%= ff.text_field 'province', :value => @preference.province %></div>
-           <div class="left">City</div>
-              <div class="right"><%= ff.text_field 'city', :value => @preference.city %></div>
-           <div class="left">Street</div>
-              <div class="right"><%= ff.text_field 'street', :value => @preference.street %></div>
-           <div class="left">Number</div>
-              <div class="right"><%= ff.text_field 'house_number', :value => @preference.house_number %></div>
-           <div class="left">Zip</div>
-              <div class="right"><%= ff.text_field 'zip', :value => @preference.zip %></div>
-            <div>
-              <span>Lat:</span><%= ff.number_field 'latitude', :value => @preference.latitude, :readonly => true %>
-              <span> | Lng:</span><%= ff.number_field 'longitude', :value => @preference.longitude, :readonly => true %>
-            </div>
-            <button class="button" type="button" onclick="updateLocation()">Search Address</button>
+          
+          <div class="col-md-3">
+            <div class="left"><b>STREET .:</b></div>
+            <div class="right"><%= ff.text_field 'street', :value => @preference.street %></div>
+           
+            <div class="left"><b>NUMBER .:</b></div>
+            <div class="right"><%= ff.text_field 'house_number', :value => @preference.house_number %></div>
+           
+            <div class="left"><b>ZIP/POSTAL CODE .:</b></div>
+            <div class="right"><%= ff.text_field 'zip', :value => @preference.zip %></div>
+          <div>
+        </div>
+        
       </div>
-    <% end %>
-    <% end %>
-    <%= f.submit 'Update',class: 'button_compact'%>
-  <% end %>
+    </div>
+    
+    
+    <div class="container">
+      <div class="row">
+        <div class="container" style="position: relative; bottom: 80px; right: 20px; margin-bottom: 10px">
+        <div class="row">
+          <h3><b>MAP INFO</b></h3>
+          <br>
+          <div class="col-md-3" style="position: relative; bottom: 0px">
+            <b>LATITUDE .:</b><br>
+            <%= ff.number_field 'latitude', :value => @preference.latitude, :readonly => true %><br>
+            <b>LONGITUDE .:</b><br>
+            <%= ff.number_field 'longitude', :value => @preference.longitude, :readonly => true %>
+          </div>
+        </div>
+        <%= f.submit 'UPDATE',class: 'button_compact btn-lg btn-default'%>
+      </div>
+    </div>
 
-<button class="button" type="button" onclick="lastUrl()">Back</button>
+    <% end %>
+    <% end %>
+    
+    
+    <% end %>
+
+<button class="button" type="button" onclick="lastUrl()">Back</button>  
+        </div>
+      </div>
+    </div>
+    
 
     <script>
       var map;
