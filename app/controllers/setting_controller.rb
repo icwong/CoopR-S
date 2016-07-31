@@ -6,9 +6,7 @@ class SettingController < ApplicationController
     if @preference.nil?
     	@preference = Preference.new( { "user_id" => current_user.id } )
     	@preference.save()
-      respond_to do |format|
-        format.html { redirect_to setting_path, notice: 'Preference created.' }
-      end
+      format.html { redirect_to setting_path, notice: 'Preference created.' }
     end
   end
 

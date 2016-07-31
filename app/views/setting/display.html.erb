@@ -17,7 +17,45 @@
     <div id='mapDiv' style="float: right; position: relative; width:600px; height:600px; z-index: -2"></div>
   </div>
 
+  <%= form_for(@me, as: :user, :url => setting_path, :html => { :method => :put } ) do |f| %>
+    <%= f.fields_for @profile do |ff| %>
+      <div>
+          <h1>Profile</h1>
+          <img  class="avatar" src="http://i.imgur.com/y7GX8r8.png" alt="Avatar" />
+           <div class="username"><%= @profile.first_name %> <%= @profile.middle_name %> <%= @profile.last_name %></div>
+           <div class="school">SFU</div>
+           <div class="description">New to Co-op</div>
+           <div class="left">Phone number</div>
+           <div><%= ff.number_field 'phone', :value => @profile.phone %></div>
+           
+      </div>
+    <% end %>
 
+    <%= f.fields_for @preference do |ff| %>
+      <div>
+          <h1>Preference</h1>
+           <div class="left">Nickname</div>
+              <div class="right"><%= ff.text_field 'name', :value => @preference.name %></div>
+           <div class="details"><span class="profiletitle">Details</span></div>
+           <div class="left">Province</div>
+              <div class="right"><%= ff.text_field 'province', :value => @preference.province %></div>
+           <div class="left">City</div>
+              <div class="right"><%= ff.text_field 'city', :value => @preference.city %></div>
+           <div class="left">Street</div>
+              <div class="right"><%= ff.text_field 'street', :value => @preference.street %></div>
+           <div class="left">Number</div>
+              <div class="right"><%= ff.text_field 'house_number', :value => @preference.house_number %></div>
+           <div class="left">Zip</div>
+              <div class="right"><%= ff.text_field 'zip', :value => @preference.zip %></div>
+            <div>
+              <span>Lat:</span><%= ff.text_field 'latitude', :value => @preference.latitude, disabled: true %>
+              <span> | Lng:</span><%= ff.text_field 'longitude', :value => @preference.longitude, disabled: true %>
+            </div>
+            <button class="button" type="button" onclick="updateLocation()">Search Address</button>
+      </div>
+    <% end %>
+    <%= f.submit 'Update',class: 'button_compact'%>
+  <% end %>
 
 <button class="button" type="button" onclick="lastUrl()">Back</button>
 
