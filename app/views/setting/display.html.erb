@@ -18,6 +18,7 @@
   </div>
 
   <%= form_for(@me, as: :user, :url => setting_path, :html => { :method => :put } ) do |f| %>
+    <% if !@profile.nil? %>
     <%= f.fields_for @profile do |ff| %>
       <div>
           <h1>Profile</h1>
@@ -30,7 +31,9 @@
            
       </div>
     <% end %>
+    <% end %>
 
+    <% if !@preference.nil? %>
     <%= f.fields_for @preference do |ff| %>
       <div>
           <h1>Preference</h1>
@@ -53,6 +56,7 @@
             </div>
             <button class="button" type="button" onclick="updateLocation()">Search Address</button>
       </div>
+    <% end %>
     <% end %>
     <%= f.submit 'Update',class: 'button_compact'%>
   <% end %>
