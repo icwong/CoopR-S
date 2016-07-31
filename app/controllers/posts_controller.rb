@@ -122,6 +122,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def has_location(that)
+    if !that.nil?
+      if !that.preference.nil?
+        return that.preference.has_location
+      end
+    end
+    return false
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

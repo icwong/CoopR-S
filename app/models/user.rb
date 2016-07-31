@@ -45,4 +45,11 @@ class User < ActiveRecord::Base
     return true;
   end
 
+  def update_location
+    @pf = Preference.find_by user_id: self.id;
+    if !@pf.nil?
+      @pf.update_geocode
+    end
+  end
+
 end
