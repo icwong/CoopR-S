@@ -6,16 +6,26 @@ class SettingController < ApplicationController
     if @preference.nil?
     	@preference = Preference.new( { "user_id" => current_user.id } )
     	@preference.save()
-      format.html { redirect_to "setting", notice: 'Preference created.' }
+      respond_to do |format|
+        format.html { redirect_to setting_path, notice: 'Preference created.' }
+      end
     end
   end
 
   def update
-    if !@profile.nil?
-      puts "\n\nProfile ready"
+    @result = ""
+    if !@profile.nil? &&  @profile.update(pro_params)
+      @result = "Profile updated \t"
     end
     if !@preference.nil?
-      puts "\nPreference ready"
+      @result = @result + "Preference updated \t"
+    end
+
+    if @result == ""
+      @result = "something wrong"
+    end
+    respond_to do |format|
+      format.html { redirect_to setting_path, notice: @result }
     end
   end
 
@@ -25,5 +35,15 @@ class SettingController < ApplicationController
       @me = current_user
       @profile = Profile.find_by user_id: current_user.id
       @preference = Preference.find_by user_id: current_user.id
+    end
+
+    def pro_params
+      @temp = params.require(:post).require(:profile)
+      puts @temp
+      return @temp
+    end
+
+    def pre_params
+      params.require(:post).require(:preference)
     end
 end

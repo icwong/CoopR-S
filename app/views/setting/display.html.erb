@@ -20,7 +20,7 @@
     <% end %>
   </div>
 
-  <%= form_for(@me, as: :user) do |f| %>
+  <%= form_for(@me, as: :user, :url => setting_path, :html => { :method => :put } ) do |f| %>
     <%= f.fields_for @profile do |ff| %>
       <div>
           <h1>Profile</h1>
@@ -28,6 +28,7 @@
            <div class="username"><%= @profile.first_name %> <%= @profile.middle_name %> <%= @profile.last_name %></div>
            <div class="school">SFU</div>
            <div class="description">New to Co-op</div>
+           <div><%= ff.number_field 'Phone', :value => @profile.phone %></div>
            
       </div>
     <% end %>
