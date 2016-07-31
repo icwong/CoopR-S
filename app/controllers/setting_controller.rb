@@ -3,7 +3,7 @@ class SettingController < ApplicationController
 
   def display
     
-    if @preference == nil
+    if @preference.nil?
     	@preference = Preference.new( { "user_id" => current_user.id } )
     	@preference.save()
       format.html { redirect_to "setting", notice: 'Preference created.' }
@@ -17,13 +17,19 @@ class SettingController < ApplicationController
   end
 
   def update
+    if !@profile.nil? {
 
+    }
+    if !@preference.nil? {
+
+    }
 
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_config
+      @me = current_user
       @profile = Profile.find_by user_id: current_user.id
       @preference = Preference.find_by user_id: current_user.id
     end
