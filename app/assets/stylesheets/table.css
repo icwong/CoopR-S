@@ -6,7 +6,6 @@ body {
 
 div.table-title {
   display: block;
-  margin-left: 10%;
   max-width: 600px;
   padding:-5px;
   width: 100%;
@@ -30,9 +29,6 @@ div.table-title {
   border-radius:3px;
   border-collapse: collapse;
   height: 100px;
-  margin-left: 10%;
-  margin-right: 20%;
-  max-width: 80%;
   padding:5px;
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -45,9 +41,6 @@ div.table-title {
   border-radius:3px;
   border-collapse: collapse;
   height: 120px;
-  margin-left: 10%;
-  margin-right: 20%;
-  max-width: 80%;
   padding:5px;
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);

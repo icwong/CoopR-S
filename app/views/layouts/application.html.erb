@@ -9,14 +9,11 @@
       
       <%= favicon_link_tag 'dummy.ico' %>
       <%= csrf_meta_tags %>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     
     <body>
         
     <div class="whole-head">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <div class="project-header">
         <div class="left"><a class="project-title" href="/"><span class="R-S" data-letter="C">C</span>OOP<span class="R-S" data-letter="R">R</span>&amp;<span class="R-S" data-letter="S">S</span></a></div>
         <div class="toptext">WEBSITE FOR COOP STUDENTS, REVIEWING AND SHARING</div>
@@ -68,6 +65,8 @@
       </div>
     </div>
     <div class="content">
+      <div class="notice"><%= notice %></div>
+      <div class="alert"><%= alert %></div>
       <%= yield :mFrame %>
     </div>
 
