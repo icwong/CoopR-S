@@ -1,7 +1,9 @@
 class SettingController < ApplicationController
-  before_action :set_config, only: [:display, :update]
 
   def display
+      @me = current_user
+      @profile = Profile.find_by user_id: current_user.id
+      @preference = Preference.find_by user_id: current_user.id
     
     if @preference.nil?
     	@preference = Preference.new( { "user_id" => current_user.id } )
@@ -11,6 +13,10 @@ class SettingController < ApplicationController
   end
 
   def update
+      @me = current_user
+      @profile = Profile.find_by user_id: current_user.id
+      @preference = Preference.find_by user_id: current_user.id
+
     @result = ""
     if !@profile.nil? && @profile.update(pro_params)
       @result = "Profile updated \t"
@@ -28,12 +34,6 @@ class SettingController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_config
-      @me = current_user
-      @profile = Profile.find_by user_id: current_user.id
-      @preference = Preference.find_by user_id: current_user.id
-    end
 
     def pro_params
       params.require(:user).require(:profile).permit(:phone)
