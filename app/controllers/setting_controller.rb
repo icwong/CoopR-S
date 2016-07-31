@@ -17,13 +17,12 @@ class SettingController < ApplicationController
   end
 
   def update
-    if !@profile.nil? {
+    if !@profile.nil?
 
-    }
-    if !@preference.nil? {
+    end
+    if !@preference.nil?
 
-    }
-
+    end
   end
 
   private

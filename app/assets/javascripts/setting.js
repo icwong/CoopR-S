@@ -3,16 +3,20 @@ var txtNumber;
 var txtStreet;
 var txtCity;
 var txtProvince;
+var txtLat;
+var txtLng;
 
 function updateLocation() {
-    txtZip = document.getElementById("zip_code");
-    txtNumber = document.getElementById("house_number");
-    txtStreet = document.getElementById("street");
-    txtCity = document.getElementById("city");
-    txtProvince = document.getElementById("province");
-    var lat = document.getElementById("lat").innerHTML;
-    var lng = document.getElementById("lng").innerHTML;
-    
+    txtZip = document.getElementById("user_preference_zip_code");
+    txtNumber = document.getElementById("user_preference_house_number");
+    txtStreet = document.getElementById("user_preference_street");
+    txtCity = document.getElementById("user_preference_city");
+    txtProvince = document.getElementById("user_preference_province");
+    txtLat = document.getElementById("user_preference_lat");
+    txtLng = document.getElementById("user_preference_lng");
+    var lat = txtLat.value;
+    var lng = txtLng.value;
+
     if(lat === "" || lng === "") {
         if(txtZip.value != "" || 
                 txtNumber.value != "" || 
@@ -52,8 +56,8 @@ function decode( address ) {
             // alert(data.results[0].formatted_address);
             var result = data.results[0];
             result.address_components.forEach( parse );
-            document.getElementById("lat").innerHTML = result.geometry.location.lat;
-            document.getElementById("lng").innerHTML = result.geometry.location.lng;
+            txtLat.value = result.geometry.location.lat;
+            txtLng.value = result.geometry.location.lng;
         }
     });
 }
