@@ -48,8 +48,8 @@
            <div class="left">Zip</div>
               <div class="right"><%= ff.text_field 'zip', :value => @preference.zip %></div>
             <div>
-              <span>Lat:</span><%= ff.number_field 'latitude', :value => @preference.latitude, disabled: true %>
-              <span> | Lng:</span><%= ff.number_field 'longitude', :value => @preference.longitude, disabled: true %>
+              <span>Lat:</span><%= ff.number_field 'latitude', :value => @preference.latitude, :readonly => true %>
+              <span> | Lng:</span><%= ff.number_field 'longitude', :value => @preference.longitude, :readonly => true %>
             </div>
             <button class="button" type="button" onclick="updateLocation()">Search Address</button>
       </div>
