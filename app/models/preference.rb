@@ -16,13 +16,12 @@ class Preference < ActiveRecord::Base
 	end
 
 	def full_address
-        @there = self.house_number
+        @there = self.house_number || ""
 
         if !self.street.nil?
             @there = @there + " " + self.street
         end
 
-        puts "\n\n\n" + @there
         if !self.city.nil?
             if @there.blank?
                 @there = self.city
