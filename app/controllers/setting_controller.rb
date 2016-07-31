@@ -30,9 +30,9 @@ class SettingController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_config
-      # @me = current_user
-      # @profile = Profile.find_by user_id: current_user.id
-      # @preference = Preference.find_by user_id: current_user.id
+      @me = current_user
+      @profile = Profile.find_by user_id: current_user.id
+      @preference = Preference.find_by user_id: current_user.id
     end
 
     def pro_params
