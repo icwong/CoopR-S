@@ -2,7 +2,6 @@ class SettingController < ApplicationController
   before_action :set_config, only: [:display, :update]
 
   def display
-    
     if @preference.nil?
     	@preference = Preference.new( { "user_id" => current_user.id } )
     	@preference.save()
