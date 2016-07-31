@@ -7,21 +7,15 @@ class SettingController < ApplicationController
     	@preference = Preference.new( { "user_id" => current_user.id } )
     	@preference.save()
       format.html { redirect_to "setting", notice: 'Preference created.' }
-    else
-    	@preference.update_geocode
-      if @preference.has_location
-        @lat = @preference.latitude
-        @lng = @preference.longitude
-      end
     end
   end
 
   def update
     if !@profile.nil?
-
+      puts "\n\nProfile ready"
     end
     if !@preference.nil?
-
+      puts "\nPreference ready"
     end
   end
 
