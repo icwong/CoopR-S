@@ -32,7 +32,6 @@ gem 'autoprefixer-rails'
 
 # POST
 gem 'faker'
-gem 'geocoder'
 # END
 
 # Use jquery as the JavaScript library
