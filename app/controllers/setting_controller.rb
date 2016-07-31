@@ -3,28 +3,28 @@ class SettingController < ApplicationController
 
   def display
     
-    if @preference.nil?
-    	@preference = Preference.new( { "user_id" => current_user.id } )
-    	@preference.save()
-      format.html { redirect_to setting_path, notice: 'Preference created.' }
-    end
+    # if @preference.nil?
+    # 	@preference = Preference.new( { "user_id" => current_user.id } )
+    # 	@preference.save()
+    #   format.html { redirect_to setting_path, notice: 'Preference created.' }
+    # end
   end
 
   def update
-    @result = ""
-    if !@profile.nil? && @profile.update(pro_params)
-      @result = "Profile updated \t"
-    end
-    if !@preference.nil? && @preference.update(pre_params)
-      @result = @result + "Preference updated \t"
-    end
+    # @result = ""
+    # if !@profile.nil? && @profile.update(pro_params)
+    #   @result = "Profile updated \t"
+    # end
+    # if !@preference.nil? && @preference.update(pre_params)
+    #   @result = @result + "Preference updated \t"
+    # end
 
-    if @result == ""
-      @result = "something wrong"
-    end
-    respond_to do |format|
-      format.html { redirect_to setting_path, notice: @result }
-    end
+    # if @result == ""
+    #   @result = "something wrong"
+    # end
+    # respond_to do |format|
+    #   format.html { redirect_to setting_path, notice: @result }
+    # end
   end
 
   private
