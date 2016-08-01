@@ -70,16 +70,22 @@
         <% end %>
       </ul>
     </div>
-    <div class="content">
+    
+    <div id="main2">
+      <div class="content">
       <div class="notice"><%= notice %></div>
       <div class="alert"><%= alert %></div>
       <%= yield :mFrame %>
     </div>
 
-    <div>
-      <%= yield %>
+      <div >
+        <%= yield %>
+      </div>
     </div>
-    
-
+    <footer>
+          <a href="#" class="go-top">Back to Top</a>
+          
+    </footer>
     </body>
+ 
 </html>

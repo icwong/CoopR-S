@@ -1,3 +1,9 @@
+<% content_for :mHeader do %>
+  <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'cloudstorage' %>
+  <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
+<% end %>
+
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
@@ -11,7 +17,7 @@
   </div>
 
   <div class="show-post">
-    <%= render_shareable %>
+  
     <p>
       <strong>Title:</strong>
       <%= @post.title %>
@@ -30,13 +36,15 @@
       <strong>Owner:</strong>
       <%= @post.owner_name %>
     </p>
+  <div>
+    <%= render_shareable :turbolinks => true %>
+  </div>
   </div>
 
   <% if @can_edit %>
       <%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_post_path(@post), 'data-no-turbolink' => true %> 
   <% end %>
 
-  
+<button class="button" type="button" onclick="lastUrl()">Back</button>
 
-  <button class="button" type="button" onclick="lastUrl()">Back</a>
 <% end %>

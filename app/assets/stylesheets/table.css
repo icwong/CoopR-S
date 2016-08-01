@@ -20,12 +20,13 @@ div.table-title {
 .table-list-users{
     
   background: white;
+  border-top: none;
   border-radius:3px;
   border-collapse: collapse;
   height: 100px;
   padding:5px;
   width: 100%;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.4);
   animation: float 5s infinite;
 }
 
@@ -119,3 +120,6 @@ td:last-child {
 .body-width{
     min-width: 50%;
 }
+
+
+/*==================================================*/

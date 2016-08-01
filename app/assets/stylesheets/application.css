@@ -13,7 +13,7 @@
  *= require table
  *= require_self
  */
- 
+
 body {
   position: relative;
   font-family: "Arial", helvetica, arial, sans-serif;
@@ -23,6 +23,16 @@ body {
   margin: 0;
   padding: 0;
 }
+}
+body {
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+/*===============================TEXT_BUTTON======================================*/
+
+ 
 
 form {
   margin: 0;
@@ -108,13 +118,14 @@ div.padding {
     margin-top: -4px;
     margin-bottom: -4px;
     background-color: #1b1e24;
-    border: 4px solid DDD;
+    border: 4px solid #1b1e24;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     position:relative;
     z-index: 1;
 }
+
 
 div.text-button {
 	text-align: center;
@@ -162,12 +173,14 @@ a.text-button:active{
     color: #000;
 }
 
+/*===============================NOTICE&ALERT MESSAGE======================================*/
 .notice{
     color:red;font-weight: bold;top:0;
 }
 .alert{
     color:red;font-weight: bold;top:0;
 }
+/*===============================BUTTON======================================*/
 .button:hover {
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.1s;
@@ -214,7 +227,6 @@ a.text-button:active{
             margin-bottom: 0px;
             font-size: 22pt;
             color: #2A221A;
-            border: none;
             border-radius: 5px;
             vertical-align: middle;
             height: 50px;
@@ -292,6 +304,45 @@ a.text-button:active{
 		background-color: #1b1e24;
 		text-shadow: 1px 1px 1px #bcbcbc;
 }
+/*===============================MENU======================================*/
+.menu-container {
+    float: right;
+    display: block;
+    cursor: pointer;
+    
+}
+#menu-sign-whole{
+    right: 0;
+    top: 45px;
+    position: absolute;
+    
+}
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+/*===============================PROFILE======================================*/
 .pro-form{
       margin-left: 10%;
       width: 40em;
@@ -357,6 +408,7 @@ div.content{
     color: #555555;
     position: fixed;
 }
+
 .project-title {
 	margin-left: 2%;
     margin-top: 0px;
@@ -449,6 +501,7 @@ a {
     background-color: transparent;
 }
 
+/*==========================DROP DOWN====================================*/
 .topnav-icons {
     height: 25px;
     vertical-align: middle;
