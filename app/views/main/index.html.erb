@@ -95,6 +95,10 @@
       </th>
       <th>
       </th>
+
+      <% if has_address %> 
+        <th>Farness</th>
+      <% end %> 
     </tr>
   </thead>
 
@@ -111,6 +115,10 @@
               <span><sup>+</sup></span>
           </div>
         </td>
+
+        <% if has_address %> 
+          <td><%= get_distance( post.owner ) %></td>
+        <% end %> 
       </tr>
     <% end %>
   </tbody>

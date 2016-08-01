@@ -109,7 +109,7 @@ function addToCompareList( pid ) {
         window.alert("yeah");
     }
 
-    if( temp == "" ) {
+    if( jone == "" ) {
         document.cookie =   JOB_ONE + "=" + pid + ";";
     } else {
         if ( temp != pid ) {
