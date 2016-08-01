@@ -102,7 +102,13 @@ function clearCompareList() {
 }
 
 function addToCompareList( pid ) {
-    var temp = getCookie( JOB_ONE );
+    var jone = getCookie( JOB_ONE );
+    var jtwo = getCookie( JOB_TWO );
+
+    if( pid == JOB_ONE || pid == JOB_TWO) {
+        window.alert("yeah");
+    }
+
     if( temp == "" ) {
         document.cookie =   JOB_ONE + "=" + pid + ";";
     } else {
@@ -141,4 +147,23 @@ function compare() {
     //     error: function (data) {
     //     }
     // })
+}
+
+function toggleAction() {
+    var btnAction = document.getElementById('maction');
+    var btnMUser = document.getElementById('muser');
+    var btnMPost = document.getElementById('mpost');
+    var btnMNP = document.getElementById('wrtpost');
+
+    if( btnAction.className.indexOf("toggled") >= 0 ) {
+        btnAction.className = btnAction.className.replace(" toggled", "");
+        btnMUser.className = btnMUser.className + " hidden";
+        btnMPost.className = btnMPost.className + " hidden";
+        btnMNP.className = btnMNP.className.replace(" hidden", "");
+    } else {
+        btnAction.className = btnAction.className + " toggled";
+        btnMUser.className = btnMUser.className.replace(" hidden", "");
+        btnMPost.className = btnMPost.className.replace(" hidden", "");
+        btnMNP.className = btnMNP.className + " hidden";
+    }
 }
