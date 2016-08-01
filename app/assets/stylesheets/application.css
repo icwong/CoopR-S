@@ -204,10 +204,9 @@ a.text-button:active{
             margin-top: 0px;
             margin-left: 0px;
             margin-right: 0px;
-            margin-bottom: 0px;
+            margin-bottom: 1px;
             font-size: 14pt;
             color: #2A221A;
-            border: none;
             border-radius: 5px;
             vertical-align: center;
             height: 50px;
@@ -334,6 +333,20 @@ a.text-button:active{
 }
 
 /*===============================FIXED_HEAD======================================*/
+.slogan span{
+    color: #666666;
+    font-size: 13pt;
+    font-weight: bold;
+    text-decoration: none !important;
+    margin-right: 5px;
+    text-shadow: 1px 0px #555555;
+}
+.slogan span:hover{
+    
+    font-size: 14pt;
+    font-weight: bold;
+    text-decoration: none !important;
+}
 .whole-head{
     border-bottom: 3px #333330 solid;
     height: 120px;
