@@ -2,10 +2,14 @@
   <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'cloudstorage' %>
   <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
-
 <% end %>
 
-<%= form_for(@post, as: :post) do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Fill out the following fields </h2>
+      <hr>
+      <%= form_for(@post, as: :post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -18,7 +22,7 @@
     </div>
   <% end %>
 
-  <p>upload file to editor:</p>
+  <p style="font-weight: bold">UPLOAD FILE TO EDITOR</p>
    <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
 
 <input type="filepicker" class="button_compact" data-fp-apikey="ALNjEZIbJTOg3xF1Dh5vnz" data-fp-extensions=".doc,.docx,.txt,.rtf,.odt" 
@@ -51,50 +55,59 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
       <%= label :type_promotion, 'Promotion' %>
     </div>
   <% end %>
-  
-  <br>
-  <br>
-  
-  
-  <%= f.fields_for @job do |ff| %>
+    </div>
+    <div class="col-md-6">
+      <h2 style="font-weight: bold">COMPANY INFORMATION</h2>
+      <hr>
+      <%= f.fields_for @job do |ff| %>
     <div class="field" data-turbolinks="false">
-      <%= ff.label :job_title ,"Job Title" ,class: "input-title" %> 
+      <%= ff.label :job_title ,"JOB TITLE" ,class: "input-title" %> 
       <br>
       <%= ff.text_field :job_title, class: "form-control" %>
     </div>
 
     <% if current_user.type != 'Company' %>
     <div class="field" data-turbolinks="false">
-      <%= ff.label :offered_by ,"Company ID" ,class: "input-title" %> (if input is not #, search user table with company type find the ID of given name; if not exist, create a new company record)
+      <%= ff.label :offered_by ,"COMPANY ID" ,class: "input-title" %> 
+      <!--(if input is not #, search user table with company type find the ID of given name; if not exist, create a new company record)-->
       <br>
       <%= ff.text_field :offered_by, class: "form-control" %>
     </div>
     <% end %>
 
     <div class="field" data-turbolinks="false">
-      <%= ff.label :working_hours ,"Hours per Week" ,class: "input-title" %> 
+      <%= ff.label :working_hours ,"HOURS PER WEEK" ,class: "input-title" %> 
       <br>
       <%= ff.text_field :working_hours, class: "form-control" %>
     </div>
 
     <div class="field" data-turbolinks="false">
-      <%= ff.label :work_day ,"Days per Week" ,class: "input-title" %> 
+      <%= ff.label :work_day ,"DAYS PER WEEK" ,class: "input-title" %> 
       <br>
       <span>0</span><%= ff.range_field :work_day, in: 0..7, step: 1,class: "form-control" %><span>7</span>
       <br>
-      <p>0 means not restricted</p>
+      <!--<p>0 means not restricted</p>-->
     </div>
 
     <div class="field" data-turbolinks="false">
-      <%= ff.label :salary ,"Salary" ,class: "input-title" %> 
+      <%= ff.label :salary ,"SALARY ($)" ,class: "input-title" %> 
       <br>
-      $<%= ff.text_field :salary, class: "form-control" %>
+      <%= ff.text_field :salary, class: "form-control" %>
     </div>
-  <% end %>
-
-  <div class="actions" data-turbolinks="false">
-    <%= f.submit class: 'wymupdate button_compact'%>
+    
+    <div class="actions" data-turbolinks="false">
+    <%= f.submit :SUBMIT,  class: 'wymupdate button_compact btn-lg'%>
   </div>
+  <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+  
+ 
+  
 <% end %>
 
 <script type="text/javascript">
