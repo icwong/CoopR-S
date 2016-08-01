@@ -277,7 +277,6 @@ a.text-button:active{
     position: fixed;
     background-image: url("//i.imgur.com/XY70hDK.jpg");
     background-repeat: repeat-x;
-    z-index: 100;
 }
 
 .project-header{
