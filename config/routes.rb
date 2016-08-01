@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   get 'compare' => 'main#compare'
   get 'setting' => 'setting#display'
   put 'setting' => 'setting#update'
+  get 'resume' => 'resumes#index'
+  get 'resume/:id/show' => 'resumes#show', :as => 'show_resume'
+  
+  resources :resumes
   resources :posts
   devise_for :users, :controllers => {:registrations => "registrations"}
   
