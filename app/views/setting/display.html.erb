@@ -11,9 +11,14 @@
     updateUrl();
   </script>
 
-  <div>
-    
-    <div id='mapDiv' style="float: right; position: relative; width:700px; height:630px; z-index: -2; right: 150px; top: 200px"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-5">
+               <div id='mapDiv' style=" position: relative; width:1000px; height:500px"</div>
+      </div>
+
+    </div>
   </div>
 
   <%= form_for(@me, as: :user, :url => setting_path, :html => { :method => :put } ) do |f| %>
@@ -34,12 +39,13 @@
     
     <div class="container">
       <div class="row">
-        <h4 class="centered" style="position: relative; right: 150px"><b> —————— </b></h4>
-        <h1 class="centered" style="position: relative; right: 150px"><b>PREFERENCE</b></h1>
-          <h4 class="centered" style="position: relative; right: 150px"><b> —————— </b></h4>
-          <br>
-     
-      
+        <div class="col-md-5"></div>
+        <div class="col-md-4">
+          <h2>PREFERENCE</h2>
+        </div>
+      </div>
+    </div>
+        
       <% if !@preference.nil? %>
       <%= f.fields_for @preference do |ff| %>
       
@@ -58,9 +64,7 @@
             <div class="right"><%= ff.text_field 'city', :value => @preference.city %></div>
             <button class="button btn-lg" type="button" onclick="updateLocation()">FIND ADDRESS</button>
           </div>
-          
-
-          
+        
           <div class="col-md-3">
             <div class="left"><b>STREET .:</b></div>
             <div class="right"><%= ff.text_field 'street', :value => @preference.street %></div>

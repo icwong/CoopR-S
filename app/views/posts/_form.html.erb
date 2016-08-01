@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h2>FILL OUT THE FOLLOWING FIELDS </h2>
+      <h2 style="font-weight: bold">FILL OUT THE FOLLOWING FIELDS</h2>
       <hr>
       <%= form_for(@post, as: :post) do |f| %>
   <% if @post.errors.any? %>
@@ -35,17 +35,13 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
     <%= f.text_field :title , class: "form-control form-control-style input-lg" %>
   </div>
   
-  <br>
-  <br>
-  
   <div class="field" data-turbolinks="false">
-    <%= f.label :body ,"Content" ,class: "input-title" %> 
+    <%= f.label :body ,"CONTENT" ,class: "input-title" %> 
+    <br>
     <br>
     <%= f.text_area :body, class: 'wymeditor' %>
   </div>
-  
-  <br>
-  <br>
+
   
   <% if current_user.admin? %>
     <div class="field">

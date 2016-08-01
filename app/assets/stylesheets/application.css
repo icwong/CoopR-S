@@ -28,11 +28,16 @@
     font-weight: bold;
 }
 
-/*body div, body p body li, html{*/
-/*    font-family: 'Droid Serif';*/
-/*}*/
+body div, body p body li, html{
+    font-family: 'Droid Serif';
+}
+
 
 .about, company{
+    font-family: 'Archivo Narrow';
+}
+
+.show_post{
     font-family: 'Archivo Narrow';
 }
 
@@ -118,7 +123,9 @@
 	border-bottom: 1px solid #ddd;
 	text-align: center;
 	min-height: 185px;
+	margin-top: 120px;
 }
+
 
 
 
@@ -411,6 +418,22 @@ a.text-button:active{
 			background-color: white;
 }
 
+.bigButton{
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-size: 16px;
+    color: #ED6A5A;
+    border: 1px solid #ED6A5A;
+    border-radius: 5px;
+    vertical-align: center;
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    font-weight: bold;
+}
+
 .backButton{
     margin-top: 0px;
     margin-left: 0px;
@@ -434,6 +457,14 @@ a.text-button:active{
             color: white;
             border: 2px solid #5CA4A9;
             
+}
+
+.bigButton:hover{
+    -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.1s;
+            background-color: #ED6A5A;
+            color: white;
+            border: 2px solid #ED6A5A;
 }
 
 .submitbutton,.loginbutton:hover {
