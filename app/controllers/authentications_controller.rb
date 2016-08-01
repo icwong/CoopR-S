@@ -16,11 +16,12 @@ class AuthenticationsController < ApplicationController
 		@sid = hash( @me.id )
     @auth = Authentication.find_by user_id: current_user.id
 
-    if !@user.email.include? "@ubc.ca" && 
-       !@user.email.include? "@sfu.ca" && 
-       !@user.email.include? "@myLangara.bc.ca"
+    if (!@me.email.include? "@ubc.ca") && 
+       (!@me.email.include? "@sfu.ca") && 
+       (!@me.email.include? "@myLangara.bc.ca")
       redirect_to fail_path
       flash[:notice] = 'Your email is not issued by a BC university/college.' 
+      return
     end
 
     if @auth.nil?
