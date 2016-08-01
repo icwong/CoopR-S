@@ -5,14 +5,27 @@
 
 <% content_for :mFrame do %>
 
-     <div>
-        <p>in order to make a post, you need to request the editor privilege, click the link below to generate authentication link which will be sent to your e-mail</p>
-        <br />
-        <%= link_to "Generate link", mail_path %>
-        <hr />
+<div class="container">
+    <div class="row">
+        <p class="centered" style="font-size: 50px; font-weight: bold"> BEFORE PROCEEEDING</p> 
+        <hr>
+        <div class="col-md-3 "></div>
+        <div class="col-md-6" >
+            <p style="font-weight: bold">IN ORDER TO MAKE A POST, YOU NEED TO REQUEST THE EDITOR PRIVILEGE</p>
+            <br>
+            <p style="font-weight: bold">CLICK THE LINK BELOW TO GENERATE AUTHENTICATION LINK WHICH WILL BE SENT TO YOUR EMAIL</p><br>
+            <%= link_to "GENERATE LINK", mail_path, class: "button btn-lg btn-default ", style: "text-decoration: none" %>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <button class="button btn-lg btn-default" type="button" onclick="lastUrl()">BACK</a>
+        </div>
     </div>
+</div>
+
+     
+        
+
   
 
 <% end %>
 
-<button class="button" type="button" onclick="lastUrl()">Back</a>
+
