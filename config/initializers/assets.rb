@@ -25,4 +25,5 @@ Rails.application.config.assets.precompile += %w( post_edit.css )
 Rails.application.config.assets.precompile += %w( profilepage.css )
 Rails.application.config.assets.precompile += %w( passwordmeter.css )
 Rails.application.config.assets.precompile += %w( validateForms.css )
+Rails.application.config.assets.precompile += %w( register.css )
 

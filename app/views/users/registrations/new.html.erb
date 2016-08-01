@@ -2,45 +2,53 @@
   <%= javascript_include_tag 'faker' %>
   <%= javascript_include_tag 'passwordMeter' %>
   <%= javascript_include_tag 'random' %>
+
   <%= stylesheet_link_tag 'validateForms' %>
   <%= stylesheet_link_tag 'passwordmeter' %>
- 
+  <%= stylesheet_link_tag 'register' %>
 <% end %>
+
 <% content_for :mLogin do %>
-    <%= render :partial => '/login/login' %>
 <% end %>
-<% content_for :mBody do %>
-	<style>
-	body{
-		background-image: url("http://i.imgur.com/VOqwNZi.jpg");
-	}	
-	</style>
-<% end %>
-<div class="login-full">
+
+<% content_for :mFrame do %>
+  <div class="login-full">
               
-      <%= form_for @user, as: :user, :html => { :class => "login-form" }, url: {action: "create"} do |f| %>
+      <%= form_for @user, as: :user, url: {action: "create"} do |f| %>
           <%= devise_error_messages! %>
-              
-                <p>You may use any email to register, but only email addresses issued by BC university or college are qualified for authentication.</p>
+          
+          <p>You may use any email to register, but only email addresses issued by BC university or college are qualified for authentication.</p>
           <div class="field">
-                <%= f.email_field :email, placeholder:"Email", :class => 'inputbox' , :autofocus => true, :onkeyup => "validateEmail()" %>
+            <span class="fill">
+                <%= f.email_field :email, placeholder:"Email", :class => 'inputbox', :onkeyup => "validateEmail()" %>
+            </span>
+            <span class="obj">
                 <img src = "/ok-24.gif" alt="checkmark" id ="emailCheck" >
+            </span>
           </div>
-          </br>
+          <br>
           <div class="field">
-
+            <span class="fill">
                   <%= f.password_field :password, placeholder:"Password",class: 'inputbox' , autocomplete: "off", :onkeyup => "validatePassword()"  %>
-                  <img src = "/ok-24.gif" alt="checkmark" id ="passwordCheck" >
-                  <% if @minimum_password_length %>
-                    <em style="float:left">(<%= @minimum_password_length %> characters minimum)</em>
-                  <% end %>
+            </span>
+            <span class="obj">
+                  <img class="obj" src = "/ok-24.gif" alt="checkmark" id ="passwordCheck" >
+            </span>
                   
+            <br>
           </div>
+            <% if @minimum_password_length %>
+              <p><em>(<%= @minimum_password_length %> characters minimum)</em></p>
+            <% end %>
+
 
           <div class="field">
-                  
+              <span class="fill">
                   <%= f.password_field :password_confirmation, placeholder:"Confirm Password",class: 'inputbox' , autocomplete: "off" , autofocus: true, :onkeyup => "validatePassword()" %>
-                  <img src = "/ok-24.gif" alt="checkmark" id ="passwordConfirmationCheck"  >
+              </span>
+              <span class="obj">
+                <img src = "/ok-24.gif" alt="checkmark" id ="passwordConfirmationCheck"  >
+              </span>
           </div>
                 
           <div class="meter" > 
@@ -70,11 +78,12 @@
                   <%= f.submit "CREATE ACCOUNT", :class => 'login-form-button' %>
           </div>
     
-          </br>
+          <br>
             
           <span style="font-size: 16pt;margin-right: 5px;font-weight: bold;color:#333">Already a member?&nbsp;&nbsp; </span>
           
           <%= link_to "Log In", new_user_session_path, :class => "login-form-message" %><br />
 
+      <% end %>
+  </div>
 <% end %>
-</div>
