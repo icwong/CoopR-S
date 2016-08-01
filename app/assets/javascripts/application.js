@@ -14,7 +14,8 @@
 //= require jquery_ujs
 //= require zxcvbn
 //= require validateForms
-
+//= require bootstrap-sprockets
+//= require_tree .
 
 /////////////////////
 
