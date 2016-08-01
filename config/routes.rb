@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   get 'edit' => 'main#editor'
   get 'warning' => 'main#warning'
   get 'compare' => 'main#compare'
-  get 'home' => 'main#home'
-  get 'home2' => 'main#home2'
   get 'mail' => 'authentications#mail'
   get 'auth' => 'authentications#help'
   get 'success' => 'authentications#success'

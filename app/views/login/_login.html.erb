@@ -1,6 +1,8 @@
 <div id="user_signed_in" class="login-form exlarge">
     <% if user_signed_in? %>
-        <b style="font-size: 16pt; top:0;">Hello <%= link_to(current_user.display_name, setting_path, :class => "display_name" ) %>, welcome back!!</b> 
+        <b><%= link_to(current_user.display_name, setting_path, :class => "display_name" ) %></b>
+        <span style="color: white;">|</span>
+        <%= button_to "LOG OUT", destroy_user_session_path, :method => :delete %>
    	<% else %>
    	    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                     

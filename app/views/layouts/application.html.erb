@@ -72,20 +72,27 @@
     </div>
     
     <div id="main2">
-      <div class="content">
-      <div class="notice"><%= notice %></div>
-      <div class="alert"><%= alert %></div>
-      <%= yield :mFrame %>
-    </div>
+      <div class="notice">
+        <%= notice %>
+      </div>
 
-      <div >
-        <%= yield %>
+      <div class="alert">
+        <%= alert %>
+      </div>
+
+      <div class="content">
+        <%= yield :mFrame %>
       </div>
     </div>
+
+    <div class="systemDump">
+      <%= yield %>
+    </div>
+    
     <footer>
-          <a href="#" class="go-top">Back to Top</a>
-          
+      <a href="#" class="go-top">Back to Top</a>      
     </footer>
+
     </body>
  
 </html>
