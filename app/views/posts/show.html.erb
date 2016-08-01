@@ -8,7 +8,7 @@
 </div>
 
 <div class="show-post">
-  <%= render_shareable %>
+  
   <p>
     <strong>Title:</strong>
     <%= @post.title %>
@@ -26,7 +26,11 @@
   <p>
     <strong>Owner:</strong>
     <%= @post.owner_name %>
+    
   </p>
+  <div>
+    <%= render_shareable :turbolinks => true %>
+  </div>
 </div>
 
 <% if @can_edit %>

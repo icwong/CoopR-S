@@ -5,30 +5,41 @@
     
       <%= stylesheet_link_tag    'application', media: 'all' %>
       <%= javascript_include_tag 'application' %>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+          
       <%= yield :mHeader %>
       
       <%= favicon_link_tag 'dummy.ico' %>
       <%= csrf_meta_tags %>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+
     </head>
     
     <body>
-        
+    <%= yield :mBody %>   
     <div class="whole-head">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      <div class="project-header">
+      <div id="menu-sign-whole" style="float: right" onclick="OpenCloseNav()">
+        <div id="menu-sign" class="menu-container" onclick="myFunction(this)">
+            <div class="bar1"></div>
+            <div class="bar2" id="bar2"></div>
+            <div class="bar3"></div>
+            <span>MENU</span>
+        </div>
+      </div>
+      <div id="main1" class="project-header">
         <div class="left"><a class="project-title" href="/"><span class="R-S" data-letter="C">C</span>OOP<span class="R-S" data-letter="R">R</span>&amp;<span class="R-S" data-letter="S">S</span></a></div>
-        <div class="toptext">WEBSITE FOR COOP STUDENTS, REVIEWING AND SHARING</div>
+        <div id="toptext" class="toptext">WEBSITE FOR COOP STUDENTS, REVIEWING AND SHARING</div>
         <div><%= yield :mLogin %></div>
       </div>
-      <div class="top-navbar">
+      <div id="mySidenav" class="sidenav">
         <% if user_signed_in? %>
         
             <% if current_user.admin? %>
               
                 <ul>
-                  <li><a href="/"><img class="topnav-icons" src="//i.imgur.com/RO5VA6h.png" /></a></li>
+                  <li><a href="/"><img class="topnav-icons" src="http://i.imgur.com/RO5VA6h.png" /></a></li>
                   
                   <li class="dropdown"><a href="/admin/" class="dropbtn">ACTION</a>
                         <div class="dropdown-content">
@@ -37,44 +48,60 @@
 		                      		<a href="/posts/">MANAGE POSTS</a>
 		                  	</div>
 		              </li>
+
+                  <li><a href="/posts/new" data-turbolinks="false">NEW POST</a></li>
+                 
+
                   <li><a href="/posts/new" data-turbolinks="false">WRITE A POST</a></li>
-                  <li style="float:right"><%= link_to destroy_user_session_path, :method => :delete do %><img class="signout-icon" src="http://i.imgur.com/qgNZck9.png"/><span>&nbsp;&nbsp;SIGN OUT</span><% end %> </li> 
-                  
-                  <li style="float:right"> <%= link_to('SETTING', setting_path ) %> </li> 
+                                    
+                  <li> <%= link_to('SETTING', setting_path ) %> </li> 
+                  <li><%= link_to destroy_user_session_path, :method => :delete do %><span>SIGN OUT</span><% end %> </li> 
+
+
                 </ul>
              
             <% else %>
               
                 <ul>
-                  <li><a href="/"><img class="topnav-icons" src="//i.imgur.com/RO5VA6h.png"/></a></li>
+                  <li><a href="/"><img class="topnav-icons" src="http://i.imgur.com/RO5VA6h.png"/></a></li>
             
                   <li> <a href="/posts/new" data-turbolinks="false">WRITE A POST</a></li>
 
-                  <li style="float:right"><%= link_to destroy_user_session_path, :method => :delete do %><img class="signout-icon" src="//i.imgur.com/qgNZck9.png"/><span>&nbsp;&nbsp;SIGN OUT</span><% end %> </li> 
+                  <li> <%= link_to('MY PROFILE', setting_path ) %> </li> 
+                 
+                  <li> <%= link_to('SETTING', setting_path ) %> </li> 
+                 
+                  <li><%= link_to destroy_user_session_path, :method => :delete do %><span>SIGN OUT</span><% end %> </li> 
 
-                  <li style="float:right"> <%= link_to('SETTING', setting_path ) %> </li> 
                 </ul>
               
             <% end %>
           <% else %>
                 <ul>
-                  <li><a href="/"><img class="topnav-icons" src="//i.imgur.com/RO5VA6h.png"/></a></li>
+                  <li><a href="/"><img class="topnav-icons" src="http://i.imgur.com/RO5VA6h.png"/></a></li>
                   <li> <a href="/text">INTRO</a></li> 
-                  <li style="float:right"><%= link_to new_user_session_path do %><img class="signout-icon" src="http://i.imgur.com/qgNZck9.png"/><span>&nbsp;&nbsp;LOG IN</span><% end %> </li> 
-                  <li style="float:right"><a href="/users/sign_up"><img class="signout-icon" src="//i.imgur.com/5VPaM9H.png"/>&nbsp;&nbsp;SIGN UP</a></li> 
+                  <li ><%= link_to new_user_session_path do %><span>LOG IN</span><% end %> </li> 
+                  <li><a href="/users/sign_up">SIGN UP</a></li> 
                 </ul>
                 
           <% end %>
       </div>
-    </div>
-    <div class="content">
-      <%= yield :mFrame %>
-    </div>
-
-    <div>
-      <%= yield %>
+      
     </div>
     
+    <div id="main2">
+      <div class="content">
+        <%= yield :mFrame %>
+      </div>
 
+      <div >
+        <%= yield %>
+      </div>
+    </div>
+    <footer>
+          <a href="#" class="go-top">Back to Top</a>
+          
+    </footer>
     </body>
+ 
 </html>

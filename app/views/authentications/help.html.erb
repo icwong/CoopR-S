@@ -2,14 +2,22 @@
     <%= render :partial => '/login/login' %>
     <%= stylesheet_link_tag 'table', 'data-turbolinks-track' => true %>
 <% end %>
-
+<% content_for :mBody do %>
+	<style>
+	body{
+		background-image: url("http://i.imgur.com/4fIqHUo.jpg");
+		background-repeat: repeat;
+		background-size: contain;
+	}	
+	</style>
+<% end %>
 <% content_for :mFrame do %>
 
-     <div>
-        <p>in order to make a post, you need to request the editor privilege, click the link below to generate authentication link which will be sent to your e-mail</p>
+     <div  style="font-size: 15pt;margin-left:10%;margin-right:10%;margin-top:100px;">
+        <p>In order to make a post, you need to request the editor privilege, click the link below to generate authentication link which will be sent to your e-mail</p>
         <br />
-        <%= link_to "Generate link", mail_path %>
-        <hr />
+        <%= link_to "Generate link", mail_path,:style => "font-size: 18pt;margin-bottom:5px;text-shadow: 1px 1px 1px rgba(0,0,0,0.2)" %>
+        <hr style="background-color: rgba(0,0,0,0.4);height: 5px" />
     </div>
   
 

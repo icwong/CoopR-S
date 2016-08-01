@@ -13,6 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+@media (max-width: 1004px) {
+        #toptext {display: none;}
+}
+@media (max-width: 1600px) {
+        .notice {display: none;}
+}
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+body {
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+/*===============================TEXT_BUTTON======================================*/
+
  
  
 
@@ -60,6 +79,7 @@ a.display_name:link{
 }
 a.display_name:visited{
     color: #b2191b;
+    text-decoration: none;
 }
 a.display_name:hover{
     color: blueviolet;
@@ -78,13 +98,14 @@ div.padding {
     margin-right: 10%;
     max-width: 80%;
     background-color: #1b1e24;
-    border: 4px solid DDD;
+    border: 4px solid #1b1e24;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    position:relative;
+    position:static;
     z-index: 4;
 }
+
 
 div.text-button {
 	text-align: center;
@@ -132,12 +153,14 @@ a.text-button:active{
     color: #000;
 }
 
+/*===============================NOTICE&ALERT MESSAGE======================================*/
 .notice{
     color:red;font-weight: bold;top:0;
 }
 .alert{
     color:red;font-weight: bold;top:0;
 }
+/*===============================BUTTON======================================*/
 .button:hover {
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.1s;
@@ -181,10 +204,9 @@ a.text-button:active{
             margin-top: 0px;
             margin-left: 0px;
             margin-right: 0px;
-            margin-bottom: 0px;
+            margin-bottom: 1px;
             font-size: 14pt;
             color: #2A221A;
-            border: none;
             border-radius: 5px;
             vertical-align: center;
             height: 50px;
@@ -260,6 +282,45 @@ a.text-button:active{
 		background-color: #1b1e24;
 		text-shadow: 1px 1px 1px #bcbcbc;
 }
+/*===============================MENU======================================*/
+.menu-container {
+    float: right;
+    display: block;
+    cursor: pointer;
+    
+}
+#menu-sign-whole{
+    right: 0;
+    top: 45px;
+    position: absolute;
+    
+}
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+/*===============================PROFILE======================================*/
 .pro-form{
       margin-left: 10%;
       width: 40em;
@@ -270,17 +331,35 @@ a.text-button:active{
 .pro-form .field{
     background: #D5DDE5;
 }
+
+/*===============================FIXED_HEAD======================================*/
+.slogan span{
+    color: #666666;
+    font-size: 13pt;
+    font-weight: bold;
+    text-decoration: none !important;
+    margin-right: 5px;
+    text-shadow: 1px 0px #555555;
+}
+.slogan span:hover{
+    
+    font-size: 14pt;
+    font-weight: bold;
+    text-decoration: none !important;
+}
 .whole-head{
-    height: 150px;
+    border-bottom: 3px #333330 solid;
+    height: 120px;
     top: 0;
+    left: 0;
     width: 100%;
     position: fixed;
-    background-image: url("//i.imgur.com/XY70hDK.jpg");
+    background-image: url("http://i.imgur.com/XY70hDK.jpg");
     background-repeat: repeat-x;
-    z-index: 100;
 }
 
 .project-header{
+
   	padding: 0.01em 16px;
 	display: block;
     justify-content: space-around;
@@ -299,10 +378,11 @@ a.text-button:active{
     width: 100%;
 }
 .content{
-    padding-top:200px;
+    padding-top:150px;
     position: static;
 }
-.project-header .slogan{
+
+.slogan{
   	
     font-family: 'Lato', sans-serif; 
     text-decoration: none;
@@ -311,9 +391,11 @@ a.text-button:active{
     display: block;
     position: fixed;
     right: 0;
-  	top: 65px;
+    float: right;
+  	top: 0;
   	overflow: hidden;
 }
+
 .project-title {
 	margin-left: 7%;
 	width: auto;
@@ -330,11 +412,12 @@ a.text-button:active{
     top: 17px;
     padding-left: 1px;
     font-weight: bold;
+    overflow: hidden;
 }
 
 .project-header .toptext {
     position: absolute;
-	overflow: hidden;
+	overflow:hidden;
     padding-left: 1em;
     text-align: center;
     display: block;
@@ -411,44 +494,28 @@ a {
 }
 
 
-
+/*==========================DROP DOWN====================================*/
 
 .topnav-icons {
-    height: 25px;
-}
-.signout-icon {
-    height: 25px;
-    vertical-align:middle;
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #1b1e24;
-    font-size: 18px;
-    font-weight: bold;
+    height: 35px;
     vertical-align:middle;
 }
 
-li {
-    float: left;
-}
 
-li a, .dropbtn {
+.sidenav li a, .dropbtn {
     display: inline-block;
     color: #D5DDE5;
-    text-align: center;
-    vertical-align: center;
+    text-align: left;
+    vertical-align: middle;
     padding: 18px 30px;
     text-decoration: none;
 }
 
-li a:hover, .dropdown:hover .dropbtn {
+.sidenav li a:hover, .dropdown:hover .dropbtn {
     background-color: #4E5066;
 }
 
-li.dropdown {
+.sidenav li.dropdown {
     display: inline-block;
 }
 
@@ -492,14 +559,131 @@ li.dropdown {
     margin-right: 20%;
 }
 
- /*===============================LOGIN======================================*/
+ /*===============================LOGIN_FORM======================================*/
+.whole-page{
 
+}
+.login-page {
+  width: 720px;
+  padding: 0 0;
+  margin: auto;
+  margin-top: 100px;
+}
 .login-form{
-    position: static;
-    margin-top: 100px;
-    width: 900px;
-    margin-left:30%;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 500px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
    
+}
+.login-form .inputbox{
+  font-family: "Roboto", sans-serif;
+  border: 0;
+  background: #f2f2f2;
+  width: 100%;
+  margin:0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.login-form-button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4E5066;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.login-form-button:hover, .login-form-button:active, .login-form-button:focus {
+  background: #3e4052;
+}
+
+.login-form-checkbox{
+    text-align: left;
+}
+.login-form-message {
+  border-bottom: 3px #666B85 dashed ;
+  font-weight: bold;
+  margin-bottom: 10px ;
+  color: #5e92bb;
+  font-size: 14pt;
+  text-decoration: none;
+}
+.login-form-message:hover{
+    color: #3e4052;
+}
+/*======== The side navigation menu ===========================*/
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 260px; /* Place content 260px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    width: 100%;
+    padding: 16px 8px 8px 0;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
 }
 
 
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main1 {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+#main2 {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+/*================GoTop==================*/
+.go-top{
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    font-size: 12px;
+    padding: 1em;
+    display: none;
+}
+.go-top:hover{
+        background-color: rgba(0,0,0,0.8);
+}
+/*===========Shareable===================*/
+nav.share {display:inline-block; } /* shareable's nav tag */
+nav.share div {float:left; }
+nav.share iframe {border:0; margin-left: 0; margin-top:0; padding-top:0;} /* if using medium sized buttons */
+#___plusone_0 {font-size: default !important;}
+.fb_iframe_widget span { vertical-align: top; }
+.fb_edge_widget_with_comment { vertical-align: top;}
+
+* html .fb-like{display:inline}/* ie6 inline block fix*/
+*+html .fb-like{display:inline}/* ie7 inline block fix*/

@@ -1,8 +1,14 @@
+
 <div id="user_signed_in" class="slogan">
+    
     <% if user_signed_in? %>
-        <b style="font-size: 16pt; top:0;">Hello <%= link_to(current_user.display_name, setting_path, :class => "display_name" ) %>, welcome back!!</b> 
+        <%= link_to destroy_user_session_path, :method => :delete do %><span>Sign out</span><% end %>
+        <b style="font-size: 12pt; top:0;">Hello <%= link_to(current_user.display_name, setting_path, :class => "display_name" ) %>, welcome back!!</b> 
    	<% else %>
-   	     <b style="font-size: 16pt; top:0;">Not registered yet? Join us now!!</b>
+   	     
+         <%= link_to new_user_registration_path do %><span>Sign up</span><% end %> 
+   	     <%= link_to new_user_session_path do %><span>Log in</span><% end %> 
+   	     <b style="font-size: 12pt; top:0;">Not registered yet? Join us now!!</b>
     <% end %>
 </div>
 
