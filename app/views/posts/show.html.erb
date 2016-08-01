@@ -32,7 +32,9 @@
     <strong>Owner:</strong>
     <%= @post.owner_name %>
   </p>
-  <%= render_shareable %>
+  <div>
+    <%= render_shareable :turbolinks => true %>
+  </div>
 </div>
 
 <% if @can_edit %>
