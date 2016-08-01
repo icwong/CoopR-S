@@ -14,7 +14,36 @@
  *= require_self
  */
  
- 
+body {
+  position: relative;
+  font-family: "Arial", helvetica, arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  font-weight:bold;
+}
+
+input {
+  border-style: ridge;
+  font: normal 1em Verdana, sans-serif;
+  color:#333;
+}
+textarea {
+  font: normal 1em Verdana, sans-serif;
+  border-style: ridge;
+  display:block;
+  color:#333;
+}
 
 @media print {
   body {
@@ -177,7 +206,7 @@ a.text-button:active{
 .button_unselected {
             margin-top: 30px;
             margin-left: 0px;
-            margin-right: 5%;
+            margin-right: 2%;
             margin-bottom: 0px;
             font-size: 14pt;
             color: #2A221A;
@@ -186,15 +215,16 @@ a.text-button:active{
             vertical-align: center;
             height: 50px;
             min-width: 150px;
-            width: 10%;
+            width: 25%;
             background-color: #FFF;
             border: 2px solid #222;
             text-shadow: 1px 1px 1px #121212;
+            position: relative;
 }
 .button_selected{
             margin-top: 30px;
             margin-left: 0px;
-            margin-right: 5%;
+            margin-right: 2%;
             margin-bottom: 0px;
             font-size: 14pt;
             color: #D5DDE5;
@@ -203,9 +233,10 @@ a.text-button:active{
             vertical-align: center;
             height: 50px;
             min-width: 150px;
-            width: 10%;
+            width: 25%;
             background-color: #1b1e24;
             text-shadow: 1px 1px 1px #bcbcbc;
+            position: relative;
 }
 .button{
             margin-left: 1%;
@@ -268,39 +299,39 @@ a.text-button:active{
     background: #D5DDE5;
 }
 .whole-head{
-    height: 150px;
     top: 0;
     width: 100%;
     position: fixed;
     background-image: url("//i.imgur.com/XY70hDK.jpg");
     background-repeat: repeat-x;
     z-index: 2;
+    min-width: 480px;
 }
 
 .project-header{
   	padding: 0.01em 16px;
+    margin-bottom: 10px;
 	display: block;
     justify-content: space-around;
-    height: 78px;
-    padding-top: 20px;
     line-height: 50px;
     overflow: hidden;
     font-size: 15px;
 }
 
 .top-navbar{
-    top: 120px;
     display: block;
-    position: absolute;
     width: 100%;
+    top: 80px;
+    min-width: 480px;
     z-index: 2;
 }
 div.content{
-    padding-top:200px;
+    margin-top:150px;
     position: static;
     margin-left: 1%;
     margin-right: 1%;
     width: 98%;
+    min-width: 480px;
 }
 .project-header .slogan{
   	
@@ -308,14 +339,11 @@ div.content{
     text-decoration: none;
     letter-spacing: 1px;
     color: #555555;
-    display: block;
     position: fixed;
-    right: 0;
-  	top: 65px;
-  	overflow: hidden;
 }
 .project-title {
-	margin-left: 7%;
+	margin-left: 2%;
+    margin-top: 0px;
 	width: auto;
     font-family: 'Lato', sans-serif; 
     text-decoration: none;
@@ -326,20 +354,14 @@ div.content{
     letter-spacing: 1px;
     color: #555555;
     display: block;
-    position: absolute;
-    top: 17px;
     padding-left: 1px;
     font-weight: bold;
 }
 
 .project-header .toptext {
-    position: absolute;
-	overflow: hidden;
     padding-left: 1em;
-    text-align: center;
-    display: block;
     top: 84px;
-    margin-left: 7%;
+    margin-left: 5%;
     letter-spacing: 4px;
     font-family: "Segoe UI",Arial,sans-serif;
 	width: auto;
@@ -420,7 +442,7 @@ a {
     height: 25px;
     vertical-align:middle;
 }
-ul {
+.top-navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -431,11 +453,11 @@ ul {
     vertical-align:middle;
 }
 
-li {
+.top-navbar li {
     float: left;
 }
 
-li a, .dropbtn {
+.top-navbar li a, .dropbtn {
     display: inline-block;
     color: #D5DDE5;
     text-align: center;
@@ -444,11 +466,11 @@ li a, .dropbtn {
     text-decoration: none;
 }
 
-li a:hover, .dropdown:hover .dropbtn {
+.top-navbar li a:hover, .dropdown:hover .dropbtn {
     background-color: #4E5066;
 }
 
-li.dropdown {
+.top-navbar li.dropdown {
     display: inline-block;
 }
 
@@ -495,11 +517,57 @@ li.dropdown {
  /*===============================LOGIN======================================*/
 
 .login-form{
-    position: static;
-    margin-top: 100px;
-    width: 900px;
-    margin-left:30%;
-   
+    position: absolute;
+    min-width: 420px;
+    height: 42px;
+    top: -8px;
+    right: 8px;
+    padding-top: 0px;
+    padding-right: 16px;   
+    padding-bottom: 0px;
+    padding-left: 16px;
+    background: #EEE;
+    border: 1px solid #333;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
 }
 
+.login-full{
+    position: static;
+    margin-top: 200px;
+    width: 900px;
+    margin-left:5%;
+}
+
+
+
+@media (max-width: 576px) {
+    .icon,.large,.exlarge {
+        display: none;
+    }
+
+    div.content{
+        margin-top: 40px;
+    }
+
+    .whole-head{
+        background-image: none;
+    }
+}
+
+@media (max-width:800px) and (min-width:576px) {
+    .exlarge {
+        display: none;
+    }
+
+    .project-title {
+        margin-left: 0%;
+    }
+
+    div.content{
+        margin-top: 120px;
+    }
+}
 
