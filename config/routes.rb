@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :authentications
   resources :histories
   resources :tags
-  root 'main#index'
+  root 'main#home'
   get 'admin' => 'admin#index'
   get 'index' => 'main#index'
   get 'text' => 'main#dummy'
