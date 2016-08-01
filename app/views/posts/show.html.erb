@@ -1,36 +1,50 @@
+<% content_for :mHeader do %>
+  <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'cloudstorage' %>
+  <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
+<% end %>
+
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
-<p id="notice"><%= notice %></p>
 
-<div class="table-title">
-        <h3>Show Post</h3>
-</div>
+<% content_for :mFrame do %>
+  <p id="notice"><%= notice %></p>
 
-<div class="show-post">
-  <%= render_shareable %>
-  <p>
-    <strong>Title:</strong>
-    <%= @post.title %>
-  </p>
 
-  <p>
-    <strong>Body:</strong>
-    <%=raw @post.body %>
-  </p>
+  <div class="table-title">
+    <h3>Show Post</h3>
+  </div>
 
-  <p>
-    <strong>Type:</strong>
-    <%= @post.type %>
-  </p>
-  <p>
-    <strong>Owner:</strong>
-    <%= @post.owner_name %>
-  </p>
-</div>
+  <div class="show-post">
+  
+    <p>
+      <strong>Title:</strong>
+      <%= @post.title %>
+    </p>
 
-<% if @can_edit %>
-    <%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_post_path(@post), 'data-no-turbolink' => true %> 
+    <p>
+      <strong>Body:</strong>
+      <%=raw @post.body %>
+    </p>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @post.type %>
+    </p>
+    <p>
+      <strong>Owner:</strong>
+      <%= @post.owner_name %>
+    </p>
+  <div>
+    <%= render_shareable :turbolinks => true %>
+  </div>
+  </div>
+
+  <% if @can_edit %>
+      <%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_post_path(@post), 'data-no-turbolink' => true %> 
+  <% end %>
+
+<button class="button" type="button" onclick="lastUrl()">Back</button>
+
 <% end %>
-
-<button class="button" type="button" onclick="lastUrl()">Back</a>

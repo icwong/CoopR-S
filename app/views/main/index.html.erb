@@ -12,8 +12,6 @@
       updateUrl();
     </script>
 
-<% end %>
-
 
 <div class="table-title">
         <button onclick="switchTab()" class="button_selected" id="revCaption" disabled>Reviews</button>
@@ -44,12 +42,7 @@
           <span style="float:right;">&#9660;</span>
         <% end %>
       </th>
-      <% if user_signed_in? %> 
-      <th class="noselect">
-        <span>Last edit</span>
-          <span style="float:right;">&#9660;</span>
-      </th>
-      <% end %>
+      <th></th>
 
       <% if has_address %> 
         <th>Farness</th>
@@ -67,7 +60,7 @@
         <td>
           <div class="text-button">
               <a class="text-button" href="#" onclick="addToCompareList( <%= post.id %> ); return false; ">Compare</a>
-              <span><sup>+</sup></span>
+              <span><sup id="SPID<%= post.id %>">+</sup></span>
           </div>
         </td>
 
@@ -102,6 +95,10 @@
       </th>
       <th>
       </th>
+
+      <% if has_address %> 
+        <th>Farness</th>
+      <% end %> 
     </tr>
   </thead>
 
@@ -118,6 +115,10 @@
               <span><sup>+</sup></span>
           </div>
         </td>
+
+        <% if has_address %> 
+          <td><%= get_distance( post.owner ) %></td>
+        <% end %> 
       </tr>
     <% end %>
   </tbody>
@@ -130,3 +131,5 @@
   <button id="btnCompare" class="button" onclick="compare()">Start Compare</button>
   <script type="text/javascript">isComparable();</script>
 </div>
+
+<% end %>

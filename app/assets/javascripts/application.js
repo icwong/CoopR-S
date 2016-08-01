@@ -102,8 +102,14 @@ function clearCompareList() {
 }
 
 function addToCompareList( pid ) {
-    var temp = getCookie( JOB_ONE );
-    if( temp == "" ) {
+    var jone = getCookie( JOB_ONE );
+    var jtwo = getCookie( JOB_TWO );
+
+    if( pid == JOB_ONE || pid == JOB_TWO) {
+        window.alert("yeah");
+    }
+
+    if( jone == "" ) {
         document.cookie =   JOB_ONE + "=" + pid + ";";
     } else {
         if ( temp != pid ) {
@@ -142,3 +148,73 @@ function compare() {
     //     }
     // })
 }
+
+function toggleAction() {
+    var btnAction = document.getElementById('maction');
+    var btnMUser = document.getElementById('muser');
+    var btnMPost = document.getElementById('mpost');
+    var btnMNP = document.getElementById('wrtpost');
+
+    if( btnAction.className.indexOf("toggled") >= 0 ) {
+        btnAction.className = btnAction.className.replace(" toggled", "");
+        btnMUser.className = btnMUser.className + " hidden";
+        btnMPost.className = btnMPost.className + " hidden";
+        btnMNP.className = btnMNP.className.replace(" hidden", "");
+    } else {
+        btnAction.className = btnAction.className + " toggled";
+        btnMUser.className = btnMUser.className.replace(" hidden", "");
+        btnMPost.className = btnMPost.className.replace(" hidden", "");
+        btnMNP.className = btnMNP.className + " hidden";
+    }
+}
+
+/*-----------------------SIDEBAR OPEN&CLOSE-------------------------*/
+var count = 0;
+
+
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "260px";
+    document.getElementById("main1").style.marginLeft = "260px";
+    document.getElementById("main2").style.marginLeft = "260px";
+
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main1").style.marginLeft = "0";
+    document.getElementById("main2").style.marginLeft = "0";
+
+}
+function OpenCloseNav(){
+    
+    if(count%2==0){
+        openNav();
+    }else{
+        closeNav();
+    }
+    count++;
+}
+
+function myFunction(x) {
+    x.classList.toggle("change");
+}
+
+/*=======================slide================*/
+
+/*==============Go-Top=========================*/
+
+    $(document).ready(function(){
+            $(window).scroll(function(){
+                if($(this).scrollTop() > 200){
+                  $('.go-top').fadeIn(200);
+                }else{
+                  $('.go-top').fadeOut(200);
+                }
+              });
+              $('.go-top').click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop: 0}, 300);
+             });
+ });

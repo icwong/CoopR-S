@@ -1,14 +1,8 @@
-body {
-  font-family: "Arial", helvetica, arial, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-}
 
 div.table-title {
   display: block;
-  margin-left: 10%;
-  max-width: 600px;
-  padding:-5px;
+  margin: 0px;
+  padding: -5px;
   width: 100%;
 }
 
@@ -21,21 +15,61 @@ div.table-title {
    text-transform:uppercase;
 }
 
+.button_unselected:hover {
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.1s;
+            background-color: #D5DDE5;
+            color: #1b1e24;
+            border: 2px solid black;
+            box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
+}
+.button_unselected {
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-right: 2%;
+            margin-bottom: 0px;
+            font-size: 22pt;
+            color: #2A221A;
+            border-radius: 5px;
+            vertical-align: middle;
+            height: 50px;
+            min-width: 150px;
+            width: 25%;
+            background-color: #FFF;
+            border: 2px solid #222;
+            text-shadow: 1px 1px 1px #121212;
+            position: relative;
+}
+.button_selected{
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-right: 2%;
+            margin-bottom: 0px;
+            font-size: 22pt;
+            color: #D5DDE5;
+            border: none;
+            border-radius: 5px;
+            vertical-align: middle;
+            height: 50px;
+            min-width: 150px;
+            width: 25%;
+            background-color: #1b1e24;
+            text-shadow: 1px 1px 1px #bcbcbc;
+            position: relative;
+}
 
 /*** Table Styles **/
 
 .table-list-users{
     
   background: white;
+  border-top: none;
   border-radius:3px;
   border-collapse: collapse;
   height: 100px;
-  margin-left: 10%;
-  margin-right: 20%;
-  max-width: 80%;
   padding:5px;
   width: 100%;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.4);
   animation: float 5s infinite;
 }
 
@@ -45,9 +79,6 @@ div.table-title {
   border-radius:3px;
   border-collapse: collapse;
   height: 120px;
-  margin-left: 10%;
-  margin-right: 20%;
-  max-width: 80%;
   padding:5px;
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -132,3 +163,6 @@ td:last-child {
 .body-width{
     min-width: 50%;
 }
+
+
+/*==================================================*/

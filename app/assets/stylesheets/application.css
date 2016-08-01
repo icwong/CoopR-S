@@ -10,11 +10,46 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require table
  *= require_self
  */
+
+body {
+  position: relative;
+  font-family: "Arial", helvetica, arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+/*===============================TEXT_BUTTON======================================*/
+
  
- 
+
+form {
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  font-weight:bold;
+}
+
+input {
+  border-style: ridge;
+  font: normal 1em Verdana, sans-serif;
+  color:#333;
+}
+textarea {
+  font: normal 1em Verdana, sans-serif;
+  border-style: ridge;
+  display:block;
+  color:#333;
+}
 
 @media print {
   body {
@@ -41,6 +76,10 @@
  
  .hidden {
     display: none;
+ }
+
+ .toggled {
+    text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF;
  }
  
 
@@ -74,17 +113,15 @@ div.padding {
     height: 8px;
     margin-top: -4px;
     margin-bottom: -4px;
-    margin-left: 10%;
-    margin-right: 10%;
-    max-width: 80%;
     background-color: #1b1e24;
-    border: 4px solid DDD;
+    border: 4px solid #1b1e24;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     position:relative;
-    z-index: 4;
+    z-index: 1;
 }
+
 
 div.text-button {
 	text-align: center;
@@ -132,12 +169,21 @@ a.text-button:active{
     color: #000;
 }
 
+/*===============================NOTICE&ALERT MESSAGE======================================*/
 .notice{
-    color:red;font-weight: bold;top:0;
+    color:red;
+    font-weight: bold;
+    top:0;
+    margin: 10px;
 }
 .alert{
-    color:red;font-weight: bold;top:0;
+    color:red;
+    font-weight: 
+    bold;top:0;
+    margin: 10px;
+
 }
+/*===============================BUTTON======================================*/
 .button:hover {
             -webkit-transition-duration: 0.4s; /* Safari */
             transition-duration: 0.1s;
@@ -163,60 +209,19 @@ a.text-button:active{
             color: #D5DDE5;
             border: none;
             border-radius: 5px;
-            vertical-align: center;
+            vertical-align: middle;
             height: 50px;
             width: 150px;
-            background-color: #1b1e24;
-            text-shadow: 1px 1px 1px #bcbcbc;
-}
-.button_unselected:hover {
-            -webkit-transition-duration: 0.4s; /* Safari */
-            transition-duration: 0.1s;
-            background-color: #D5DDE5;
-            color: #1b1e24;
-            border: 2px solid black;
-            box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
-}
-.button_unselected {
-            margin-top: 0px;
-            margin-left: 0px;
-            margin-right: 0px;
-            margin-bottom: 0px;
-            font-size: 14pt;
-            color: #2A221A;
-            border: none;
-            border-radius: 5px;
-            vertical-align: center;
-            height: 50px;
-            width: 150px;
-            background-color: #FFF;
-            border: 2px solid #222;
-            text-shadow: 1px 1px 1px #121212;
-}
-.button_selected{
-            margin-top: 0px;
-            margin-left: 0px;
-            margin-right: 0px;
-            margin-bottom: 0px;
-            font-size: 14pt;
-            color: #D5DDE5;
-            border: none;
-            border-radius: 5px;
-            vertical-align: center;
-            height: 50px;
-            width: 150px;
-            margin-top: 30px;
-            margin-right: 5px;
             background-color: #1b1e24;
             text-shadow: 1px 1px 1px #bcbcbc;
 }
 .button{
-            margin-left: 10%;
+            margin-left: 1%;
 			font-size: 14pt;
 			color: #D5DDE5;
 			border: none;
 			border-radius: 5px;
-			vertical-align: center;
+			vertical-align: middle;
 			height: 50px;
 			width: 150px;
 			margin-top: 30px;
@@ -238,7 +243,7 @@ a.text-button:active{
 			color: #D5DDE5;
 			border: none;
 			border-radius: 5px;
-			vertical-align: center;
+			vertical-align: middle;
 			height: 30px;
 			width: 150px;
 			margin-top: 30px;
@@ -252,7 +257,7 @@ a.text-button:active{
 		color: #D5DDE5;
 		border: none;
 		border-radius: 5px;
-		vertical-align: center;
+		vertical-align: middle;
     	height: 50px;
 		width: 150px;
 		margin-top: 30px;
@@ -260,6 +265,48 @@ a.text-button:active{
 		background-color: #1b1e24;
 		text-shadow: 1px 1px 1px #bcbcbc;
 }
+form.button_to {
+    display: inline;
+}
+/*===============================MENU======================================*/
+.menu-container {
+    float: right;
+    display: block;
+    cursor: pointer;
+    
+}
+#menu-sign-whole{
+    right: 0;
+    top: 45px;
+    position: absolute;
+    
+}
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+/*===============================PROFILE======================================*/
 .pro-form{
       margin-left: 10%;
       width: 40em;
@@ -270,51 +317,65 @@ a.text-button:active{
 .pro-form .field{
     background: #D5DDE5;
 }
-.whole-head{
-    height: 150px;
+#whole-head {
     top: 0;
     width: 100%;
     position: fixed;
     background-image: url("//i.imgur.com/XY70hDK.jpg");
     background-repeat: repeat-x;
+    z-index: 2;
+    min-width: 480px;
 }
 
-.project-header{
+#project-header {
   	padding: 0.01em 16px;
+    margin-bottom: 10px;
 	display: block;
     justify-content: space-around;
-    height: 78px;
-    padding-top: 20px;
     line-height: 50px;
     overflow: hidden;
     font-size: 15px;
-    
 }
 
-.top-navbar{
-    top: 120px;
-    display: block;
-    position: absolute;
+#top-navbar{
     width: 100%;
+    min-width: 480px;
+    min-height: 32px;
+    list-style-type: none;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    -webkit-padding-start: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+    background-color: #1b1e24;
+    font-size: 24px;
+    font-weight: bold;
+
+    z-index: 2;
 }
-.content{
-    padding-top:200px;
+
+#main2 {
+    margin-top:196px;
     position: static;
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 98%;
+    min-width: 480px;
 }
-.project-header .slogan{
-  	
+.project-header{
     font-family: 'Lato', sans-serif; 
     text-decoration: none;
     letter-spacing: 1px;
     color: #555555;
-    display: block;
     position: fixed;
-    right: 0;
-  	top: 65px;
-  	overflow: hidden;
 }
+
 .project-title {
-	margin-left: 7%;
+	margin-left: 2%;
+    margin-top: 0px;
 	width: auto;
     font-family: 'Lato', sans-serif; 
     text-decoration: none;
@@ -325,20 +386,14 @@ a.text-button:active{
     letter-spacing: 1px;
     color: #555555;
     display: block;
-    position: absolute;
-    top: 17px;
     padding-left: 1px;
     font-weight: bold;
 }
 
 .project-header .toptext {
-    position: absolute;
-	overflow: hidden;
     padding-left: 1em;
-    text-align: center;
-    display: block;
     top: 84px;
-    margin-left: 7%;
+    margin-left: 5%;
     letter-spacing: 4px;
     font-family: "Segoe UI",Arial,sans-serif;
 	width: auto;
@@ -356,7 +411,7 @@ a.text-button:active{
     color: #4E5066;
     transform-style: preserve-3d;
     perspective: 400;
-    z-index: 1;
+    z-index: 3;
 }
 
 .R-S:before, .R-S:after{
@@ -374,7 +429,7 @@ a.text-button:active{
     text-shadow: 
     -1px 0px 1px rgba(255,255,255,.8),
     1px 0px 1px rgba(0,0,0,.8);
-    z-index: 3;
+    z-index: 5;
     transform:
     rotateX(0deg)
     rotateY(-15deg)
@@ -382,7 +437,7 @@ a.text-button:active{
 }
 .R-S:after{
     color: rgba(0,0,0,.11);
-    z-index:2;
+    z-index:4;
     transform:
     scale(1.08,1)
     rotateX(0deg)
@@ -405,77 +460,31 @@ a.text-button:active{
     rotateZ(0deg)
     skew(0deg,22deg);
 }
+
 a {
     background-color: transparent;
 }
 
-
-
-
+/*==========================DROP DOWN====================================*/
 .topnav-icons {
     height: 25px;
-}
-.signout-icon {
-    height: 25px;
-    vertical-align:middle;
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #1b1e24;
-    font-size: 18px;
-    font-weight: bold;
-    vertical-align:middle;
+    vertical-align: middle;
 }
 
-li {
+li.top-navbar-list {
     float: left;
 }
 
-li a, .dropbtn {
-    display: inline-block;
+li.top-navbar-list a {
     color: #D5DDE5;
     text-align: center;
-    vertical-align: center;
-    padding: 18px 30px;
+    vertical-align: middle;
+    padding: 21px 29px;
     text-decoration: none;
 }
 
-li a:hover, .dropdown:hover .dropbtn {
+li.top-navbar-list a:hover {
     background-color: #4E5066;
-}
-
-li.dropdown {
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #4E5066;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 5;
-    
-}
-
-.dropdown-content a {
-    color: #D5DDE5;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    border: 1px solid #C1C3D1;
-    border-right: none;
-    border-left: none;
-}
-
-.dropdown-content a:hover {background-color: #000333}
-
-.dropdown:hover .dropdown-content {
-    display: block;
 }
 
 .show-post {
@@ -494,11 +503,73 @@ li.dropdown {
  /*===============================LOGIN======================================*/
 
 .login-form{
-    position: static;
-    margin-top: 100px;
-    width: 900px;
-    margin-left:30%;
-   
+    position: absolute;
+    height: 42px;
+    top: -8px;
+    right: 8px;
+    padding-top: 0px;
+    padding-right: 16px;   
+    padding-bottom: 0px;
+    padding-left: 16px;
+    background: #EEE;
+    border: 1px solid #333;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
 }
 
+
+
+@media (max-width: 576px) {
+    .icon,.large,.exlarge {
+        display: none;
+    }
+
+    #main2 {
+        margin-top: 60px;
+    }
+
+    #whole-head{
+        background-image: none;
+    }
+
+    .project-title {
+        display: none;
+    }
+
+    #msetting {
+        display: none;
+    }
+
+    #maction {
+        display: none;
+    }
+}
+
+@media (max-width:800px) and (min-width:576px) {
+    .icon,.exlarge {
+        display: none;
+    }
+
+    li.top-navbar-list a {
+        padding: 18px 10px;
+    }
+
+    #whole-head{
+        height: 80px;
+    }
+
+    #maction {
+        display: none;
+    }
+
+    .project-title {
+        margin-left: 0%;
+    }
+
+    #main2 {
+        margin-top: 120px;
+    }
+}
 
