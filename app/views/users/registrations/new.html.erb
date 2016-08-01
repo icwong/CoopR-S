@@ -21,6 +21,7 @@
                 <%= form_for @user, as: :user, url: {action: "create"} do |f| %>
                 <%= devise_error_messages! %>
               
+                <p>You may use any email to register, but only email addresses issued by BC university or college are qualified for authentication.</p>
                 <div class="field">
                   <%= f.label :Email %></br>
                   <%= f.email_field :email, :class => 'form-control input-lg' , :autofocus => true, :onkeyup => "validateEmail()" %>
