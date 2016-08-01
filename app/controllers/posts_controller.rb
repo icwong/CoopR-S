@@ -14,6 +14,8 @@ class PostsController < ApplicationController
   def show
     @can_edit = false
     if user_signed_in?
+      @my_pre = Preference.find_by user_id: current_user.id
+      @my_pro = Profile.find_by user_id: current_user.id
       if current_user.admin?
         @can_edit = true
       elsif current_user.editor? && @post.owner == current_user.id

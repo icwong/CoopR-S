@@ -1,36 +1,42 @@
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
-<p id="notice"><%= notice %></p>
 
-<div class="table-title">
-        <h3>Show Post</h3>
-</div>
+<% content_for :mFrame do %>
+  <p id="notice"><%= notice %></p>
 
-<div class="show-post">
-  <%= render_shareable %>
-  <p>
-    <strong>Title:</strong>
-    <%= @post.title %>
-  </p>
 
-  <p>
-    <strong>Body:</strong>
-    <%=raw @post.body %>
-  </p>
+  <div class="table-title">
+    <h3>Show Post</h3>
+  </div>
 
-  <p>
-    <strong>Type:</strong>
-    <%= @post.type %>
-  </p>
-  <p>
-    <strong>Owner:</strong>
-    <%= @post.owner_name %>
-  </p>
-</div>
+  <div class="show-post">
+    <%= render_shareable %>
+    <p>
+      <strong>Title:</strong>
+      <%= @post.title %>
+    </p>
 
-<% if @can_edit %>
-    <%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_post_path(@post), 'data-no-turbolink' => true %> 
+    <p>
+      <strong>Body:</strong>
+      <%=raw @post.body %>
+    </p>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @post.type %>
+    </p>
+    <p>
+      <strong>Owner:</strong>
+      <%= @post.owner_name %>
+    </p>
+  </div>
+
+  <% if @can_edit %>
+      <%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_post_path(@post), 'data-no-turbolink' => true %> 
+  <% end %>
+
+  
+
+  <button class="button" type="button" onclick="lastUrl()">Back</a>
 <% end %>
-
-<button class="button" type="button" onclick="lastUrl()">Back</a>

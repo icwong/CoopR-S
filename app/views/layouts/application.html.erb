@@ -19,25 +19,25 @@
         <div class="toptext exlarge">WEBSITE FOR COOP STUDENTS, REVIEWING AND SHARING</div>
         <div><%= yield :mLogin %></div>
       </div>
-      <div class="top-navbar">
+      <div id="top-navbar">
         <% if user_signed_in? %>
         
             <% if current_user.admin? %>
               
                 <ul>
-                  <li class="large"><a href="/"><img class="topnav-icons icon" src="//i.imgur.com/RO5VA6h.png" /></a></li>
+                  <li class="large top-navbar-list"><a href="/"><img class="topnav-icons icon" src="//i.imgur.com/RO5VA6h.png" /></a></li>
                   
-                  <li class="dropdown"><a href="/admin/" class="dropbtn">ACTION</a>
-                        <div class="dropdown-content">
-			                      	<a href="/admin/">VIEW ALL USERS</a>
-			                      	<a href="/posts/new" data-turbolinks="false">NEW POSTS</a>
-		                      		<a href="/posts/">MANAGE POSTS</a>
-		                  	</div>
+                  <li class="dropdown top-navbar-list"><a href="/admin/" class="dropbtn">ACTION</a>
+                        <ul class="dropdown-content">
+			                      <li><a href="/admin/">VIEW ALL USERS</a></li>
+			                      <li><a href="/posts/new" data-turbolinks="false">NEW POSTS</a></li>
+		                      	<li><a href="/posts/">MANAGE POSTS</a></li>
+		                  	</ul>
 		              </li>
-                  <li><a href="/posts/new" data-turbolinks="false">WRITE A POST</a></li>
-                  <li style="float:right"><%= link_to destroy_user_session_path, :method => :delete do %><img class="signout-icon icon" src="http://i.imgur.com/qgNZck9.png"/><span>&nbsp;&nbsp;SIGN OUT</span><% end %> </li> 
+                  <li class="top-navbar-list"><a href="/posts/new" data-turbolinks="false">WRITE A POST</a></li>
+                  <li class="top-navbar-list" style="float:right"><%= link_to destroy_user_session_path, :method => :delete do %><img class="signout-icon icon" src="http://i.imgur.com/qgNZck9.png"/><span>&nbsp;&nbsp;SIGN OUT</span><% end %> </li> 
                   
-                  <li style="float:right"> <%= link_to('SETTING', setting_path ) %> </li> 
+                  <li class="top-navbar-list" style="float:right"> <%= link_to('SETTING', setting_path ) %> </li> 
                 </ul>
              
             <% else %>

@@ -451,14 +451,14 @@ a {
     font-size: 18px;
     font-weight: bold;
     vertical-align:middle;
+    min-height: 40px;
 }
 
-.top-navbar li {
+li.top-navbar-list {
     float: left;
 }
 
 .top-navbar li a, .dropbtn {
-    display: inline-block;
     color: #D5DDE5;
     text-align: center;
     vertical-align: center;
@@ -484,11 +484,10 @@ a {
     
 }
 
-.dropdown-content a {
+ul.dropdown-content li {
     color: #D5DDE5;
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
     text-align: left;
     border: 1px solid #C1C3D1;
     border-right: none;
