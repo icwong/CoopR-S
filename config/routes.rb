@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'compare' => 'main#compare'
   get 'setting' => 'setting#display'
   put 'setting' => 'setting#update'
+  get 'user/:user_id' => 'setting#view'
   resources :posts
   devise_for :users, :controllers => {:registrations => "registrations"}
   

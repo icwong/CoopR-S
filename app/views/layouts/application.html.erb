@@ -17,7 +17,7 @@
     
     <body>
     <%= yield :mBody %>   
-    <div class="whole-head">
+    <div class="whole-head" >
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <div id="menu-sign-whole" style="float: right" onclick="OpenCloseNav()">
@@ -28,9 +28,9 @@
             <span>MENU</span>
         </div>
       </div>
-      <div id="main1" class="project-header">
+      <div id="main1" class="project-header large">
         <div class="left"><a class="project-title" href="/"><span class="R-S" data-letter="C">C</span>OOP<span class="R-S" data-letter="R">R</span>&amp;<span class="R-S" data-letter="S">S</span></a></div>
-        <div id="toptext" class="toptext">WEBSITE FOR COOP STUDENTS, REVIEWING AND SHARING</div>
+        <div id="toptext" class="toptext exlarge">WEBSITE FOR COOP STUDENTS, REVIEWING AND SHARING</div>
         <div><%= yield :mLogin %></div>
       </div>
       <div id="mySidenav" class="sidenav">
@@ -40,20 +40,15 @@
               
                 <ul>
                   <li><a href="/"><img class="topnav-icons" src="http://i.imgur.com/RO5VA6h.png" /></a></li>
-                  
-                  <li class="dropdown"><a href="/admin/" class="dropbtn">ACTION</a>
+                  <li><a href="/text">INTRO</a></li><br>
+                  <li class="dropdown"><a href=# class="dropbtn">ACTION</a>
                         <div class="dropdown-content">
-			                      	<a href="/admin/">VIEW ALL USERS</a>
-			                      	<a href="/posts/new" data-turbolinks="false">NEW POSTS</a>
+			                      	<a href="/admin/">LIST USERS</a>
 		                      		<a href="/posts/">MANAGE POSTS</a>
 		                  	</div>
 		              </li>
 
                   <li><a href="/posts/new" data-turbolinks="false">NEW POST</a></li>
-                 
-
-                  <li><a href="/posts/new" data-turbolinks="false">WRITE A POST</a></li>
-                                    
                   <li> <%= link_to('SETTING', setting_path ) %> </li> 
                   <li><%= link_to destroy_user_session_path, :method => :delete do %><span>SIGN OUT</span><% end %> </li> 
 
@@ -94,7 +89,7 @@
         <%= yield :mFrame %>
       </div>
 
-      <div >
+      <div class="systemDump">
         <%= yield %>
       </div>
     </div>

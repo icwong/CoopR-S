@@ -45,4 +45,8 @@ class Preference < ActiveRecord::Base
         return [ self.zip, self.full_address ].join("\n")
     end
 
+    def get_formula
+        return self.formula || "+1-1-1+1"
+    end
+
 end

@@ -1,13 +1,21 @@
+var inpEmail;
+var chkEmail;
+
+window.onload = function( that ) {
+    inpEmail = document.getElementById("user_email");
+    chkEmail = document.getElementById("emailCheck");
+}
+
+
 function validateEmail() {
-    var email = document.getElementById("user_email").value;
-  
+    var email = inpEmail.value;
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if( re.test(email) == true){
-      document.getElementById("user_email").style.borderColor = "#00FF00";
-      document.getElementById("emailCheck").style.display = "inline";
+      inpEmail.style.borderColor = "#00FF00";
+      chkEmail.style.display = "inline";
     }else{
-      document.getElementById("user_email").style.borderColor = "red";
-       document.getElementById("emailCheck").style.display = "none";
+      inpEmail.style.borderColor = "red";
+      chkEmail.style.display = "none";
     }
 }
 

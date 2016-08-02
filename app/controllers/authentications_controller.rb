@@ -6,6 +6,13 @@ class AuthenticationsController < ApplicationController
   end
 
   def success
+    @profile = Profile.find_by user_id: current_user.id
+    if @profile.nil?
+      @profile = Profile.new( { "user_id" => current_user.id } )
+      if @profile.save()
+        flash[:notice] = 'Your profile is created.' 
+      end
+    end
   end
 
   def fail
@@ -18,7 +25,8 @@ class AuthenticationsController < ApplicationController
 
     if (!@me.email.include? "@ubc.ca") && 
        (!@me.email.include? "@sfu.ca") && 
-       (!@me.email.include? "@myLangara.bc.ca")
+       (!@me.email.include? "@myLangara.bc.ca") &&
+       (!@me.email.include? "@mm90849491.com") #for application owner to do test 
       redirect_to fail_path
       flash[:notice] = 'Your email is not issued by a BC university/college.' 
       return
@@ -36,21 +44,21 @@ class AuthenticationsController < ApplicationController
     flash[:notice] = 'Email has been sent.' 
   end
 
-  	def verify
-      @auth = Authentication.find_by user_id: current_user.id
-      if @auth.nil?
-        redirect_to root_path
-        flash[:notice] = 'You did not apply anything'
+	def verify
+    @auth = Authentication.find_by user_id: current_user.id
+    if @auth.nil?
+      redirect_to root_path
+      flash[:notice] = 'You did not apply anything'
+    else
+      @sid = params[:sid]
+      if @sid == @auth.serial
+        @auth.update( {:pass => true, :serial => nil} )
+        redirect_to success_path
       else
-        @sid = params[:sid]
-        if @sid == @auth.serial
-          @auth.update( {:pass => true, :serial => nil} )
-          redirect_to success_path
-        else
-          redirect_to fail_path
-        end
+        redirect_to fail_path
       end
-  	end
+    end
+	end
 
 	private
   	def hash( rawID )

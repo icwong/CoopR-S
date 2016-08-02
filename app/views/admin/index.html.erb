@@ -2,7 +2,13 @@
     <%= render :partial => '/login/login' %>
     <%= stylesheet_link_tag 'table' %>
 <% end %>
-
+<% content_for :mBody do %>
+	<style>
+	body{
+		background-image: url("http://i.imgur.com/Y8A7Ihk.jpg");
+	}	
+	</style>
+<% end %>
 <% content_for :mFrame do %>
 <script type="text/javascript">
   updateUrl();

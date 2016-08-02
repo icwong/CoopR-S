@@ -1,7 +1,10 @@
+<% content_for :mLogin do %>
+    <%= render :partial => '/login/login' %>
+<% end %>
 <p id="notice"><%= notice %></p>
 <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
 
-<table>
+<table class="table-list-users">
   <thead>
     <tr>
       <th>Title</th>
@@ -31,6 +34,9 @@
   </tbody>
 </table>
 
-<%= link_to "Download A PDF Copy", compare_path(format: 'pdf', :j1 => @job_one.id, :j2 =>@job_two.id ) %>
+<div style="margin-left: 10%;margin-top: 30px">
+<%= link_to "Download A PDF Copy", compare_path(format: 'pdf', :j1 => @job_one.id, :j2 =>@job_two.id ),:class => "login-form-message" %>
     <!--<a href="#" data-fp-apikey= "ALNjEZIbJTOg3xF1Dh5vnz" data-fp-extension=".pdf" data-fp-url= "https://cmpt276-jpotusek.c9users.io/" + <%= compare_path(format: 'pdf', :j1 => @job_one.id, :j2 =>@job_two.id )%> data-fp-suggestedFilename= "comparePosts.pdf">Save PDF to cloud</a>-->
-<a href="#" onclick="lastUrl(); return false; ">Back</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="login-form-message" href="#" onclick="lastUrl(); return false; ">Back</a>
+</div>

@@ -1,4 +1,5 @@
 class SettingController < ApplicationController
+  skip_before_action :authenticate_user!, :only => [:view]
   before_action :set_config, only: [:display, :update]
 
   def display
@@ -28,6 +29,17 @@ class SettingController < ApplicationController
     end
   end
 
+  def view
+    @him = User.find_by id: params[:user_id]
+    if @him.nil?
+      redirect_to root_path
+      flash[:notice] = 'User does not exist' 
+      return
+    end
+    @his = Preference.find_by user_id: params[:user_id]
+    @he = Profile.find_by user_id: params[:user_id]
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_config
@@ -41,6 +53,6 @@ class SettingController < ApplicationController
     end
 
     def pre_params
-      params.require(:user).require(:preference).permit( :name, :zip, :street, :city, :province, :house_number, :latitude, :longitude )
+      params.require(:user).require(:preference).permit( :name, :zip, :street, :city, :province, :formula,:house_number, :latitude, :longitude )
     end
 end

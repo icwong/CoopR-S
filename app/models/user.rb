@@ -52,4 +52,20 @@ class User < ActiveRecord::Base
     end
   end
 
+  def get_school
+    if self.email.include? "@ubc.ca"
+      return "The University of British Columbia"
+    end
+
+    if self.email.include? "@sfu.ca"
+      return "Simon Fraser University"
+    end
+
+    if self.email.include? "@myLangara.bc.ca"
+      return "Langara College"
+    end
+    
+    return "test user"
+  end
+
 end
