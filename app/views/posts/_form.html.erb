@@ -67,7 +67,7 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
 
     <% if current_user.type != 'Company' %>
     <div class="field" data-turbolinks="false">
-      <%= ff.label :offered_by ,"Company ID" ,class: "input-title" %> (if input is not #, search user table with company type find the ID of given name; if not exist, create a new company record)
+      <%= ff.label :offered_by ,"Company ID" ,class: "input-title" %> 
       <br>
       <%= ff.text_field :offered_by, class: "form-control" %>
     </div>
