@@ -112,11 +112,12 @@ class MainController < ApplicationController
   def get_rating( that )
     @job = Job.find_by id: that.id
     @him = Preference.find_by user_id: current_user.id
-    @far = get_distance( @job.offered_by )
+    
     if !@him.nil? && !@job.nil?
       @formula = @him.get_formula
       @coefficients = @formula.scan( /[-+]?[0-9]*\.?[0-9]+/ )
 
+      @far = get_distance( @job.offered_by )
       if @far.nil? || @far == "N/A"
         @rate = 0
       else

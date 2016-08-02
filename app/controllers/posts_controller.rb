@@ -57,7 +57,8 @@ class PostsController < ApplicationController
     @max = -100
     those.each do |that|
       @rate = get_rating( that )
-      if @rate > @max 
+      @flag = Integer(@rate) rescue false
+      if @flag && @rate > @max 
         @max = @rate
         @best = that
       end
@@ -129,10 +130,27 @@ class PostsController < ApplicationController
       if @post.save
         @jparams = job_params
         @jparams[:id] = @post.id
+        @comp = @jparams[:offered_by]
+        @flag = Integer(@comp) rescue false
+        if @post.type == 'Review' && ( !@flag || (User.find_by user_id: @comp).nil? )
+
+          @him = Preference.where("name LIKE ?", @comp).first
+          if @him.nil?
+            @him = Preference.where("name LIKE ?", "%" + @comp + "%").first
+          end
+          if @him.nil?
+            @jparams[:offered_by] = ""
+          else
+            @jparams[:offered_by] = @him.user_id
+          end
+        end
+
         @job = Job.new(@jparams)
-        if @post.type = 'Promotion'
+        @job.save
+        if @post.type == 'Promotion'
           @job.update( {:offered_by => @post.owner } )
         end
+
         format.html { redirect_to @post, notice: 'Post was successfully created.' + @message }
         format.json { render :show, status: :created, location: @post }
       else
@@ -227,29 +245,29 @@ class PostsController < ApplicationController
   end
 
   def get_rating( that )
-    @job = Job.find_by id: that.id
+    @jobb = Job.find_by id: that.id
     @him = Preference.find_by user_id: current_user.id
-    @far = get_distance( @job.offered_by )
-    if !@him.nil? && !@job.nil?
+    if !@him.nil? && !@jobb.nil?
       @formula = @him.get_formula
       @coefficients = @formula.scan( /[-+]?[0-9]*\.?[0-9]+/ )
 
+      @far = get_distance( @jobb.offered_by )
       if @far.nil? || @far == "N/A"
         @rate = 0
       else
         @rate = Math.sqrt( @far ).round(0) * @coefficients[0].to_f
       end
 
-      if !@job.working_hours.nil?
-        @rate = @rate + @job.working_hours * @coefficients[1].to_f
+      if !@jobb.working_hours.nil?
+        @rate = @rate + @jobb.working_hours * @coefficients[1].to_f
       end
 
-      if !@job.work_day.nil?
-        @rate = @rate + @job.work_day * @coefficients[2].to_f
+      if !@jobb.work_day.nil?
+        @rate = @rate + @jobb.work_day * @coefficients[2].to_f
       end
 
-      if !@job.salary.nil?
-        @rate = @rate + @job.salary * @coefficients[3].to_f
+      if !@jobb.salary.nil?
+        @rate = @rate + @jobb.salary * @coefficients[3].to_f
       end
 
       return @rate.round(0)

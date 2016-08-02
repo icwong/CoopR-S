@@ -3,7 +3,8 @@ class Job < ActiveRecord::Base
 	has_one :company
 
 	def offered_name
-		@user = User.find_by id: self.id
+		puts "\n\n\n\n" + self.offered_by.to_s
+		@user = User.find_by id: self.offered_by
 		if @user.nil?
 			return "unknown"
 		end
@@ -11,7 +12,7 @@ class Job < ActiveRecord::Base
 	end
 
 	def offered_address
-		@pf = Preference.find_by user_id: self.id
+		@pf = Preference.find_by user_id: self.offered_by
 		if @pf.nil?
 			return "unknown"
 		end

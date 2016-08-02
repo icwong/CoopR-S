@@ -116,11 +116,15 @@ function clearCompareList() {
 function initIcon() {
     var jone = getCookie( JOB_ONE );
     var icon = document.getElementById('SPID' + jone);
-    icon.innerHTML = '&#8722;';
+    if(icon != null) {
+        icon.innerHTML = '&#8722;';
+    }
 
     var jtwo = getCookie( JOB_TWO );
     icon = document.getElementById('SPID' + jtwo);
-    icon.innerHTML = '&#8722;';
+    if(icon != null) {
+        icon.innerHTML = '&#8722;';
+    }
 }
 
 function addToCompareList( pid ) {
