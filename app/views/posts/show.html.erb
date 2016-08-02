@@ -67,7 +67,7 @@
 
 
     <tbody>
-      <% @reviews.each do |post| %>
+      <% @similars.each do |post| %>
         <tr id="PID<%= post.id %>">
           <td class="noselect" onclick="window.location='/posts/<%= post.id %>'"><%= post.title %></td>
           <td class="noselect" onclick="window.location='/index?id=<%= post.owner %>'"><%= post.owner_name %></td>

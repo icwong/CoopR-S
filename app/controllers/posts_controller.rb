@@ -17,12 +17,19 @@ class PostsController < ApplicationController
     if user_signed_in?
       @my_pre = Preference.find_by user_id: current_user.id
       @my_pro = Profile.find_by user_id: current_user.id
+      @similars = find_similar
       if current_user.admin?
         @can_edit = true
       elsif current_user.editor? && @post.owner == current_user.id
         @can_edit = true
       end
     end
+  end
+
+  def find_similar
+    @same_writer = Post(:all, :order => "updated_at desc", :limit => 100).where("owner = " + @post.owner )
+    @same_writer = Job(:all, :order => "updated_at desc", :limit => 100).where("owner = " + @post.owner )
+
   end
 
   # GET /posts/new
