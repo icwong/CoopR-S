@@ -13,7 +13,33 @@
  *= require_tree .
  *= require_self
  */
+ 
+form {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
+  border-radius: .3em; 
+}
+label {
+  font-weight:bold;
+}
 
+input {
+  border-style: ridge;
+  font: normal 1em Verdana, sans-serif;
+  color:#333;
+}
+textarea {
+  font: normal 1em Verdana, sans-serif;
+  display:block;
+  color:#5e5e5e;
+}
+.form-control{
+    border: 1px dashed black;
+    background-color: #D5DDE5;
+}
 @media (max-width: 1004px) {
         #toptext {display: none;}
 }
@@ -23,6 +49,18 @@
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+}
+@media (max-width: 666px) {
+    .left{
+        display: none;
+    }
+}
+@media (max-width: 556px) {
+    
+    .left{
+        display: none;
+    }
+
 }
 body {
     
@@ -356,6 +394,8 @@ a.text-button:active{
     position: fixed;
     background-image: url("http://i.imgur.com/XY70hDK.jpg");
     background-repeat: repeat-x;
+    z-index: 2;
+    min-width: 480px;
 }
 
 .project-header{

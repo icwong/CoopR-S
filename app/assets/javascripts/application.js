@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require zxcvbn
-//= require validateForms
 
 
 /////////////////////
@@ -47,6 +46,19 @@ function switchTab() {
     clsA = document.getElementById("revTable");
     clsB = document.getElementById("proTable");
     swapClass(clsA, clsB);
+}
+
+function rememberUrl() {
+    var oldUrl = getCookie( CURR_LOCATION );
+    var fIndex = document.cookie.indexOf(LAST_LOCATION);
+    var tIndex = document.cookie.indexOf(";", fIndex + LAST_LOCATION.length + 1); // 1 for "="
+    var front = document.cookie.substring(0, fIndex ) + LAST_LOCATION + "="; // compatible with init
+    var tail = "";
+    
+    if(tIndex >= 0) {
+        tail = document.cookie.substring(tIndex)
+    };
+    document.cookie = front + oldUrl + tail;
 }
 
 function updateUrl() {
@@ -102,8 +114,14 @@ function clearCompareList() {
 }
 
 function addToCompareList( pid ) {
-    var temp = getCookie( JOB_ONE );
-    if( temp == "" ) {
+    var jone = getCookie( JOB_ONE );
+    var jtwo = getCookie( JOB_TWO );
+
+    if( pid == JOB_ONE || pid == JOB_TWO) {
+        window.alert("yeah");
+    }
+
+    if( jone == "" ) {
         document.cookie =   JOB_ONE + "=" + pid + ";";
     } else {
         if ( temp != pid ) {
@@ -141,6 +159,25 @@ function compare() {
     //     error: function (data) {
     //     }
     // })
+}
+
+function toggleAction() {
+    var btnAction = document.getElementById('maction');
+    var btnMUser = document.getElementById('muser');
+    var btnMPost = document.getElementById('mpost');
+    var btnMNP = document.getElementById('wrtpost');
+
+    if( btnAction.className.indexOf("toggled") >= 0 ) {
+        btnAction.className = btnAction.className.replace(" toggled", "");
+        btnMUser.className = btnMUser.className + " hidden";
+        btnMPost.className = btnMPost.className + " hidden";
+        btnMNP.className = btnMNP.className.replace(" hidden", "");
+    } else {
+        btnAction.className = btnAction.className + " toggled";
+        btnMUser.className = btnMUser.className.replace(" hidden", "");
+        btnMPost.className = btnMPost.className.replace(" hidden", "");
+        btnMNP.className = btnMNP.className + " hidden";
+    }
 }
 
 /*-----------------------SIDEBAR OPEN&CLOSE-------------------------*/

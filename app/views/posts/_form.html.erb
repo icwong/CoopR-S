@@ -5,9 +5,16 @@
   <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'cloudstorage' %>
   <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
-
 <% end %>
-
+<% content_for :mBody do %>
+	<style>
+	body{
+		background-image: url("http://i.imgur.com/4fIqHUo.jpg");
+		background-repeat: repeat;
+		background-size: contain;
+	}	
+	</style>
+<% end %>
 <%= form_for(@post, as: :post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -21,7 +28,7 @@
     </div>
   <% end %>
 
-  <p>upload file to editor:</p>
+  <p style:"font-size: 14pt;font-weight:bold;">Upload file to editor:</p>
    <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
 
 <input type="filepicker" class="button_compact" data-fp-apikey="ALNjEZIbJTOg3xF1Dh5vnz" data-fp-extensions=".doc,.docx,.txt,.rtf,.odt" 
@@ -31,7 +38,7 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
   <div class="field">
     <%= f.label :title ,"TITLE" ,class: "input-title" %> 
     <br>
-    <%= f.text_field :title , class: "form-control form-control-style input-lg" %>
+    <%= f.text_field :title , class: "form-control" %>
   </div>
   
   <br>
