@@ -24,7 +24,7 @@
           <h1>Profile</h1>
           <img  class="avatar" src="//i.imgur.com/y7GX8r8.png" alt="Avatar" />
            <div class="username"><%= @profile.first_name %> <%= @profile.middle_name %> <%= @profile.last_name %></div>
-           <div class="school"><%= get_school %></div>
+           <div class="school"><%= @me.get_school %></div>
            <div class="description">New to Co-op</div>
            <div class="left">Phone number</div>
            <div><%= ff.text_field 'phone', :value => @profile.phone %></div>
