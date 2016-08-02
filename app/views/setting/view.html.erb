@@ -34,8 +34,8 @@
 
       function initMap() {
         // Create a map object and specify the DOM element for display.
-        var there = new google.maps.LatLng( document.getElementById("user_preference_latitude").value, 
-                                            document.getElementById("user_preference_longitude").value );
+        var there = new google.maps.LatLng( document.getElementById("user_preference_latitude").innerHTML, 
+                                            document.getElementById("user_preference_longitude").innerHTML );
         map = new google.maps.Map(document.getElementById('mapDiv'), {
           center: there,
           disableDefaultUI: true,
