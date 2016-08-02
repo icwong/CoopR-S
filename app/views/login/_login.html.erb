@@ -1,14 +1,17 @@
-
-<div id="user_signed_in" class="slogan">
-    
+<div id="user_signed_in" class="login-form exlarge">
     <% if user_signed_in? %>
-        <%= link_to destroy_user_session_path, :method => :delete do %><span>Sign out</span><% end %>
-        <b style="font-size: 12pt; top:0;">Hello <%= link_to(current_user.display_name, setting_path, :class => "display_name" ) %>, welcome back!!</b> 
+        <b><%= link_to(current_user.display_name, setting_path, :class => "display_name" ) %></b>
+        <span style="color: white;">|</span>
+        <%= button_to "LOG OUT", destroy_user_session_path, :method => :delete %>
    	<% else %>
-   	     
-         <%= link_to new_user_registration_path do %><span>Sign up</span><% end %> 
-   	     <%= link_to new_user_session_path do %><span>Log in</span><% end %> 
-   	     <b style="font-size: 12pt; top:0;">Not registered yet? Join us now!!</b>
+   	    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    
+        <div>
+          <%= f.email_field :email, placeholder: "Email", :class => 'form-control', :autofocus => true %>
+          <%= f.password_field :password, placeholder: "Password", :class => 'form-control', :autofocus => true, :autocomplete => :off %>
+          <%= f.submit "LOG IN", style: "border-style: ridge" %>
+        </div>
+        <% end %>
     <% end %>
 </div>
 

@@ -1,37 +1,56 @@
-<% content_for :mLogin do %>
-    <%= render :partial => '/login/login' %>
-<% end %>
-<% content_for :mBody do %>
-	<style>
-	body{
-		background-image: url("http://i.imgur.com/ttj3paK.jpg");
+<% content_for :mHeader do %>
+  <%= javascript_include_tag 'faker' %>
+  <%= javascript_include_tag 'random' %>
 
-	}	
-	</style>
+  <%= stylesheet_link_tag 'register' %>
 <% end %>
-<div class="whole-page">
-  <div class="login-page">
-           <%= form_for(resource, :html => { :class => "login-form" }, as: resource_name, url: session_path(resource_name)) do |f| %>
-                    
-                  <div class="field">
-                      <%= f.email_field :email, placeholder: "Email", :class => 'inputbox', :autofocus => true %>
-                    <br>
-                      <%= f.password_field :password, placeholder: "Password", :class => 'inputbox', :autofocus => true, :autocomplete => :off %>
-                  </div>
-                    
-                  <br>
-                  <% if devise_mapping.rememberable? %>
-                      <%= f.check_box :remember_me, :style => "width: 20px; height: 20px;float: left;margin: 0" %> 
-                      <span style="float: left;margin-left: 5px; font-size: 13pt">Remember Me</span>
-                  <% end %>  
-                  <div class="actions">
-                    <%= f.submit "LOGIN", :class => 'login-form-button ' %>
-                  </div>
-                    
-                  <br>
-                    
-                  </br>
-                  <%= render "users/shared/links" %>
+
+<% content_for :mLogin do %>
+<% end %>
+
+<% content_for :mFrame do %>
+  <script type="text/javascript">
+    rememberUrl();
+  </script>
+
+  <div class="login-full">
+    <div id="login-container">
+                
+      <div class="panel" style: "border: 2px solid #374f6e">
+                  
+      	<div class="panel-body">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                      
+          <div class="field">
+            <%= f.label :Email %></br>
+            <%= f.email_field :email, placeholder: "Email", :class => 'form-control input-lg', :autofocus => true %>
+            <br>
+            <%= f.label :Password %></br>
+            <%= f.password_field :password, placeholder: "Password", :class => 'form-control input-lg', :autofocus => true, :autocomplete => :off %>
+          </div>
+                      
+          <br>
+                      
+          <div class="actions">
+            <%= f.submit "LOGIN", :class => 'loginbutton ', style: "background-color: #374f6e; color: white; font-weight: bold; border: 2px solid #0EAD69" %>
+          </div>
+                      
+          <br>
+                      
+          <% if devise_mapping.rememberable? %>
+            <label class="category-select">
+              <%= f.check_box :remember_me %>
+              <span>Remember Me</span>
+            </label>
+             
+            </br>
+            <%= render "users/shared/links" %>
           <% end %>
+
+          <% end %>
+
+        </div>
+      </div>
+    </div>                  
   </div>
-</div>
+<% end %>

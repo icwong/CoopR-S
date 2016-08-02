@@ -5,15 +5,7 @@
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
-<% content_for :mBody do %>
-	<style>
-	body{
-		background-image: url("http://i.imgur.com/4fIqHUo.jpg");
-		background-repeat: repeat;
-		background-size: contain;
-	}	
-	</style>
-<% end %>
+
 <% content_for :mFrame do %>
     
     <script type="text/javascript">
@@ -24,6 +16,8 @@
 <div class="table-title">
   <button onclick="switchTab()" class="button_selected" id="revCaption" disabled>Reviews</button>
   <button onclick="switchTab()" class="button_unselected" id="proCaption">Promotions</button>
+
+  <button onclick="toggleFilter( 'ftrTime' )" class="toggleOff" id="ftrTime">Last Edit</button>
 </div>
 
 <div class="padding">
@@ -44,7 +38,7 @@
           <span style="float:right;">&#9660;</span>
         <% end %>
       </th>
-      <th class="noselect" onclick="window.location='/index?sort_by=updated_at'">
+      <th class="noselect ftrTime" onclick="window.location='/index?sort_by=updated_at'">
         <span>Last edit</span>
         <% if @sort_by.include?('updated_at') %> 
           <span style="float:right;">&#9660;</span>
@@ -53,7 +47,11 @@
       <th></th>
 
       <% if has_address %> 
-        <th>Farness</th>
+        <th>Distance</th>
+      <% end %> 
+
+      <% if has_rating %> 
+        <th>Rating</th>
       <% end %> 
 
       <% if has_rating %> 
@@ -68,7 +66,7 @@
       <tr id="PID<%= post.id %>">
         <td class="noselect" onclick="window.location='/posts/<%= post.id %>'"><%= post.title %></td>
         <td class="noselect" onclick="window.location='/index?id=<%= post.owner %>'"><%= post.owner_name %></td>
-        <td class="noselect" onclick="window.location='/index?cdate=<%= post.updated_at.to_s[0..9] %>'"><%= post.updated_at.to_s[0..9] %></td>
+        <td class="noselect ftrTime" onclick="window.location='/index?cdate=<%= post.updated_at.to_s[0..9] %>'"><%= post.updated_at.to_s[0..9] %></td>
         <td>
           <div class="text-button noselect" onclick="addToCompareList( <%= post.id %> ); return false; ">
               <a class="text-button" href="#">Compare</a>
@@ -103,7 +101,7 @@
           <span style="float:right;">&#9660;</span>
         <% end %>
       </th>
-      <th class="noselect" onclick="window.location='/index?sort_by=updated_at'">
+      <th class="noselect ftrTime" onclick="window.location='/index?sort_by=updated_at'">
         <span>Last edit</span>
         <% if @sort_by.include?('updated_at') %> 
           <span style="float:right;">&#9660;</span>
@@ -128,7 +126,7 @@
       <tr id="PID<%= post.id %>">
         <td class="noselect" onclick="window.location='/posts/<%= post.id %>'"><%= post.title %></td>
         <td class="noselect" onclick="window.location='/index?id=<%= post.owner %>'"><%= post.owner_name %></td>
-        <td class="noselect" onclick="window.location='/index?cdate=<%= post.updated_at.to_s[0..9] %>'"><%= post.updated_at.to_s[0..9] %></td>
+        <td class="noselect ftrTime" onclick="window.location='/index?cdate=<%= post.updated_at.to_s[0..9] %>'"><%= post.updated_at.to_s[0..9] %></td>
         <td>
           <div class="text-button" onclick="addToCompareList( <%= post.id %> ); return false; ">
               <a class="text-button" href="#" >Compare</a>

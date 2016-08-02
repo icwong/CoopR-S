@@ -1,10 +1,10 @@
 <% content_for :mHeader do %>
   <%= javascript_include_tag 'setting' %>
+  <%= stylesheet_link_tag 'profilepage' %>
 <% end %>
 
 
 <% content_for :mLogin do %>
-    <%= render :partial => '/login/login' %>
 <% end %>
 
 
@@ -24,10 +24,11 @@
           <h1 style="margin-left: 25px">Profile</h1>
           <img  class="avatar" src="//i.imgur.com/y7GX8r8.png" alt="Avatar" />
            <div class="username"><%= @profile.first_name %> <%= @profile.middle_name %> <%= @profile.last_name %></div>
-           <div class="school" ><%= @me.get_school %></div>
+           <div class="school"><%= @me.get_school %></div>
            <div class="school" style="color:black">Phone number</div>
            <div class='description'><%= ff.text_field 'phone', :value => @profile.phone %></div>
            <div class="details"><span class="profiletitle">Preference Details</span></div>
+           
       </div>
     <% end %>
     <% end %>
@@ -55,9 +56,10 @@
                 <div class="left">Customise Rating Formula</div><div class="right"><%= ff.text_field 'formula', :value => @preference.get_formula %>
               </div>
             <br>
-            <br>
-            <button class="login-form-button" onclick="updateLocation()">Search Address</button>
-            
+
+            <div>
+              <span>Customise Rating Formula</span><%= ff.text_field 'formula', :value => @preference.get_formula %>
+            </div>
       </div>
     <% end %>
     <% end %>

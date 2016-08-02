@@ -1,67 +1,113 @@
 <% content_for :mHeader do %>
-  <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'cloudstorage' %>
-  <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
+
 <% end %>
 
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
-<% content_for :mBody do %>
-	<style>
-	body{
-		background-image: url("http://i.imgur.com/4fIqHUo.jpg");
-		background-repeat: repeat;
-		background-size: contain;
-	}	
-	</style>
-<% end %>
+
 <% content_for :mFrame do %>
-  <script type="text/javascript">
+    <script type="text/javascript">
       updateUrl();
     </script>
 
-  <p id="notice"><%= notice %></p>
-  
-
   <div class="table-title">
-    <h3>Show Post</h3>
+    <h3><%= @post.type %>|<%= @post.title %></h3>
+    <h2>Posted by <%= link_to @post.owner_name, '/user/' + @post.owner.to_s %> </p>
   </div>
 
   <div class="show1-post">
-  
-    <div class="show-post-p">
-      <strong>Title:</strong>
-      <div class="show-post-text"><%= @post.title %></div>
-    </div>
+
+    <p><strong>Job Title: </strong>
+      <%= @job.job_title %>
+    </p>
     
-    <div class="show-post-p">
-      <strong>Body:</strong>
-      <div class="show-post-text"><%=raw @post.body %></div>
+    <p><strong>Offered By: </strong>
+      <%= @job.offered_name %>
+    </p>
+
+    <p><strong>Address: </strong>
+      <%= @job.offered_address %>
+    </p>
+
+    <p><strong>Work Day: </strong>
+      <%= @job.work_day %>
+    </p>
+
+    <p><strong>Hours per Week: </strong>
+      <%= @job.working_hours %>
+    </p>
     </div>
 
-    <div class="show-post-p">
-      <strong>Type:</strong>
-      
-      <div class="show-post-text"><%= @post.type %></div>
-    </div>
+    <p><strong>Salary: </strong>
+      <%= @job.salary %>
+    </p>
 
-    <div class="show-post-p">
-      <strong>Owner:</strong>
-      <div class="show-post-text"><%= @post.owner_name %></div>
-    </div>
+    <p>
+      <strong>Comment: </strong>
+      <%=raw @post.body %>
+    </p>
 
-  <div class="show-post-p">
-    <hr>
-    <b style="padding-bottom: 5px">Share with your friends:&nbsp;&nbsp; </b>
-    <%= render_shareable :turbolinks => true %>
+    <div>
+      <%= render_shareable %>
+    </div>
   </div>
+
+  <% if user_signed_in? %>
+  <div class="table-title">
+    <h3>Similar Posts</h3>
   </div>
+
+  <table class="table-list-users" id="revTable">
+    <thead>
+      <tr>
+        <th class="noselect">
+          <span>Title</span>
+        </th>
+        <th class="noselect">
+          <span>Creator</span>
+        </th>
+        <th class="noselect">
+          <span>Last edit</span>
+        </th>
+        <th></th>
+        <th>reason</th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      <% @similars.each do |result| %>
+        <tr id="PID<%= result[:pos].id %>">
+          <td class="noselect" onclick="window.location='/posts/<%= result[:pos].id %>'"><%= result[:pos].title %></td>
+          <td class="noselect" onclick="window.location='/index?id=<%= result[:pos].owner %>'"><%= result[:pos].owner_name %></td>
+          <td class="noselect" onclick="window.location='/index?cdate=<%= result[:pos].updated_at.to_s[0..9] %>'"><%= result[:pos].updated_at.to_s[0..9] %></td>
+          <td>
+            <div class="text-button">
+                <a class="text-button" href="#" onclick="addToCompareList( <%= result[:pos].id %> ); return false; ">Compare</a>
+                <span><sup id="SPID<%= result[:pos].id %>">+</sup></span>
+            </div>
+          </td>
+          <td>
+            <%= result[:res] %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div align="right" style="margin-right: 10%">
+    <button class="button" onclick="clearCompareList()">Clear List</button>
+    <button id="btnCompare" class="button" onclick="compare()">Start Compare</button>
+    <script type="text/javascript">isComparable();</script>
+  </div>
+  <% end %>
 
   <% if @can_edit %>
       <%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_post_path(@post), 'data-no-turbolink' => true %> 
   <% end %>
 
-<button class="button" type="button" onclick="lastUrl()">Back</button>
-
 <% end %>
+
+<button class="button" type="button" onclick="lastUrl()">Back</button>

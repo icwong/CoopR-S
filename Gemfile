@@ -24,6 +24,9 @@ gem 'shareable'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'sprockets', '3.6.3'
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # USER GROUP
 gem 'devise', '4.1.1'
 gem 'devise_zxcvbn'
@@ -53,6 +56,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'prawn'
 gem 'prawn-table'
+
+#remove html tags from text
+gem 'sanitize'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

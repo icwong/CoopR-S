@@ -10,20 +10,20 @@ user_email:invalid + #emailCheck {
 
 #emailCheck {
     display: none;
-    height: 16px;
-    width: 16px;
+    height: 24px;
+    width: 24px;
     margin-left: 16px;
 }
 #passwordCheck {
     display: none;
-    height: 16px;
-    width: 16px;
+    height: 24px;
+    width: 24px;
     margin-left: 16px;
 }
 #passwordConfirmationCheck {
     display: none;
-    height: 16px;
-    width: 16px;
+    height: 24px;
+    width: 24px;
     margin-left: 16px;
 }
 

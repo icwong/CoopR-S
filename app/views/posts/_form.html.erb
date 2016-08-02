@@ -1,6 +1,6 @@
 <% content_for :mLogin do %>
-    <%= render :partial => '/login/login' %>
 <% end %>
+
 <% content_for :mHeader do %>
   <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'cloudstorage' %>
@@ -76,7 +76,7 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
 
     <% if current_user.type != 'Company' %>
     <div class="field" data-turbolinks="false">
-      <%= ff.label :offered_by ,"Company ID" ,class: "input-title" %> (if input is not #, search user table with company type find the ID of given name; if not exist, create a new company record)
+      <%= ff.label :offered_by ,"Company ID" ,class: "input-title" %> 
       <br>
       <%= ff.text_field :offered_by, class: "form-control" %>
     </div>
@@ -104,7 +104,8 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
   <% end %>
 
   <div class="actions" data-turbolinks="false">
-    <%= f.submit class: 'wymupdate button_compact'%>
+    <button class="button" type="button" onclick="lastUrl()">Back</button>
+    <%= f.submit class: 'wymupdate button'%>
   </div>
 <% end %>
 

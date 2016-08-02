@@ -19,7 +19,7 @@ class MainController < ApplicationController
       @promotions = Post.where("type = 'Promotion'").order(@sort_by)
     elsif @uid != nil && @cdate == nil
       @reviews = Post.where("type = 'Review' AND owner = ?", @uid).order(id: :asc)
-      @promotions = Post.where("type = 'Rromotion' AND owner = ?", @uid).order(id: :asc)
+      @promotions = Post.where("type = 'Promotion' AND owner = ?", @uid).order(id: :asc)
     elsif @uid == nil
       @reviews = Post.where("type = 'Review' AND updated_at > ? AND updated_at < ?", @cdate, @cdate + 1.days).order(id: :asc)
       @promotions = Post.where("type = 'Promotion' AND updated_at > ? AND updated_at < ?", @cdate, @cdate + 1.days).order(id: :asc)
