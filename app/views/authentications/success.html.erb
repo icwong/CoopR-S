@@ -3,6 +3,9 @@
 <% end %>
 
 <% content_for :mFrame do %>
+    <script type="text/javascript">
+      rememberUrl();
+    </script>
 
      <div style="margin-left:10%;margin-right:10%;margin-top:100px;">
         <p>success message</p>
@@ -11,4 +14,4 @@
 
 <% end %>
 
-<button class="button" type="button" onclick="lastUrl()">Back</a>
+<button class="button" type="button" onclick="lastUrl()">Back</button>

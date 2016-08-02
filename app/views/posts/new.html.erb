@@ -1,7 +1,17 @@
-<div class="table-title">
-        <h3>New Post</h3>
-</div>
+<% content_for :mHeader do %>
 
-<%= render 'form' %>
+<% end %>
+
+<% content_for :mFrame do %>
+    <script type="text/javascript">
+      rememberUrl();
+    </script>
+
+	<div class="table-title">
+	        <h3>New Post</h3>
+	</div>
+
+	<%= render 'form' %>
+<% end %>
 
 <button class="button" type="button" onclick="lastUrl()">Back</a>

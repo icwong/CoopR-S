@@ -14,8 +14,8 @@
 
 
 <div class="table-title">
-        <button onclick="switchTab()" class="button_selected" id="revCaption" disabled>Reviews</button>
-        <button onclick="switchTab()" class="button_unselected" id="proCaption">Promotions</button>
+  <button onclick="switchTab()" class="button_selected" id="revCaption" disabled>Reviews</button>
+  <button onclick="switchTab()" class="button_unselected" id="proCaption">Promotions</button>
 </div>
 
 <div class="padding">
@@ -46,6 +46,9 @@
 
       <% if has_address %> 
         <th>Farness</th>
+      <% end %> 
+
+      <% if has_rating %> 
         <th>Rating</th>
       <% end %> 
     </tr>
@@ -67,13 +70,12 @@
 
         <% if has_address %> 
           <td><%= get_distance( post.owner ) %></td>
-        <% end %> 
+        <% end %>
 
         <% if has_rating %>
           <td><%= get_rating( post ) %></td>
         <% end %>
 
-      </tr>
     <% end %>
   </tbody>
 </table>
@@ -105,6 +107,10 @@
       <% if has_address %> 
         <th>Distance</th>
       <% end %> 
+
+      <% if has_rating %> 
+        <th>Rating</th>
+      <% end %> 
     </tr>
   </thead>
 
@@ -125,6 +131,10 @@
         <% if has_address %> 
           <td><%= get_distance( post.owner ) %></td>
         <% end %> 
+
+        <% if has_rating %>
+          <td><%= get_rating( post ) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
