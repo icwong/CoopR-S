@@ -1,5 +1,7 @@
 class MainController < ApplicationController
   skip_before_action :authenticate_user!
+  helper_method :has_address, :get_distance, :get_rating, :has_rating
+
   def index
     @uid = params[:id]
     @sort_by = 'id asc'
@@ -97,27 +99,45 @@ class MainController < ApplicationController
     return "N/A"
   end
 
-  def get_rating( user_id )
-    @him = Preference.find_by user_id: user_id
-    if !@him.nil? && !@him.latitude.nil?
-      @lat_a = @preference.latitude.to_f
-      @lng_a = @preference.longitude.to_f
-      @lat_b = @him.latitude.to_f
-      @lng_b = @him.longitude.to_f
+  def has_rating
+    if user_signed_in?
+      @preference = Preference.find_by user_id: current_user.id
+      if !@preference.nil?
+        return true
+      end
+    end
+    return false
+  end
 
-      # puts "\n\n\n" + @lat_a.to_s
-      # puts "\n" + @lat_b.to_s
-      # puts "\n" + @lng_a.to_s
-      # puts "\n" + @lng_b.to_s
-      # puts "\n" + ( @lat_b - @lat_a).to_s
-      # puts "\n" + (( @lat_b - @lat_a)**2).to_s
-      # puts "\n" + ( @lng_b - @lng_a).to_s
-      # puts "\n" + (( @lng_b - @lng_a)**2).to_s
-      
-      return Math.sqrt( ( @lat_b - @lat_a)**2 + ( @lng_b - @lng_a)**2 ).round(0)
+  def get_rating( that )
+    @job = Job.find_by id: that.id
+    @him = Preference.find_by user_id: current_user.id
+    @far = get_distance( @job.offered_by )
+    if !@him.nil? && !@job.nil?
+      @formula = @him.get_formula
+      @coefficients = @formula.scan( /[-+]?[0-9]*\.?[0-9]+/ )
+
+      if @far.nil? || @far == "N/A"
+        @rate = 0
+      else
+        @rate = Math.sqrt( @far ).round(0) * @coefficients[0].to_f
+      end
+
+      if !@job.working_hours.nil?
+        @rate = @rate + @job.working_hours * @coefficients[1].to_f
+      end
+
+      if !@job.work_day.nil?
+        @rate = @rate + @job.work_day * @coefficients[2].to_f
+      end
+
+      if !@job.salary.nil?
+        @rate = @rate + @job.salary * @coefficients[3].to_f
+      end
+
+      return @rate.round(0)
     end
     return "N/A"
   end
 
-  helper_method :has_address, :get_distance, :get_rating
 end

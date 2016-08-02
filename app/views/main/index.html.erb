@@ -46,6 +46,7 @@
 
       <% if has_address %> 
         <th>Farness</th>
+        <th>Rating</th>
       <% end %> 
     </tr>
   </thead>
@@ -67,6 +68,11 @@
         <% if has_address %> 
           <td><%= get_distance( post.owner ) %></td>
         <% end %> 
+
+        <% if has_rating %>
+          <td><%= get_rating( post ) %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>

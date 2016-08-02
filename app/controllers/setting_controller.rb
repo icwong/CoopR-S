@@ -1,5 +1,6 @@
 class SettingController < ApplicationController
   before_action :set_config, only: [:display, :update]
+  helper_method :get_school
 
   def display
     if @preference.nil?
@@ -36,11 +37,27 @@ class SettingController < ApplicationController
       @preference = Preference.find_by user_id: current_user.id
     end
 
+    def get_school
+      if @me.email.include? "@ubc.ca"
+        return "The University of British Columbia"
+      end
+
+      if @me.email.include? "@sfu.ca"
+        return "Simon Fraser University"
+      end
+
+      if @me.email.include? "@myLangara.bc.ca"
+        return "Langara College"
+      end
+      
+      return "test user"
+    end
+
     def pro_params
       params.require(:user).require(:profile).permit(:phone)
     end
 
     def pre_params
-      params.require(:user).require(:preference).permit( :name, :zip, :street, :city, :province, :house_number, :latitude, :longitude )
+      params.require(:user).require(:preference).permit( :name, :zip, :street, :city, :province, :formula,:house_number, :latitude, :longitude )
     end
 end
