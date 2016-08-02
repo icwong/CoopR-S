@@ -22,27 +22,12 @@
            <div class="type"><%= @him.type %></div>
       </div>
 
-    <% if !@preference.nil? %>
+    <% if !@his.nil? %>
     <div>
-      <span>Lat:</span><label id="user_preference_latitude"><%= @preference.latitude %></label>
-      <span> | Lng:</span><label id="user_preference_longitude"><%= @preference.longitude %></label>
+      <span>Lat:</span><label id="user_preference_latitude"><%= @his.latitude %></label>
+      <span> | Lng:</span><label id="user_preference_longitude"><%= @his.longitude %></label>
     </div>
-    <% end %>
 
-    <% if !@profile.nil? %>
-      <div>
-          <h1>Profile</h1>
-          <img  class="avatar" src="//i.imgur.com/y7GX8r8.png" alt="Avatar" />
-           <div class="username"><%= @profile.first_name %> <%= @profile.middle_name %> <%= @profile.last_name %></div>
-           <div class="school"><%= get_school %></div>
-           <div class="description">New to Co-op</div>
-           <div class="left">Phone number</div>
-           <div class="right"><%= @profile.phone %>/div>
-           
-      </div>
-    <% end %>
-
-<button class="button" type="button" onclick="lastUrl()">Back</button>
 
     <script>
       var map;
@@ -58,8 +43,8 @@
         });
 
         var urHere = new google.maps.InfoWindow();
-        var title = "<b><%= @preference.zip %></b><br>";
-        var info = "<%= @preference.full_address %>".trim()
+        var title = "<b><%= @his.zip %></b><br>";
+        var info = "<%= @his.full_address %>".trim()
         urHere.setContent( title + "<p>" + info + "</p>" );
         urHere.setPosition( there );
         urHere.open(map);
@@ -68,5 +53,21 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASFiXXeK4KtUKhUAOz95HE5kq18AlAWZY&language=en&callback=initMap" async defer></script>
 
-<% end %>
+    <% end %>
 
+    <% if !@he.nil? %>
+      <div>
+          <h1>Profile</h1>
+          <img  class="avatar" src="//i.imgur.com/y7GX8r8.png" alt="Avatar" />
+           <div class="username"><%= @he.first_name %> <%= @he.middle_name %> <%= @he.last_name %></div>
+           <div class="school"><%= @him.get_school %></div>
+           <div class="description">New to Co-op</div>
+           <div class="left">Phone number</div>
+           <div class="right"><%= @he.phone %></div>
+           
+      </div>
+    <% end %>
+
+<button class="button" type="button" onclick="lastUrl()">Back</button>
+
+<% end %>

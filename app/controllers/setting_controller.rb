@@ -1,6 +1,6 @@
 class SettingController < ApplicationController
+  skip_before_action :authenticate_user!, :only => [:view]
   before_action :set_config, only: [:display, :update]
-  helper_method :get_school
 
   def display
     if @preference.nil?
@@ -36,7 +36,8 @@ class SettingController < ApplicationController
       flash[:notice] = 'User does not exist' 
       return
     end
-    @preference = Preference.find_by user_id: params[:user_id]
+    @his = Preference.find_by user_id: params[:user_id]
+    @he = Profile.find_by user_id: params[:user_id]
   end
 
   private
@@ -45,22 +46,6 @@ class SettingController < ApplicationController
       @me = current_user
       @profile = Profile.find_by user_id: current_user.id
       @preference = Preference.find_by user_id: current_user.id
-    end
-
-    def get_school
-      if @me.email.include? "@ubc.ca"
-        return "The University of British Columbia"
-      end
-
-      if @me.email.include? "@sfu.ca"
-        return "Simon Fraser University"
-      end
-
-      if @me.email.include? "@myLangara.bc.ca"
-        return "Langara College"
-      end
-      
-      return "test user"
     end
 
     def pro_params
