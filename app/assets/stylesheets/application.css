@@ -516,6 +516,36 @@ a.text-button:active{
 			background-color: white;
 }
 
+.pickbutton {
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            font-size: 16px;
+            color: #e63946;
+            border: 1px solid #e63946;
+            border-radius: 5px;
+            vertical-align: center;
+            height: 50px;
+            width: 150px;
+            background-color: white;
+            font-weight: bold;
+
+}
+
+.pickbutton:hover {
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.1s;
+            background-color: #e63946;
+            color: white;
+            border: 2px solid #e63946;
+            
+}
+
+
+
+
+
 .bigButton{
     margin-top: 0px;
     margin-left: 0px;
@@ -673,6 +703,13 @@ a.text-button:active{
     font-weight: bold;
 }
 
+.project-title:hover{
+    color: #555555;
+    text-decoration: none;
+}
+
+
+
 .project-header .toptext {
     position: absolute;
 	overflow: hidden;
@@ -723,7 +760,7 @@ a.text-button:active{
     rotateZ(0deg);
 }
 .R-S:after{
-    color: rgba(0,0,0,.11);
+    color: #e63946;
     z-index:2;
     transform:
     scale(1.08,1)
