@@ -1,6 +1,14 @@
-.user-profile {
+.user-profile-container {
   margin-left: 15%;
   margin-right: 15%;
+  margin-top: 20px;
+  font-size: 20px;
+  background: #D5DDE5;
+  border-radius: .3em;
+}
+.user-profile {
+  margin-left: 1%;
+  margin-right: 1%;
   margin-top: 20px;
   font-size: 20px;
   background: #D5DDE5;
@@ -25,14 +33,14 @@
   margin-top: -160px;
   margin-left: 200px;
   color: #1b1e24;
-  font-size: 1.73em;
+  font-size: 1.53em;
   font-family: "Coda", sans-serif;
   font-weight: bold;
 }
 
 .user-profile .school {
   margin-left: 200px;
-  margin-top: 10px;
+  margin-top: 20px;
   display: inline-block;
   color: #e76043;
   font-size: 20px;
@@ -40,10 +48,9 @@
 }
 
 .user-profile > .description {
-  margin-top: 1.35em;
+
   margin-left: 200px;
   width: 14em;
-  color: #000000;
   font-size: .87em;
   font-family: "varela round", sans-serif;
 }
@@ -58,6 +65,7 @@
 }
 
 .user-profile div.details {
+  width: 100%;
   margin: 2em auto 1em;
   background: #4E5066;
   text-align: center;
