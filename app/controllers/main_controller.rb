@@ -97,5 +97,27 @@ class MainController < ApplicationController
     return "N/A"
   end
 
-  helper_method :has_address, :get_distance
+  def get_rating( user_id )
+    @him = Preference.find_by user_id: user_id
+    if !@him.nil? && !@him.latitude.nil?
+      @lat_a = @preference.latitude.to_f
+      @lng_a = @preference.longitude.to_f
+      @lat_b = @him.latitude.to_f
+      @lng_b = @him.longitude.to_f
+
+      # puts "\n\n\n" + @lat_a.to_s
+      # puts "\n" + @lat_b.to_s
+      # puts "\n" + @lng_a.to_s
+      # puts "\n" + @lng_b.to_s
+      # puts "\n" + ( @lat_b - @lat_a).to_s
+      # puts "\n" + (( @lat_b - @lat_a)**2).to_s
+      # puts "\n" + ( @lng_b - @lng_a).to_s
+      # puts "\n" + (( @lng_b - @lng_a)**2).to_s
+      
+      return Math.sqrt( ( @lat_b - @lat_a)**2 + ( @lng_b - @lng_a)**2 ).round(0)
+    end
+    return "N/A"
+  end
+
+  helper_method :has_address, :get_distance, :get_rating
 end
