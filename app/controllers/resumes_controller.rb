@@ -21,7 +21,7 @@ class ResumesController < ApplicationController
         respond_to do |format|
             format.html
             format.pdf do
-                render  :pdf => "resume.pdf",  :template => 'resumes/show.html.erb'   # Excluding ".pdf" extension.
+                render  :pdf => "resume.pdf",  :template => 'resumes/print.html.erb'   # Excluding ".pdf" extension.
             end
         end
     end

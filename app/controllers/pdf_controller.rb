@@ -21,6 +21,7 @@ class PdfController < Prawn::Document
            self.header = true
            self.row_colors = ['DDDDDD', 'FFFFFF']
            columns(1..3).align = :left
+           
        end 
     end
     
