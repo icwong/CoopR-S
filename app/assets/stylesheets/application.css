@@ -40,7 +40,6 @@ label {
 }
 
 input {
-  border-style: ridge;
   font: normal 1em Verdana, sans-serif;
   color:#333;
 }
@@ -488,11 +487,11 @@ li.top-navbar-list a:hover {
 }
 
 .show-post {
-  margin-left: 10%;
-  width: 60%;
+  margin: 0px;
+  padding: 20px;
   font-size: 20px;
   background: #D5DDE5;
-  border-radius: .3em;
+  border-radius: 20px;
 }
 
 .text-div{
