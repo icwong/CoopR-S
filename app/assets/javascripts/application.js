@@ -124,9 +124,8 @@ function addToCompareList( pid ) {
     if( jone == "" ) {
         document.cookie =   JOB_ONE + "=" + pid + ";";
     } else {
-        if ( temp != pid ) {
-            temp = getCookie( JOB_TWO );
-            if( temp == "" ) {
+        if ( jone != pid ) {
+            if( jone == "" ) {
                 document.cookie = JOB_TWO + "=" + pid + ";";
             }   else {
                 window.alert("Comparison list is full; remove items before adding a new one.");

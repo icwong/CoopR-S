@@ -7,6 +7,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    if !( user_signed_in? && current_user.admin? )
+      redirect_to root_path
+      flash[:notice] = 'insufficient privilege' 
+      return      
+    end
     @posts = Post.all
   end
 
@@ -64,8 +69,8 @@ class PostsController < ApplicationController
   def new
 
     if !current_user.editor?
-      # puts "\n\n  mm!  \n"
       redirect_to auth_path
+      return
     end
     @post = Post.new
     @job = Job.new
@@ -93,6 +98,7 @@ class PostsController < ApplicationController
     @me = current_user
     if !@me.editor?
       redirect_to auth_path
+      return
     end
 
     @post = Post.new(post_params)
