@@ -2,6 +2,11 @@ body{
   background-image: url("//i.imgur.com/VOqwNZi.jpg");
 } 
 
+.notice, .alert{
+  max-width: 730px;
+  margin: 10px auto 10px;
+}
+
 div.field {
   display:table;
 }
