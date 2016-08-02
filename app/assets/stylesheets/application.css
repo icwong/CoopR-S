@@ -30,7 +30,13 @@
         display: none;
     }
 }
+@media (max-width: 556px) {
+    
+    .left{
+        display: none;
+    }
 
+}
 body {
     
     background-repeat: no-repeat;
@@ -322,7 +328,8 @@ a.text-button:active{
     float: right;
     display: block;
     cursor: pointer;
-
+    
+   
 }
 #menu-sign-whole{
     right: 0;
@@ -531,70 +538,7 @@ a {
 }
 
 
-/*==========================DROP DOWN====================================*/
 
-.topnav-icons {
-    height: 35px;
-    vertical-align:middle;
-}
-
-
-.sidenav li a, .dropbtn {
-    display: inline-block;
-    color: #D5DDE5;
-    text-align: left;
-    vertical-align: middle;
-    padding: 18px 30px;
-    text-decoration: none;
-}
-
-.sidenav li a:hover, .dropdown:hover .dropbtn {
-    background-color: #4E5066;
-}
-
-.sidenav li.dropdown {
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #4E5066;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 5;
-    
-}
-
-.dropdown-content a {
-    color: #D5DDE5;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    border: 1px solid #C1C3D1;
-    border-right: none;
-    border-left: none;
-}
-
-.dropdown-content a:hover {background-color: #000333}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.show-post {
-  margin-left: 10%;
-  width: 60%;
-  font-size: 20px;
-  background: #D5DDE5;
-  border-radius: .3em;
-}
-
-.text-div{
-    margin-left: 20%;
-    margin-right: 20%;
-}
 
  /*===============================LOGIN_FORM======================================*/
 .whole-page{
@@ -678,10 +622,10 @@ a {
     width: 100%;
     padding: 16px 8px 8px 0;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: #818181;
     display: block;
-    transition: 0.3s
+    transition: 0.1s
 }
 
 /* mouse over the navigation links, change their color */
@@ -698,6 +642,72 @@ a {
 #main2 {
     transition: margin-left .5s;
     padding: 20px;
+}
+/*==========================DROP DOWN====================================*/
+
+.topnav-icons {
+    height: 35px;
+    vertical-align:middle;
+}
+
+
+.sidenav li a, .dropbtn {
+    display: inline-block;
+    color: #D5DDE5;
+    text-align: left;
+    vertical-align: middle;
+    padding: 18px 30px;
+    text-decoration: none;
+}
+
+.sidenav li a:hover, .dropdown:hover .dropbtn {
+    background-color: #4E5066;
+}
+
+.sidenav li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position:static;
+    background-color: #4E5066;
+    margin-left: 10px;
+    border-left: 3px solid #C1C3D1;
+    font-size: 16px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 5;
+    
+}
+
+.dropdown-content a {
+    color: #D5DDE5;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border: 1px solid #C1C3D1;
+    border-right: none;
+    border-left: none;
+}
+
+.dropdown-content a:hover {background-color: #000333}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.show-post {
+  margin-left: 10%;
+  width: 60%;
+  font-size: 20px;
+  background: #D5DDE5;
+  border-radius: .3em;
+}
+
+.text-div{
+    margin-left: 20%;
+    margin-right: 20%;
 }
 /*================GoTop==================*/
 .go-top{

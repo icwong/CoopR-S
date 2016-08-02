@@ -189,6 +189,7 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "260px";
     document.getElementById("main1").style.marginLeft = "260px";
     document.getElementById("main2").style.marginLeft = "260px";
+    
 
 }
 
