@@ -48,6 +48,19 @@ function switchTab() {
     swapClass(clsA, clsB);
 }
 
+function rememberUrl() {
+    var oldUrl = getCookie( CURR_LOCATION );
+    var fIndex = document.cookie.indexOf(LAST_LOCATION);
+    var tIndex = document.cookie.indexOf(";", fIndex + LAST_LOCATION.length + 1); // 1 for "="
+    var front = document.cookie.substring(0, fIndex ) + LAST_LOCATION + "="; // compatible with init
+    var tail = "";
+    
+    if(tIndex >= 0) {
+        tail = document.cookie.substring(tIndex)
+    };
+    document.cookie = front + oldUrl + tail;
+}
+
 function updateUrl() {
     var newUrl = window.location.href;
 	if( document.cookie.indexOf(CURR_LOCATION) >= 0 ) {

@@ -1,17 +1,19 @@
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
     <%= stylesheet_link_tag 'table' %>
+    <style>
+    body{
+        background-image: url("//i.imgur.com/4fIqHUo.jpg");
+        background-repeat: repeat;
+        background-size: contain;
+    }   
+    </style>
 <% end %>
-<% content_for :mBody do %>
-	<style>
-	body{
-		background-image: url("http://i.imgur.com/4fIqHUo.jpg");
-		background-repeat: repeat;
-		background-size: contain;
-	}	
-	</style>
-<% end %>
+
 <% content_for :mFrame do %>
+    <script type="text/javascript">
+      updateUrl();
+    </script>
 
      <div  style="font-size: 15pt;margin-left:10%;margin-right:10%;margin-top:100px;">
         <p>In order to make a post, you need to request the editor privilege, click the link below to generate authentication link which will be sent to your e-mail</p>
@@ -20,7 +22,7 @@
         <hr style="background-color: rgba(0,0,0,0.4);height: 5px" />
     </div>
   
-
+    
 <% end %>
 
-<button class="button" type="button" onclick="lastUrl()">Back</a>
+<button class="button" type="button" onclick="lastUrl()">Back</button>

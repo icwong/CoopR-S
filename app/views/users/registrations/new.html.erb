@@ -13,6 +13,10 @@
 <% end %>
 
 <% content_for :mFrame do %>
+  <script type="text/javascript">
+    rememberUrl();
+  </script>
+
   <div class="login-full">
               
       <%= form_for @user, as: :user, url: {action: "create"} do |f| %>

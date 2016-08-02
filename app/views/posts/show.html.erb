@@ -1,7 +1,5 @@
 <% content_for :mHeader do %>
-  <%= stylesheet_link_tag 'wymeditor/skins/default/skin.css', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'cloudstorage' %>
-  <script src="/assets/wymeditor/jquery.wymeditor.js"></script>
+
 <% end %>
 
 <% content_for :mLogin do %>
@@ -9,8 +7,9 @@
 <% end %>
 
 <% content_for :mFrame do %>
-  <p id="notice"><%= notice %></p>
-
+    <script type="text/javascript">
+      updateUrl();
+    </script>
 
   <div class="table-title">
     <h3>Show Post</h3>
@@ -45,6 +44,6 @@
       <%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_post_path(@post), 'data-no-turbolink' => true %> 
   <% end %>
 
-<button class="button" type="button" onclick="lastUrl()">Back</button>
-
 <% end %>
+
+<button class="button" type="button" onclick="lastUrl()">Back</button>
