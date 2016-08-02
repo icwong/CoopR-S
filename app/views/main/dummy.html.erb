@@ -1,0 +1,164 @@
+<% content_for :mFrame do %>
+  
+    
+<style>
+.mySlides {display:none}
+.arr-left, .arr-right{cursor:pointer}
+
+
+div.img {
+    border: 1px solid #ccc;
+}
+
+div.img:hover {
+    border: 1px solid #777;
+}
+
+div.img img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width:44.99999%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 700px){
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.pic-title{
+  font-size: 30px;
+  margin-left:20%;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+</style>
+
+<div class="slider" style="margin-left:20%;margin-right: 20%">
+  <img class="mySlides" src="//i.imgur.com/w51l2eN.jpg?1" style="width:100%;">
+  <img class="mySlides" src="//i.imgur.com/udzkYTq.jpg?1" style="width:100%;">
+  <img class="mySlides" src="//i.imgur.com/4R8f1H1.png?1" style="width:100%;">
+  <div  style="width:100%">
+
+      <span class="arr-left " onclick="plusDivs(-1)">&#10094;</span>
+      <span class="arr-right" onclick="plusDivs(1)" style="float:right;">&#10095;</span>
+
+  </div>
+</div>
+
+<script>
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 4000); // Change image every 2 seconds
+}
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length - 1}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-white";
+}
+</script>
+<div class="text-div">
+        <h4>Our Website aims at providing a platform for Coop students to communicate and share experience.</h4>
+</div>
+
+
+<div class="pic-title" ><h3>Some Coop Companies</h3></div>
+<div class="responsive">
+  <div class="img">
+    <a href="//mcec.microsoft.ca/">
+      <img src="//i.imgur.com/4Q3NsDC.jpg" width="300" height="200">
+    </a>
+    <div class="desc">Microsoft Vancouver</div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="img">
+    <a href="//www.ea.com/locations/vancouver">
+      <img src="//i.imgur.com/a3aOsgU.jpg" alt="EA" width="600" height="400">
+    </a>
+    <div class="desc">EA Vancouver</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <a href="//www.telus.com/en/bc/index.jsp">
+      <img src="//i.imgur.com/Ndh0TXA.jpg" alt="Telus" width="600" height="400">
+    </a>
+    <div class="desc">Telus</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <a href="//go.sap.com/canada/index.html">
+      <img src="//i.imgur.com/CKMWZiZ.jpg" alt="SAP" width="600" height="400">
+    </a>
+    <div class="desc">SAP</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<% end %>
