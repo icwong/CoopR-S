@@ -13,33 +13,8 @@
  *= require_tree .
  *= require_self
  */
- 
-form {
-  margin-left: 10%;
-  margin-right: 10%;
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
-  border-radius: .3em; 
-}
-label {
-  font-weight:bold;
-}
 
-input {
-  border-style: ridge;
-  font: normal 1em Verdana, sans-serif;
-  color:#333;
-}
-textarea {
-  font: normal 1em Verdana, sans-serif;
-  display:block;
-  color:#5e5e5e;
-}
-.form-control{
-    border: 1px dashed black;
-    background-color: #D5DDE5;
-}
+
 @media (max-width: 1004px) {
         #toptext {display: none;}
 }
@@ -67,6 +42,34 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+}
+
+/*=========FORM========================*/ 
+
+.form_general {
+  max-width: 1000px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24),0 0px 0px 0 rgba(0,0,0,0.19);
+  border-radius: .3em; 
+}
+label {
+  font-weight:bold;
+}
+
+input {
+  border-style: ridge;
+  font: normal 1em Verdana, sans-serif;
+  color:#333;
+}
+textarea {
+  font: normal 1em Verdana, sans-serif;
+  display:block;
+  color:#5e5e5e;
+}
+.form-control{
+    border: 1px dashed black;
+    background-color: #D5DDE5;
 }
 /*===============================TEXT_BUTTON======================================*/
 

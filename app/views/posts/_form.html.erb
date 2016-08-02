@@ -15,7 +15,8 @@
 	}	
 	</style>
 <% end %>
-<%= form_for(@post, as: :post) do |f| %>
+
+<%= form_for(@post, as: :post, :html => {:class => 'form_general'}) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
