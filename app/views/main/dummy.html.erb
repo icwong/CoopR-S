@@ -1,5 +1,4 @@
-<% content_for :mFrame do %>
-  
+<% content_for :mHeader do %>
     
 <style>
 .mySlides {display:none}
@@ -22,10 +21,6 @@ div.img img {
 div.desc {
     padding: 15px;
     text-align: center;
-}
-
-* {
-    box-sizing: border-box;
 }
 
 .responsive {
@@ -117,6 +112,11 @@ function showDivs(n) {
   dots[slideIndex-1].className += " w3-white";
 }
 </script>
+
+<% end %>
+
+<% content_for :mFrame do %>
+
 <div class="text-div">
         <h4>Our Website aims at providing a platform for Coop students to communicate and share experience.</h4>
 </div>
