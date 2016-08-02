@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, :except => [:edit, :create, :new]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :check_status, only: [:edit, :update, :destroy]
+  helper_method :has_address, :has_rating
 
   # GET /posts
   # GET /posts.json
@@ -16,12 +17,47 @@ class PostsController < ApplicationController
     if user_signed_in?
       @my_pre = Preference.find_by user_id: current_user.id
       @my_pro = Profile.find_by user_id: current_user.id
+      @similars = find_similar
+
       if current_user.admin?
         @can_edit = true
       elsif current_user.editor? && @post.owner == current_user.id
         @can_edit = true
       end
     end
+  end
+
+  def find_similar
+    @result = []
+
+    @same_date = Post.where("updated_at > ? AND updated_at < ?", @post.created_at, @post.created_at + 1.days ).first
+    if !@same_date.nil?
+      @result << { :pos => @same_date, :res => "same date"}
+    end
+
+    @same_writer = Post.where("owner = " + @post.owner.to_s ).first
+    if !@same_writer.nil?
+      @result << { :pos => @same_writer, :res => "same writer"}
+    end
+
+    @highest_rate = find_best( Post.all.order(created_at: :desc).first(100) )
+    if !@highest_rate.nil?
+      @result << { :pos => @highest_rate, :res => "highest rate"}
+    end
+
+    return @result
+  end
+
+  def find_best(those)
+    @max = -100
+    those.each do |that|
+      @rate = get_rating( that )
+      if @rate > @max 
+        @max = @rate
+        @best = that
+      end
+    end
+    return @best
   end
 
   # GET /posts/new
@@ -148,4 +184,72 @@ class PostsController < ApplicationController
     def job_params
       params.require(:post).require(:job).permit(:job_title, :offered_by, :working_hours, :work_day, :salary)
     end
+
+
+    def has_rating
+      if user_signed_in?
+        @preference = Preference.find_by user_id: current_user.id
+        if !@preference.nil?
+          return true
+        end
+      end
+      return false
+    end
+
+
+    def has_address
+      if user_signed_in?
+        @preference = Preference.find_by user_id: current_user.id
+        if !@preference.nil? && !@preference.latitude.nil?
+          return true
+        end
+      end
+      return false
+    end
+
+  def get_distance( user_id )
+    @him = Preference.find_by user_id: user_id
+    @preference = Preference.find_by user_id: current_user.id
+    if !@him.nil? && !@him.latitude.nil? && !@preference.nil? && !@preference.latitude.nil?
+      @lat_a = @preference.latitude.to_f
+      @lng_a = @preference.longitude.to_f
+      @lat_b = @him.latitude.to_f
+      @lng_b = @him.longitude.to_f      
+      return Math.sqrt( ( @lat_b - @lat_a)**2 + ( @lng_b - @lng_a)**2 ).round(0)
+    end
+    return "N/A"
+  end
+
+  def get_rating( that )
+    @job = Job.find_by id: that.id
+    @him = Preference.find_by user_id: current_user.id
+    @far = get_distance( @job.offered_by )
+    if !@him.nil? && !@job.nil?
+      @formula = @him.get_formula
+      @coefficients = @formula.scan( /[-+]?[0-9]*\.?[0-9]+/ )
+
+      if @far.nil? || @far == "N/A"
+        @rate = 0
+      else
+        @rate = Math.sqrt( @far ).round(0) * @coefficients[0].to_f
+      end
+
+      if !@job.working_hours.nil?
+        @rate = @rate + @job.working_hours * @coefficients[1].to_f
+      end
+
+      if !@job.work_day.nil?
+        @rate = @rate + @job.work_day * @coefficients[2].to_f
+      end
+
+      if !@job.salary.nil?
+        @rate = @rate + @job.salary * @coefficients[3].to_f
+      end
+
+      return @rate.round(0)
+    end
+    return "N/A"
+  end
+
+
 end

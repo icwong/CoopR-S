@@ -95,7 +95,8 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
   <% end %>
 
   <div class="actions" data-turbolinks="false">
-    <%= f.submit class: 'wymupdate button_compact'%>
+    <button class="button" type="button" onclick="lastUrl()">Back</button>
+    <%= f.submit class: 'wymupdate button'%>
   </div>
 <% end %>
 

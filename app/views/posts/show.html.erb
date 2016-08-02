@@ -12,33 +12,96 @@
     </script>
 
   <div class="table-title">
-    <h3>Show Post</h3>
+    <h3><%= @post.type %>|<%= @post.title %></h3>
+    <h2>Posted by <%= @post.owner_name %></p>
   </div>
 
   <div class="show-post">
-  
-    <p>
-      <strong>Title:</strong>
-      <%= @post.title %>
+
+    <p><strong>Job Title: </strong>
+      <%= @job.job_title %>
+    </p>
+
+    <p><strong>Offered By: </strong>
+      <%= @job.offered_name %>
+    </p>
+
+    <p><strong>Address: </strong>
+      <%= @job.offered_address %>
+    </p>
+
+    <p><strong>Work Day: </strong>
+      <%= @job.work_day %>
+    </p>
+
+    <p><strong>Hours per Week: </strong>
+      <%= @job.working_hours %>
+    </p>
+
+    <p><strong>Salary: </strong>
+      <%= @job.salary %>
     </p>
 
     <p>
-      <strong>Body:</strong>
+      <strong>Comment: </strong>
       <%=raw @post.body %>
     </p>
 
-    <p>
-      <strong>Type:</strong>
-      <%= @post.type %>
-    </p>
-    <p>
-      <strong>Owner:</strong>
-      <%= @post.owner_name %>
-    </p>
-  <div>
-    <%= render_shareable :turbolinks => true %>
+    <div>
+      <%= render_shareable %>
+    </div>
   </div>
+
+  <% if user_signed_in? %>
+  <div class="table-title">
+    <h3>Similar Posts</h3>
   </div>
+
+  <table class="table-list-users" id="revTable">
+    <thead>
+      <tr>
+        <th class="noselect">
+          <span>Title</span>
+        </th>
+        <th class="noselect">
+          <span>Creator</span>
+        </th>
+        <th class="noselect">
+          <span>Last edit</span>
+        </th>
+        <th></th>
+        <th>reason</th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      <% @similars.each do |result| %>
+        <tr id="PID<%= result[:pos].id %>">
+          <td class="noselect" onclick="window.location='/posts/<%= result[:pos].id %>'"><%= result[:pos].title %></td>
+          <td class="noselect" onclick="window.location='/index?id=<%= result[:pos].owner %>'"><%= result[:pos].owner_name %></td>
+          <td class="noselect" onclick="window.location='/index?cdate=<%= result[:pos].updated_at.to_s[0..9] %>'"><%= result[:pos].updated_at.to_s[0..9] %></td>
+          <td>
+            <div class="text-button">
+                <a class="text-button" href="#" onclick="addToCompareList( <%= result[:pos].id %> ); return false; ">Compare</a>
+                <span><sup id="SPID<%= result[:pos].id %>">+</sup></span>
+            </div>
+          </td>
+          <td>
+            <%= result[:res] %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div align="right" style="margin-right: 10%">
+    <button class="button" onclick="clearCompareList()">Clear List</button>
+    <button id="btnCompare" class="button" onclick="compare()">Start Compare</button>
+    <script type="text/javascript">isComparable();</script>
+  </div>
+  <% end %>
 
   <% if @can_edit %>
       <%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_post_path(@post), 'data-no-turbolink' => true %> 
