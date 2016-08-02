@@ -28,14 +28,14 @@ user_email:invalid + #emailCheck {
 }
 
 #user_email {
-    border-width: 1px;
+    border-width: 2px;
 }
 
 #user_password  {
-    border-width: 1px;
+    border-width: 2px;
 }
 
 #user_password_confirmation  {
-    border-width: 1px;
+    border-width: 2px;
 }
 
