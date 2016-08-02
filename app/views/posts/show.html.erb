@@ -7,7 +7,15 @@
 <% content_for :mLogin do %>
     <%= render :partial => '/login/login' %>
 <% end %>
-
+<% content_for :mBody do %>
+	<style>
+	body{
+		background-image: url("http://i.imgur.com/4fIqHUo.jpg");
+		background-repeat: repeat;
+		background-size: contain;
+	}	
+	</style>
+<% end %>
 <% content_for :mFrame do %>
   <p id="notice"><%= notice %></p>
 
@@ -16,27 +24,32 @@
     <h3>Show Post</h3>
   </div>
 
-  <div class="show-post">
+  <div class="show1-post">
   
-    <p>
+    <div class="show-post-p">
       <strong>Title:</strong>
-      <%= @post.title %>
-    </p>
-
-    <p>
+      <div class="show-post-text"><%= @post.title %></div>
+    </div>
+    
+    <div class="show-post-p">
       <strong>Body:</strong>
-      <%=raw @post.body %>
-    </p>
+      <div class="show-post-text"><%=raw @post.body %></div>
+    </div>
 
-    <p>
+    <div class="show-post-p">
       <strong>Type:</strong>
-      <%= @post.type %>
-    </p>
-    <p>
+      
+      <div class="show-post-text"><%= @post.type %></div>
+    </div>
+
+    <div class="show-post-p">
       <strong>Owner:</strong>
-      <%= @post.owner_name %>
-    </p>
-  <div>
+      <div class="show-post-text"><%= @post.owner_name %></div>
+    </div>
+
+  <div class="show-post-p">
+    <hr>
+    <b style="padding-bottom: 5px">Share with your friends:&nbsp;&nbsp; </b>
     <%= render_shareable :turbolinks => true %>
   </div>
   </div>

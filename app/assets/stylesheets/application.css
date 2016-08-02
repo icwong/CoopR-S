@@ -727,3 +727,23 @@ nav.share iframe {border:0; margin-left: 0; margin-top:0; padding-top:0;} /* if 
 
 * html .fb-like{display:inline}/* ie6 inline block fix*/
 *+html .fb-like{display:inline}/* ie7 inline block fix*/
+
+/*===================ShowPost=======================================*/
+.show1-post{
+      margin-left: 10%;
+      margin-right: 15%;
+      font-size: 20px;
+      background: white;
+      border-radius: .3em; 
+      box-shadow: 0 4px 9px 0 rgba(0,0,0,0.5),0 0px 0px 0 rgba(0,0,0,0.89);
+}
+.show-post-p{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+.show-post-text{
+    padding: 3px;
+    margin-top: 7px;
+    border-left: 3px solid #4E5066;
+    background-color: #EBEBEB;
+}
