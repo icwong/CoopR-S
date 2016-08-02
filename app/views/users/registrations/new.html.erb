@@ -1,7 +1,8 @@
 <% content_for :mHeader do %>
   <%= javascript_include_tag 'faker' %>
-  <%= javascript_include_tag 'passwordMeter' %>
   <%= javascript_include_tag 'random' %>
+  <%= javascript_include_tag 'passwordMeter' %>
+  <%= javascript_include_tag 'validateForms' %>
 
   <%= stylesheet_link_tag 'validateForms' %>
   <%= stylesheet_link_tag 'passwordmeter' %>
@@ -12,6 +13,10 @@
 <% end %>
 
 <% content_for :mFrame do %>
+  <script type="text/javascript">
+    rememberUrl();
+  </script>
+
   <div class="login-full">
               
       <%= form_for @user, as: :user, url: {action: "create"} do |f| %>

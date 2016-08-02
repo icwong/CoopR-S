@@ -1,10 +1,7 @@
 <% content_for :mHeader do %>
   <%= javascript_include_tag 'faker' %>
-  <%= javascript_include_tag 'passwordMeter' %>
   <%= javascript_include_tag 'random' %>
 
-  <%= stylesheet_link_tag 'validateForms' %>
-  <%= stylesheet_link_tag 'passwordmeter' %>
   <%= stylesheet_link_tag 'register' %>
 <% end %>
 
@@ -12,44 +9,48 @@
 <% end %>
 
 <% content_for :mFrame do %>
+  <script type="text/javascript">
+    rememberUrl();
+  </script>
+
   <div class="login-full">
-  <div id="login-container">
-              
-    <div class="panel" style: "border: 2px solid #374f6e">
+    <div id="login-container">
                 
-    	<div class="panel-body">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                    
-        <div class="field">
-          <%= f.label :Email %></br>
-          <%= f.email_field :email, placeholder: "Email", :class => 'form-control input-lg', :autofocus => true %>
+      <div class="panel" style: "border: 2px solid #374f6e">
+                  
+      	<div class="panel-body">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                      
+          <div class="field">
+            <%= f.label :Email %></br>
+            <%= f.email_field :email, placeholder: "Email", :class => 'form-control input-lg', :autofocus => true %>
+            <br>
+            <%= f.label :Password %></br>
+            <%= f.password_field :password, placeholder: "Password", :class => 'form-control input-lg', :autofocus => true, :autocomplete => :off %>
+          </div>
+                      
           <br>
-          <%= f.label :Password %></br>
-          <%= f.password_field :password, placeholder: "Password", :class => 'form-control input-lg', :autofocus => true, :autocomplete => :off %>
-        </div>
-                    
-        <br>
-                    
-        <div class="actions">
-          <%= f.submit "LOGIN", :class => 'loginbutton ', style: "background-color: #374f6e; color: white; font-weight: bold; border: 2px solid #0EAD69" %>
-        </div>
-                    
-        <br>
-                    
-        <% if devise_mapping.rememberable? %>
-          <label class="category-select">
-            <%= f.check_box :remember_me %>
-            <span>Remember Me</span>
-          </label>
-           
-          </br>
-          <%= render "users/shared/links" %>
-        <% end %>
+                      
+          <div class="actions">
+            <%= f.submit "LOGIN", :class => 'loginbutton ', style: "background-color: #374f6e; color: white; font-weight: bold; border: 2px solid #0EAD69" %>
+          </div>
+                      
+          <br>
+                      
+          <% if devise_mapping.rememberable? %>
+            <label class="category-select">
+              <%= f.check_box :remember_me %>
+              <span>Remember Me</span>
+            </label>
+             
+            </br>
+            <%= render "users/shared/links" %>
+          <% end %>
 
-        <% end %>
+          <% end %>
 
+        </div>
       </div>
-    </div>
-  </div>                  
-</div>
+    </div>                  
+  </div>
 <% end %>
