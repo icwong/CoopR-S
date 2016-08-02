@@ -24,6 +24,9 @@ gem 'shareable'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'sprockets', '3.6.3'
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # USER GROUP
 gem 'devise', '4.1.1'
 gem 'devise_zxcvbn'
