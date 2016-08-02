@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h2 style="font-weight: bold">FILL OUT THE FOLLOWING FIELDS</h2>
+      <h2 style="font-weight: bold">FILL OUT THE FOLLOWING FIELDS –</h2>
       <hr>
       <%= form_for(@post, as: :post) do |f| %>
   <% if @post.errors.any? %>
@@ -53,7 +53,7 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
   <% end %>
     </div>
     <div class="col-md-6">
-      <h2 style="font-weight: bold">COMPANY INFORMATION</h2>
+      <h2 style="font-weight: bold">COMPANY INFORMATION –</h2>
       <hr>
       <%= f.fields_for @job do |ff| %>
     <div class="field" data-turbolinks="false">
@@ -80,7 +80,7 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
     <div class="field" data-turbolinks="false">
       <%= ff.label :work_day ,"DAYS PER WEEK" ,class: "input-title" %> 
       <br>
-      <span>0</span><%= ff.range_field :work_day, in: 0..7, step: 1,class: "form-control" %><span>7</span>
+      <%= ff.number_field :work_day, class: "form-control",  min: 1,max: 7 %>
       <br>
       <!--<p>0 means not restricted</p>-->
     </div>
@@ -99,6 +99,8 @@ onchange="loadDriveFileAsText(event.fpfile.url)">
   </div>
 </div>
 
+<br>
+<br>
 
 
   

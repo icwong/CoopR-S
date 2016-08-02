@@ -8,31 +8,30 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      <h3 class="centered">REGISTER NEW ACCOUNT</h3>
-        <h4 class="centered"> —————— </h4>
+      <h3 class="centered"><b>REGISTER NEW ACCOUNT</b></h3>
+        <h4 class="centered"> —</h4>
         <br>
         
         <br>
-        <hr>
         <p>You may use any email to register, but only email addresses issued by BC university or college are qualified for authentication.</p>
         
         <%= form_for @user, as: :user, url: {action: "create"} do |f| %>
         <%= devise_error_messages! %>
         
-        <%= f.label :Email, 'EMAIL *' %>
+        <%= f.label :Email, 'EMAIL' %> <span style="color: red">*</span>
         <%= f.email_field :email, :class => 'form-control input-lg' , :autofocus => true, :onkeyup => "validateEmail()" %>
         <!--<input class= "largebutton" type="button" onClick="makeEmail('user_email')" value="Give me an email" />-->
-        <img src = "/ok-24.gif" alt="checkmark" id ="emailCheck" >
+        <img src = "" alt="" id ="emailCheck" >
         
         <% if @minimum_password_length %>
-        <span style="font-size:11px"><%= f.label :Password, "PASSWORD *" %><em>(<%= @minimum_password_length %> characters minimum</em>)</span>
+        <span style="font-size:11px"><%= f.label :Password, "PASSWORD" %><span style="color: red">*</span> &nbsp; <em>(<%= @minimum_password_length %> characters minimum</em>)</span>
         <%= f.password_field :password, class: 'form-control input-lg' , autocomplete: "off", :onkeyup => "validatePassword()"  %>
-        <img src = "/ok-24.gif" alt="checkmark" id ="passwordCheck" >
+        <img src = "" alt="" id ="passwordCheck" >
         <% end %>
         
-        <%= f.label :Password, "CONFIRM PASSWORD *" %>
+        <%= f.label :Password, "CONFIRM PASSWORD" %> <span style="color: red">*</span>
         <%= f.password_field :password_confirmation, class: 'form-control input-lg' , autocomplete: "off" , autofocus: true, :onkeyup => "validatePassword()" %>
-        <img src = "/ok-24.gif" alt="checkmark" id ="passwordConfirmationCheck" >
+        <img src = "" alt="" id ="passwordConfirmationCheck" >
         
         <div class="meter"> 
           <div id="passwordMeter" style=" text-align:center; height: 20px;border-radius: 5px;">
@@ -52,7 +51,7 @@
           <%= f.submit "SUBMIT", :class => 'btn-block btn-lg submit', style: "background-color: #ED6A5A; border: 2px solid #ED6A5A; color: white" %>
         </div>
         <span style="text-align: center"><%= render "users/shared/links" %></span>
-        <button class="btn-block btn-lg" , style="background-color: #5CA4A9; border: 2px solid #5CA4A9; color: white", type="button" onclick="lastUrl()">LOGIN</a>
+        <button class="btn-block btn-lg" , style="background-color: #5CA4A9; border: 2px solid #5CA4A9; color: white", type="button" onclick="lastUrl()">BACK</a>
         
         <% end %>
         
