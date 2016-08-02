@@ -69,6 +69,11 @@
           <td><%= get_distance( post.owner ) %></td>
           <td><%= get_rating( post.owner ) %></td>
         <% end %>
+
+        <% if has_rating %>
+          <td><%= get_rating( post ) %></td>
+        <% end %>
+
     <% end %>
   </tbody>
 </table>
