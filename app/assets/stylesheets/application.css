@@ -30,13 +30,7 @@
         display: none;
     }
 }
-@media (max-width: 556px) {
-    
-    .left{
-        display: none;
-    }
 
-}
 body {
     
     background-repeat: no-repeat;
@@ -328,7 +322,7 @@ a.text-button:active{
     float: right;
     display: block;
     cursor: pointer;
-    
+
 }
 #menu-sign-whole{
     right: 0;
@@ -398,7 +392,7 @@ a.text-button:active{
     background-image: url("http://i.imgur.com/XY70hDK.jpg");
     background-repeat: repeat-x;
     z-index: 2;
-    min-width: 480px;
+    min-width: 1000px;
 }
 
 .project-header{
