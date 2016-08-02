@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, :except => [:edit, :create, :new]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :check_status, only: [:edit, :update, :destroy]
+  helper_method :has_address, :has_rating
 
   # GET /posts
   # GET /posts.json
@@ -147,5 +148,27 @@ class PostsController < ApplicationController
 
     def job_params
       params.require(:post).require(:job).permit(:job_title, :offered_by, :working_hours, :work_day, :salary)
+    end
+
+
+    def has_rating
+      if user_signed_in?
+        @preference = Preference.find_by user_id: current_user.id
+        if !@preference.nil?
+          return true
+        end
+      end
+      return false
+    end
+
+
+    def has_address
+      if user_signed_in?
+        @preference = Preference.find_by user_id: current_user.id
+        if !@preference.nil? && !@preference.latitude.nil?
+          return true
+        end
+      end
+      return false
     end
 end
