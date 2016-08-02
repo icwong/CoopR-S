@@ -24,8 +24,9 @@
           <h1 style="margin-left: 25px">Profile</h1>
           <img  class="avatar" src="//i.imgur.com/y7GX8r8.png" alt="Avatar" />
            <div class="username"><%= @profile.first_name %> <%= @profile.middle_name %> <%= @profile.last_name %></div>
-           <div class="school">Phone number</div>
-           <div class='description'><%= ff.number_field 'phone', :value => @profile.phone %></div>
+           <div class="school" ><%= @me.get_school %></div>
+           <div class="school" style="color:black">Phone number</div>
+           <div class='description'><%= ff.text_field 'phone', :value => @profile.phone %></div>
            <div class="details"><span class="profiletitle">Preference Details</span></div>
       </div>
     <% end %>
@@ -48,12 +49,15 @@
            <div class="left">Zip</div>
               <div class="right"><%= ff.text_field 'zip', :value => @preference.zip %></div>
             
-              <div class="left">Latitude:</div><div class="right"><%= ff.number_field 'latitude', :value => @preference.latitude, :readonly => true %></div>
+              <div class="left" >Latitude:</div><div class="right"><%= ff.number_field 'latitude', :value => @preference.latitude, :readonly => true %></div>
               <div class="left">Longtitude:</div><div class="right"><%= ff.number_field 'longitude', :value => @preference.longitude, :readonly => true %></div>
-            
+              
+                <div class="left">Customise Rating Formula</div><div class="right"><%= ff.text_field 'formula', :value => @preference.get_formula %>
+              </div>
             <br>
             <br>
             <button class="login-form-button" onclick="updateLocation()">Search Address</button>
+            
       </div>
     <% end %>
     <% end %>

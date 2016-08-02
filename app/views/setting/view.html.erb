@@ -1,0 +1,73 @@
+<% content_for :mHeader do %>
+  <%= stylesheet_link_tag 'profilepage' %>
+<% end %>
+
+
+<% content_for :mLogin do %>
+<% end %>
+
+
+<% content_for :mFrame do %>
+  <script type="text/javascript">
+    updateUrl();
+  </script>
+
+  <div>
+    <div id='mapDiv' style="float: right; position: relative; width:600px; height:600px; z-index: -2"></div>
+  </div>
+
+      <div>
+          <h1>Account Information</h1>
+           <div class="username"><%= @him.email %></div>
+           <div class="type"><%= @him.type %></div>
+      </div>
+
+    <% if !@his.nil? %>
+    <div>
+      <span>Lat:</span><label id="user_preference_latitude"><%= @his.latitude %></label>
+      <span> | Lng:</span><label id="user_preference_longitude"><%= @his.longitude %></label>
+    </div>
+
+
+    <script>
+      var map;
+
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var there = new google.maps.LatLng( document.getElementById("user_preference_latitude").value, 
+                                            document.getElementById("user_preference_longitude").value );
+        map = new google.maps.Map(document.getElementById('mapDiv'), {
+          center: there,
+          disableDefaultUI: true,
+          zoom: 15
+        });
+
+        var urHere = new google.maps.InfoWindow();
+        var title = "<b><%= @his.zip %></b><br>";
+        var info = "<%= @his.full_address %>".trim()
+        urHere.setContent( title + "<p>" + info + "</p>" );
+        urHere.setPosition( there );
+        urHere.open(map);
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASFiXXeK4KtUKhUAOz95HE5kq18AlAWZY&language=en&callback=initMap" async defer></script>
+
+    <% end %>
+
+    <% if !@he.nil? %>
+      <div>
+          <h1>Profile</h1>
+          <img  class="avatar" src="//i.imgur.com/y7GX8r8.png" alt="Avatar" />
+           <div class="username"><%= @he.first_name %> <%= @he.middle_name %> <%= @he.last_name %></div>
+           <div class="school"><%= @him.get_school %></div>
+           <div class="description">New to Co-op</div>
+           <div class="left">Phone number</div>
+           <div class="right"><%= @he.phone %></div>
+           
+      </div>
+    <% end %>
+
+<button class="button" type="button" onclick="lastUrl()">Back</button>
+
+<% end %>

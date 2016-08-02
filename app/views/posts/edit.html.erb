@@ -1,7 +1,12 @@
-<div class="table-title">
-        <h3>Editing Post</h3>
-</div>
+<% content_for :mFrame do %>
+    <script type="text/javascript">
+      rememberUrl();
+    </script>
 
-<%= render 'form' %>
+	<div class="table-title">
+	        <h3>Edit Post</h3>
+	</div>
 
-<button class="button" type="button" onclick="lastUrl()">Back</a>
+	<%= render 'form' %>
+
+<% end %>

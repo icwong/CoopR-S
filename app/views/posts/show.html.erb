@@ -17,8 +17,12 @@
 	</style>
 <% end %>
 <% content_for :mFrame do %>
-  <p id="notice"><%= notice %></p>
+  <script type="text/javascript">
+      updateUrl();
+    </script>
 
+  <p id="notice"><%= notice %></p>
+  
 
   <div class="table-title">
     <h3>Show Post</h3>

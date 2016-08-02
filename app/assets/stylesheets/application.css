@@ -543,6 +543,16 @@ a {
 
 
  /*===============================LOGIN_FORM======================================*/
+span.fill {
+  display:table-cell;
+  width: 100%;
+}
+
+span.obj {
+  display:table-cell;
+  width: 32px;
+}
+
 .whole-page{
 
 }
