@@ -18,6 +18,7 @@ Rails.application.config.assets.precompile += %w( wymeditor/skins/default/skin.c
 Rails.application.config.assets.precompile += %w( passwordMeter.js )
 Rails.application.config.assets.precompile += %w( cloudstorage.js )
 Rails.application.config.assets.precompile += %w( setting.js )
+Rails.application.config.assets.precompile += %w( compare.js )
 
 Rails.application.config.assets.precompile += %w( table.css )
 Rails.application.config.assets.precompile += %w( slide.css )

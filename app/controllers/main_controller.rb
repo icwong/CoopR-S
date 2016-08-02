@@ -19,7 +19,7 @@ class MainController < ApplicationController
       @promotions = Post.where("type = 'Promotion'").order(@sort_by)
     elsif @uid != nil && @cdate == nil
       @reviews = Post.where("type = 'Review' AND owner = ?", @uid).order(id: :asc)
-      @promotions = Post.where("type = 'Rromotion' AND owner = ?", @uid).order(id: :asc)
+      @promotions = Post.where("type = 'Promotion' AND owner = ?", @uid).order(id: :asc)
     elsif @uid == nil
       @reviews = Post.where("type = 'Review' AND updated_at > ? AND updated_at < ?", @cdate, @cdate + 1.days).order(id: :asc)
       @promotions = Post.where("type = 'Promotion' AND updated_at > ? AND updated_at < ?", @cdate, @cdate + 1.days).order(id: :asc)
@@ -51,14 +51,14 @@ class MainController < ApplicationController
   end
 
   def compare
-    @job_one = Post.find(params[:j1])
-    @job_two = Post.find(params[:j2])
+    @job_one = Job.find_by id: params[:j1]
+    @job_two = Job.find_by id: params[:j2]
 
     respond_to do |format|
       format.html
       format.pdf do
         pdf = PdfController.new(@job_one, @job_two)
-        send_data pdf.render, filename: 'Posts.pdf', type: 'application/pdf'
+        send_data pdf.render, filename: 'J' + params[:j1] + 'vsJ' + params[:j1] + '.pdf', type: 'application/pdf'
       end
     end
   end

@@ -53,6 +53,7 @@ GEM
       execjs
     coffee-script-source (1.2.0)
     concurrent-ruby (1.0.2)
+    crass (1.0.2)
     debug_inspector (0.0.2)
     devise (4.1.1)
       bcrypt (~> 3.0)
@@ -94,6 +95,8 @@ GEM
     nokogiri (1.6.8-x86-mingw32)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    nokogumbo (1.4.9)
+      nokogiri
     orm_adapter (0.5.0)
     password_strength (1.1.4)
       activemodel
@@ -138,6 +141,10 @@ GEM
       json (~> 1.4)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
+    sanitize (4.1.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.4.4)
+      nokogumbo (~> 1.4.1)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -178,6 +185,8 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    wicked_pdf (1.0.6)
+    wkhtmltopdf-binary (0.12.3)
     zxcvbn-js (4.2.0.1)
       execjs
 
@@ -200,6 +209,7 @@ DEPENDENCIES
   prawn
   prawn-table
   rails (= 4.2.6)
+  sanitize
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   shareable
@@ -209,6 +219,8 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  wicked_pdf
+  wkhtmltopdf-binary
 
 BUNDLED WITH
    1.12.5
