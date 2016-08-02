@@ -1,0 +1,123 @@
+<%= form_for @resume do |f| %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h3 class="resume-information">BASIC INFORMATION</h3>
+        </div>
+        <div class="col-md-3">
+            <%= f.label :name, "Name: "  %>
+            <%= f.text_field :name , class: "form-control input-lg"%><br>
+            
+            <%= f.label :phone, "Phone: "%>
+            <%= f.text_field :phone , class: "form-control input-lg"%><br>
+            
+            <%= f.label :summary %>
+
+            <%= f.text_area :summary, style: "width: 525px; height: 256px" %><br>
+        </div>
+        <div class="col-md-3">
+            <%= f.label :email, "Email: " %>
+            <%= f.text_field :email, class: "form-control input-lg" %><br>
+            
+            <%= f.label :gitweb %>
+            <%= f.text_field :gitweb, class: "form-control input-lg" %><br>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h3 class="resume-information">EDUCATION INFORMATION</h3>
+        </div>
+        <div class="col-md-3">
+            <%= f.label :edudeg, "Degree: "  %>
+            <%= f.text_field :edudeg , class: "form-control input-lg"%><br>
+            
+            <%= f.label :eduuni, "University Name: "  %>
+            <%= f.text_field :eduuni , class: "form-control input-lg" %><br>
+            
+            <%= f.label :eduloc, "University Location: " %>
+            <%= f.text_field :eduloc , class: "form-control input-lg"%><br>
+            
+            <%= f.label :eduwhen, "Graduation Date : " %>
+            <%= f.text_field :eduwhen , class: "form-control input-lg"%><br>
+            
+        </div>
+        <div class="col-md-3">
+            <%= f.label :gpa, "GPA: " %>
+            <%= f.text_field :gpa, class: "form-control input-lg" %><br>
+            
+            <%= f.label :skill, "Skill: " %>
+            <%= f.text_field :skill, class: "form-control input-lg" %><br>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h3 class="resume-information">PROJECT EXPERIENCE</h3>
+        </div>
+        <div class="col-md-3">
+            <%= f.label :projtitle, "Project Title: "  %>
+            <%= f.text_field :projtitle , class: "form-control input-lg"%><br>
+            
+            <%= f.label :projrole, "Project Role: " %>
+            <%= f.text_field :projrole , class: "form-control input-lg"%><br>
+            
+            <%= f.label :projwhen, "Project Date: " %>
+            <%= f.text_field :projwhen , class: "form-control input-lg"%><br>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h3 class="resume-information">WORK EXPERIENCE</h3>
+        </div>
+        <div class="col-md-3">
+            <%= f.label :workname, "Company Name: "  %>
+            <%= f.text_field :workname , class: "form-control input-lg"%><br>
+            
+            <%= f.label :workrole, "Company Role: "  %>
+            <%= f.text_field :workrole , class: "form-control input-lg"%><br>
+            
+            <%= f.label :workwhen, "Company Date: " %>
+            <%= f.text_field :workwhen , class: "form-control input-lg"%><br>
+            
+            <%= f.submit 'SUBMIT', class: 'button_compact btn-lg btn-default' %>
+        </div>
+        <div class="col-md-3">
+            <%= f.label :workloc, "Company Location: " %>
+            <%= f.text_field :workloc , class: "form-control input-lg"%><br>
+            
+            <%= f.label :workinfo, "Company Info " %>
+            <%= f.text_field :workinfo , class: "form-control input-lg"%><br>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+        
+
+    
+
+    
+    
+    
+    
+    
+
+
+<% end %>
