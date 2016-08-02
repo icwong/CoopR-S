@@ -63,14 +63,17 @@ div.table-title {
             margin-left: 10px;
             margin-right: 10px;
             margin-bottom: 8px;
-            padding: 8px;
+            padding-top: 6px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-bottom: 8px;
             font-size: 18pt;
             color: #D5DDE5;
             border: none;
             border-radius: 20px;
             vertical-align: middle;
             height: 40px;
-            background-color: #666b85;
+            background-color: #363b45;
             text-shadow: 1px 1px 1px #bcbcbc;
             position: relative;
 }
@@ -80,7 +83,10 @@ div.table-title {
             margin-left: 10px;
             margin-right: 10px;
             margin-bottom: 8px;
-            padding: 8px;
+            padding-top: 6px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-bottom: 8px;
             font-size: 18pt;
             color: #D5DDE5;
             border: none;
