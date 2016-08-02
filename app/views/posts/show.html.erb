@@ -15,15 +15,15 @@
       <%= render_shareable %>
     </div>
     <div class="col-md-4">
-      <h3>Title </h3>
+      <h3><b>Title</b></h3>
       <%= @post.title %>
       <br>
       <br>
-      <h3>Type</h3>
+      <h3><b>Type</b></h3>
       <%= @post.type %>
       <br>
       <br>
-      <h3>Owner</h3>
+      <h3><b>Owner</b></h3>
       <%= @post.owner_name %><br><br>
       <% if @can_edit %>
     <%= link_to '<button class="bigButton" type="button">EDIT</button>'.html_safe, edit_post_path(@post), 'data-no-turbolink' => true %>
@@ -32,7 +32,7 @@
     </div>
       
     <div class="col-md-4">
-      <h3>Body</h3>
+      <h3><b>Body</b></h3>
       <%=raw @post.body %>
     </div>
   </div>
