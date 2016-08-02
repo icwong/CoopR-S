@@ -113,35 +113,49 @@ function clearCompareList() {
     isComparable();
 }
 
+function initIcon() {
+    var jone = getCookie( JOB_ONE );
+    var icon = document.getElementById('SPID' + jone);
+    icon.innerHTML = '&#8722;';
+
+    var jtwo = getCookie( JOB_TWO );
+    icon = document.getElementById('SPID' + jtwo);
+    icon.innerHTML = '&#8722;';
+}
+
 function addToCompareList( pid ) {
     var jone = getCookie( JOB_ONE );
     var jtwo = getCookie( JOB_TWO );
 
-    if( pid == JOB_ONE || pid == JOB_TWO) {
-        window.alert("yeah");
-    }
-
-    if( jone == "" ) {
-        document.cookie =   JOB_ONE + "=" + pid + ";";
+    var icon = document.getElementById('SPID' + pid);
+    if( icon.innerHTML == "+" ) {
+        if( jone == "" ) {
+            document.cookie = JOB_ONE + "=" + pid + ";"
+            icon.innerHTML = '&#8722;';
+        } else if( jtwo == "" ) {
+            document.cookie = JOB_TWO + "=" + pid + ";"
+            icon.innerHTML = '&#8722;';
+        } else {
+            window.alert("Comparison list is full; remove items before adding a new one.");        
+        }
     } else {
-        if ( jone != pid ) {
-            if( jone == "" ) {
-                document.cookie = JOB_TWO + "=" + pid + ";";
-            }   else {
-                window.alert("Comparison list is full; remove items before adding a new one.");
-            }
-        } 
-        isComparable();
+        if( jone == pid ) {
+            document.cookie = JOB_ONE + "=;"
+        } else if( jtwo == pid ) {
+            document.cookie = JOB_TWO + "=;"
+        }
+        icon.innerHTML = "+";
     }
+    isComparable();
 }
 
 function isComparable() {
     var me = document.getElementById('btnCompare');
     if( null !== me ) {
-        if( getCookie( JOB_TWO ) == "") {
-            me.disabled = true;
-        } else {
+        if( getCookie( JOB_TWO ) != "" && getCookie( JOB_ONE ) != "" ) {
             me.disabled = false;
+        } else {
+            me.disabled = true;
         }
     }
 }
