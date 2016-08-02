@@ -155,9 +155,7 @@ body div, body p body li, html{
     z-index: 20;
 	min-height: 650px;
 	position: relative;
-	bottom: 15%;
-
-	
+    bottom: 200px;
 }
 
 
@@ -176,7 +174,6 @@ body div, body p body li, html{
 
 /*-------------------RESUME--------------------------------------------*/
 
-
 .resume-information{
     position: relative;
     font-size: 30px;
@@ -184,10 +181,6 @@ body div, body p body li, html{
     right: 50px;
 
 }
-
-
-
-
 
 /*---------------------HOME PAGE------------------------------------*/
 
@@ -243,7 +236,7 @@ body div, body p body li, html{
 }
 
 .about{
-	margin-top: 100px;
+
 	margin-bottom: 170px;
 }
 
@@ -784,10 +777,21 @@ li a, .dropbtn {
     text-decoration: none;
     font-weight: bold;
 }
+li a:hover, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    vertical-align: center;
+    padding: 18px 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-/*li a:hover, .dropdown:hover .dropbtn {*/
-/*    background-color: #4E5066;*/
-/*}*/
+
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #4E5066;
+}
 
 li.dropdown {
     display: inline-block;

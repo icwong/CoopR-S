@@ -2,13 +2,25 @@
     <%= render :partial => '/login/login' %>
 <% end %>
 
+
+<% content_for :mLogin do %>
+    <%= render :partial => '/login/login' %>
+<% end %>
+
 <% content_for :mFrame do %>
 
-     <div>
-        <p>fail message</p>
+<div class="container">
+    <div class="row">
+        <p class="centered" style="font-size: 50px; font-weight: bold"> FAIL MESSAGE</p> 
+        <hr>
+        <div class="col-md-3 "></div>
+        <div class="col-md-6" >
+            <p style="font-weight: bold">PLEASE REPEAT THE STEPS TO GENERATE THE AUTHENTICATION EMAIL </p>
+            <br>
+            <button class="button btn-lg btn-default" type="button" onclick="lastUrl()">BACK</a>
+        </div>
     </div>
+</div>
   
 
 <% end %>
-
-<button class="button" type="button" onclick="lastUrl()">Back</a>

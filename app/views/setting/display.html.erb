@@ -11,15 +11,6 @@
     updateUrl();
   </script>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-5">
-               <div id='mapDiv' style=" position: relative; width:1000px; height:500px"</div>
-      </div>
-
-    </div>
-  </div>
 
   <%= form_for(@me, as: :user, :url => setting_path, :html => { :method => :put } ) do |f| %>
     <% if !@profile.nil? %>
@@ -39,13 +30,12 @@
     
     <div class="container">
       <div class="row">
-        <div class="col-md-5"></div>
-        <div class="col-md-4">
-          <h2>PREFERENCE</h2>
-        </div>
-      </div>
-    </div>
-        
+        <h4 class="centered" style="position: relative; right: 150px"><b> —————— </b></h4>
+        <h1 class="centered" style="position: relative; right: 150px"><b>PREFERENCE</b></h1>
+          <h4 class="centered" style="position: relative; right: 150px"><b> —————— </b></h4>
+          <br>
+     
+      
       <% if !@preference.nil? %>
       <%= f.fields_for @preference do |ff| %>
       
@@ -72,18 +62,22 @@
             <div class="left"><b>NUMBER .:</b></div>
             <div class="right"><%= ff.text_field 'house_number', :value => @preference.house_number %></div>
            
-            <div class="left"><b>ZIP .:</b></div>
+            <div class="left"><b>ZIP/POSTAL CODE .:</b></div>
             <div class="right"><%= ff.text_field 'zip', :value => @preference.zip %></div>
           <div>
         </div>
         
+      </div>
+      
+      <div class="col-md-5">
+        <div id='mapDiv' style="position: relative; width:700px; height:750px"></div>
       </div>
     </div>
     
     
     <div class="container">
       <div class="row">
-        <div class="container" style="position: relative; bottom: 80px; right: 20px; margin-bottom: 10px">
+        <div class="container" style="position: relative; bottom: 400px; right: 20px; margin-bottom: 10px">
         <div class="row">
           <h3><b>MAP INFO</b></h3>
           <br>
