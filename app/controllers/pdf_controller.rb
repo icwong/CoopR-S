@@ -28,9 +28,10 @@ class PdfController < Prawn::Document
     # Table Information
     def product_rows
         [   
-            ["OWNER", @job_one.owner_name.strip_tags, @job_two.owner_name.strip_tags], 
-            ["TYPE" , @job_one.type.strip_tags, @job_two.type.strip_tags], 
-            ["DESCRIPTION", @job_one.body.strip_tags, @job_two.body.strip_tags]
+            ["OFFERED BY", @job_one.offered_name.strip_tags, @job_two.offered_name.strip_tags], 
+            ["Work Day", @job_one.work_day.to_s.strip_tags, @job_two.work_day.to_s.strip_tags], 
+            ["Hours per Week", @job_one.working_hours.to_s.strip_tags, @job_two.working_hours.to_s.strip_tags], 
+            ["SALARY", @job_one.salary.to_s.strip_tags, @job_two.salary.to_s.strip_tags]
         ] 
     end
 end

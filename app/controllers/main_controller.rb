@@ -51,14 +51,14 @@ class MainController < ApplicationController
   end
 
   def compare
-    @job_one = Post.find(params[:j1])
-    @job_two = Post.find(params[:j2])
+    @job_one = Job.find_by id: params[:j1]
+    @job_two = Job.find_by id: params[:j2]
 
     respond_to do |format|
       format.html
       format.pdf do
         pdf = PdfController.new(@job_one, @job_two)
-        send_data pdf.render, filename: 'Posts.pdf', type: 'application/pdf'
+        send_data pdf.render, filename: 'J' + params[:j1] + 'vsJ' + params[:j1] + '.pdf', type: 'application/pdf'
       end
     end
   end
