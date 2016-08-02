@@ -29,6 +29,16 @@ class SettingController < ApplicationController
     end
   end
 
+  def view
+    @him = User.find_by id: params[:user_id]
+    if @him.nil?
+      redirect_to root_path
+      flash[:notice] = 'User does not exist' 
+      return
+    end
+    @preference = Preference.find_by user_id: params[:user_id]
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_config

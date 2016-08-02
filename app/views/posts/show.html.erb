@@ -13,7 +13,7 @@
 
   <div class="table-title">
     <h3><%= @post.type %>|<%= @post.title %></h3>
-    <h2>Posted by <%= @post.owner_name %></p>
+    <h2>Posted by <%= link_to @post.owner_name, '/users/' + @post.owner.to_s %> </p>
   </div>
 
   <div class="show-post">
