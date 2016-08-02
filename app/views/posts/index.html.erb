@@ -33,7 +33,7 @@
         <% @posts.each do |post| %>
           <tr>
             <td><%= post.title %></td>
-            <td class="body-width"><%= post.body.split[0..10].join(" ") %>...</td>
+            <td class="body-width"><%= Sanitize.fragment(post.body.split[0..10].join).truncate(100) %>...</td>
             <td><%= post.type %></td>
             <td><%= post.owner_name %></td>
             <td><%= link_to 'Show', post %></td>
