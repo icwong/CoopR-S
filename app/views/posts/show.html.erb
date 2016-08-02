@@ -36,10 +36,62 @@
       <strong>Owner:</strong>
       <%= @post.owner_name %>
     </p>
-  <div>
-    <%= render_shareable :turbolinks => true %>
+    <div>
+      <%= render_shareable :turbolinks => true %>
+    </div>
   </div>
+
+  <div class="table-title">
+    <h3>Similar Posts</h3>
   </div>
+
+  <table class="table-list-users" id="revTable">
+    <thead>
+      <tr>
+        <th class="noselect">
+          <span>Title</span>
+        </th>
+        <th class="noselect">
+          <span>Creator</span>
+        </th>
+        <th class="noselect">
+          <span>Last edit</span>
+        </th>
+        <th></th>
+
+        <% if has_address %> 
+          <th>Farness</th>
+          <th>Rating</th>
+        <% end %> 
+      </tr>
+    </thead>
+
+
+    <tbody>
+      <% @reviews.each do |post| %>
+        <tr id="PID<%= post.id %>">
+          <td class="noselect" onclick="window.location='/posts/<%= post.id %>'"><%= post.title %></td>
+          <td class="noselect" onclick="window.location='/index?id=<%= post.owner %>'"><%= post.owner_name %></td>
+          <td class="noselect" onclick="window.location='/index?cdate=<%= post.updated_at.to_s[0..9] %>'"><%= post.updated_at.to_s[0..9] %></td>
+          <td>
+            <div class="text-button">
+                <a class="text-button" href="#" onclick="addToCompareList( <%= post.id %> ); return false; ">Compare</a>
+                <span><sup id="SPID<%= post.id %>">+</sup></span>
+            </div>
+          </td>
+
+          <% if has_address %> 
+            <td><%= get_distance( post.owner ) %></td>
+          <% end %> 
+
+          <% if has_rating %>
+            <td><%= get_rating( post ) %></td>
+          <% end %>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
   <% if @can_edit %>
       <%= link_to '<button class="button" type="button">Edit</button>'.html_safe, edit_post_path(@post), 'data-no-turbolink' => true %> 
