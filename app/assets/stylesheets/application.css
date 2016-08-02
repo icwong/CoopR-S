@@ -672,7 +672,7 @@ a {
     left: 0;
     background-color: #111; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 260px; /* Place content 260px from the top */
+    padding-top: 100px; /* Place content 100px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
@@ -742,6 +742,7 @@ nav.share iframe {border:0; margin-left: 0; margin-top:0; padding-top:0;} /* if 
     padding: 20px;
 }
 .show-post-text{
+    font-size: 14pt;
     padding: 3px;
     margin-top: 7px;
     border-left: 3px solid #4E5066;
