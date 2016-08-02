@@ -40,7 +40,6 @@ GEM
     autoprefixer-rails (6.3.7)
       execjs
     bcrypt (3.1.11)
-    bcrypt (3.1.11-x86-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.7)
@@ -94,15 +93,11 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
-    nokogiri (1.6.8-x86-mingw32)
-      mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
     orm_adapter (0.5.0)
     password_strength (1.1.4)
       activemodel
     pdf-core (0.6.1)
     pg (0.18.4)
-    pg (0.18.4-x86-mingw32)
     pkg-config (1.1.7)
     prawn (2.1.0)
       pdf-core (~> 0.6.1)
@@ -170,9 +165,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2016.6)
-      tzinfo (>= 1.0.0)
-    uglifier (3.0.0)
+    uglifier (3.0.1)
       execjs (>= 0.3.0, < 3)
     warden (1.2.6)
       rack (>= 1.0)
@@ -188,7 +181,6 @@ GEM
 
 PLATFORMS
   ruby
-  x86-mingw32
 
 DEPENDENCIES
   autoprefixer-rails
