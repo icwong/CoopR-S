@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   get 'setting' => 'setting#display'
   put 'setting' => 'setting#update'
   get 'user/:user_id' => 'setting#view'
+  get 'resume' => 'resumes#index'
+  get 'resume/:id/show' => 'resumes#show', :as => 'show_resume'
+  
+  resources :resumes
   resources :posts
   devise_for :users, :controllers => {:registrations => "registrations"}
   
