@@ -22,7 +22,13 @@
     <%= f.fields_for @profile do |ff| %>
       <div>
           <h1>Profile</h1>
-          <img  class="avatar" src="//i.imgur.com/y7GX8r8.png" alt="Avatar" />
+            <% if @profile.avatar.nil? %>
+              <img  class="avatar" src="//i.imgur.com/y7GX8r8.png" alt="Avatar" />
+            <% else %>
+              <%= image_tag( root_path+@profile.get_img ) %>
+            <% end %>
+            <br>
+            <%= ff.file_field :avatar %>
            <div class="username"><%= @profile.first_name %> <%= @profile.middle_name %> <%= @profile.last_name %></div>
            <div class="school"><%= @me.get_school %></div>
            <div class="description">New to Co-op</div>

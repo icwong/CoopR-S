@@ -15,7 +15,14 @@ class SettingController < ApplicationController
   def update
     @result = ""
     if !@profile.nil? && @profile.update(pro_params)
+      @uploaded_io = params.require(:user).require(:profile)[:avatar]
+      File.open(Rails.root.join('public', 'uploads', @uploaded_io.original_filename), 'wb') do |file|
+        file.write(@uploaded_io.read)
+      end
       @result = "Profile updated \t"
+      if @profile.update( {:avatar => @uploaded_io.original_filename })
+        @result = @result + "avatar updated \t"
+      end
     end
     if !@preference.nil? && @preference.update(pre_params)
       @result = @result + "Preference updated \t"
