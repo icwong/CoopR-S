@@ -23,9 +23,9 @@
       <div>
           <h1>Profile</h1>
             <% if @profile.avatar.nil? %>
-              <img  class="avatar" src="//i.imgur.com/y7GX8r8.png" alt="Avatar" />
+              <img  class="avatar" src="//i.imgur.com/y7GX8r8.png" alt="Avatar" style="max-width:256px; max-height:256px;" />
             <% else %>
-              <%= image_tag( root_path+@profile.get_img ) %>
+              <%= image_tag( root_path+@profile.get_img, :style => "max-width:256px; max-height:256px;" ) %>
             <% end %>
             <br>
             <%= ff.file_field :avatar %>
